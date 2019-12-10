@@ -108,27 +108,27 @@
 
 
 
-  <meta name="description" content="我所理解的生活  摘录改写自韩寒的博客文章《我所理解的生活》  我所理解的生活，它不是攀爬高山，也不是深潜海沟，而是做着自己喜欢的事情，并能养活自己，养活家人。 不觉得留有遗憾是一种缺憾美，相比之下，干砸了倒是一种美。每个人喜欢的事情，肯定不止一两件，只是有些做的不够好，有些做得很失败。和朋友聊天时，你可以直接说，这事我特喜欢，也干过，但我真的不合适，丢人了。 完全可以嗤鼻于说要是我去干这事一定比">
-<meta name="keywords" content="生活感悟">
+  <meta name="description" content="Collaborative filtering  10年之前就接触了协同过滤的概念内容，但常学常新。最近因为要在Spark MLlib中浅显应用一把，发现整体的工业界做法已经进步了很多。脑中知识的框架又有更新，记录下来，利于随机存取与向外概念贩售。 术语表显性反馈  用户明确表示对物品喜好的行为  隐性反馈 不能明确反应用户喜好的行为。在许多的现实生活中的很多场景中，我们常常只能接触到隐性的反馈">
+<meta name="keywords" content="数据挖掘">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我所理解的生活">
-<meta property="og:url" content="http://yoursite.com/2019/12/02/我所理解的生活/index.html">
+<meta property="og:title" content="协同过滤（CF）的一些小笔记">
+<meta property="og:url" content="http://yoursite.com/2019/12/09/协同过滤小笔记/index.html">
 <meta property="og:site_name" content="Diffday">
-<meta property="og:description" content="我所理解的生活  摘录改写自韩寒的博客文章《我所理解的生活》  我所理解的生活，它不是攀爬高山，也不是深潜海沟，而是做着自己喜欢的事情，并能养活自己，养活家人。 不觉得留有遗憾是一种缺憾美，相比之下，干砸了倒是一种美。每个人喜欢的事情，肯定不止一两件，只是有些做的不够好，有些做得很失败。和朋友聊天时，你可以直接说，这事我特喜欢，也干过，但我真的不合适，丢人了。 完全可以嗤鼻于说要是我去干这事一定比">
+<meta property="og:description" content="Collaborative filtering  10年之前就接触了协同过滤的概念内容，但常学常新。最近因为要在Spark MLlib中浅显应用一把，发现整体的工业界做法已经进步了很多。脑中知识的框架又有更新，记录下来，利于随机存取与向外概念贩售。 术语表显性反馈  用户明确表示对物品喜好的行为  隐性反馈 不能明确反应用户喜好的行为。在许多的现实生活中的很多场景中，我们常常只能接触到隐性的反馈">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwgy1g9iix35renj30b40g93ys.jpg">
-<meta property="og:updated_time" content="2019-12-02T09:59:00.000Z">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwgy1g9qmon49egj30if05gt9l.jpg">
+<meta property="og:updated_time" content="2019-12-10T01:29:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我所理解的生活">
-<meta name="twitter:description" content="我所理解的生活  摘录改写自韩寒的博客文章《我所理解的生活》  我所理解的生活，它不是攀爬高山，也不是深潜海沟，而是做着自己喜欢的事情，并能养活自己，养活家人。 不觉得留有遗憾是一种缺憾美，相比之下，干砸了倒是一种美。每个人喜欢的事情，肯定不止一两件，只是有些做的不够好，有些做得很失败。和朋友聊天时，你可以直接说，这事我特喜欢，也干过，但我真的不合适，丢人了。 完全可以嗤鼻于说要是我去干这事一定比">
-<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006tNbRwgy1g9iix35renj30b40g93ys.jpg">
+<meta name="twitter:title" content="协同过滤（CF）的一些小笔记">
+<meta name="twitter:description" content="Collaborative filtering  10年之前就接触了协同过滤的概念内容，但常学常新。最近因为要在Spark MLlib中浅显应用一把，发现整体的工业界做法已经进步了很多。脑中知识的框架又有更新，记录下来，利于随机存取与向外概念贩售。 术语表显性反馈  用户明确表示对物品喜好的行为  隐性反馈 不能明确反应用户喜好的行为。在许多的现实生活中的很多场景中，我们常常只能接触到隐性的反馈">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006tNbRwgy1g9qmon49egj30if05gt9l.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/12/02/我所理解的生活/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/12/09/协同过滤小笔记/"/>
 
 
 
@@ -138,7 +138,7 @@
   };
 </script>
 
-  <title>我所理解的生活 | Diffday</title>
+  <title>协同过滤（CF）的一些小笔记 | Diffday</title>
   
 
 
@@ -307,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/02/我所理解的生活/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/09/协同过滤小笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="卓">
@@ -324,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">我所理解的生活
+          <h1 class="post-title" itemprop="name headline">协同过滤（CF）的一些小笔记
               
             
           </h1>
@@ -349,12 +349,24 @@
                 
               
 
-              <time title="创建时间：2019-12-02 18:00:00 / 修改时间：17:59:00" itemprop="dateCreated datePublished" datetime="2019-12-02T18:00:00+08:00">2019-12-02</time>
+              <time title="创建时间：2019-12-09 18:32:06" itemprop="dateCreated datePublished" datetime="2019-12-09T18:32:06+08:00">2019-12-09</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-12-10 09:29:37" itemprop="dateModified" datetime="2019-12-10T09:29:37+08:00">2019-12-10</time>
               
             
           </span>
@@ -371,7 +383,14 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/网文精摘/" itemprop="url" rel="index"><span itemprop="name">网文精摘</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学而思/" itemprop="url" rel="index"><span itemprop="name">学而思</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学而思/数据挖掘/" itemprop="url" rel="index"><span itemprop="name">数据挖掘</span></a></span>
 
                 
                 
@@ -386,8 +405,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/12/02/我所理解的生活/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/12/02/我所理解的生活/" itemprop="commentCount"></span>
+                <a href="/2019/12/09/协同过滤小笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/12/09/协同过滤小笔记/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -417,7 +436,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">285</span>
+                <span title="本文字数">2.3k</span>
               
 
               
@@ -431,7 +450,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">1 分钟</span>
+                <span title="阅读时长">4 分钟</span>
               
             </div>
           
@@ -451,14 +470,133 @@
       
 
       
-        <h1 id="我所理解的生活"><a href="#我所理解的生活" class="headerlink" title="我所理解的生活"></a>我所理解的生活</h1><p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1g9iix35renj30b40g93ys.jpg" alt=""></p>
-<blockquote>
-<p>摘录改写自韩寒的博客文章《我所理解的生活》</p>
+        <blockquote>
+<p>Collaborative filtering</p>
 </blockquote>
-<p>我所理解的生活，它不是攀爬高山，也不是深潜海沟，而是做着自己喜欢的事情，并能养活自己，养活家人。</p>
-<p>不觉得留有遗憾是一种缺憾美，相比之下，干砸了倒是一种美。每个人喜欢的事情，肯定不止一两件，只是有些做的不够好，有些做得很失败。和朋友聊天时，你可以直接说，这事我特喜欢，也干过，但我真的不合适，丢人了。</p>
-<p>完全可以嗤鼻于说要是我去干这事一定比某某好的人，在台面上见过我成功一次，那么在台面下我就干砸过十次。</p>
-<p>当你决定喜欢干，那么就信奉下一句，干砸不可怕，又没死，不停的干就行了，因为人们只会记住你成功的那一次。</p>
+<p>10年之前就接触了协同过滤的概念内容，但常学常新。最近因为要在Spark MLlib中浅显应用一把，发现整体的工业界做法已经进步了很多。脑中知识的框架又有更新，记录下来，利于随机存取与向外概念贩售。</p>
+<h2 id="术语表"><a href="#术语表" class="headerlink" title="术语表"></a>术语表</h2><h3 id="显性反馈"><a href="#显性反馈" class="headerlink" title="显性反馈"></a>显性反馈</h3><blockquote>
+<p> 用户明确表示对物品喜好的行为</p>
+</blockquote>
+<h3 id="隐性反馈"><a href="#隐性反馈" class="headerlink" title="隐性反馈"></a>隐性反馈</h3><blockquote>
+<p>不能明确反应用户喜好的行为。在许多的现实生活中的很多场景中，我们常常只能接触到隐性的反馈。如浏览，点击，购买，喜欢，分享</p>
+</blockquote>
+<h2 id="两大方向"><a href="#两大方向" class="headerlink" title="两大方向"></a>两大方向</h2><h3 id="Memory-based"><a href="#Memory-based" class="headerlink" title="Memory-based"></a>Memory-based</h3><p>这个普及的很多了，基于关注的目标，又分基于用户和基于项目两大类。除非是为了交友，否则都会转向项目推荐的数据变现目的地，一个相似消费过的东西（也靠留下的人的痕迹），一个相似的人消费过的东西。</p>
+<h4 id="基于用户"><a href="#基于用户" class="headerlink" title="基于用户"></a>基于用户</h4><blockquote>
+<p>通过用户对共同物品的“主观价值”来筛选相似用户，再互补评分高的物品，从而达到推荐物品（项目）的目的</p>
+</blockquote>
+<p>比较直观的协同过滤，是基于用户这一种，通过“臭味相投”的线索来做。</p>
+<h4 id="基于项目"><a href="#基于项目" class="headerlink" title="基于项目"></a>基于项目</h4><blockquote>
+<p>通过用户集体对商品集的评价，在物品的角度上去寻找相似度高的物品，达到推荐物品的效果</p>
+</blockquote>
+<p>物品相似度的计算用上协同过滤，是基于用户的一种变体。通过查看哪些人喜欢某一特定物品，再看这些人喜欢哪些其它物品来决定物品距离（用相似度概念不贴切）。这种变体仅相当于数据结构的反转。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> <span class="attr">"jim"</span>:&#123;<span class="attr">"a"</span>:<span class="number">2.5</span>,<span class="attr">"b"</span>:<span class="number">3.5</span>&#125;,</span><br><span class="line"> <span class="attr">"kate"</span>:&#123;<span class="attr">"a"</span>:<span class="number">3.0</span>,<span class="attr">"b"</span>:<span class="number">3.5</span>&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">转变成</span><br><span class="line">&#123;</span><br><span class="line"> <span class="attr">"a"</span>:&#123;<span class="attr">"jim"</span>:<span class="number">2.5</span>,<span class="attr">"kate"</span>:<span class="number">3.0</span>&#125;,</span><br><span class="line"> <span class="attr">"b"</span>:&#123;<span class="attr">"jim"</span>:<span class="number">3.5</span>,<span class="attr">"kate"</span>:<span class="number">3.5</span>&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">最终计算一个物品与物品之间距离的矩阵表格</span><br></pre></td></tr></table></figure>
+<p>映射现实-此反转运用在帮零售商找到清仓物品的潜在客户方面，很直观。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>且一般来说，用户行为有更加明显的冷启动问题，且绝大部份用户都只生产过稀疏的显性反馈记录（评价评分），对数据集的使用利用度来说，尚不及基于项目的方式（起码热门物品集，有显性反馈的可能性较大），基于物品的计算，就更加聚焦高效。数据积累到一定量，物品的特征定义就更加稳定，物品间的比较不会像用户间的比较那么频繁变化，无需不停计算与每样物品最相近的其它物品，也可以削峰平谷的更高效利用计算资源。</p>
+<h4 id="弱势"><a href="#弱势" class="headerlink" title="弱势"></a>弱势</h4><ul>
+<li>物品之间的相关性，随着特征维度的增加，其计算量并不是线性增加</li>
+<li>在稀疏数据集上，计算结果随着增减向量维度，计算结果不稳定</li>
+</ul>
+<h3 id="Model-based"><a href="#Model-based" class="headerlink" title="Model-based"></a>Model-based</h3><p>回应如上弱势，大家就想到更线性更通用的解法来做这个事情，这样模型就出场了。模型里常见的是矩阵分解。</p>
+<p>将用户和物品的矩阵，分解为用户因子矩阵和项目因子矩阵两个矩阵的乘集（两个矩阵乘回去，期望得到一个饱满的用户评分矩阵）。什么是项目因子乘积，咱们来举几个例子图就比较容易理解了。</p>
+<h4 id="稀疏数据集"><a href="#稀疏数据集" class="headerlink" title="稀疏数据集"></a>稀疏数据集</h4><p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1g9qmon49egj30if05gt9l.jpg" alt=""></p>
+<p>如上，原始用户数据集稀疏，很难相互推荐（用户本身听过的歌就不够多），现在目标就是要让数据饱满起来。</p>
+<p>矩阵分解的数学基础是行列式变换：行变换相当于A左乘一个矩阵，矩阵A进行列变换等价于矩阵A右乘一个矩阵，因此矩阵A可以表示为A=PEQ=PQ（E是标准阵）</p>
+<blockquote>
+<p>n <em> m约等(n x k) </em> (k x m)</p>
+</blockquote>
+<p>咱上面接着的例子展开，k矩阵，可以看作可量化的音乐风格因子。</p>
+<h4 id="用户因子"><a href="#用户因子" class="headerlink" title="用户因子"></a>用户因子</h4><table>
+<thead>
+<tr>
+<th></th>
+<th>小清新</th>
+<th>重口味</th>
+<th>优雅</th>
+<th>伤感</th>
+<th>五月天</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>张三</td>
+<td>0.6</td>
+<td>0.8</td>
+<td>0.1</td>
+<td>0.1</td>
+<td>0.7</td>
+</tr>
+<tr>
+<td>李四</td>
+<td>0.1</td>
+<td>0</td>
+<td>0.9</td>
+<td>0.1</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td>王五</td>
+<td>0.5</td>
+<td>0.7</td>
+<td>0.9</td>
+<td>0.9</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h4 id="项目因子"><a href="#项目因子" class="headerlink" title="项目因子"></a>项目因子</h4><table>
+<thead>
+<tr>
+<th></th>
+<th>小清新</th>
+<th>重口味</th>
+<th>优雅</th>
+<th>伤感</th>
+<th>五月天</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>音乐A</td>
+<td>0.9</td>
+<td>0.1</td>
+<td>0.2</td>
+<td>0.4</td>
+<td>0</td>
+</tr>
+<tr>
+<td>音乐B</td>
+<td>0.5</td>
+<td>0.6</td>
+<td>0.1</td>
+<td>0.9</td>
+<td>1</td>
+</tr>
+<tr>
+<td>音乐C</td>
+<td>0.1</td>
+<td>0.2</td>
+<td>0.5</td>
+<td>0.1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>你可以用最大似然的办法来计算这些权重。</p>
+<h4 id="求权重矩阵"><a href="#求权重矩阵" class="headerlink" title="求权重矩阵"></a>求权重矩阵</h4><h5 id="ALS"><a href="#ALS" class="headerlink" title="ALS"></a>ALS</h5><blockquote>
+<p>Alternating Least Squares - 交替最小二乘</p>
+</blockquote>
+<p>因为两个权重矩阵都是未知的，无法直接求得，所以每次要假设一个矩阵已知，做最小二乘迭代，交替进行。（ALS是一种对目标函数进行优化的方法，通过先固定其他维度，在单独对某一维度进行更新）</p>
+<h5 id="SVD"><a href="#SVD" class="headerlink" title="SVD"></a>SVD</h5><blockquote>
+<p>Singular Value Decomposition - 奇异值分解</p>
+</blockquote>
+<p>略</p>
+<h2 id="Spark内置协同过滤算法"><a href="#Spark内置协同过滤算法" class="headerlink" title="Spark内置协同过滤算法"></a>Spark内置协同过滤算法</h2><p><a href="http://dblab.xmu.edu.cn/blog/1461-2/" target="_blank" rel="noopener">MLlib的ALS Demo例子</a>，这个例子排版清晰，步骤细致，做初步试验学习是最好的参照。Spark的MLlib，实现的ALS算法，已经提供了显性和隐性反馈的版本，可通过implicitPrefs=true|false(默认)来指定。</p>
+<p>内置ALS数据集包含的行格式：电影编号，用户编号，用户电影评分，uinxtime时间戳</p>
+<p><a href="https://www.jianshu.com/p/dbcf1bcd7edb" target="_blank" rel="noopener">还有一个Java版本的实现文章</a></p>
+<h3 id="显隐反馈的策略区别"><a href="#显隐反馈的策略区别" class="headerlink" title="显隐反馈的策略区别"></a>显隐反馈的策略区别</h3><p>数据处理/看待的策略角度不同。</p>
+<p>当你提供的是显性反馈时，相当于直接对你的评级数据进行建模求权重；</p>
+<p>而隐式反馈时将数据集看作代表强度的数字化用户行为观察（如点击次数或某人观看项目的累积时间），这些数字与观察到的用户偏好的置信水平相关，而不是明确与评分评级有关。</p>
+<p>当implicitPrefs=true时，还有一个配套参数alpha（默认值1.0，也就是不干预训练结果），用来与最终模型训练结果输出前相乘。很多地方描述称做控制偏好观察中的 基线置信度，提法直观阅读比较绕，特作前面的实际作用机制说明。</p>
 
       
     </div>
@@ -508,7 +646,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/生活感悟/" rel="tag"># 生活感悟</a>
+            <a href="/tags/数据挖掘/" rel="tag"># 数据挖掘</a>
           
         </div>
       
@@ -521,8 +659,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/11/红衣教主互方论/" rel="next" title="红衣教主互方论">
-                <i class="fa fa-chevron-left"></i> 红衣教主互方论
+              <a href="/2019/12/02/我所理解的生活/" rel="next" title="我所理解的生活">
+                <i class="fa fa-chevron-left"></i> 我所理解的生活
               </a>
             
           </div>
@@ -530,10 +668,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/12/09/协同过滤小笔记/" rel="prev" title="协同过滤（CF）的一些小笔记">
-                协同过滤（CF）的一些小笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -708,7 +842,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#我所理解的生活"><span class="nav-number">1.</span> <span class="nav-text">我所理解的生活</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#术语表"><span class="nav-number">1.</span> <span class="nav-text">术语表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#显性反馈"><span class="nav-number">1.1.</span> <span class="nav-text">显性反馈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐性反馈"><span class="nav-number">1.2.</span> <span class="nav-text">隐性反馈</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两大方向"><span class="nav-number">2.</span> <span class="nav-text">两大方向</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Memory-based"><span class="nav-number">2.1.</span> <span class="nav-text">Memory-based</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基于用户"><span class="nav-number">2.1.1.</span> <span class="nav-text">基于用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基于项目"><span class="nav-number">2.1.2.</span> <span class="nav-text">基于项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">2.1.3.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#弱势"><span class="nav-number">2.1.4.</span> <span class="nav-text">弱势</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Model-based"><span class="nav-number">2.2.</span> <span class="nav-text">Model-based</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#稀疏数据集"><span class="nav-number">2.2.1.</span> <span class="nav-text">稀疏数据集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用户因子"><span class="nav-number">2.2.2.</span> <span class="nav-text">用户因子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#项目因子"><span class="nav-number">2.2.3.</span> <span class="nav-text">项目因子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#求权重矩阵"><span class="nav-number">2.2.4.</span> <span class="nav-text">求权重矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ALS"><span class="nav-number">2.2.4.1.</span> <span class="nav-text">ALS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SVD"><span class="nav-number">2.2.4.2.</span> <span class="nav-text">SVD</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spark内置协同过滤算法"><span class="nav-number">3.</span> <span class="nav-text">Spark内置协同过滤算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#显隐反馈的策略区别"><span class="nav-number">3.1.</span> <span class="nav-text">显隐反馈的策略区别</span></a></li></ol></li></ol></div>
             
 
           </div>
