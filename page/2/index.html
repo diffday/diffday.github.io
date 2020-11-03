@@ -301,6 +301,231 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/04/18/LVS三类工作模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="卓">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Diffday">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/04/18/LVS三类工作模式/" itemprop="url">
+                  LVS三类工作模式
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-04-18 14:55:52" itemprop="dateCreated datePublished" datetime="2016-04-18T14:55:52+08:00">2016-04-18</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-10-21 14:17:18" itemprop="dateModified" datetime="2020-10-21T14:17:18+08:00">2020-10-21</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学而思/" itemprop="url" rel="index"><span itemprop="name">学而思</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/04/18/LVS三类工作模式/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/04/18/LVS三类工作模式/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">2.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">4 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><img src="http://cdn.diffday.com/picgo/20201020083838.png" alt=""></p>
+<h2 id="业界明星"><a href="#业界明星" class="headerlink" title="业界明星"></a>业界明星</h2><p>LVS是国内程序员界为行业付出的最响当当产品了，在互联网界更是采用的多。</p>
+<h3 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h3><p>个人认为LVS出现的基础有三点：</p>
+<ol>
+<li><strong>IPV4 公网ip不够用的现状</strong></li>
+<li><strong>加之DNS更新调整的麻烦度</strong></li>
+<li><strong>服务器之间需要负载均衡，硬件负载均衡还是贵，原来国外大厂的闭源软件同样也贵</strong></li>
+</ol>
+<p>在TCP/IP协议簇上，能做到的方案肯定最低工作在IP层做路由转发和负载均衡。</p>
+<p>大家都用过交换机和路由器，家用的都是路由器，因为有公网IP，一台路由器代理几台设备，家用路由器NAT转换协议也是为上面1,2点而来。</p>
+<h3 id="作者语述"><a href="#作者语述" class="headerlink" title="作者语述"></a>作者语述</h3><p>真正有用的软件来源于实际应用，不同于闭门造车想象出来的功能，且看LVS作者章文嵩博士的回忆：</p>
+<blockquote>
+<p>“我在国防科大学读书之余，也帮湖南电信做一些系统集成项目，见到许多服务器忙不过来的情况。这时就需要考虑负载均衡。那时业界也有一些商用方案，常用的是思科LocalDirector。我希望在Linux内核上写点东西，又知道思科LocalDirector的工作原理。所以我当时就花了两个星期写了一个最简单的版本，那是1998年5月。（一套LocalDirector当时价值几万美元，我那时心里有疑问——这东西并不难写，为什么卖那么贵？）”</p>
+</blockquote>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/04/18/LVS三类工作模式/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/07/28/产品意识/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1467,7 +1692,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1490,7 +1715,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1525,9 +1752,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1581,7 +1806,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">33k</span>
+    <span title="站点总字数">35k</span>
   
 
   
@@ -1592,7 +1817,7 @@
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">56 分钟</span>
+    <span title="站点阅读时长">59 分钟</span>
   
 </div>
 
