@@ -108,27 +108,27 @@
 
 
 
-  <meta name="description" content="业界明星LVS是国内程序员界为行业付出的最响当当产品了，在互联网界更是采用的多。 背景介绍个人认为LVS出现的基础有三点：  IPV4 公网ip不够用的现状 加之DNS更新调整的麻烦度 服务器之间需要负载均衡，硬件负载均衡还是贵，原来国外大厂的闭源软件同样也贵  在TCP/IP协议簇上，能做到的方案肯定最低工作在IP层做路由转发和负载均衡。 大家都用过交换机和路由器，家用的都是路由器，因为有公网">
-<meta name="keywords" content="硬核知识">
+  <meta name="description" content="POC目标  提供技术可行性验证，展示课预估的商业价值  技术：识别关键的技术壁垒，验证后续的扩展性 商业：是否可以得到预期的回报 Proposal三种方案，一种是BP（BluePrism），一种是AA（AutomationAnywhere），AA和BP都是基于.net的，会.net比较好 另一个是UIPATH，罗马尼亚的一家公司创造出来的，进行广泛的授权合作，也有一定的跟随者。 POC过程1.">
+<meta name="keywords" content="生活感悟">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LVS三类工作模式">
-<meta property="og:url" content="http://yoursite.com/2016/04/18/LVS三类工作模式/index.html">
+<meta property="og:title" content="RPA-POC观察">
+<meta property="og:url" content="http://yoursite.com/2018/12/03/RPA-POC观察/index.html">
 <meta property="og:site_name" content="Diffday">
-<meta property="og:description" content="业界明星LVS是国内程序员界为行业付出的最响当当产品了，在互联网界更是采用的多。 背景介绍个人认为LVS出现的基础有三点：  IPV4 公网ip不够用的现状 加之DNS更新调整的麻烦度 服务器之间需要负载均衡，硬件负载均衡还是贵，原来国外大厂的闭源软件同样也贵  在TCP/IP协议簇上，能做到的方案肯定最低工作在IP层做路由转发和负载均衡。 大家都用过交换机和路由器，家用的都是路由器，因为有公网">
+<meta property="og:description" content="POC目标  提供技术可行性验证，展示课预估的商业价值  技术：识别关键的技术壁垒，验证后续的扩展性 商业：是否可以得到预期的回报 Proposal三种方案，一种是BP（BluePrism），一种是AA（AutomationAnywhere），AA和BP都是基于.net的，会.net比较好 另一个是UIPATH，罗马尼亚的一家公司创造出来的，进行广泛的授权合作，也有一定的跟随者。 POC过程1.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://cdn.diffday.com/picgo/20201020083838.png">
-<meta property="og:updated_time" content="2020-10-21T06:17:18.000Z">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9MaWMzV0lqbm80Z3piZmFsaWF3aWJ6Z29HUWZpY21KWUFLNGNKUDkwejU5UDFsdkhaS09ybjBXb0I2V0FqMnl5ZGE3RThyZ1JMQnpaSU1zTUJma0hwc2NvVUEvNjQw?x-oss-process=image/format,png">
+<meta property="og:updated_time" content="2020-11-11T08:48:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LVS三类工作模式">
-<meta name="twitter:description" content="业界明星LVS是国内程序员界为行业付出的最响当当产品了，在互联网界更是采用的多。 背景介绍个人认为LVS出现的基础有三点：  IPV4 公网ip不够用的现状 加之DNS更新调整的麻烦度 服务器之间需要负载均衡，硬件负载均衡还是贵，原来国外大厂的闭源软件同样也贵  在TCP/IP协议簇上，能做到的方案肯定最低工作在IP层做路由转发和负载均衡。 大家都用过交换机和路由器，家用的都是路由器，因为有公网">
-<meta name="twitter:image" content="http://cdn.diffday.com/picgo/20201020083838.png">
+<meta name="twitter:title" content="RPA-POC观察">
+<meta name="twitter:description" content="POC目标  提供技术可行性验证，展示课预估的商业价值  技术：识别关键的技术壁垒，验证后续的扩展性 商业：是否可以得到预期的回报 Proposal三种方案，一种是BP（BluePrism），一种是AA（AutomationAnywhere），AA和BP都是基于.net的，会.net比较好 另一个是UIPATH，罗马尼亚的一家公司创造出来的，进行广泛的授权合作，也有一定的跟随者。 POC过程1.">
+<meta name="twitter:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9MaWMzV0lqbm80Z3piZmFsaWF3aWJ6Z29HUWZpY21KWUFLNGNKUDkwejU5UDFsdkhaS09ybjBXb0I2V0FqMnl5ZGE3RThyZ1JMQnpaSU1zTUJma0hwc2NvVUEvNjQw?x-oss-process=image/format,png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/04/18/LVS三类工作模式/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/12/03/RPA-POC观察/"/>
 
 
 
@@ -138,7 +138,7 @@
   };
 </script>
 
-  <title>LVS三类工作模式 | Diffday</title>
+  <title>RPA-POC观察 | Diffday</title>
   
 
 
@@ -307,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/04/18/LVS三类工作模式/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/03/RPA-POC观察/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="卓">
@@ -324,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LVS三类工作模式
+          <h1 class="post-title" itemprop="name headline">RPA-POC观察
               
             
           </h1>
@@ -349,7 +349,7 @@
                 
               
 
-              <time title="创建时间：2016-04-18 14:55:52" itemprop="dateCreated datePublished" datetime="2016-04-18T14:55:52+08:00">2016-04-18</time>
+              <time title="创建时间：2018-12-03 12:59:57" itemprop="dateCreated datePublished" datetime="2018-12-03T12:59:57+08:00">2018-12-03</time>
             
 
             
@@ -366,7 +366,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-10-21 14:17:18" itemprop="dateModified" datetime="2020-10-21T14:17:18+08:00">2020-10-21</time>
+                <time title="修改时间：2020-11-11 16:48:26" itemprop="dateModified" datetime="2020-11-11T16:48:26+08:00">2020-11-11</time>
               
             
           </span>
@@ -383,7 +383,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学而思/" itemprop="url" rel="index"><span itemprop="name">学而思</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/生活随笔/" itemprop="url" rel="index"><span itemprop="name">生活随笔</span></a></span>
 
                 
                 
@@ -398,8 +398,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/04/18/LVS三类工作模式/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/04/18/LVS三类工作模式/" itemprop="commentCount"></span>
+                <a href="/2018/12/03/RPA-POC观察/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/12/03/RPA-POC观察/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -429,7 +429,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2.1k</span>
+                <span title="本文字数">1.5k</span>
               
 
               
@@ -443,7 +443,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">4 分钟</span>
+                <span title="阅读时长">3 分钟</span>
               
             </div>
           
@@ -463,49 +463,43 @@
       
 
       
-        <p><img src="http://cdn.diffday.com/picgo/20201020083838.png" alt=""></p>
-<h2 id="业界明星"><a href="#业界明星" class="headerlink" title="业界明星"></a>业界明星</h2><p>LVS是国内程序员界为行业付出的最响当当产品了，在互联网界更是采用的多。</p>
-<h3 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h3><p>个人认为LVS出现的基础有三点：</p>
-<ol>
-<li><strong>IPV4 公网ip不够用的现状</strong></li>
-<li><strong>加之DNS更新调整的麻烦度</strong></li>
-<li><strong>服务器之间需要负载均衡，硬件负载均衡还是贵，原来国外大厂的闭源软件同样也贵</strong></li>
-</ol>
-<p>在TCP/IP协议簇上，能做到的方案肯定最低工作在IP层做路由转发和负载均衡。</p>
-<p>大家都用过交换机和路由器，家用的都是路由器，因为有公网IP，一台路由器代理几台设备，家用路由器NAT转换协议也是为上面1,2点而来。</p>
-<h3 id="作者语述"><a href="#作者语述" class="headerlink" title="作者语述"></a>作者语述</h3><p>真正有用的软件来源于实际应用，不同于闭门造车想象出来的功能，且看LVS作者章文嵩博士的回忆：</p>
-<blockquote>
-<p>“我在国防科大学读书之余，也帮湖南电信做一些系统集成项目，见到许多服务器忙不过来的情况。这时就需要考虑负载均衡。那时业界也有一些商用方案，常用的是思科LocalDirector。我希望在Linux内核上写点东西，又知道思科LocalDirector的工作原理。所以我当时就花了两个星期写了一个最简单的版本，那是1998年5月。（一套LocalDirector当时价值几万美元，我那时心里有疑问——这东西并不难写，为什么卖那么贵？）”</p>
+        <p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9MaWMzV0lqbm80Z3piZmFsaWF3aWJ6Z29HUWZpY21KWUFLNGNKUDkwejU5UDFsdkhaS09ybjBXb0I2V0FqMnl5ZGE3RThyZ1JMQnpaSU1zTUJma0hwc2NvVUEvNjQw?x-oss-process=image/format,png" alt=""></p>
+<h2 id="POC"><a href="#POC" class="headerlink" title="POC"></a>POC</h2><h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><blockquote>
+<p> 提供技术可行性验证，展示课预估的商业价值</p>
 </blockquote>
-<a id="more"></a>
-<blockquote>
-<p>“当时LVS开源放在网上一个星期，就被一家澳大利亚小公司用起来了，公司的负责人写邮件感谢我，说效果很好。我觉得这件事挺有意思，因为自己写的软件被别人用起来了，为他人创造了价值。2000年前后，收到了许多用户的感谢邮件。也有公司给我捐送服务器，有个瑞士用户寄了一大包饼干来感谢我。我把饼干拿回家，被丈母娘看到了，她说原来你半夜这么辛苦地工作，就是为了一大包饼干啊。</p>
-<p><strong>做这些事是很有成就感的，更多的是乐趣。</strong>”</p>
-</blockquote>
-<h2 id="硬核正题"><a href="#硬核正题" class="headerlink" title="硬核正题"></a>硬核正题</h2><p>旁话不多讲，进工作模式正题。</p>
-<p>介绍前，先列几个缩写概念：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. LB(Load Balancer) :负载均衡器，也就是装有LVS（ipvsadm）的server</span><br><span class="line"></span><br><span class="line">2. VIP(VirtualIP):给远程客户端提供服务的外部IP，LVS设备具有此IP</span><br><span class="line"></span><br><span class="line">3. real server:后端提供真是服务的server</span><br><span class="line"></span><br><span class="line">4. RIP(Real Server IP):后端realserver的IP</span><br></pre></td></tr></table></figure>
-<p><strong>LVS有三种工作模式</strong></p>
-<p><strong>1.DR（direct routing直接路由）</strong></p>
-<p><strong>2.NAT（Network Address Translation网络地址转换）</strong></p>
-<p><strong>3.Tune（IP Tunneling隧道）</strong></p>
-<h3 id="NAT模式"><a href="#NAT模式" class="headerlink" title="NAT模式"></a>NAT模式</h3><p>所有real server可分配保留私有地址，只有LB分配一个公网IP，但所有的请求包和应答包都经过LB，且不说网卡流量问题。包因为要修改再生，需要消耗CPU时间。举个例子，如果TCP包平均长度536字节，平均再生延迟60纳秒，那么这个延迟，导致LB的最大允许吞吐能力是8.93M/s（1/60*536）。做负载均衡，real server多了，就满足不了要求（如果单台real server允许400K/s，22台就达到极限）。这种模式下LB很容易成为整个系统的瓶颈。NAT通常的负担量也就在20台real server左右。</p>
-<h3 id="DR模式"><a href="#DR模式" class="headerlink" title="DR模式"></a>DR模式</h3><p>与NAT模式一样，同样要求real server与LB在同一物理网段，这样对组网布线是有要求的。且realserver上须有一块网卡不接受arp广播（同样配上VIP）。</p>
-<p>涉及网络细节，且性能在三种模式下最好，详细讲下DR过程【模式出现 动机之一，在于现实发现许多Internet服务（例如WEB服务器）的请求包很短小，而应答包通常很大。如果只让LB处理入包，定可以提升吞吐能力】。</p>
-<ol>
-<li>客户端得到服务的目的IP（为VIP，可能是通过DNS查询），目的端口80。</li>
-<li>于是客户端与VIP的80端口建立连接，LVS在VIP上收到之后，根据均衡策略，从后端realserver中选出一台（RIP1）作为此次请求的接收者，然后将请求包的目的mac地址更改为RIP1的mac地址，封装后转发给后端的RIP1，同时将该链接记录在hash表中。</li>
-<li>RIP1的某块网卡，如eth0，接收到这个转发包看到mac地址是自己的，于是就转发给上层的IP层，IP层解包后，发现目的IP地址也是自己（VIP配置在一块non-arp的网卡上，如lo:0）,然后接着根据协议上传。</li>
-<li>应用处理完请求后，将数据传给TCP，TCP将源端口改为80，源IP更改为VIP，目的端口更改为客户端端口，目的IP为客户端IP，IP层根据目的地址进行路由，然后经网络返给Client，完成了一次请求，而不经过LB。</li>
-</ol>
-<p><strong>DR模式的优缺点：</strong></p>
-<p><strong>优：可扩展性强，LB不会成为业务增长的瓶颈</strong></p>
-<p><strong>缺：节点不能跨网段，real server上须有一块网卡不接受arp广播</strong></p>
-<h3 id="TUN模式"><a href="#TUN模式" class="headerlink" title="TUN模式"></a>TUN模式</h3><p>就是针对DR模式的物理网段限制而来，针对互联网业务的特点，也比NAT效率高。但需要所有的服务器支持 “IP Tunneling(IP Encapsulation)”协议。但跨网段，服务器离的近，还好，离得不近，则网络延迟会成为主要瓶颈。</p>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><blockquote>
-<p>当前7层负载均衡，如Nginx已经让程序员大呼方便，但7层的效率肯定比不了在3层的处理效率，聊以此文，作为LVS工作模式简短总结介绍。</p>
-</blockquote>
-
+<p><strong>技术：识别关键的技术壁垒，验证后续的扩展性</strong></p>
+<p><strong>商业：是否可以得到预期的回报</strong></p>
+<p>Proposal三种方案，一种是BP（BluePrism），一种是AA（AutomationAnywhere），AA和BP都是基于.net的，会.net比较好</p>
+<p>另一个是UIPATH，罗马尼亚的一家公司创造出来的，进行广泛的授权合作，也有一定的跟随者。</p>
+<h3 id="POC过程"><a href="#POC过程" class="headerlink" title="POC过程"></a>POC过程</h3><p>1.业务案例（访谈）– &gt; 2.RPA场景提取（机会识别）–&gt; 3. 搭建原型（实施开发）–&gt; 4.评估（原型验证）–&gt; 5.试点运行（小规模部署/生产化）</p>
+<p><strong>本文的过程在1~3环节，以期筛选出合适的合作商</strong></p>
+<p>本身是成本优化项目，成本考量同样需关注</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">使用率如何定义？机器人设备的部署量如何评估？</span><br><span class="line">一个终端同时在运行一个机器人任务</span><br></pre></td></tr></table></figure>
+<h3 id="POC感受"><a href="#POC感受" class="headerlink" title="POC感受"></a>POC感受</h3><ul>
+<li>正所谓人靠衣装，佛靠金装。体会到了职场的场面的重要性，机会降临给准备充分的人</li>
+<li>流程及流程输出物的标准化</li>
+<li>高强度，一点不比系统研发轻松</li>
+</ul>
+<h2 id="合作商过程记录"><a href="#合作商过程记录" class="headerlink" title="合作商过程记录"></a>合作商过程记录</h2><a id="more"></a>
+<h3 id="ISearch"><a href="#ISearch" class="headerlink" title="ISearch"></a>ISearch</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Q：一定要虚拟化终端？A：不要求</span><br><span class="line">Q：任务的部署下发是指定终端，还是全终端有全部的待运行任务</span><br><span class="line">Q：多终端的中间结果互通整合，如何处理？A：支持在服务端的数据打通</span><br><span class="line">Q：申请个单独的机器人账号最好</span><br><span class="line">Q：设计器的软件如何安装？A：非标准软件，可以分Set控制配置不同的服务端</span><br><span class="line">Q：如何分开各部门的权限？A：回复待确认是否有任务资源的编辑访问控制</span><br><span class="line">基于UIPATH</span><br></pre></td></tr></table></figure>
+<p>上海的公司，国内做RPA比较早，其最大优势是有一些既有的国内客户，如银行，已有实施案例。曾经一度是重点考察对象，成本优势应该也是有的。</p>
+<h3 id="安永"><a href="#安永" class="headerlink" title="安永"></a>安永</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">基于UIPATH</span><br><span class="line">Q：推荐的开发语言是什么？对VB的支持是最好的，其余几种语言还不确定支持完备度如何</span><br><span class="line">Q：UIPATH的Studio对任务的配置，没有中间层的调配管理，全量推送到机器人终端。有Server的三层方案在中华区还没有应用案例</span><br><span class="line">碰到的问题，就是个性化系统的操作识别有些问题，但UIPATH有较好的扩展性，还要考虑是否与终端软件的防护有无冲突。</span><br></pre></td></tr></table></figure>
+<p>远程参会，两轮对口人，完成讲解。从形式上就让甲方觉得不够重视，陪跑是必然的</p>
+<h3 id="IBM"><a href="#IBM" class="headerlink" title="IBM"></a>IBM</h3><p>来的阵仗第二大，从售前，带队领导，到工程师代表一应俱全。准备全面，重点由工程师代表方案讲解发言</p>
+<p>讲述方法论比较成熟，包括ROI的模板分析方法，维度4象限（需求清晰度/业务重复度）划分，结合ROI分析。异常处理机制，显出功力</p>
+<ul>
+<li>重试</li>
+<li>邮件告警</li>
+<li>异常截图</li>
+<li>异常日志</li>
+</ul>
+<p>支持BP, AA两套方案，优推BP，也显出他们人员配置完备。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Q：现有的模块库已经完备？反馈说已经有</span><br><span class="line">Q：拆分比较细的机器人时，如何建议部署量</span><br></pre></td></tr></table></figure>
+<h3 id="富璟科技"><a href="#富璟科技" class="headerlink" title="富璟科技"></a>富璟科技</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">基于AA</span><br><span class="line">业务咨询能力：数字化的劳动力，处理重复的工作（有点吹大--人工智能，100%准确率，投资回报精确计算）</span><br><span class="line">技术难点的识别上，显出整体人员的研发功力距离IBM有较大的差距（VBA操作Excel，处理邮件）</span><br><span class="line">但强调了排班的安排，倒是说的对，其余厂家没多强调</span><br><span class="line">团队的培养，确实重要，仅有这家提了</span><br></pre></td></tr></table></figure>
+<p>深圳的单位，来了两个人，研发总监和一个开发，因为对比大厂没有优势，大概率陪跑角色，事实证明确实陪跑</p>
+<h3 id="毕马威（KPMG）"><a href="#毕马威（KPMG）" class="headerlink" title="毕马威（KPMG）"></a>毕马威（KPMG）</h3><p>来的人就几个，阵仗不大，评审人反馈过往的合作也一直比较实在老实，但后来报价很机械（反向佐证？）</p>
+<h3 id="德勤"><a href="#德勤" class="headerlink" title="德勤"></a>德勤</h3><p>来的售前阵仗最大，从香港跑过来一批合伙人大佬，装束精致，给招标方一种非常高规格的感觉，大佬们不懂技术，但话讲的漂亮</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1000台机器人--UIPATH的应用，在日本的银行客户</span><br><span class="line">2018年的新版本支持一个并发license模型</span><br><span class="line">好像他们也是UIPATH的东亚区核心代理</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -554,7 +548,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/硬核知识/" rel="tag"># 硬核知识</a>
+            <a href="/tags/生活感悟/" rel="tag"># 生活感悟</a>
           
         </div>
       
@@ -567,8 +561,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/07/28/产品意识/" rel="next" title="产品意识">
-                <i class="fa fa-chevron-left"></i> 产品意识
+              <a href="/2018/09/17/OKR-VS-KPI/" rel="next" title="OKR VS KPI">
+                <i class="fa fa-chevron-left"></i> OKR VS KPI
               </a>
             
           </div>
@@ -577,8 +571,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/30/学习风格与发展方式/" rel="prev" title="学习风格与发展方式">
-                学习风格与发展方式 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/12/11/红衣教主互方论/" rel="prev" title="红衣教主互方论">
+                红衣教主互方论 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -752,7 +746,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#业界明星"><span class="nav-number">1.</span> <span class="nav-text">业界明星</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景介绍"><span class="nav-number">1.1.</span> <span class="nav-text">背景介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作者语述"><span class="nav-number">1.2.</span> <span class="nav-text">作者语述</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#硬核正题"><span class="nav-number">2.</span> <span class="nav-text">硬核正题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NAT模式"><span class="nav-number">2.1.</span> <span class="nav-text">NAT模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DR模式"><span class="nav-number">2.2.</span> <span class="nav-text">DR模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TUN模式"><span class="nav-number">2.3.</span> <span class="nav-text">TUN模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后记"><span class="nav-number">3.</span> <span class="nav-text">后记</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#POC"><span class="nav-number">1.</span> <span class="nav-text">POC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目标"><span class="nav-number">1.1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POC过程"><span class="nav-number">1.2.</span> <span class="nav-text">POC过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POC感受"><span class="nav-number">1.3.</span> <span class="nav-text">POC感受</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#合作商过程记录"><span class="nav-number">2.</span> <span class="nav-text">合作商过程记录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ISearch"><span class="nav-number">2.1.</span> <span class="nav-text">ISearch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安永"><span class="nav-number">2.2.</span> <span class="nav-text">安永</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IBM"><span class="nav-number">2.3.</span> <span class="nav-text">IBM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#富璟科技"><span class="nav-number">2.4.</span> <span class="nav-text">富璟科技</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#毕马威（KPMG）"><span class="nav-number">2.5.</span> <span class="nav-text">毕马威（KPMG）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#德勤"><span class="nav-number">2.6.</span> <span class="nav-text">德勤</span></a></li></ol></li></ol></div>
             
 
           </div>
