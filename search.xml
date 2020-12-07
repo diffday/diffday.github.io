@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>95年的Jobs访谈-持续创新与天才的管理</title>
-    <url>/2018/08/24/95%E5%B9%B4%E7%9A%84Jobs%E8%AE%BF%E8%B0%88/</url>
+    <url>/2014/10/08/95%E5%B9%B4%E7%9A%84Jobs%E8%AE%BF%E8%B0%88/</url>
     <content><![CDATA[<blockquote>
 <p>第一次发表于2014.05.18</p>
 </blockquote>
@@ -98,6 +98,59 @@
       </tags>
   </entry>
   <entry>
+    <title>LVS三类工作模式</title>
+    <url>/2016/04/18/LVS%E4%B8%89%E7%B1%BB%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<p><img src="http://cdn.diffday.com/picgo/20201020083838.png" alt=""></p>
+<h2 id="业界明星"><a href="#业界明星" class="headerlink" title="业界明星"></a>业界明星</h2><p>LVS是国内程序员界为行业付出的最响当当产品了，在互联网界更是采用的多。</p>
+<h3 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h3><p>个人认为LVS出现的基础有三点：</p>
+<ol>
+<li><strong>IPV4 公网ip不够用的现状</strong></li>
+<li><strong>加之DNS更新调整的麻烦度</strong></li>
+<li><strong>服务器之间需要负载均衡，硬件负载均衡还是贵，原来国外大厂的闭源软件同样也贵</strong></li>
+</ol>
+<p>在TCP/IP协议簇上，能做到的方案肯定最低工作在IP层做路由转发和负载均衡。</p>
+<p>大家都用过交换机和路由器，家用的都是路由器，因为有公网IP，一台路由器代理几台设备，家用路由器NAT转换协议也是为上面1,2点而来。</p>
+<h3 id="作者语述"><a href="#作者语述" class="headerlink" title="作者语述"></a>作者语述</h3><p>真正有用的软件来源于实际应用，不同于闭门造车想象出来的功能，且看LVS作者章文嵩博士的回忆：</p>
+<blockquote>
+<p>“我在国防科大学读书之余，也帮湖南电信做一些系统集成项目，见到许多服务器忙不过来的情况。这时就需要考虑负载均衡。那时业界也有一些商用方案，常用的是思科LocalDirector。我希望在Linux内核上写点东西，又知道思科LocalDirector的工作原理。所以我当时就花了两个星期写了一个最简单的版本，那是1998年5月。（一套LocalDirector当时价值几万美元，我那时心里有疑问——这东西并不难写，为什么卖那么贵？）”</p>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<p>“当时LVS开源放在网上一个星期，就被一家澳大利亚小公司用起来了，公司的负责人写邮件感谢我，说效果很好。我觉得这件事挺有意思，因为自己写的软件被别人用起来了，为他人创造了价值。2000年前后，收到了许多用户的感谢邮件。也有公司给我捐送服务器，有个瑞士用户寄了一大包饼干来感谢我。我把饼干拿回家，被丈母娘看到了，她说原来你半夜这么辛苦地工作，就是为了一大包饼干啊。</p>
+<p><strong>做这些事是很有成就感的，更多的是乐趣。</strong>”</p>
+</blockquote>
+<h2 id="硬核正题"><a href="#硬核正题" class="headerlink" title="硬核正题"></a>硬核正题</h2><p>旁话不多讲，进工作模式正题。</p>
+<p>介绍前，先列几个缩写概念：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. LB(Load Balancer) :负载均衡器，也就是装有LVS（ipvsadm）的server</span><br><span class="line"></span><br><span class="line">2. VIP(VirtualIP):给远程客户端提供服务的外部IP，LVS设备具有此IP</span><br><span class="line"></span><br><span class="line">3. real server:后端提供真是服务的server</span><br><span class="line"></span><br><span class="line">4. RIP(Real Server IP):后端realserver的IP</span><br></pre></td></tr></table></figure>
+<p><strong>LVS有三种工作模式</strong></p>
+<p><strong>1.DR（direct routing直接路由）</strong></p>
+<p><strong>2.NAT（Network Address Translation网络地址转换）</strong></p>
+<p><strong>3.Tune（IP Tunneling隧道）</strong></p>
+<h3 id="NAT模式"><a href="#NAT模式" class="headerlink" title="NAT模式"></a>NAT模式</h3><p>所有real server可分配保留私有地址，只有LB分配一个公网IP，但所有的请求包和应答包都经过LB，且不说网卡流量问题。包因为要修改再生，需要消耗CPU时间。举个例子，如果TCP包平均长度536字节，平均再生延迟60纳秒，那么这个延迟，导致LB的最大允许吞吐能力是8.93M/s（1/60*536）。做负载均衡，real server多了，就满足不了要求（如果单台real server允许400K/s，22台就达到极限）。这种模式下LB很容易成为整个系统的瓶颈。NAT通常的负担量也就在20台real server左右。</p>
+<h3 id="DR模式"><a href="#DR模式" class="headerlink" title="DR模式"></a>DR模式</h3><p>与NAT模式一样，同样要求real server与LB在同一物理网段，这样对组网布线是有要求的。且realserver上须有一块网卡不接受arp广播（同样配上VIP）。</p>
+<p>涉及网络细节，且性能在三种模式下最好，详细讲下DR过程【模式出现 动机之一，在于现实发现许多Internet服务（例如WEB服务器）的请求包很短小，而应答包通常很大。如果只让LB处理入包，定可以提升吞吐能力】。</p>
+<ol>
+<li>客户端得到服务的目的IP（为VIP，可能是通过DNS查询），目的端口80。</li>
+<li>于是客户端与VIP的80端口建立连接，LVS在VIP上收到之后，根据均衡策略，从后端realserver中选出一台（RIP1）作为此次请求的接收者，然后将请求包的目的mac地址更改为RIP1的mac地址，封装后转发给后端的RIP1，同时将该链接记录在hash表中。</li>
+<li>RIP1的某块网卡，如eth0，接收到这个转发包看到mac地址是自己的，于是就转发给上层的IP层，IP层解包后，发现目的IP地址也是自己（VIP配置在一块non-arp的网卡上，如lo:0）,然后接着根据协议上传。</li>
+<li>应用处理完请求后，将数据传给TCP，TCP将源端口改为80，源IP更改为VIP，目的端口更改为客户端端口，目的IP为客户端IP，IP层根据目的地址进行路由，然后经网络返给Client，完成了一次请求，而不经过LB。</li>
+</ol>
+<p><strong>DR模式的优缺点：</strong></p>
+<p><strong>优：可扩展性强，LB不会成为业务增长的瓶颈</strong></p>
+<p><strong>缺：节点不能跨网段，real server上须有一块网卡不接受arp广播</strong></p>
+<h3 id="TUN模式"><a href="#TUN模式" class="headerlink" title="TUN模式"></a>TUN模式</h3><p>就是针对DR模式的物理网段限制而来，针对互联网业务的特点，也比NAT效率高。但需要所有的服务器支持 “IP Tunneling(IP Encapsulation)”协议。但跨网段，服务器离的近，还好，离得不近，则网络延迟会成为主要瓶颈。</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><blockquote>
+<p>当前7层负载均衡，如Nginx已经让程序员大呼方便，但7层的效率肯定比不了在3层的处理效率，聊以此文，作为LVS工作模式简短总结介绍。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>学而思</category>
+      </categories>
+      <tags>
+        <tag>硬核知识</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OKR VS KPI</title>
     <url>/2018/09/17/OKR-VS-KPI/</url>
     <content><![CDATA[<p><strong>OKR 全称是 Objectives and Key Results，而 KPI 的全称是 Key Performance Indicators</strong>。</p>
@@ -124,6 +177,53 @@
       </categories>
       <tags>
         <tag>经营管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>RPA-POC观察</title>
+    <url>/2018/12/03/RPA-POC%E8%A7%82%E5%AF%9F/</url>
+    <content><![CDATA[<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9MaWMzV0lqbm80Z3piZmFsaWF3aWJ6Z29HUWZpY21KWUFLNGNKUDkwejU5UDFsdkhaS09ybjBXb0I2V0FqMnl5ZGE3RThyZ1JMQnpaSU1zTUJma0hwc2NvVUEvNjQw?x-oss-process=image/format,png" alt=""></p>
+<h2 id="POC"><a href="#POC" class="headerlink" title="POC"></a>POC</h2><h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><blockquote>
+<p> 提供技术可行性验证，展示课预估的商业价值</p>
+</blockquote>
+<p><strong>技术：识别关键的技术壁垒，验证后续的扩展性</strong></p>
+<p><strong>商业：是否可以得到预期的回报</strong></p>
+<p>Proposal三种方案，一种是BP（BluePrism），一种是AA（AutomationAnywhere），AA和BP都是基于.net的，会.net比较好</p>
+<p>另一个是UIPATH，罗马尼亚的一家公司创造出来的，进行广泛的授权合作，也有一定的跟随者。</p>
+<h3 id="POC过程"><a href="#POC过程" class="headerlink" title="POC过程"></a>POC过程</h3><p>1.业务案例（访谈）– &gt; 2.RPA场景提取（机会识别）–&gt; 3. 搭建原型（实施开发）–&gt; 4.评估（原型验证）–&gt; 5.试点运行（小规模部署/生产化）</p>
+<p><strong>本文的过程在1~3环节，以期筛选出合适的合作商</strong></p>
+<p>本身是成本优化项目，成本考量同样需关注</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">基本问题：使用率如何定义？机器人设备的部署量如何评估？</span><br><span class="line">普遍现状：一个终端同时在运行一个机器人任务</span><br></pre></td></tr></table></figure>
+<h3 id="POC感受"><a href="#POC感受" class="headerlink" title="POC感受"></a>POC感受</h3><ul>
+<li>正所谓人靠衣装，佛靠金装。体会到了职场的场面的重要性，机会降临给准备充分的人</li>
+<li>流程及流程输出物的标准化</li>
+<li>高强度，一点不比系统研发轻松</li>
+</ul>
+<h2 id="合作商过程记录"><a href="#合作商过程记录" class="headerlink" title="合作商过程记录"></a>合作商过程记录</h2><a id="more"></a>
+<h3 id="ISearch"><a href="#ISearch" class="headerlink" title="ISearch"></a>ISearch</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Q：一定要虚拟化终端？A：不要求</span><br><span class="line">Q：任务的部署下发是指定终端，还是全终端有全部的待运行任务</span><br><span class="line">Q：多终端的中间结果互通整合，如何处理？A：支持在服务端的数据打通</span><br><span class="line">Q：申请个单独的机器人账号最好</span><br><span class="line">Q：设计器的软件如何安装？A：非标准软件，可以分Set控制配置不同的服务端</span><br><span class="line">Q：如何分开各部门的权限？A：回复待确认是否有任务资源的编辑访问控制</span><br><span class="line">基于UIPATH</span><br></pre></td></tr></table></figure>
+<p>上海的公司，国内做RPA比较早，其最大优势是有一些既有的国内客户，如银行，已有实施案例。曾经一度是重点考察对象，成本优势应该也是有的。</p>
+<h3 id="安永"><a href="#安永" class="headerlink" title="安永"></a>安永</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">基于UIPATH</span><br><span class="line">Q：推荐的开发语言是什么？对VB的支持是最好的，其余几种语言还不确定支持完备度如何</span><br><span class="line">Q：UIPATH的Studio对任务的配置，没有中间层的调配管理，全量推送到机器人终端。有Server的三层方案在中华区还没有应用案例</span><br><span class="line">碰到的问题，就是个性化系统的操作识别有些问题，但UIPATH有较好的扩展性，还要考虑是否与终端软件的防护有无冲突。</span><br></pre></td></tr></table></figure>
+<p>远程参会，两轮对口人，完成讲解。从形式上就让甲方觉得不够重视，陪跑是必然的</p>
+<h3 id="IBM"><a href="#IBM" class="headerlink" title="IBM"></a>IBM</h3><p>来的阵仗第二大，从售前，带队领导，到工程师代表一应俱全。准备全面，重点由工程师代表方案讲解发言</p>
+<p>讲述方法论比较成熟，包括ROI的模板分析方法，维度4象限（需求清晰度/业务重复度）划分，结合ROI分析。异常处理机制，显出功力</p>
+<ul>
+<li>重试</li>
+<li>邮件告警</li>
+<li>异常截图</li>
+<li>异常日志</li>
+</ul>
+<p>支持BP, AA两套方案，优推BP，也显出他们人员配置完备。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Q：现有的模块库已经完备？反馈说已经有</span><br><span class="line">Q：拆分比较细的机器人时，如何建议部署量</span><br></pre></td></tr></table></figure>
+<h3 id="富璟科技"><a href="#富璟科技" class="headerlink" title="富璟科技"></a>富璟科技</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">基于AA</span><br><span class="line">业务咨询能力：数字化的劳动力，处理重复的工作（有点吹大--人工智能，100%准确率，投资回报精确计算）</span><br><span class="line">技术难点的识别上，显出整体人员的研发功力距离IBM有较大的差距（VBA操作Excel，处理邮件）</span><br><span class="line">但强调了排班的安排，倒是说的对，其余厂家没多强调</span><br><span class="line">团队的培养，确实重要，仅有这家提了</span><br></pre></td></tr></table></figure>
+<p>深圳的单位，来了两个人，研发总监和一个开发，因为对比大厂没有优势，大概率陪跑角色，事实证明确实陪跑</p>
+<h3 id="毕马威（KPMG）"><a href="#毕马威（KPMG）" class="headerlink" title="毕马威（KPMG）"></a>毕马威（KPMG）</h3><p>来的人就几个，阵仗不大，评审人反馈过往的合作也一直比较实在老实，但后来报价很机械（反向佐证？）</p>
+<h3 id="德勤"><a href="#德勤" class="headerlink" title="德勤"></a>德勤</h3><p>来的售前阵仗最大，从香港跑过来一批合伙人大佬，装束精致，给招标方一种非常高规格的感觉，大佬们不懂技术，但话讲的漂亮</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1000台机器人--UIPATH的应用，在日本的银行客户</span><br><span class="line">2018年的新版本支持一个并发license模型</span><br><span class="line">好像他们也是UIPATH的东亚区核心代理</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>生活随笔</category>
+      </categories>
+      <tags>
+        <tag>生活感悟</tag>
       </tags>
   </entry>
   <entry>
@@ -350,185 +450,6 @@
       </tags>
   </entry>
   <entry>
-    <title>互联网交友</title>
-    <url>/2015/07/23/%E4%BA%92%E8%81%94%E7%BD%91%E4%BA%A4%E5%8F%8B/</url>
-    <content><![CDATA[<p><img src="http://cdn.diffday.com/picgo/%E4%BA%A4%E5%8F%8B%E5%B0%81%E9%9D%A2.png" alt=""></p>
-<p>交友，跟人类所有活动一样，都是有动机的。三类诉求应该能涵盖</p>
-<ul>
-<li>要么某种同好聊得来，士为知己者死</li>
-<li>要么有所求(利益/信息流动)</li>
-<li>要么男女之爱</li>
-</ul>
-<h3 id="数字不说谎"><a href="#数字不说谎" class="headerlink" title="数字不说谎"></a>数字不说谎</h3><p>人人都从陌生人开启，转入熟识，有些再继续转入陌生，走着这样的轮回，有些就真成了要好的朋友，但这个比例不会大。经数据调查证实，一个人真正的朋友多在10人以下，且一个人能保持联系的友人在150以下。这个数字在Facebook上也能得到印证，平均每人130个好友，但常联系的只有4-6个（放宽点在7-15个之间），通过分析用户的交际圈分组，85%的组是不属于朋友概念的，且多数是维持4-6组不超过10个人的关系人组。在北美的其它调查中，平均每个人有10个左右关系较近的朋友（每周交流或见面），同样佐证着数据范围。</p>
-<p>你可能好奇，what the hell about 150，150个人的维系差不多是普通人脑袋能力的上限。Oh my god，真的么？新石器时代的村庄，通常在达到150个人后，会拆分为2个，罗马军队也是150个互相认识的人一组，对数字不服来战。</p>
-<p>我更激进的认为，线上的轻量化使得你更容易与人保持联系，其实回归到线下，你会更加缩小朋友范围，以日常电话时间举例，你80%的电话是打给同样的4个人，表明电话圈是强关系控制的。说实在的，你的熟人没你想的那么多，精力跟不上时，你还会启动关注隐私问题。</p>
-<h3 id="两大流派"><a href="#两大流派" class="headerlink" title="两大流派"></a>两大流派</h3><a id="more"></a>
-<p>交友应用两大流派</p>
-<ul>
-<li>一个流派是把用户数据“封闭”，阻隔用户获得其他用户信息，站方从中赚钱，这就是“婚恋网站”；</li>
-<li>一个流派是把用户数据“开放”，用户随意搜索和联络其他用户，站方试图通过用户的粘度，而以广告费或增值费获得收入，这就是“（通用）交友网站”。</li>
-</ul>
-<p>基于“保持联系”的SNS应用成为主流；而“认识朋友”的SNS应用被边缘化，是最近这些年SNS领域的整体趋势。</p>
-<p>列了数字，其实也得谈谈产品。搞产品第一是搞定位人群，再之搞产品人员境界，此两点导致每款产品想要的世界不同。婚恋网站因为真正需要用户花大钱的交友过程，并不在其上实现，所以是个想象力不大的生意，我们不多谈。说另一派，不远的几年前，数家SNS网站并存，争斗的还很厉害，现在都消停了【咋个回事，网民规模脱离疯狂上升期是背后实质推手吧】，我们都说以史为镜，可知兴衰，开始吧。</p>
-<h2 id="SNS的大败局：我们都不谈内部争斗问题"><a href="#SNS的大败局：我们都不谈内部争斗问题" class="headerlink" title="SNS的大败局：我们都不谈内部争斗问题"></a>SNS的大败局：我们都不谈内部争斗问题</h2><h3 id="开心网之死"><a href="#开心网之死" class="headerlink" title="开心网之死"></a>开心网之死</h3><p>开心网死于腾讯的挤兑和微博的崛起。腾讯本走屌丝路线，以MySpace模式迎战51.com的，<strong>且一般来说，社交网站可以由精英往草根发展，却难以从草根向精英发展。</strong>但腾讯因为强大的QQ关系链支撑，就是可以做到逆袭。你以社交游戏起家，我就抄你一个开心农场出来，抄一套Facebook类的观感给白领人群用。</p>
-<blockquote>
-<p>这里有一点，紧随Facebook路线的校内网并没有像Facebook一样占领白领人群，因为中文公司用户保持联系的需求被其它工具个满足了，例如QQ。打动他们的是社交化游戏。</p>
-</blockquote>
-<p>09年微博的出现，又更多的分流了白领人群，状态更新什么的，我天然能替代，还能提供到更多有价值的信息，还有明星参与，且微博更好的察觉对接到了无线互联网的趋势（Twitter 70个字的限制你就知道天生要玩手机端）。</p>
-<h3 id="51-com之死"><a href="#51-com之死" class="headerlink" title="51.com之死"></a>51.com之死</h3><p>51的名字听起来像”我要“，总有人说搞情色交易或妓女化交友。但我觉得创始人绝不是这个初心吧，但确实走的是农村包围城市的道路，以简短好记的域名，不错的访问速度，席卷厂妹和二三线城市枯燥人群。</p>
-<p>其靠陌生人交友起家，在没有同好因素支撑的人群中，第一大支撑力就是荷尔蒙（展示自己或约炮，哎，寂寞啊。因为生活枯燥，其实他们有本能的思乡和地域情结）。如果陌生人之间缺乏约束，低俗后，容易对女性用户造成不利刺激，此类情况若驱逐走了女人，社区衰落是不可避免的。</p>
-<p>在急躁的盈利和发展压力下，搞出的东西没服务好自己的目标人群。搞游戏其实也不适合它，厂妹哪有时间玩游戏。往城市人群扩展，同样碰到草根转精英的不匹配问题。当然其死亡当然也少不了腾讯的挤兑。</p>
-<h3 id="Facebook之活"><a href="#Facebook之活" class="headerlink" title="Facebook之活"></a>Facebook之活</h3><p>Facebook有很多缺陷，但是它靠发展为一个平台，撑了下来（且一直注重人的互动联系），这就像Amazon的创始人一样，靠的是洞察力布局支撑公司的发展。Myspace败在管理人员眼光（我想被新闻集团收购后的管理问题估计也导致它走向必败的结局）</p>
-<h2 id="SNS结语"><a href="#SNS结语" class="headerlink" title="SNS结语"></a>SNS结语</h2><h3 id="保持联系比创建朋友重要"><a href="#保持联系比创建朋友重要" class="headerlink" title="保持联系比创建朋友重要"></a>保持联系比创建朋友重要</h3><p>但线上保持联系，不好做（手段很匮乏，除了评论回复，多是利用用户的虚荣心），其不像门户类并没有改变用户的阅读行为，<strong>聚餐，泡吧，踢球等导致交友结果和保持联系的行为，复制不到线上来。</strong>就像Facebook的长期繁荣也不是靠互动支撑一样（逃脱了每过几年被新兴形态挑战替代的风险）。</p>
-<p><strong>总结下来，纯交友诉求的网站，除了婚恋类，后期都会遇到劣币驱逐良币的宿命问题。搞社区和UGC是一种出路，这两样要关注信噪比，低信噪比的产品也会自然变成落后的物种，消亡是注定的。信噪比不仅仅适用于社区内容类，所有SNS类都适用。微信的私密朋友圈交往，抢夺微博的人群，也是一个例子。</strong></p>
-<h3 id="互联网时代大分而不是大同"><a href="#互联网时代大分而不是大同" class="headerlink" title="互联网时代大分而不是大同"></a>互联网时代大分而不是大同</h3><p>因互联网时代引起的”大分“和年轻人总是不喜欢跟老产品老人们混在一起（老产品也感知不到年轻人的口味），使得<strong>认识朋友的需求永远极其庞大，“嗷嗷待哺”</strong>，站方只要提供一个合适的产品，就能快速发展。但拉到人群之后，你会继续面临保持联系的基石问题，如何把自己的平台变成一个重复访问的用户寄居地，哦，想起信噪比，听起来头大又那么牛逼！</p>
-<p><u>我说的都是错的！</u></p>
-]]></content>
-      <categories>
-        <category>学而思</category>
-        <category>反刍整理</category>
-      </categories>
-      <tags>
-        <tag>互联网思维</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>RPA-POC观察</title>
-    <url>/2018/12/03/RPA-POC%E8%A7%82%E5%AF%9F/</url>
-    <content><![CDATA[<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9MaWMzV0lqbm80Z3piZmFsaWF3aWJ6Z29HUWZpY21KWUFLNGNKUDkwejU5UDFsdkhaS09ybjBXb0I2V0FqMnl5ZGE3RThyZ1JMQnpaSU1zTUJma0hwc2NvVUEvNjQw?x-oss-process=image/format,png" alt=""></p>
-<h2 id="POC"><a href="#POC" class="headerlink" title="POC"></a>POC</h2><h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><blockquote>
-<p> 提供技术可行性验证，展示课预估的商业价值</p>
-</blockquote>
-<p><strong>技术：识别关键的技术壁垒，验证后续的扩展性</strong></p>
-<p><strong>商业：是否可以得到预期的回报</strong></p>
-<p>Proposal三种方案，一种是BP（BluePrism），一种是AA（AutomationAnywhere），AA和BP都是基于.net的，会.net比较好</p>
-<p>另一个是UIPATH，罗马尼亚的一家公司创造出来的，进行广泛的授权合作，也有一定的跟随者。</p>
-<h3 id="POC过程"><a href="#POC过程" class="headerlink" title="POC过程"></a>POC过程</h3><p>1.业务案例（访谈）– &gt; 2.RPA场景提取（机会识别）–&gt; 3. 搭建原型（实施开发）–&gt; 4.评估（原型验证）–&gt; 5.试点运行（小规模部署/生产化）</p>
-<p><strong>本文的过程在1~3环节，以期筛选出合适的合作商</strong></p>
-<p>本身是成本优化项目，成本考量同样需关注</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">基本问题：使用率如何定义？机器人设备的部署量如何评估？</span><br><span class="line">普遍现状：一个终端同时在运行一个机器人任务</span><br></pre></td></tr></table></figure>
-<h3 id="POC感受"><a href="#POC感受" class="headerlink" title="POC感受"></a>POC感受</h3><ul>
-<li>正所谓人靠衣装，佛靠金装。体会到了职场的场面的重要性，机会降临给准备充分的人</li>
-<li>流程及流程输出物的标准化</li>
-<li>高强度，一点不比系统研发轻松</li>
-</ul>
-<h2 id="合作商过程记录"><a href="#合作商过程记录" class="headerlink" title="合作商过程记录"></a>合作商过程记录</h2><a id="more"></a>
-<h3 id="ISearch"><a href="#ISearch" class="headerlink" title="ISearch"></a>ISearch</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Q：一定要虚拟化终端？A：不要求</span><br><span class="line">Q：任务的部署下发是指定终端，还是全终端有全部的待运行任务</span><br><span class="line">Q：多终端的中间结果互通整合，如何处理？A：支持在服务端的数据打通</span><br><span class="line">Q：申请个单独的机器人账号最好</span><br><span class="line">Q：设计器的软件如何安装？A：非标准软件，可以分Set控制配置不同的服务端</span><br><span class="line">Q：如何分开各部门的权限？A：回复待确认是否有任务资源的编辑访问控制</span><br><span class="line">基于UIPATH</span><br></pre></td></tr></table></figure>
-<p>上海的公司，国内做RPA比较早，其最大优势是有一些既有的国内客户，如银行，已有实施案例。曾经一度是重点考察对象，成本优势应该也是有的。</p>
-<h3 id="安永"><a href="#安永" class="headerlink" title="安永"></a>安永</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">基于UIPATH</span><br><span class="line">Q：推荐的开发语言是什么？对VB的支持是最好的，其余几种语言还不确定支持完备度如何</span><br><span class="line">Q：UIPATH的Studio对任务的配置，没有中间层的调配管理，全量推送到机器人终端。有Server的三层方案在中华区还没有应用案例</span><br><span class="line">碰到的问题，就是个性化系统的操作识别有些问题，但UIPATH有较好的扩展性，还要考虑是否与终端软件的防护有无冲突。</span><br></pre></td></tr></table></figure>
-<p>远程参会，两轮对口人，完成讲解。从形式上就让甲方觉得不够重视，陪跑是必然的</p>
-<h3 id="IBM"><a href="#IBM" class="headerlink" title="IBM"></a>IBM</h3><p>来的阵仗第二大，从售前，带队领导，到工程师代表一应俱全。准备全面，重点由工程师代表方案讲解发言</p>
-<p>讲述方法论比较成熟，包括ROI的模板分析方法，维度4象限（需求清晰度/业务重复度）划分，结合ROI分析。异常处理机制，显出功力</p>
-<ul>
-<li>重试</li>
-<li>邮件告警</li>
-<li>异常截图</li>
-<li>异常日志</li>
-</ul>
-<p>支持BP, AA两套方案，优推BP，也显出他们人员配置完备。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Q：现有的模块库已经完备？反馈说已经有</span><br><span class="line">Q：拆分比较细的机器人时，如何建议部署量</span><br></pre></td></tr></table></figure>
-<h3 id="富璟科技"><a href="#富璟科技" class="headerlink" title="富璟科技"></a>富璟科技</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">基于AA</span><br><span class="line">业务咨询能力：数字化的劳动力，处理重复的工作（有点吹大--人工智能，100%准确率，投资回报精确计算）</span><br><span class="line">技术难点的识别上，显出整体人员的研发功力距离IBM有较大的差距（VBA操作Excel，处理邮件）</span><br><span class="line">但强调了排班的安排，倒是说的对，其余厂家没多强调</span><br><span class="line">团队的培养，确实重要，仅有这家提了</span><br></pre></td></tr></table></figure>
-<p>深圳的单位，来了两个人，研发总监和一个开发，因为对比大厂没有优势，大概率陪跑角色，事实证明确实陪跑</p>
-<h3 id="毕马威（KPMG）"><a href="#毕马威（KPMG）" class="headerlink" title="毕马威（KPMG）"></a>毕马威（KPMG）</h3><p>来的人就几个，阵仗不大，评审人反馈过往的合作也一直比较实在老实，但后来报价很机械（反向佐证？）</p>
-<h3 id="德勤"><a href="#德勤" class="headerlink" title="德勤"></a>德勤</h3><p>来的售前阵仗最大，从香港跑过来一批合伙人大佬，装束精致，给招标方一种非常高规格的感觉，大佬们不懂技术，但话讲的漂亮</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1000台机器人--UIPATH的应用，在日本的银行客户</span><br><span class="line">2018年的新版本支持一个并发license模型</span><br><span class="line">好像他们也是UIPATH的东亚区核心代理</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>生活随笔</category>
-      </categories>
-      <tags>
-        <tag>生活感悟</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LVS三类工作模式</title>
-    <url>/2016/04/18/LVS%E4%B8%89%E7%B1%BB%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<p><img src="http://cdn.diffday.com/picgo/20201020083838.png" alt=""></p>
-<h2 id="业界明星"><a href="#业界明星" class="headerlink" title="业界明星"></a>业界明星</h2><p>LVS是国内程序员界为行业付出的最响当当产品了，在互联网界更是采用的多。</p>
-<h3 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h3><p>个人认为LVS出现的基础有三点：</p>
-<ol>
-<li><strong>IPV4 公网ip不够用的现状</strong></li>
-<li><strong>加之DNS更新调整的麻烦度</strong></li>
-<li><strong>服务器之间需要负载均衡，硬件负载均衡还是贵，原来国外大厂的闭源软件同样也贵</strong></li>
-</ol>
-<p>在TCP/IP协议簇上，能做到的方案肯定最低工作在IP层做路由转发和负载均衡。</p>
-<p>大家都用过交换机和路由器，家用的都是路由器，因为有公网IP，一台路由器代理几台设备，家用路由器NAT转换协议也是为上面1,2点而来。</p>
-<h3 id="作者语述"><a href="#作者语述" class="headerlink" title="作者语述"></a>作者语述</h3><p>真正有用的软件来源于实际应用，不同于闭门造车想象出来的功能，且看LVS作者章文嵩博士的回忆：</p>
-<blockquote>
-<p>“我在国防科大学读书之余，也帮湖南电信做一些系统集成项目，见到许多服务器忙不过来的情况。这时就需要考虑负载均衡。那时业界也有一些商用方案，常用的是思科LocalDirector。我希望在Linux内核上写点东西，又知道思科LocalDirector的工作原理。所以我当时就花了两个星期写了一个最简单的版本，那是1998年5月。（一套LocalDirector当时价值几万美元，我那时心里有疑问——这东西并不难写，为什么卖那么贵？）”</p>
-</blockquote>
-<a id="more"></a>
-<blockquote>
-<p>“当时LVS开源放在网上一个星期，就被一家澳大利亚小公司用起来了，公司的负责人写邮件感谢我，说效果很好。我觉得这件事挺有意思，因为自己写的软件被别人用起来了，为他人创造了价值。2000年前后，收到了许多用户的感谢邮件。也有公司给我捐送服务器，有个瑞士用户寄了一大包饼干来感谢我。我把饼干拿回家，被丈母娘看到了，她说原来你半夜这么辛苦地工作，就是为了一大包饼干啊。</p>
-<p><strong>做这些事是很有成就感的，更多的是乐趣。</strong>”</p>
-</blockquote>
-<h2 id="硬核正题"><a href="#硬核正题" class="headerlink" title="硬核正题"></a>硬核正题</h2><p>旁话不多讲，进工作模式正题。</p>
-<p>介绍前，先列几个缩写概念：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. LB(Load Balancer) :负载均衡器，也就是装有LVS（ipvsadm）的server</span><br><span class="line"></span><br><span class="line">2. VIP(VirtualIP):给远程客户端提供服务的外部IP，LVS设备具有此IP</span><br><span class="line"></span><br><span class="line">3. real server:后端提供真是服务的server</span><br><span class="line"></span><br><span class="line">4. RIP(Real Server IP):后端realserver的IP</span><br></pre></td></tr></table></figure>
-<p><strong>LVS有三种工作模式</strong></p>
-<p><strong>1.DR（direct routing直接路由）</strong></p>
-<p><strong>2.NAT（Network Address Translation网络地址转换）</strong></p>
-<p><strong>3.Tune（IP Tunneling隧道）</strong></p>
-<h3 id="NAT模式"><a href="#NAT模式" class="headerlink" title="NAT模式"></a>NAT模式</h3><p>所有real server可分配保留私有地址，只有LB分配一个公网IP，但所有的请求包和应答包都经过LB，且不说网卡流量问题。包因为要修改再生，需要消耗CPU时间。举个例子，如果TCP包平均长度536字节，平均再生延迟60纳秒，那么这个延迟，导致LB的最大允许吞吐能力是8.93M/s（1/60*536）。做负载均衡，real server多了，就满足不了要求（如果单台real server允许400K/s，22台就达到极限）。这种模式下LB很容易成为整个系统的瓶颈。NAT通常的负担量也就在20台real server左右。</p>
-<h3 id="DR模式"><a href="#DR模式" class="headerlink" title="DR模式"></a>DR模式</h3><p>与NAT模式一样，同样要求real server与LB在同一物理网段，这样对组网布线是有要求的。且realserver上须有一块网卡不接受arp广播（同样配上VIP）。</p>
-<p>涉及网络细节，且性能在三种模式下最好，详细讲下DR过程【模式出现 动机之一，在于现实发现许多Internet服务（例如WEB服务器）的请求包很短小，而应答包通常很大。如果只让LB处理入包，定可以提升吞吐能力】。</p>
-<ol>
-<li>客户端得到服务的目的IP（为VIP，可能是通过DNS查询），目的端口80。</li>
-<li>于是客户端与VIP的80端口建立连接，LVS在VIP上收到之后，根据均衡策略，从后端realserver中选出一台（RIP1）作为此次请求的接收者，然后将请求包的目的mac地址更改为RIP1的mac地址，封装后转发给后端的RIP1，同时将该链接记录在hash表中。</li>
-<li>RIP1的某块网卡，如eth0，接收到这个转发包看到mac地址是自己的，于是就转发给上层的IP层，IP层解包后，发现目的IP地址也是自己（VIP配置在一块non-arp的网卡上，如lo:0）,然后接着根据协议上传。</li>
-<li>应用处理完请求后，将数据传给TCP，TCP将源端口改为80，源IP更改为VIP，目的端口更改为客户端端口，目的IP为客户端IP，IP层根据目的地址进行路由，然后经网络返给Client，完成了一次请求，而不经过LB。</li>
-</ol>
-<p><strong>DR模式的优缺点：</strong></p>
-<p><strong>优：可扩展性强，LB不会成为业务增长的瓶颈</strong></p>
-<p><strong>缺：节点不能跨网段，real server上须有一块网卡不接受arp广播</strong></p>
-<h3 id="TUN模式"><a href="#TUN模式" class="headerlink" title="TUN模式"></a>TUN模式</h3><p>就是针对DR模式的物理网段限制而来，针对互联网业务的特点，也比NAT效率高。但需要所有的服务器支持 “IP Tunneling(IP Encapsulation)”协议。但跨网段，服务器离的近，还好，离得不近，则网络延迟会成为主要瓶颈。</p>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><blockquote>
-<p>当前7层负载均衡，如Nginx已经让程序员大呼方便，但7层的效率肯定比不了在3层的处理效率，聊以此文，作为LVS工作模式简短总结介绍。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>学而思</category>
-      </categories>
-      <tags>
-        <tag>硬核知识</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>人力资源的阶段和策略</title>
-    <url>/2020/11/12/%E4%BA%BA%E5%8A%9B%E8%B5%84%E6%BA%90%E7%9A%84%E9%98%B6%E6%AE%B5%E5%92%8C%E7%AD%96%E7%95%A5/</url>
-    <content><![CDATA[<p><img src="https://nwzimg.wezhan.cn/contents/sitefiles2035/10176635/images/18752221.png" alt=""></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>文章摘抄而来，主要目的是解释领域概念。因为各领域都有很多系统化研究和沉淀，这些系统化的知识利于经验转化和传承的效率，也利于看清问题与共识交流。</p>
-</blockquote>
-<p>作者举的例子中混合型策略并不是华为独享代表，其实阿里，腾讯都是。常青树科技公司，必然都在赋能型上下了大工夫。</p>
-<p>赋能型的代表海底捞，中海地产，讲得也实在。</p>
-<h2 id="人力资源经营的四个阶段"><a href="#人力资源经营的四个阶段" class="headerlink" title="人力资源经营的四个阶段"></a>人力资源经营的四个阶段</h2><ol>
-<li>引入</li>
-<li>增值，人力资本的初次增值，企业用沉淀的组织知识来提升人才素质，使其匹配企业的各类组织单元。如图中平坦曲线显示，这个环节的操作需要长期投入才能见效</li>
-<li>项目的激励（投资评估），人力资源的再次资本化，即将人才配置进组织单元里，辅以项目式的激励和风控机制，将其锁定为与项目的股权和债权关系。陡峭曲线显示这个环节的操作可以短期见效 <a id="more"></a></li>
-<li>项目的赋能（投后管理），这是人力资本再次增值，即为项目提供人力资源管理解决方案，增加其成功可能性，同样需要长期投入才能见效</li>
-</ol>
-<h2 id="三种人力资源战略与代表"><a href="#三种人力资源战略与代表" class="headerlink" title="三种人力资源战略与代表"></a>三种人力资源战略与代表</h2><h3 id="激励型人力资源战略"><a href="#激励型人力资源战略" class="headerlink" title="激励型人力资源战略"></a>激励型人力资源战略</h3><p>人力资本增值出现在1、3阶段。用支付杠杆引来了成熟型人才，对其进行初步绑定后，再为他搭好班子，配好资源，下沉权力，再用激励手段将其牢牢绑在项目上。</p>
-<ul>
-<li>第一阶段用得好的是小米等互联网企业</li>
-<li>第三阶段用得好的典型是海尔，万科，碧桂园等传统企业的先锋。</li>
-</ul>
-<h3 id="赋能型人力资源战略"><a href="#赋能型人力资源战略" class="headerlink" title="赋能型人力资源战略"></a>赋能型人力资源战略</h3><p>增值出现在2、4阶段。分为资源赋能和方法论赋能，前者指资源连接，后者的本质是人才培养。这样做企业必须有足够的底气：一是自己资源好，二是自己方法论好，能够让普通的人才快速成长。这是一条更不容易走的路。</p>
-<h4 id="企业代表"><a href="#企业代表" class="headerlink" title="企业代表"></a>企业代表</h4><p>海底捞，中海地产是这种战略典型代表。海底捞有严格的任职资格体系，对人员的改造效率超高；中海地产为核心人才设计了阶梯式成长路径，在每个关键节点都有赋能项目的介入，使其人才培养与成长效率在业内首屈一指。</p>
-<p>这些企业不怕人才被挖走，挖走才有职位空缺让后来的年轻人上位，人才供应链才能正常运转（人才的年轻化是发展的诉求）。值得一提的是，不少企业选择这条路不是因为自己的资源和方法论好，而是为了节约成本。</p>
-<h4 id="难走的路收益才厚"><a href="#难走的路收益才厚" class="headerlink" title="难走的路收益才厚"></a>难走的路收益才厚</h4><h5 id="难走的路-–-下跳棋没那么便宜"><a href="#难走的路-–-下跳棋没那么便宜" class="headerlink" title="难走的路 – 下跳棋没那么便宜"></a>难走的路 – 下跳棋没那么便宜</h5><p>不少企业想下跳棋，用“带教”来跳过知识管理（知识萃取，知识分享），这是错误的，采用这类战略的企业必须用心打磨自己的人力资源政策，在任职资格体系，素质模型，课程体系，讲师体系，培养项目等方面花心思，有投入。</p>
-<h5 id="最佳状态"><a href="#最佳状态" class="headerlink" title="最佳状态"></a>最佳状态</h5><p>最佳状态是：员工一旦进入人力资源体系，高手的知识自动上传，徒弟的知识自动下载。这种体系是卷入式的，不以个人意志为转移，才能实现真正意义上的赋能。</p>
-<h3 id="混合型人力资源战略"><a href="#混合型人力资源战略" class="headerlink" title="混合型人力资源战略"></a>混合型人力资源战略</h3><p>华为是典型的例子，为员工设置了人才培养长周期，抵达产出的拐点之前（成为华为的“奋斗者”）以赋能为主，而在拐点到达之后则以激励为主，员工不仅可在项目中获取丰厚的奖金，还可以分享TUP激励，即有效期为5年的股权激励。大部分实施混合型的落实不好，因为决心不够，赛道不够。</p>
-]]></content>
-      <categories>
-        <category>学而思</category>
-        <category>经营管理</category>
-      </categories>
-      <tags>
-        <tag>经营管理</tag>
-        <tag>概念解读</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>为什么女性有永久性乳房</title>
     <url>/2008/05/11/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%A5%B3%E6%80%A7%E6%9C%89%E6%B0%B8%E4%B9%85%E4%B9%B3%E6%88%BF/</url>
     <content><![CDATA[<p><img src="http://cdn.diffday.com/picgo/20201119202156.png" alt=""></p>
@@ -621,6 +542,243 @@
       </categories>
       <tags>
         <tag>生物学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>互联网交友</title>
+    <url>/2015/07/23/%E4%BA%92%E8%81%94%E7%BD%91%E4%BA%A4%E5%8F%8B/</url>
+    <content><![CDATA[<p><img src="http://cdn.diffday.com/picgo/%E4%BA%A4%E5%8F%8B%E5%B0%81%E9%9D%A2.png" alt=""></p>
+<p>交友，跟人类所有活动一样，都是有动机的。三类诉求应该能涵盖</p>
+<ul>
+<li>要么某种同好聊得来，士为知己者死</li>
+<li>要么有所求(利益/信息流动)</li>
+<li>要么男女之爱</li>
+</ul>
+<h3 id="数字不说谎"><a href="#数字不说谎" class="headerlink" title="数字不说谎"></a>数字不说谎</h3><p>人人都从陌生人开启，转入熟识，有些再继续转入陌生，走着这样的轮回，有些就真成了要好的朋友，但这个比例不会大。经数据调查证实，一个人真正的朋友多在10人以下，且一个人能保持联系的友人在150以下。这个数字在Facebook上也能得到印证，平均每人130个好友，但常联系的只有4-6个（放宽点在7-15个之间），通过分析用户的交际圈分组，85%的组是不属于朋友概念的，且多数是维持4-6组不超过10个人的关系人组。在北美的其它调查中，平均每个人有10个左右关系较近的朋友（每周交流或见面），同样佐证着数据范围。</p>
+<p>你可能好奇，what the hell about 150，150个人的维系差不多是普通人脑袋能力的上限。Oh my god，真的么？新石器时代的村庄，通常在达到150个人后，会拆分为2个，罗马军队也是150个互相认识的人一组，对数字不服来战。</p>
+<p>我更激进的认为，线上的轻量化使得你更容易与人保持联系，其实回归到线下，你会更加缩小朋友范围，以日常电话时间举例，你80%的电话是打给同样的4个人，表明电话圈是强关系控制的。说实在的，你的熟人没你想的那么多，精力跟不上时，你还会启动关注隐私问题。</p>
+<h3 id="两大流派"><a href="#两大流派" class="headerlink" title="两大流派"></a>两大流派</h3><a id="more"></a>
+<p>交友应用两大流派</p>
+<ul>
+<li>一个流派是把用户数据“封闭”，阻隔用户获得其他用户信息，站方从中赚钱，这就是“婚恋网站”；</li>
+<li>一个流派是把用户数据“开放”，用户随意搜索和联络其他用户，站方试图通过用户的粘度，而以广告费或增值费获得收入，这就是“（通用）交友网站”。</li>
+</ul>
+<p>基于“保持联系”的SNS应用成为主流；而“认识朋友”的SNS应用被边缘化，是最近这些年SNS领域的整体趋势。</p>
+<p>列了数字，其实也得谈谈产品。搞产品第一是搞定位人群，再之搞产品人员境界，此两点导致每款产品想要的世界不同。婚恋网站因为真正需要用户花大钱的交友过程，并不在其上实现，所以是个想象力不大的生意，我们不多谈。说另一派，不远的几年前，数家SNS网站并存，争斗的还很厉害，现在都消停了【咋个回事，网民规模脱离疯狂上升期是背后实质推手吧】，我们都说以史为镜，可知兴衰，开始吧。</p>
+<h2 id="SNS的大败局：我们都不谈内部争斗问题"><a href="#SNS的大败局：我们都不谈内部争斗问题" class="headerlink" title="SNS的大败局：我们都不谈内部争斗问题"></a>SNS的大败局：我们都不谈内部争斗问题</h2><h3 id="开心网之死"><a href="#开心网之死" class="headerlink" title="开心网之死"></a>开心网之死</h3><p>开心网死于腾讯的挤兑和微博的崛起。腾讯本走屌丝路线，以MySpace模式迎战51.com的，<strong>且一般来说，社交网站可以由精英往草根发展，却难以从草根向精英发展。</strong>但腾讯因为强大的QQ关系链支撑，就是可以做到逆袭。你以社交游戏起家，我就抄你一个开心农场出来，抄一套Facebook类的观感给白领人群用。</p>
+<blockquote>
+<p>这里有一点，紧随Facebook路线的校内网并没有像Facebook一样占领白领人群，因为中文公司用户保持联系的需求被其它工具个满足了，例如QQ。打动他们的是社交化游戏。</p>
+</blockquote>
+<p>09年微博的出现，又更多的分流了白领人群，状态更新什么的，我天然能替代，还能提供到更多有价值的信息，还有明星参与，且微博更好的察觉对接到了无线互联网的趋势（Twitter 70个字的限制你就知道天生要玩手机端）。</p>
+<h3 id="51-com之死"><a href="#51-com之死" class="headerlink" title="51.com之死"></a>51.com之死</h3><p>51的名字听起来像”我要“，总有人说搞情色交易或妓女化交友。但我觉得创始人绝不是这个初心吧，但确实走的是农村包围城市的道路，以简短好记的域名，不错的访问速度，席卷厂妹和二三线城市枯燥人群。</p>
+<p>其靠陌生人交友起家，在没有同好因素支撑的人群中，第一大支撑力就是荷尔蒙（展示自己或约炮，哎，寂寞啊。因为生活枯燥，其实他们有本能的思乡和地域情结）。如果陌生人之间缺乏约束，低俗后，容易对女性用户造成不利刺激，此类情况若驱逐走了女人，社区衰落是不可避免的。</p>
+<p>在急躁的盈利和发展压力下，搞出的东西没服务好自己的目标人群。搞游戏其实也不适合它，厂妹哪有时间玩游戏。往城市人群扩展，同样碰到草根转精英的不匹配问题。当然其死亡当然也少不了腾讯的挤兑。</p>
+<h3 id="Facebook之活"><a href="#Facebook之活" class="headerlink" title="Facebook之活"></a>Facebook之活</h3><p>Facebook有很多缺陷，但是它靠发展为一个平台，撑了下来（且一直注重人的互动联系），这就像Amazon的创始人一样，靠的是洞察力布局支撑公司的发展。Myspace败在管理人员眼光（我想被新闻集团收购后的管理问题估计也导致它走向必败的结局）</p>
+<h2 id="SNS结语"><a href="#SNS结语" class="headerlink" title="SNS结语"></a>SNS结语</h2><h3 id="保持联系比创建朋友重要"><a href="#保持联系比创建朋友重要" class="headerlink" title="保持联系比创建朋友重要"></a>保持联系比创建朋友重要</h3><p>但线上保持联系，不好做（手段很匮乏，除了评论回复，多是利用用户的虚荣心），其不像门户类并没有改变用户的阅读行为，<strong>聚餐，泡吧，踢球等导致交友结果和保持联系的行为，复制不到线上来。</strong>就像Facebook的长期繁荣也不是靠互动支撑一样（逃脱了每过几年被新兴形态挑战替代的风险）。</p>
+<p><strong>总结下来，纯交友诉求的网站，除了婚恋类，后期都会遇到劣币驱逐良币的宿命问题。搞社区和UGC是一种出路，这两样要关注信噪比，低信噪比的产品也会自然变成落后的物种，消亡是注定的。信噪比不仅仅适用于社区内容类，所有SNS类都适用。微信的私密朋友圈交往，抢夺微博的人群，也是一个例子。</strong></p>
+<h3 id="互联网时代大分而不是大同"><a href="#互联网时代大分而不是大同" class="headerlink" title="互联网时代大分而不是大同"></a>互联网时代大分而不是大同</h3><p>因互联网时代引起的”大分“和年轻人总是不喜欢跟老产品老人们混在一起（老产品也感知不到年轻人的口味），使得<strong>认识朋友的需求永远极其庞大，“嗷嗷待哺”</strong>，站方只要提供一个合适的产品，就能快速发展。但拉到人群之后，你会继续面临保持联系的基石问题，如何把自己的平台变成一个重复访问的用户寄居地，哦，想起信噪比，听起来头大又那么牛逼！</p>
+<p><u>我说的都是错的！</u></p>
+]]></content>
+      <categories>
+        <category>学而思</category>
+        <category>反刍整理</category>
+      </categories>
+      <tags>
+        <tag>互联网思维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>亚伯拉罕诸教的差异</title>
+    <url>/2020/11/17/%E4%BA%9A%E4%BC%AF%E6%8B%89%E7%BD%95%E8%AF%B8%E6%95%99%E7%9A%84%E5%B7%AE%E5%BC%82/</url>
+    <content><![CDATA[<p><img src="http://cdn.diffday.com/picgo/20201117200324.png" alt=""></p>
+<h2 id="亚伯拉罕诸教"><a href="#亚伯拉罕诸教" class="headerlink" title="亚伯拉罕诸教"></a>亚伯拉罕诸教</h2><p>基督教、伊斯兰教和犹太教被学术界称为亚伯拉罕诸教，因为他们都相信有位先知亚伯拉罕，在古兰经里，亚伯拉罕叫以易卜拉欣。</p>
+<h3 id="经典成书的时间和过程"><a href="#经典成书的时间和过程" class="headerlink" title="经典成书的时间和过程"></a>经典成书的时间和过程</h3><ul>
+<li><p>《旧约》 前1200-前400年，上帝只选了犹太人做他的子民，从埃及返回迦南福地，建立国家，可惜后又被巴比伦国蹂躏。</p>
+</li>
+<li><p>《新约》 公元50-100年 ，两约之间是记录空白。普世性较好，因为耶稣的时代，以色列这地方已经有很多不同种族混居，所以发展为其它种族也可以信仰基督。可惜不被犹太人所容，被钉死在十字架上。</p>
+</li>
+<li><p>《古兰经》 公元610-633年。阿拉伯地区部落常年征战，贵族作威作福，商人和穷人都生活吴王，且被波斯人欺压。默罕默德嫁给一个遗孀后，生活的挺滋润，经常山洞清修，本身不识字，但听过基督教牧师很多故事，在这样的时代背景下，借了基督教的很多信息创立了伊斯兰教。给了穷人希望，从实用的角度上强调顺从，团结阿拉伯人，取得了空前的成功。</p>
+</li>
+</ul>
+<p><strong>相当于每个后继者是前者的补丁版，古兰经是矛盾处最少的一个</strong></p>
+<a id="more"></a>
+<p><img src="http://cdn.diffday.com/picgo/20201117200256.png" alt=""></p>
+<h3 id="主旨概念异同"><a href="#主旨概念异同" class="headerlink" title="主旨概念异同"></a>主旨概念异同</h3><ul>
+<li>古兰经大量故事与新旧约一致</li>
+<li>古兰经不承认基督是神的儿子，因为这违背一神教的原则，基督只是与默罕默德一样的先知</li>
+<li>古兰经认为旧约，新约都是被篡改的经，而古兰经是创始之前就有的，天使授与先知</li>
+<li>根据圣经，人是堕落的罪人，而古兰经则说人不是罪人，但他基本上是善良的</li>
+<li>根据圣经，魔鬼是堕落的天使，而根据古兰经，魔鬼不是堕落的天使，而是堕落的精灵</li>
+</ul>
+<h3 id="文本风格差异"><a href="#文本风格差异" class="headerlink" title="文本风格差异"></a>文本风格差异</h3><p>《圣经》文本的风格各异，不一而足，内容包括历史，诗歌，哲学，甚至私人信件和讲章，历史版本也多，原始文本是希伯来文和希腊文，现实流行文本是英文等欧洲文字。神学贯穿于文本意义的表达之中。</p>
+<p>《古兰经》文本的风格统一，是自由的韵文体。原始文本和现实通用文本是阿拉伯文，译本只能用做参考。信仰的表达不仅在于文本（text），还在于诵读（chanting）。与意义相比，声音的作用更加直接和实在。</p>
+<p>《古兰经》共114章，6236节，其中穆罕默德在麦加口述了86章，占全书的三分之二，他迁移到麦地那以后又口述了28章，占全书的三分之一。麦地那的部分的确提倡圣战，应该也是解决矛盾的实用主义需要吧，毕竟默罕默德它最终发展成是政教合一。</p>
+<h3 id="信仰体系总体特征"><a href="#信仰体系总体特征" class="headerlink" title="信仰体系总体特征"></a>信仰体系总体特征</h3><h4 id="《圣经》最终表达是一种末世观"><a href="#《圣经》最终表达是一种末世观" class="headerlink" title="《圣经》最终表达是一种末世观"></a>《圣经》最终表达是一种末世观</h4><p>《旧约》强调对神的“顺服”，但缺少普世性；《新约》强调的普世性，而弱化了仪式、律法的约束。从《旧约》中犹太人不断恶化的历史产生了末世观和对弥赛亚的期待。学者认为，比类福音所表达的是末世观。人们期待耶稣的再次降临和末日审判，他们过集体的生活（使2：44-45），轻现世。</p>
+<p>保罗神学提出了“十字架奥义”即“赎罪说”，强调灵魂的拯救，是对末世观的扭转。但《新约》以《启示录》结局，末世观的影响非常深远，直至今日。</p>
+<h4 id="《古兰经》最终表达的是两世观"><a href="#《古兰经》最终表达的是两世观" class="headerlink" title="《古兰经》最终表达的是两世观"></a>《古兰经》最终表达的是两世观</h4><p>造物主是绝对的超越的，人对主是绝对的依赖和服从。而信仰和仪式是紧密结合的。把对造物主的信仰与普世性结合起来，把精神的信与实践的信结合起来。刘智说：“以认主为宗旨，以敬事为工夫，以复命归真为究竟。” 在人类始祖犯罪以后，真主在《古兰经》里说：“你们互相仇视地下去吧。大地上有你们暂时的住处和享受。”（2：36）“你们都从这里下去吧！我的引导如果达到你们，那么，谁遵守我的引导，谁在将来没有恐惧，也不忧愁”（2：38）表达了与《圣经》不同的观点。</p>
+<h3 id="正信差异"><a href="#正信差异" class="headerlink" title="正信差异"></a>正信差异</h3><p>你行公义，好怜悯，存谦卑的心，与你的神同行。（弥迦书6：8） 耶稣对他说：“你要尽心、尽性、尽意爱主你的神。这是诫命中第一，且是最大的。其次也相仿，就是爱人如己。这两条诫命是律法和先知一切道理的总纲。”（马太22：37-40）、</p>
+<p>把自己的脸转向东方和西方，都不是正义。正义是信真主，信末日，信天神，信天经，信先知，并将所爱的财产施济亲戚、孤儿、贫民、旅客、乞丐和赎取奴隶，并谨守拜功，完纳天课，履行约言，忍受贫困、患难和战争。这等人，确是忠贞的；这等人，确是敬畏的。（古兰经2：177）— 一方面同情穷人，一方面让人忍受现世。</p>
+<h2 id="扩展好奇下"><a href="#扩展好奇下" class="headerlink" title="扩展好奇下"></a>扩展好奇下</h2><h3 id="佛教是一神教吗"><a href="#佛教是一神教吗" class="headerlink" title="佛教是一神教吗"></a>佛教是一神教吗</h3><p>如果“神”指的是世界的主宰、造物，佛教就是无神教（接近于万物有灵论）。佛教信仰的目标是涅槃，不是神，是一种修行的状态。</p>
+<p>如果“神”指的是超自然的存在，佛教就是多神教。佛教有许多天神地祗，但不包括佛、菩萨、罗汉。</p>
+<h3 id="宗教一字师"><a href="#宗教一字师" class="headerlink" title="宗教一字师"></a>宗教一字师</h3><p>基督教：爱</p>
+<p>佛教：空</p>
+<p>伊斯兰教：从（顺从）</p>
+]]></content>
+      <categories>
+        <category>学而思</category>
+        <category>过分好奇</category>
+      </categories>
+      <tags>
+        <tag>概念解读</tag>
+        <tag>历史</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>产品意识</title>
+    <url>/2015/07/28/%E4%BA%A7%E5%93%81%E6%84%8F%E8%AF%86/</url>
+    <content><![CDATA[<p><img src="http://cdn.diffday.com/picgo/20201126174951.png" alt=""></p>
+<h2 id="造神前言"><a href="#造神前言" class="headerlink" title="造神前言"></a>造神前言</h2><p>在互联网圈里混，多少要培养一些个人的产品意识。用最直白的话来说，什么是产品意识，其实就是对人性的洞察。所有的大而玄的东西谈产品，如果不说人话，你就可以把它们踢到垃圾堆里。有一段时间，在鹅厂狂吹张小龙，造神一样，其实也是广研团队下层自身需要的宣传，虽说造神，但不得不说张小龙确是人才，杰出程序员，到了不惑年纪，看透纷繁复杂的羁绊，了解各种行业迷障，搞产品懂用户也是一等一的厉害。特摘录改写部分分享内容，提醒自己没有一身研发功夫的产品经理不是好运营。我们这里不看营销，不看技术，只看产品。</p>
+<p>后来梁宁的产品经理30讲和增长30讲也讲的很好，讲到产品经理的能力其实是建立信息秩序的能力，干这行也需天分，天分的一点是敏感度高。这一点是后期培养难以及时的，就像个性特征+动机+价值观=天赋一样，这些都是在其过往的经历中基本已经定型了，瓜若强扭大概率不甜。</p>
+<h2 id="用户定位"><a href="#用户定位" class="headerlink" title="用户定位"></a>用户定位</h2><a id="more"></a>
+<p><strong>要设计一款网络产品，我觉得最关键的是首先是定位用户，而不是想做个什么，</strong>就像张小龙这样，<strong>研究透了群体，做么样的东西如何做不容易错。想干个东西，多问问题把自己问醒。三个就够，what/who/why。</strong></p>
+<h3 id="who"><a href="#who" class="headerlink" title="who"></a>who</h3><p>这个层面谁人都绕不过去，举例说微信就是做普通百姓，不限行业，不限能力，不限年龄。</p>
+<h3 id="why"><a href="#why" class="headerlink" title="why"></a>why</h3><p>各种不同类型的产品，<strong>就是找自己的价值点</strong>。微信以好玩起家，以简洁干练的爽构造自己的体验哲学，以低噪音生活化信息流经营自己的最大价值。莫提生态体系，那是讲给市场听的。</p>
+<h3 id="what"><a href="#what" class="headerlink" title="what"></a>what</h3><p>张小龙分享谈到的内容，更多的集中于what这个层面（因为他的who很宽泛）。what中的产品气质的定位和哲学，粗线条的观点是有演绎推广内涵的。细的举例又具有醍醐灌顶的趣味效果。</p>
+<p>一款产品的气质其实也是讲产品经理的自我修养。what!</p>
+<h2 id="洞察最本质的用户心理诉求"><a href="#洞察最本质的用户心理诉求" class="headerlink" title="洞察最本质的用户心理诉求"></a>洞察最本质的用户心理诉求</h2><p>心理满足的驱动力，远胜工具和省钱。面向普通用户的互联网产品，要利用好人性的驱动力，贪嗔痴或性。举例来说，微博上的用户心理诉求是自我存在感，微信植根于手机环境，定位要比它更简单好玩，而不是简单的点对点省钱。</p>
+<h2 id="营造群体趋势里的口碑与时尚"><a href="#营造群体趋势里的口碑与时尚" class="headerlink" title="营造群体趋势里的口碑与时尚"></a>营造群体趋势里的口碑与时尚</h2><p>像《乌合之众》中说的一样，群体智商本身低于个体智商，群体自己会表现出像一个完整生命个体的特性，就好像蜜蜂群尽管没有管理层却会统一行动一样。傻傻的人们他们会跟风，自认为跟的是“时尚”，这种时尚是互联网产品重要的推动力，有价值的好用产品，会成为时尚。抛开价值，怎个好用？乔布斯的高境界在于<strong>stay hungry，stay foolish，如果套在用户身上，就是让我爽，不要让我思考。爽是用户需求，不思考是用户体验。</strong>在这种情况下，<strong>面向懒人设计，简化场景选择，保持主线质量，给用户自由用完即走</strong>，这样你才有好用的口碑。</p>
+<p><strong>洞察诉求</strong>，要懂人，如何<strong>获取用户心理</strong>？</p>
+<p>这条线中，其实你无法了解他人，只能理解自己，要<strong>从己出发推演人最普遍的心理活动</strong>，<strong>捕捉大众需求</strong>，而不是海量的个性化需求。其实你蹦出来的或听到的琐碎好点子99%都是脱离需求的，用户反馈也只是帮你了解他们的想法，终要回到内省归纳。莫太相信集体智慧，集体决策导致平庸和各个部分的分裂，不要贬低自己，你的短板可能就是你的强项（例如，社交恐惧者可能知道怎么做社交产品）。哐哐哐地列了这么一大堆，强调的是重视让人都能用都会用的基本需求，很多（个性）需求都是不必做的。逼迫自己变成傻瓜看待产品，变不成就别放过第一印象（忘性大就记下来）</p>
+<h2 id="产品设计-少即是多"><a href="#产品设计-少即是多" class="headerlink" title="产品设计-少即是多"></a>产品设计-少即是多</h2><p>像科学界的奥卡姆剃刀原则一样，理论都是宁少勿多。很多物理学家会说我们发现宇宙的规律是很简单的，那么既然上帝创造宇宙订立的规则都这么简单，然后演化出这么一个多样世界，为什么我们要把很多事情搞复杂化？留点空间，多点可能，因为你的决策来自个体推演，<strong>群体行为有规律但难以预测</strong>，你不也在试验和迭代吗，<strong>站在上帝身边的PM，也要学着上帝的哲学（做多就是抹杀）</strong>。体验要简单，规则要简单。记得每增加一种选择，都让用户迷惑，不固定感跟用户对随机的好奇，不是一个事儿。</p>
+<p>举个不设定复杂规则的例子，<strong>SNS玩的都是群体效应的功能</strong>。当初做摇一摇或者基于LBS的附近的人，也没想到用户会拿来干什么，只是往好玩好用，爽方面做。让用户自己去演化发掘（人们首次相互被看到时，值得期待用户间会发生什么，况且陌生人交友嗷嗷待哺，是你保底的需求点）。产品迭代的过程中，主线功能不强，堆再多辅助功能也没用，做好条理分类清晰的主体特性（分类本身就是人脑的学习&amp;工作机制的天性），感受关注用户的潮流和反应（非常重要），等待他们说，太好玩了。</p>
+<h2 id="平等-amp-灵魂"><a href="#平等-amp-灵魂" class="headerlink" title="平等 &amp; 灵魂"></a>平等 &amp; 灵魂</h2><p><strong>跟用户平等做朋友，做有灵魂的产品</strong></p>
+<p>有机联系的结构（产品结构），有肌肉（功能），有气质（价值观），反应敏捷（速度快），理性（逻辑清晰，交互合理），谈吐佳（文案）</p>
+<p>文案特别提下，<strong>产品中的文字是你和用户在说话，反映了你的气质。不讨好用户，不抬高自己</strong>。不用“吧”，“哦”，提示语不累赘加“成功”等多余字眼，用你不用您，不勉强用户使用功能。QQ邮箱管理员附上真人信息，也是尊重用户的一种体现。</p>
+<p>欢迎页是你为数不多的表达感受的地方，让每个欢迎页都是一个故事，让产品值得期待，传递人文意识当然更高级。</p>
+<p><strong>互联网产品应让个体更自由，个性化长尾产品越来越成为未来走向。工业化满足低成本的诉求，个性化体现独特价值。所以碎片化越来越明显，App越来越多。大家可创造的希望也越来越多。</strong></p>
+<h2 id="好玩的补充（醍醐提醒）"><a href="#好玩的补充（醍醐提醒）" class="headerlink" title="好玩的补充（醍醐提醒）"></a>好玩的补充（醍醐提醒）</h2><ul>
+<li>管理是不自然的，SNS产品不要让用户卷入到管理工作中。例如通讯录分组（微博分组，google+其实做出来了没人用），别以为这是真实大众需求</li>
+<li>不搞已发送已阅读之类的，也是做到简洁自然不累赘。再之搞了这个，老板用上已阅读特性，还不把下面的人紧张死，要允许人性的缺陷存在。</li>
+<li>需要打通，说明不是需求。需要整合，说明都不行了。需要拉动，说明是KPI了。需要导入，说明没有生命力了。避免全面，全面的东西是平庸的。</li>
+<li>微博上的人的心理诉求是自我存在感，其实活得都不是自己，并不是自言自语，而是博主希望在听众心目中构筑自己希望的形象。微信植根朋友圈，信噪比高，让用户使用维护起来简单轻松，胜在这里</li>
+</ul>
+]]></content>
+      <categories>
+        <category>学而思</category>
+        <category>读书笔记</category>
+      </categories>
+      <tags>
+        <tag>互联网思维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>人力资源的阶段和策略</title>
+    <url>/2020/11/12/%E4%BA%BA%E5%8A%9B%E8%B5%84%E6%BA%90%E7%9A%84%E9%98%B6%E6%AE%B5%E5%92%8C%E7%AD%96%E7%95%A5/</url>
+    <content><![CDATA[<p><img src="https://nwzimg.wezhan.cn/contents/sitefiles2035/10176635/images/18752221.png" alt=""></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>文章摘抄而来，主要目的是解释领域概念。因为各领域都有很多系统化研究和沉淀，这些系统化的知识利于经验转化和传承的效率，也利于看清问题与共识交流。</p>
+</blockquote>
+<p>作者举的例子中混合型策略并不是华为独享代表，其实阿里，腾讯都是。常青树科技公司，必然都在赋能型上下了大工夫。</p>
+<p>赋能型的代表海底捞，中海地产，讲得也实在。</p>
+<h2 id="人力资源经营的四个阶段"><a href="#人力资源经营的四个阶段" class="headerlink" title="人力资源经营的四个阶段"></a>人力资源经营的四个阶段</h2><ol>
+<li>引入</li>
+<li>增值，人力资本的初次增值，企业用沉淀的组织知识来提升人才素质，使其匹配企业的各类组织单元。如图中平坦曲线显示，这个环节的操作需要长期投入才能见效</li>
+<li>项目的激励（投资评估），人力资源的再次资本化，即将人才配置进组织单元里，辅以项目式的激励和风控机制，将其锁定为与项目的股权和债权关系。陡峭曲线显示这个环节的操作可以短期见效 <a id="more"></a></li>
+<li>项目的赋能（投后管理），这是人力资本再次增值，即为项目提供人力资源管理解决方案，增加其成功可能性，同样需要长期投入才能见效</li>
+</ol>
+<h2 id="三种人力资源战略与代表"><a href="#三种人力资源战略与代表" class="headerlink" title="三种人力资源战略与代表"></a>三种人力资源战略与代表</h2><h3 id="激励型人力资源战略"><a href="#激励型人力资源战略" class="headerlink" title="激励型人力资源战略"></a>激励型人力资源战略</h3><p>人力资本增值出现在1、3阶段。用支付杠杆引来了成熟型人才，对其进行初步绑定后，再为他搭好班子，配好资源，下沉权力，再用激励手段将其牢牢绑在项目上。</p>
+<ul>
+<li>第一阶段用得好的是小米等互联网企业</li>
+<li>第三阶段用得好的典型是海尔，万科，碧桂园等传统企业的先锋。</li>
+</ul>
+<h3 id="赋能型人力资源战略"><a href="#赋能型人力资源战略" class="headerlink" title="赋能型人力资源战略"></a>赋能型人力资源战略</h3><p>增值出现在2、4阶段。分为资源赋能和方法论赋能，前者指资源连接，后者的本质是人才培养。这样做企业必须有足够的底气：一是自己资源好，二是自己方法论好，能够让普通的人才快速成长。这是一条更不容易走的路。</p>
+<h4 id="企业代表"><a href="#企业代表" class="headerlink" title="企业代表"></a>企业代表</h4><p>海底捞，中海地产是这种战略典型代表。海底捞有严格的任职资格体系，对人员的改造效率超高；中海地产为核心人才设计了阶梯式成长路径，在每个关键节点都有赋能项目的介入，使其人才培养与成长效率在业内首屈一指。</p>
+<p>这些企业不怕人才被挖走，挖走才有职位空缺让后来的年轻人上位，人才供应链才能正常运转（人才的年轻化是发展的诉求）。值得一提的是，不少企业选择这条路不是因为自己的资源和方法论好，而是为了节约成本。</p>
+<h4 id="难走的路收益才厚"><a href="#难走的路收益才厚" class="headerlink" title="难走的路收益才厚"></a>难走的路收益才厚</h4><h5 id="难走的路-–-下跳棋没那么便宜"><a href="#难走的路-–-下跳棋没那么便宜" class="headerlink" title="难走的路 – 下跳棋没那么便宜"></a>难走的路 – 下跳棋没那么便宜</h5><p>不少企业想下跳棋，用“带教”来跳过知识管理（知识萃取，知识分享），这是错误的，采用这类战略的企业必须用心打磨自己的人力资源政策，在任职资格体系，素质模型，课程体系，讲师体系，培养项目等方面花心思，有投入。</p>
+<h5 id="最佳状态"><a href="#最佳状态" class="headerlink" title="最佳状态"></a>最佳状态</h5><p>最佳状态是：员工一旦进入人力资源体系，高手的知识自动上传，徒弟的知识自动下载。这种体系是卷入式的，不以个人意志为转移，才能实现真正意义上的赋能。</p>
+<h3 id="混合型人力资源战略"><a href="#混合型人力资源战略" class="headerlink" title="混合型人力资源战略"></a>混合型人力资源战略</h3><p>华为是典型的例子，为员工设置了人才培养长周期，抵达产出的拐点之前（成为华为的“奋斗者”）以赋能为主，而在拐点到达之后则以激励为主，员工不仅可在项目中获取丰厚的奖金，还可以分享TUP激励，即有效期为5年的股权激励。大部分实施混合型的落实不好，因为决心不够，赛道不够。</p>
+]]></content>
+      <categories>
+        <category>学而思</category>
+        <category>经营管理</category>
+      </categories>
+      <tags>
+        <tag>经营管理</tag>
+        <tag>概念解读</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>你的灯亮着吗</title>
+    <url>/2008/09/12/%E4%BD%A0%E7%9A%84%E7%81%AF%E4%BA%AE%E7%9D%80%E5%90%97/</url>
+    <content><![CDATA[<p><img src="http://cdn.diffday.com/picgo/20201119140946.png" alt=""></p>
+<blockquote>
+<p>整本书中有很多故事举例，本就为问题解决者所写，薄薄一本，通透练达，没看这本书的时候总奇怪到底为什么取这个书名，看看故事就明白了</p>
+</blockquote>
+<h2 id="引子故事"><a href="#引子故事" class="headerlink" title="引子故事"></a>引子故事</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>瑞士日内瓦湖上的山脉中，建成了很长的汽车隧道，从隧道东出口再往400米，就是世界上风景最优美的俯瞰日内瓦湖的度假胜地，每天都有成千上万的游客在此处欣赏美景，同时，每天当着几百名神清气爽的游客返回他们的汽车时，都会有十来个（甚至更多）的人们收到一份意外的惊喜：汽车也跟着放松了（电池没电了）——因为他们在放松之余，忘记关掉车灯！</p>
+<h3 id="解决者出场"><a href="#解决者出场" class="headerlink" title="解决者出场"></a>解决者出场</h3><p>怎么着？只能打911，叫交警过来帮忙呗。为此，游客们这愉快的心情都瞬间化为乌有，“去了日内瓦湖，车都开不走了”。谁让你这么设计的，<u><strong>锅工程师你扛了吧！</strong></u>经过一系列的调研，工程师想出了N个他认为可行的办法来：</p>
+<ol>
+<li><p>可以在尽头挂一块牌，写上：关掉车灯。然而，如果夜间行走的人也关掉车灯，这样真的好吗？</p>
+</li>
+<li><p>他可以装傻，啥也不知道，就让这些“意外”继续上演。然而，这样差评更多，到问责的时候，就会背上“豆腐渣工程”的骂名！</p>
+</li>
+<li><p>他可以在风景俯瞰处建一个充电桩，但是这要不要成本的？还有就是充电桩出故障时，挨骂挨得更多呢！</p>
+</li>
+<li><p>他可以把充电桩承包给私人，然后人家开起小卖部来，什么臭豆腐、黄酒奶茶、茴香豆都在卖起来，还拉动GDP增长呢！但是，这样景区就变成了商业化，游客们的体验更糟糕了。</p>
+</li>
+<li><p>他在隧道尽头挂一块牌即可。<strong><em>想来想去，还是这个办法最靠谱！</em></strong></p>
+</li>
+</ol>
+<h3 id="解决方案出场"><a href="#解决方案出场" class="headerlink" title="解决方案出场"></a>解决方案出场</h3><a id="more"></a>
+<p>这张牌写什么内容比较好呢？咱们来一段简约的提示吧：（对于计算机来说，即使是再微小的一步也必须用琐碎的细节表示出来）</p>
+<ul>
+<li><p>如果这是白天，并且如果您的车灯开着，那么请熄灭车灯；</p>
+</li>
+<li><p>如果天色已晚，并且如果您的车灯没开，那么请打开车灯；</p>
+</li>
+<li><p>如果这是白天，并且如果您的车灯没开，那么就不用打开；</p>
+</li>
+<li><p>如果天色已晚，并且如果您的车灯开着，那么就不用关灯。</p>
+</li>
+</ul>
+<p>各位读者，你看蒙了吗？如果这张牌挂在隧道口提醒司机们，他们的时速至少60，如果盯着这个指示牌来看，读完这个指示牌，汽车早就飞过护栏，并且咕噜咕噜地沉到湖底了——这根本没办法实质性解决问题！还可以做得更好一点吗？</p>
+<p><strong>作为一个老司机，他们能通过考试，并且久经各种路况的考验，就不可能是彻头彻尾的傻瓜，他们所需要的，只是隧道尽头加一块牌，写上几个字：</strong></p>
+<p><strong><u>你的灯亮着吗？</u></strong></p>
+<p><strong><em>如果他们连理解这种提醒的能力都没有，那么他们遇到的问题就不只是电池没电这么简单了。</em></strong>一个小小的标牌，就完美的解决了这个问题。因为这条信息足够短，所以标牌上可以用多种语言表达出来，包括英文、法文、德文、中文……</p>
+<h2 id="After-故事"><a href="#After-故事" class="headerlink" title="After 故事"></a>After 故事</h2><p>引子故事有点长，结合书里的其它一众故事引申出来的道理才是书本的核心。</p>
+<h3 id="面对问题不要迷路"><a href="#面对问题不要迷路" class="headerlink" title="面对问题不要迷路"></a>面对问题不要迷路</h3><ul>
+<li><p>不要把人们的解决方法认为是问题的定义。</p>
+</li>
+<li><p>每一种解决方法都会带来新问题。</p>
+</li>
+<li><p>问题最难处理的那一部分恰恰是去意识到它们的存在。</p>
+</li>
+<li><p>或许还可以改变问题的表述来获得不同的解决办法。</p>
+</li>
+<li><p>当你沉迷于寻找问题定义和解决方法时，不要忘记随时都回头看看，看看自己是不是已经迷路了。</p>
+</li>
+</ul>
+<p>与世界上其它动物相比，人类恐怕是最多变的。可惜我们碰到的绝大多数问题都离不开这种动物，甚至往往都是源于这种动物。他们不止多变，还多疑，自私，自以为是。</p>
+<h3 id="正视问题"><a href="#正视问题" class="headerlink" title="正视问题"></a>正视问题</h3><p>在这个时候，大师提醒我们：</p>
+<p>1.当别人能很好的解决自己的问题的时候，千万不要越俎代庖（如果这是他们的麻烦，就让它成为他们的麻烦。）</p>
+<p>2.当某人能解决这个问题，但他本人却不会碰到这个问题时，你要做的第一件事情就是让他也感受到这一问题</p>
+<p>3.不管看上去如何，很少人知道知道他要什么，直到你给了他们所想要的东西（参看Make it Worse）</p>
+<p>4.甚至，事实上，没多少人真希望他的问题被解决</p>
+<h3 id="缺经验的解决者怎么干？"><a href="#缺经验的解决者怎么干？" class="headerlink" title="缺经验的解决者怎么干？"></a>缺经验的解决者怎么干？</h3><p>那些没有经验的问题解决者们，几乎无一例外，<u><strong>都是去匆忙的寻找解决办法，而不是去给要解决的问题下定义</strong></u>。</p>
+<p>即使是有经验的解决者，在社会压力要求他匆忙做决定的时候，也很容易屈服。这样，他们会找到很多解决办法，但未必适合手头这个问题，当一个人努力让别人接受他赞成的解决办法时，总是指责别人太顽固，而不是说对方的观点其实是可以替代的</p>
+<h3 id="经验可贵，常识无价"><a href="#经验可贵，常识无价" class="headerlink" title="经验可贵，常识无价"></a>经验可贵，常识无价</h3><p>如果对问题没有一定的常识，那么解决办法几乎毫无疑问不是针对这一被误解的问题。通常，它就变成那个声音最高或口才最好的人所认为的问题的解决方案了，或者，是那个最有钱的人的认为的问题了。</p>
+<h3 id="让问题起舞"><a href="#让问题起舞" class="headerlink" title="让问题起舞"></a>让问题起舞</h3><p>在某些时候某些人期望的是尽量去减少抱怨，犹如房东。如果抱怨永远不被统计出来，而仅仅是对着空气嘟囔，他也许可以通过不理睬来解决他的问题，鬼知道呢，他或许认为这本就是一个无中生有的问题。</p>
+<h3 id="Make-it-Worse"><a href="#Make-it-Worse" class="headerlink" title="Make it Worse"></a>Make it Worse</h3><p>有时候如果你想找到一个问题的解决办法，试试“让情况变得更糟”，这个不好理解，我们可以从这个角度看待这句话，给你一个角度看当前的问题是不是真正的问题。犹如，例子中，有人在镜子上涂鸦，有人抱怨的问题。其实并不是乱涂乱画的问题，是拙劣和没有想象力的绘画的问题，停下来照镜子和停下来欣赏涂鸦并没有区别，只要他们不觉得乏味，时间过得慢就行</p>
+<h2 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h2><h3 id="给问题下一个哲学定义"><a href="#给问题下一个哲学定义" class="headerlink" title="给问题下一个哲学定义"></a>给问题下一个哲学定义</h3><p>问题其实就是你期望的东西和你体验的东西之间的差别。要么改变期望，要么改变体验。</p>
+<h3 id="作者的感触"><a href="#作者的感触" class="headerlink" title="作者的感触"></a>作者的感触</h3><p>解决问题不会是一个道德上中立的的行为，所以首先对自己要真诚。This above all, to thine own self be true [from 莎士比亚之哈姆雷特]</p>
+<p>如果在对技术的使用和构建过程中没有赋予足够的人文方面的重视，技术将毫无价值，甚至是危险的（technology is worthless even dangerous if we don’t pay attention to the human aspects of both its use and its onstruction）</p>
+<p>还有一些摘录，如作序者的骚柔，作者的人际警言，觉得已不再符合自己2020年时的胃口，想回顾看<a href="https://www.iteye.com/blog/highsky-240889" target="_blank" rel="noopener">传送门</a>在此</p>
+]]></content>
+      <categories>
+        <category>学而思</category>
+        <category>读书笔记</category>
+      </categories>
+      <tags>
+        <tag>思想启迪</tag>
       </tags>
   </entry>
   <entry>
@@ -850,41 +1008,55 @@
       </tags>
   </entry>
   <entry>
-    <title>产品意识</title>
-    <url>/2015/07/28/%E4%BA%A7%E5%93%81%E6%84%8F%E8%AF%86/</url>
-    <content><![CDATA[<p><img src="http://cdn.diffday.com/picgo/20201126174951.png" alt=""></p>
-<h2 id="造神前言"><a href="#造神前言" class="headerlink" title="造神前言"></a>造神前言</h2><p>在互联网圈里混，多少要培养一些个人的产品意识。用最直白的话来说，什么是产品意识，其实就是对人性的洞察。所有的大而玄的东西谈产品，如果不说人话，你就可以把它们踢到垃圾堆里。有一段时间，在鹅厂狂吹张小龙，造神一样，其实也是广研团队下层自身需要的宣传，虽说造神，但不得不说张小龙确是人才，杰出程序员，到了不惑年纪，看透纷繁复杂的羁绊，了解各种行业迷障，搞产品懂用户也是一等一的厉害。特摘录改写部分分享内容，提醒自己没有一身研发功夫的产品经理不是好运营。我们这里不看营销，不看技术，只看产品。</p>
-<p>后来梁宁的产品经理30讲和增长30讲也讲的很好，讲到产品经理的能力其实是建立信息秩序的能力，干这行也需天分，天分的一点是敏感度高。这一点是后期培养难以及时的，就像个性特征+动机+价值观=天赋一样，这些都是在其过往的经历中基本已经定型了，瓜若强扭大概率不甜。</p>
-<h2 id="用户定位"><a href="#用户定位" class="headerlink" title="用户定位"></a>用户定位</h2><a id="more"></a>
-<p><strong>要设计一款网络产品，我觉得最关键的是首先是定位用户，而不是想做个什么，</strong>就像张小龙这样，<strong>研究透了群体，做么样的东西如何做不容易错。想干个东西，多问问题把自己问醒。三个就够，what/who/why。</strong></p>
-<h3 id="who"><a href="#who" class="headerlink" title="who"></a>who</h3><p>这个层面谁人都绕不过去，举例说微信就是做普通百姓，不限行业，不限能力，不限年龄。</p>
-<h3 id="why"><a href="#why" class="headerlink" title="why"></a>why</h3><p>各种不同类型的产品，<strong>就是找自己的价值点</strong>。微信以好玩起家，以简洁干练的爽构造自己的体验哲学，以低噪音生活化信息流经营自己的最大价值。莫提生态体系，那是讲给市场听的。</p>
-<h3 id="what"><a href="#what" class="headerlink" title="what"></a>what</h3><p>张小龙分享谈到的内容，更多的集中于what这个层面（因为他的who很宽泛）。what中的产品气质的定位和哲学，粗线条的观点是有演绎推广内涵的。细的举例又具有醍醐灌顶的趣味效果。</p>
-<p>一款产品的气质其实也是讲产品经理的自我修养。what!</p>
-<h2 id="洞察最本质的用户心理诉求"><a href="#洞察最本质的用户心理诉求" class="headerlink" title="洞察最本质的用户心理诉求"></a>洞察最本质的用户心理诉求</h2><p>心理满足的驱动力，远胜工具和省钱。面向普通用户的互联网产品，要利用好人性的驱动力，贪嗔痴或性。举例来说，微博上的用户心理诉求是自我存在感，微信植根于手机环境，定位要比它更简单好玩，而不是简单的点对点省钱。</p>
-<h2 id="营造群体趋势里的口碑与时尚"><a href="#营造群体趋势里的口碑与时尚" class="headerlink" title="营造群体趋势里的口碑与时尚"></a>营造群体趋势里的口碑与时尚</h2><p>像《乌合之众》中说的一样，群体智商本身低于个体智商，群体自己会表现出像一个完整生命个体的特性，就好像蜜蜂群尽管没有管理层却会统一行动一样。傻傻的人们他们会跟风，自认为跟的是“时尚”，这种时尚是互联网产品重要的推动力，有价值的好用产品，会成为时尚。抛开价值，怎个好用？乔布斯的高境界在于<strong>stay hungry，stay foolish，如果套在用户身上，就是让我爽，不要让我思考。爽是用户需求，不思考是用户体验。</strong>在这种情况下，<strong>面向懒人设计，简化场景选择，保持主线质量，给用户自由用完即走</strong>，这样你才有好用的口碑。</p>
-<p><strong>洞察诉求</strong>，要懂人，如何<strong>获取用户心理</strong>？</p>
-<p>这条线中，其实你无法了解他人，只能理解自己，要<strong>从己出发推演人最普遍的心理活动</strong>，<strong>捕捉大众需求</strong>，而不是海量的个性化需求。其实你蹦出来的或听到的琐碎好点子99%都是脱离需求的，用户反馈也只是帮你了解他们的想法，终要回到内省归纳。莫太相信集体智慧，集体决策导致平庸和各个部分的分裂，不要贬低自己，你的短板可能就是你的强项（例如，社交恐惧者可能知道怎么做社交产品）。哐哐哐地列了这么一大堆，强调的是重视让人都能用都会用的基本需求，很多（个性）需求都是不必做的。逼迫自己变成傻瓜看待产品，变不成就别放过第一印象（忘性大就记下来）</p>
-<h2 id="产品设计-少即是多"><a href="#产品设计-少即是多" class="headerlink" title="产品设计-少即是多"></a>产品设计-少即是多</h2><p>像科学界的奥卡姆剃刀原则一样，理论都是宁少勿多。很多物理学家会说我们发现宇宙的规律是很简单的，那么既然上帝创造宇宙订立的规则都这么简单，然后演化出这么一个多样世界，为什么我们要把很多事情搞复杂化？留点空间，多点可能，因为你的决策来自个体推演，<strong>群体行为有规律但难以预测</strong>，你不也在试验和迭代吗，<strong>站在上帝身边的PM，也要学着上帝的哲学（做多就是抹杀）</strong>。体验要简单，规则要简单。记得每增加一种选择，都让用户迷惑，不固定感跟用户对随机的好奇，不是一个事儿。</p>
-<p>举个不设定复杂规则的例子，<strong>SNS玩的都是群体效应的功能</strong>。当初做摇一摇或者基于LBS的附近的人，也没想到用户会拿来干什么，只是往好玩好用，爽方面做。让用户自己去演化发掘（人们首次相互被看到时，值得期待用户间会发生什么，况且陌生人交友嗷嗷待哺，是你保底的需求点）。产品迭代的过程中，主线功能不强，堆再多辅助功能也没用，做好条理分类清晰的主体特性（分类本身就是人脑的学习&amp;工作机制的天性），感受关注用户的潮流和反应（非常重要），等待他们说，太好玩了。</p>
-<h2 id="平等-amp-灵魂"><a href="#平等-amp-灵魂" class="headerlink" title="平等 &amp; 灵魂"></a>平等 &amp; 灵魂</h2><p><strong>跟用户平等做朋友，做有灵魂的产品</strong></p>
-<p>有机联系的结构（产品结构），有肌肉（功能），有气质（价值观），反应敏捷（速度快），理性（逻辑清晰，交互合理），谈吐佳（文案）</p>
-<p>文案特别提下，<strong>产品中的文字是你和用户在说话，反映了你的气质。不讨好用户，不抬高自己</strong>。不用“吧”，“哦”，提示语不累赘加“成功”等多余字眼，用你不用您，不勉强用户使用功能。QQ邮箱管理员附上真人信息，也是尊重用户的一种体现。</p>
-<p>欢迎页是你为数不多的表达感受的地方，让每个欢迎页都是一个故事，让产品值得期待，传递人文意识当然更高级。</p>
-<p><strong>互联网产品应让个体更自由，个性化长尾产品越来越成为未来走向。工业化满足低成本的诉求，个性化体现独特价值。所以碎片化越来越明显，App越来越多。大家可创造的希望也越来越多。</strong></p>
-<h2 id="好玩的补充（醍醐提醒）"><a href="#好玩的补充（醍醐提醒）" class="headerlink" title="好玩的补充（醍醐提醒）"></a>好玩的补充（醍醐提醒）</h2><ul>
-<li>管理是不自然的，SNS产品不要让用户卷入到管理工作中。例如通讯录分组（微博分组，google+其实做出来了没人用），别以为这是真实大众需求</li>
-<li>不搞已发送已阅读之类的，也是做到简洁自然不累赘。再之搞了这个，老板用上已阅读特性，还不把下面的人紧张死，要允许人性的缺陷存在。</li>
-<li>需要打通，说明不是需求。需要整合，说明都不行了。需要拉动，说明是KPI了。需要导入，说明没有生命力了。避免全面，全面的东西是平庸的。</li>
-<li>微博上的人的心理诉求是自我存在感，其实活得都不是自己，并不是自言自语，而是博主希望在听众心目中构筑自己希望的形象。微信植根朋友圈，信噪比高，让用户使用维护起来简单轻松，胜在这里</li>
-</ul>
+    <title>可复制的领导力</title>
+    <url>/2020/02/07/%E5%8F%AF%E5%A4%8D%E5%88%B6%E7%9A%84%E9%A2%86%E5%AF%BC%E5%8A%9B/</url>
+    <content><![CDATA[<p><img src="http://cdn.diffday.com/picgo/20201106155347.png" alt=""></p>
+<h2 id="中西方的领导力有区别吗？"><a href="#中西方的领导力有区别吗？" class="headerlink" title="中西方的领导力有区别吗？"></a>中西方的领导力有区别吗？</h2><p><strong>东西方教育理念不同，西方注重标准化，认为只要按标准操作，一切任务都可以完成，东方则依赖能人的实力。西方企业主张管理能力由一个个工具组成，可进行标准化。</strong></p>
+<h3 id="执行力是一个伪概念"><a href="#执行力是一个伪概念" class="headerlink" title="执行力是一个伪概念"></a>执行力是一个伪概念</h3><p>企业领导心心念的执行力是一个伪概念，不属于规范管理学的概念，是培训课程市场化的产物。在西方管理学中，员工执行力跟老总的管理能力密切联系在一起，管理能力强悍才能衍生出执行力的坚决。如果员工执行力不强，代表企业老板的管理能力不过关。</p>
+<blockquote>
+<p>可能基于基督教性本恶的理念，员工的执行力是跟老总的管理能力配套的。</p>
+</blockquote>
+<p>当之前看一分钟经理人的时候，提出领导要明确任务。但没有给出实操的样例，因为学习是通过模仿和榜样来的，领导力的习得也是参照你能模仿的路径才能掌握。结合《你的灯亮着吗》里的说法，交待一个事情，下属要是能做好，离不开多想几个问题。</p>
+<blockquote>
+<p>在理解问题之前，至少准备好接受三种可能的出错情况，想不出来说明你根本不愿意思考</p>
+</blockquote>
+<h3 id="最好的实操路径："><a href="#最好的实操路径：" class="headerlink" title="最好的实操路径："></a>最好的实操路径：</h3><a id="more"></a>
+<ol>
+<li>布置任务</li>
+<li>麻烦你重复一遍</li>
+<li>你觉得我让你做这事的目的是什么</li>
+<li>你觉得做这事会遇到什么意外？什么样的汇报，什么样的自己搞定</li>
+<li>有更好的想法和建议</li>
+</ol>
+<h3 id="沟通漏斗你甩不掉"><a href="#沟通漏斗你甩不掉" class="headerlink" title="沟通漏斗你甩不掉"></a>沟通漏斗你甩不掉</h3><p>在沟通中，我们经常会遇到一个问题–沟通漏斗，你心里想的是100%，在众人面前表达时，已漏掉了20%。这80%的内容被倾听者接受后，由于文化水平，知识背景等关系，只留下了60%，实际上被消化了40%，行动时已变成了20%。</p>
+<blockquote>
+<p>所以纠偏动作第一位，提效动作第二位</p>
+</blockquote>
+<h2 id="通过他人做事，即刻变身"><a href="#通过他人做事，即刻变身" class="headerlink" title="通过他人做事，即刻变身"></a>通过他人做事，即刻变身</h2><p>在公司里面，最大的成本是重做，在砍柴之前，耐心的磨刀是十分必要的，不要拿着钝刀子就上山，不但费力，还没什么实质性收获。</p>
+<p>管理者的头脑定位是“通过别人”，这里建立团队就是重中之重，最终能达到你出差，出国，团队自然运转下去。判断你带团队的能力或检验你的体系，就看你的输入产品和输出产物，最好是输入3流人才，1流结果，这里麦当劳就是好的体系（店长才要求高中以上文化），反过来就糟糕了。</p>
+<p>不要将管理说的很大，只要通过他人做事，此刻他就是一个管理者，哪怕普通的放羊人让别人帮他放羊。</p>
+<h3 id="获得领导力伴生于公开象限的扩大"><a href="#获得领导力伴生于公开象限的扩大" class="headerlink" title="获得领导力伴生于公开象限的扩大"></a>获得领导力伴生于公开象限的扩大</h3><p>个人工作的进程，其实就是公开象限不断放大的过程。一个人如果有足够大的公开象限，就会拥有优秀的领导力。</p>
+<blockquote>
+<p>说实在的公开象限的用词，如果只考虑4象限，不那么精准，如果你扩大想象到超空间，把象限看做维度，感性的层面会递进一层</p>
+</blockquote>
+<h3 id="团队是球队不是家"><a href="#团队是球队不是家" class="headerlink" title="团队是球队不是家"></a>团队是球队不是家</h3><p>团队不应该称为家，而应该是一支球队，大家聚在一起是为了进步，为了赢得最终胜利。</p>
+<h4 id="大船船长莫划船"><a href="#大船船长莫划船" class="headerlink" title="大船船长莫划船"></a>大船船长莫划船</h4><p>在海洋型国家中，常把管理者比如船长。小船吃水浅，没机会碰到水下暗礁，但大船吃水深，就可能碰到暗礁，如流程问题，绩效考核问题等，这时船长要做的其实是制定航行战略，避免暗礁等重要事情，而不是去划船。</p>
+<h4 id="目标明确，专注主要矛盾"><a href="#目标明确，专注主要矛盾" class="headerlink" title="目标明确，专注主要矛盾"></a>目标明确，专注主要矛盾</h4><p>作者举的一个例子很有意思，碰到自己之前的中学老师，老师说：就是你们这些好学生让我操碎了心。甚觉诧异，不应该为学渣操心么。其实不然，老师每天在教室里边转边数，清华北大上交复旦，数够15个能上好大学的，才能安心去吃早餐。那么15名以后呢，老师回答，只要别捣乱，别影响这前15名就行。</p>
+<blockquote>
+<p>看到这段老师的视角颇有醍醐灌顶的震撼，我是一个没注意或珍惜老师良苦用心的娃</p>
+</blockquote>
+<h3 id="赛马不相马"><a href="#赛马不相马" class="headerlink" title="赛马不相马"></a>赛马不相马</h3><p>赛马不相马，人人是人才。当人数较多时，最重要的是管理者创造一种公平竞争，积极向上的氛围，重视赛马机制的建立。</p>
+<h2 id="一些其它"><a href="#一些其它" class="headerlink" title="一些其它"></a>一些其它</h2><h3 id="价值观和使命是企业区别的高级状态"><a href="#价值观和使命是企业区别的高级状态" class="headerlink" title="价值观和使命是企业区别的高级状态"></a>价值观和使命是企业区别的高级状态</h3><p>公司无论规模多大，都可以建立属于自己的企业文化，是价值观，信念等精神因素的结合，是一个企业文化区别于其他企业的最高级状态，在精神上将员工凝聚在一起。企业文化的特征在于独特，西方很多公司用创始人自己的名字命名也是这样的一种诠释。</p>
+<h3 id="团队一致性-–-持续弱刺激"><a href="#团队一致性-–-持续弱刺激" class="headerlink" title="团队一致性 – 持续弱刺激"></a>团队一致性 – 持续弱刺激</h3><p>任何一个员工反馈的时机，都是打造团队一致性的好时机。发奖金的时机就是一个好时机。</p>
+<h3 id="撒谎的信号"><a href="#撒谎的信号" class="headerlink" title="撒谎的信号"></a>撒谎的信号</h3><p>一个人在撒谎时，会抚摸自我安慰区，女性的自我安慰区是胸口，男性的自我安慰区是脑后。另外耸肩，摸鼻子，抓痒，快速眨眼也是说谎的一些信号。</p>
+<h3 id="绩效最终体现在员工的成长中"><a href="#绩效最终体现在员工的成长中" class="headerlink" title="绩效最终体现在员工的成长中"></a>绩效最终体现在员工的成长中</h3><p>员工为企业的成长投资了最宝贵的资源–时间，因此企业要保证在这些时间内让员工有所提升，企业严格管理员工，是为了提升员工的职场价值。对职场人士来说，如果在工作中没有开拓新领域，获得新能力，只是日复一日重复，所谓的”工作经验“是非常廉价的。员工的进步跟管理者的严格管理有很大关系，是团队自信的底气。</p>
 ]]></content>
       <categories>
         <category>学而思</category>
         <category>读书笔记</category>
       </categories>
       <tags>
-        <tag>互联网思维</tag>
+        <tag>经营管理</tag>
       </tags>
   </entry>
   <entry>
@@ -921,77 +1093,51 @@
       </tags>
   </entry>
   <entry>
-    <title>你的灯亮着吗</title>
-    <url>/2008/09/12/%E4%BD%A0%E7%9A%84%E7%81%AF%E4%BA%AE%E7%9D%80%E5%90%97/</url>
-    <content><![CDATA[<p><img src="http://cdn.diffday.com/picgo/20201119140946.png" alt=""></p>
+    <title>情商这玩意</title>
+    <url>/2015/01/08/%E6%83%85%E5%95%86%E8%BF%99%E7%8E%A9%E6%84%8F/</url>
+    <content><![CDATA[<p><img src="http://cdn.diffday.com/picgo/20201019191019.png" alt="情绪图谱"></p>
+<p>此文来自一次培训，觉得京东大学的讲师还是把知识串接的挺棒的，不光有理论，还有自己的真实经验，且没有保留，多少改变了我对情商的认识或建立了我对情商的认识。</p>
+<p><strong>转移到情商的定义上来：来自亚里士多德的观点，每个人都会发脾气，这非常容易，但是把脾气发在对的人身上，用对的程度在对的时间，为了对的目的，运用对的方法，却不容易。</strong></p>
 <blockquote>
-<p>整本书中有很多故事举例，本就为问题解决者所写，薄薄一本，通透练达，没看这本书的时候总奇怪到底为什么取这个书名，看看故事就明白了</p>
+<p>Anyone can be angry,that is easy.But to be angry with the right person to the right degree at the right time, for the right purpose and in the right way, that is not easy</p>
 </blockquote>
-<h2 id="引子故事"><a href="#引子故事" class="headerlink" title="引子故事"></a>引子故事</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>瑞士日内瓦湖上的山脉中，建成了很长的汽车隧道，从隧道东出口再往400米，就是世界上风景最优美的俯瞰日内瓦湖的度假胜地，每天都有成千上万的游客在此处欣赏美景，同时，每天当着几百名神清气爽的游客返回他们的汽车时，都会有十来个（甚至更多）的人们收到一份意外的惊喜：汽车也跟着放松了（电池没电了）——因为他们在放松之余，忘记关掉车灯！</p>
-<h3 id="解决者出场"><a href="#解决者出场" class="headerlink" title="解决者出场"></a>解决者出场</h3><p>怎么着？只能打911，叫交警过来帮忙呗。为此，游客们这愉快的心情都瞬间化为乌有，“去了日内瓦湖，车都开不走了”。谁让你这么设计的，<u><strong>锅工程师你扛了吧！</strong></u>经过一系列的调研，工程师想出了N个他认为可行的办法来：</p>
-<ol>
-<li><p>可以在尽头挂一块牌，写上：关掉车灯。然而，如果夜间行走的人也关掉车灯，这样真的好吗？</p>
-</li>
-<li><p>他可以装傻，啥也不知道，就让这些“意外”继续上演。然而，这样差评更多，到问责的时候，就会背上“豆腐渣工程”的骂名！</p>
-</li>
-<li><p>他可以在风景俯瞰处建一个充电桩，但是这要不要成本的？还有就是充电桩出故障时，挨骂挨得更多呢！</p>
-</li>
-<li><p>他可以把充电桩承包给私人，然后人家开起小卖部来，什么臭豆腐、黄酒奶茶、茴香豆都在卖起来，还拉动GDP增长呢！但是，这样景区就变成了商业化，游客们的体验更糟糕了。</p>
-</li>
-<li><p>他在隧道尽头挂一块牌即可。<strong><em>想来想去，还是这个办法最靠谱！</em></strong></p>
-</li>
-</ol>
-<h3 id="解决方案出场"><a href="#解决方案出场" class="headerlink" title="解决方案出场"></a>解决方案出场</h3><a id="more"></a>
-<p>这张牌写什么内容比较好呢？咱们来一段简约的提示吧：（对于计算机来说，即使是再微小的一步也必须用琐碎的细节表示出来）</p>
-<ul>
-<li><p>如果这是白天，并且如果您的车灯开着，那么请熄灭车灯；</p>
-</li>
-<li><p>如果天色已晚，并且如果您的车灯没开，那么请打开车灯；</p>
-</li>
-<li><p>如果这是白天，并且如果您的车灯没开，那么就不用打开；</p>
-</li>
-<li><p>如果天色已晚，并且如果您的车灯开着，那么就不用关灯。</p>
-</li>
-</ul>
-<p>各位读者，你看蒙了吗？如果这张牌挂在隧道口提醒司机们，他们的时速至少60，如果盯着这个指示牌来看，读完这个指示牌，汽车早就飞过护栏，并且咕噜咕噜地沉到湖底了——这根本没办法实质性解决问题！还可以做得更好一点吗？</p>
-<p><strong>作为一个老司机，他们能通过考试，并且久经各种路况的考验，就不可能是彻头彻尾的傻瓜，他们所需要的，只是隧道尽头加一块牌，写上几个字：</strong></p>
-<p><strong><u>你的灯亮着吗？</u></strong></p>
-<p><strong><em>如果他们连理解这种提醒的能力都没有，那么他们遇到的问题就不只是电池没电这么简单了。</em></strong>一个小小的标牌，就完美的解决了这个问题。因为这条信息足够短，所以标牌上可以用多种语言表达出来，包括英文、法文、德文、中文……</p>
-<h2 id="After-故事"><a href="#After-故事" class="headerlink" title="After 故事"></a>After 故事</h2><p>引子故事有点长，结合书里的其它一众故事引申出来的道理才是书本的核心。</p>
-<h3 id="面对问题不要迷路"><a href="#面对问题不要迷路" class="headerlink" title="面对问题不要迷路"></a>面对问题不要迷路</h3><ul>
-<li><p>不要把人们的解决方法认为是问题的定义。</p>
-</li>
-<li><p>每一种解决方法都会带来新问题。</p>
-</li>
-<li><p>问题最难处理的那一部分恰恰是去意识到它们的存在。</p>
-</li>
-<li><p>或许还可以改变问题的表述来获得不同的解决办法。</p>
-</li>
-<li><p>当你沉迷于寻找问题定义和解决方法时，不要忘记随时都回头看看，看看自己是不是已经迷路了。</p>
-</li>
-</ul>
-<p>与世界上其它动物相比，人类恐怕是最多变的。可惜我们碰到的绝大多数问题都离不开这种动物，甚至往往都是源于这种动物。他们不止多变，还多疑，自私，自以为是。</p>
-<h3 id="正视问题"><a href="#正视问题" class="headerlink" title="正视问题"></a>正视问题</h3><p>在这个时候，大师提醒我们：</p>
-<p>1.当别人能很好的解决自己的问题的时候，千万不要越俎代庖（如果这是他们的麻烦，就让它成为他们的麻烦。）</p>
-<p>2.当某人能解决这个问题，但他本人却不会碰到这个问题时，你要做的第一件事情就是让他也感受到这一问题</p>
-<p>3.不管看上去如何，很少人知道知道他要什么，直到你给了他们所想要的东西（参看Make it Worse）</p>
-<p>4.甚至，事实上，没多少人真希望他的问题被解决</p>
-<h3 id="缺经验的解决者怎么干？"><a href="#缺经验的解决者怎么干？" class="headerlink" title="缺经验的解决者怎么干？"></a>缺经验的解决者怎么干？</h3><p>那些没有经验的问题解决者们，几乎无一例外，<u><strong>都是去匆忙的寻找解决办法，而不是去给要解决的问题下定义</strong></u>。</p>
-<p>即使是有经验的解决者，在社会压力要求他匆忙做决定的时候，也很容易屈服。这样，他们会找到很多解决办法，但未必适合手头这个问题，当一个人努力让别人接受他赞成的解决办法时，总是指责别人太顽固，而不是说对方的观点其实是可以替代的</p>
-<h3 id="经验可贵，常识无价"><a href="#经验可贵，常识无价" class="headerlink" title="经验可贵，常识无价"></a>经验可贵，常识无价</h3><p>如果对问题没有一定的常识，那么解决办法几乎毫无疑问不是针对这一被误解的问题。通常，它就变成那个声音最高或口才最好的人所认为的问题的解决方案了，或者，是那个最有钱的人的认为的问题了。</p>
-<h3 id="让问题起舞"><a href="#让问题起舞" class="headerlink" title="让问题起舞"></a>让问题起舞</h3><p>在某些时候某些人期望的是尽量去减少抱怨，犹如房东。如果抱怨永远不被统计出来，而仅仅是对着空气嘟囔，他也许可以通过不理睬来解决他的问题，鬼知道呢，他或许认为这本就是一个无中生有的问题。</p>
-<h3 id="Make-it-Worse"><a href="#Make-it-Worse" class="headerlink" title="Make it Worse"></a>Make it Worse</h3><p>有时候如果你想找到一个问题的解决办法，试试“让情况变得更糟”，这个不好理解，我们可以从这个角度看待这句话，给你一个角度看当前的问题是不是真正的问题。犹如，例子中，有人在镜子上涂鸦，有人抱怨的问题。其实并不是乱涂乱画的问题，是拙劣和没有想象力的绘画的问题，停下来照镜子和停下来欣赏涂鸦并没有区别，只要他们不觉得乏味，时间过得慢就行</p>
-<h2 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h2><h3 id="给问题下一个哲学定义"><a href="#给问题下一个哲学定义" class="headerlink" title="给问题下一个哲学定义"></a>给问题下一个哲学定义</h3><p>问题其实就是你期望的东西和你体验的东西之间的差别。要么改变期望，要么改变体验。</p>
-<h3 id="作者的感触"><a href="#作者的感触" class="headerlink" title="作者的感触"></a>作者的感触</h3><p>解决问题不会是一个道德上中立的的行为，所以首先对自己要真诚。This above all, to thine own self be true [from 莎士比亚之哈姆雷特]</p>
-<p>如果在对技术的使用和构建过程中没有赋予足够的人文方面的重视，技术将毫无价值，甚至是危险的（technology is worthless even dangerous if we don’t pay attention to the human aspects of both its use and its onstruction）</p>
-<p>还有一些摘录，如作序者的骚柔，作者的人际警言，觉得已不再符合自己2020年时的胃口，想回顾看<a href="https://www.iteye.com/blog/highsky-240889" target="_blank" rel="noopener">传送门</a>在此</p>
+<h2 id="情绪绑架你躲不开"><a href="#情绪绑架你躲不开" class="headerlink" title="情绪绑架你躲不开"></a>情绪绑架你躲不开</h2><p>道理谁都懂，可就是办不到。这过程中，你就是与你的原始大脑对抗不过</p>
+<blockquote>
+<p>理性脑与情绪脑的脱离，200w年的大脑和5000w年的大脑部分达不成一致，所以人痛苦。人再经过5000w年，三脑可以合一，反应都达到毫秒级 (<em>一亿年的脑干和5000w年的中脑已经可以认为已合并</em>)</p>
+</blockquote>
+<a id="more"></a>
+<p>情绪的反应是毫秒级-微表情的反应是毫秒级，它会泄露你的秘密，故才有测谎仪，才有《FBI教你读心术》这本书。只有高手才能转移微表情，通过训练，转移到没那么容易观察到的角落。例如你内向不适合当众讲话，会紧张脸红，可以转移这些微表情到到捏拳头，若还容易被察觉，可以转移到脚趾头抓地。</p>
+<p>2秒钟左右大脑皮层(理性大脑)产生干预。大脑皮层有反应到情商起作用，要6秒钟时间，这比2秒的干预启动还要慢些。还有一个60秒圣境（我当前的60秒圣境是与家人在游轮上），能让你平静调整到最美好的心态来处理事情，这时你最聪明。</p>
+<p>情商启动时间在秒级，所以你不可能控制情绪，只能察觉，理解和管理。<u>我们讨论情商的最终目的，也是想发挥情商的最大作用【不后悔或洋洋得意】</u></p>
+<p>带情绪说话和不带情绪，能量差24倍。</p>
+<p>11~12，17~18岁最容易出现情绪绑架，可能在激素的作用或大脑快速发育过程中，理性脑和情绪脑产生脱离，pheromone真的很厉害。</p>
+<p>发散谈一下，在教育小孩过程中，要多做延迟满足训练。这样的小孩儿长大后能更好的应对复杂情况的能力。【每天目击那么多宠爱，这恶习肿么破】</p>
+<h2 id="大脑最高级的功能，乃白日梦也"><a href="#大脑最高级的功能，乃白日梦也" class="headerlink" title="大脑最高级的功能，乃白日梦也"></a><strong>大脑最高级的功能，乃白日梦也</strong></h2><p>大脑有三大功能，记忆(最初级)，思考，想象(白日梦，最有价值的模块)，当前第六代时间管理已推崇更多时间到想象，清空大脑是第一步。</p>
+<p>带团队过程中把大家的想象调动起来，这种力量最有用。放松的时候最利于想象，深圳有午休的习惯，故利于想象创新。而京东的同事也不午休，太紧张，只能做安全不出错的事情。</p>
+<p>通过想象(视觉化训练)把未知的领域拉进自己的范畴。在体育领域最常用明显，想象自己要学的新动作。未知的自己也是自己，就像你去面试时能看到某些年轻人后续的发展可能一样(可能会像自己公司的某位同事，但被面试者认识不到)</p>
+<h2 id="Self-Talk-实际日常中的理论体现"><a href="#Self-Talk-实际日常中的理论体现" class="headerlink" title="Self_Talk 实际日常中的理论体现"></a><strong>Self_Talk 实际日常中的理论体现</strong></h2><p>正常人一天给自己说4000句，自我对话。希望能整理出10句对自己最有用或常用的self talk，救命时用的。</p>
+<p>一天 = 一生，先要察觉到自己每天的4000句都是些什么。</p>
+<p>万达主题乐园的领到4000元月薪的一线员工，有客户对其服务反馈时，是会真诚的笑的，而不是职业的笑。然而迪斯尼的员工不关心客户的考评，而是真诚的喜欢这份工作，但他们的薪水是1w块的。</p>
+<p>曾经做了一首歌让新员工每天唱，这也是一种形式的self talk，对人来进行筛选(初期这个歌曲产品的预期有效期是半年，也就是半年能完成人员淘汰筛选)。这就像常听歌，某些歌词能让你发生变化一样。</p>
+<h2 id="软化自己的壳儿"><a href="#软化自己的壳儿" class="headerlink" title="软化自己的壳儿"></a><strong>软化自己的壳儿</strong></h2><p>已知的自己和未知的自己之间有一个硬硬的壳儿，你甚至可以只向自己提难题但不思考回答。类似于向潜意识的自己(未知的自己)提问和学习，反正已知的自己是解决不了，何必费劲，潜意识的自己你能帮我解决就解决。</p>
+<p>你能利用自己的潜意识或团队的潜意识来解决复杂的问题吗？睡觉刚起来的时候，这个壳儿可能最软，存在于一个坚硬的自己将要回来接管的这么一个时刻。</p>
+<p><strong>放松冥想，让潜意识的自己找到答案。情绪是一种强大的能量。</strong></p>
+<h3 id="与世界的四种认知关系"><a href="#与世界的四种认知关系" class="headerlink" title="与世界的四种认知关系"></a>与世界的四种认知关系</h3><p><img src="http://cdn.diffday.com/picgo/20201020102543.png" alt=""></p>
+<blockquote>
+<p>我是世界的中心(自信)，我是世界的边缘(自卑)，我在世界之外(跳出画面来看)，我无处不在(瞬移)。</p>
+</blockquote>
+<p>大部分人在一二状态中间反复流转，完成碌碌无为的download的人生。</p>
+<p>好有意思的四维说法，我在世界之外，我无处不在。（当时讲师的说法并没有照搬网上的拗口的我中我，你中我等说法，是一种认真的面向主题和受众的姿态，所以我才觉得此次培训印象深刻吧）</p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p><strong>课堂上听到薇姐的一句self_talk, 颇为欣赏，正能量美好无比：</strong></p>
+<blockquote>
+<p><strong>我们的征程是星辰大海。</strong></p>
+</blockquote>
 ]]></content>
       <categories>
         <category>学而思</category>
-        <category>读书笔记</category>
       </categories>
       <tags>
-        <tag>思想启迪</tag>
+        <tag>心理学</tag>
       </tags>
   </entry>
   <entry>
@@ -1153,52 +1299,45 @@
       </tags>
   </entry>
   <entry>
-    <title>可复制的领导力</title>
-    <url>/2020/02/07/%E5%8F%AF%E5%A4%8D%E5%88%B6%E7%9A%84%E9%A2%86%E5%AF%BC%E5%8A%9B/</url>
-    <content><![CDATA[<p><img src="http://cdn.diffday.com/picgo/20201106155347.png" alt=""></p>
-<h2 id="中西方的领导力有区别吗？"><a href="#中西方的领导力有区别吗？" class="headerlink" title="中西方的领导力有区别吗？"></a>中西方的领导力有区别吗？</h2><p><strong>东西方教育理念不同，西方注重标准化，认为只要按标准操作，一切任务都可以完成，东方则依赖能人的实力。西方企业主张管理能力由一个个工具组成，可进行标准化。</strong></p>
-<h3 id="执行力是一个伪概念"><a href="#执行力是一个伪概念" class="headerlink" title="执行力是一个伪概念"></a>执行力是一个伪概念</h3><p>企业领导心心念的执行力是一个伪概念，不属于规范管理学的概念，是培训课程市场化的产物。在西方管理学中，员工执行力跟老总的管理能力密切联系在一起，管理能力强悍才能衍生出执行力的坚决。如果员工执行力不强，代表企业老板的管理能力不过关。</p>
-<blockquote>
-<p>可能基于基督教性本恶的理念，员工的执行力是跟老总的管理能力配套的。</p>
-</blockquote>
-<p>当之前看一分钟经理人的时候，提出领导要明确任务。但没有给出实操的样例，因为学习是通过模仿和榜样来的，领导力的习得也是参照你能模仿的路径才能掌握。结合《你的灯亮着吗》里的说法，交待一个事情，下属要是能做好，离不开多想几个问题。</p>
-<blockquote>
-<p>在理解问题之前，至少准备好接受三种可能的出错情况，想不出来说明你根本不愿意思考</p>
-</blockquote>
-<h3 id="最好的实操路径："><a href="#最好的实操路径：" class="headerlink" title="最好的实操路径："></a>最好的实操路径：</h3><a id="more"></a>
-<ol>
-<li>布置任务</li>
-<li>麻烦你重复一遍</li>
-<li>你觉得我让你做这事的目的是什么</li>
-<li>你觉得做这事会遇到什么意外？什么样的汇报，什么样的自己搞定</li>
-<li>有更好的想法和建议</li>
+    <title>相爱相杀 -- 企业并购中团队管理观察</title>
+    <url>/2020/10/27/%E7%9B%B8%E7%88%B1%E7%9B%B8%E6%9D%80%20--%20%E4%BC%81%E4%B8%9A%E5%B9%B6%E8%B4%AD%E4%B8%AD%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86%E8%A7%82%E5%AF%9F/</url>
+    <content><![CDATA[<p><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQJmpU6VvmXtZ0Gb_gDKQmTAmtpmXSgX5AGdA&amp;usqp=CAU" alt=""></p>
+<h2 id="突如其来的并购"><a href="#突如其来的并购" class="headerlink" title="突如其来的并购"></a>突如其来的并购</h2><p>并购有风声，但一定有辟谣。当消息降临在打工人的那一刻，答案在风中已经飘了很久了。在小范围的核心团队圈层，势必已做了心理建设和鸡汤灌输。大量的基层人员，在此种场景必然分群，有本来就打算要走，多来一个N+1心中小甜美的；有心有不甘，小范围拉伙准备抗议到底的；有准备呆更久领取N+X补偿后，在另做打算的；有走一步看一步步步为营的。哪种比例会更高？肯定是后一种或后两种，否则也不是厌恶风险的打工人了。</p>
+<p>这里矛盾的大主角，显然是劳资双方。被收购方出卖的除了平台，品牌，商誉，还有团队。但在互联网领域，固定资产的机器不算什么，人是最大的资产。搞定人，搞定收购过来的团队，是横亘在高管面前的一套题。</p>
+<h2 id="绩效的产出需保持组织稳定"><a href="#绩效的产出需保持组织稳定" class="headerlink" title="绩效的产出需保持组织稳定"></a>绩效的产出需保持组织稳定</h2><a id="more"></a>
+<p>收购新上了一套高层班子，踌躇满志，战略战术有待检验，这需要士兵冲锋上前。解决执行问题是直观诉求，潜在诉求其实是组织的稳定，因为只有稳定的组织，才有绩效产出的保障。保持组织的稳定明面上不是重中之重，背地里却是。我们知道选好人，用对人，留住人是我们团队管理的三个角度，除去这些，影响个人，还有一些技巧。我们分别从这几个维度看看上演的做法。</p>
+<h3 id="选好人-–-消除负面弱刺激"><a href="#选好人-–-消除负面弱刺激" class="headerlink" title="选好人 – 消除负面弱刺激"></a>选好人 – 消除负面弱刺激</h3><p>在一波打算离职的人中，容易和抗争到底的人形成联盟，充当其为民请命的代表。这两拨人分开对待，要离职的人，利用威权和大局观游说，促成其放弃冲锋抵抗的角色，尽最大可能让其尽快离职。对于负隅顽抗的人，进行孤立，促使其向自行离职做转换。</p>
+<h3 id="用对人-–-保持建制"><a href="#用对人-–-保持建制" class="headerlink" title="用对人 – 保持建制"></a>用对人 – 保持建制</h3><p>尽量保持原有建制和团队关系不变，维持一个相对放松的环境。利用原有的管理关系，进行影响力释放。</p>
+<h3 id="留住人-–-利诱核心骨干"><a href="#留住人-–-利诱核心骨干" class="headerlink" title="留住人 – 利诱核心骨干"></a>留住人 – 利诱核心骨干</h3><p>对于核心团队，保持待遇不衰减，提升管理机遇，许有上市激励。</p>
+<p>其实新东家还有一些好的制度，如加班调休制度，但在并购振荡期，这些新制度并不是宣传战的要点。种植一个梦想才是洗脑的高境界。</p>
+<h3 id="洗脑-–-重复弱刺激"><a href="#洗脑-–-重复弱刺激" class="headerlink" title="洗脑 – 重复弱刺激"></a>洗脑 – 重复弱刺激</h3><ol>
+<li>尽量保持原有建制和团队关系不变，维持一个相对放松的环境，也容易营造从众态势</li>
+<li>包装权威，领军人的传奇经历，让部分愿意相信的人相信继续成功的可能性</li>
+<li>推脱原来的不成功是旧环境的问题</li>
+<li>由原有带队人不断组织团队建设，进行鸡汤灌输，营造我们能赢，我们能收获跟原来不一样的结果的念想</li>
+<li>虚许空头支票（职位，股票），营造更具个人意向的目标感。</li>
 </ol>
-<h3 id="沟通漏斗你甩不掉"><a href="#沟通漏斗你甩不掉" class="headerlink" title="沟通漏斗你甩不掉"></a>沟通漏斗你甩不掉</h3><p>在沟通中，我们经常会遇到一个问题–沟通漏斗，你心里想的是100%，在众人面前表达时，已漏掉了20%。这80%的内容被倾听者接受后，由于文化水平，知识背景等关系，只留下了60%，实际上被消化了40%，行动时已变成了20%。</p>
-<blockquote>
-<p>所以纠偏动作第一位，提效动作第二位</p>
-</blockquote>
-<h2 id="通过他人做事，即刻变身"><a href="#通过他人做事，即刻变身" class="headerlink" title="通过他人做事，即刻变身"></a>通过他人做事，即刻变身</h2><p>在公司里面，最大的成本是重做，在砍柴之前，耐心的磨刀是十分必要的，不要拿着钝刀子就上山，不但费力，还没什么实质性收获。</p>
-<p>管理者的头脑定位是“通过别人”，这里建立团队就是重中之重，最终能达到你出差，出国，团队自然运转下去。判断你带团队的能力或检验你的体系，就看你的输入产品和输出产物，最好是输入3流人才，1流结果，这里麦当劳就是好的体系（店长才要求高中以上文化），反过来就糟糕了。</p>
-<p>不要将管理说的很大，只要通过他人做事，此刻他就是一个管理者，哪怕普通的放羊人让别人帮他放羊。</p>
-<h3 id="获得领导力伴生于公开象限的扩大"><a href="#获得领导力伴生于公开象限的扩大" class="headerlink" title="获得领导力伴生于公开象限的扩大"></a>获得领导力伴生于公开象限的扩大</h3><p>个人工作的进程，其实就是公开象限不断放大的过程。一个人如果有足够大的公开象限，就会拥有优秀的领导力。</p>
-<blockquote>
-<p>说实在的公开象限的用词，如果只考虑4象限，不那么精准，如果你扩大想象到超空间，把象限看做维度，感性的层面会递进一层</p>
-</blockquote>
-<h3 id="团队是球队不是家"><a href="#团队是球队不是家" class="headerlink" title="团队是球队不是家"></a>团队是球队不是家</h3><p>团队不应该称为家，而应该是一支球队，大家聚在一起是为了进步，为了赢得最终胜利。</p>
-<h4 id="大船船长莫划船"><a href="#大船船长莫划船" class="headerlink" title="大船船长莫划船"></a>大船船长莫划船</h4><p>在海洋型国家中，常把管理者比如船长。小船吃水浅，没机会碰到水下暗礁，但大船吃水深，就可能碰到暗礁，如流程问题，绩效考核问题等，这时船长要做的其实是制定航行战略，避免暗礁等重要事情，而不是去划船。</p>
-<h4 id="目标明确，专注主要矛盾"><a href="#目标明确，专注主要矛盾" class="headerlink" title="目标明确，专注主要矛盾"></a>目标明确，专注主要矛盾</h4><p>作者举的一个例子很有意思，碰到自己之前的中学老师，老师说：就是你们这些好学生让我操碎了心。甚觉诧异，不应该为学渣操心么。其实不然，老师每天在教室里边转边数，清华北大上交复旦，数够15个能上好大学的，才能安心去吃早餐。那么15名以后呢，老师回答，只要别捣乱，别影响这前15名就行。</p>
-<blockquote>
-<p>看到这段老师的视角颇有醍醐灌顶的震撼，我是一个没注意或珍惜老师良苦用心的娃</p>
-</blockquote>
-<h3 id="赛马不相马"><a href="#赛马不相马" class="headerlink" title="赛马不相马"></a>赛马不相马</h3><p>赛马不相马，人人是人才。当人数较多时，最重要的是管理者创造一种公平竞争，积极向上的氛围，重视赛马机制的建立。</p>
-<h2 id="一些其它"><a href="#一些其它" class="headerlink" title="一些其它"></a>一些其它</h2><h3 id="价值观和使命是企业区别的高级状态"><a href="#价值观和使命是企业区别的高级状态" class="headerlink" title="价值观和使命是企业区别的高级状态"></a>价值观和使命是企业区别的高级状态</h3><p>公司无论规模多大，都可以建立属于自己的企业文化，是价值观，信念等精神因素的结合，是一个企业文化区别于其他企业的最高级状态，在精神上将员工凝聚在一起。企业文化的特征在于独特，西方很多公司用创始人自己的名字命名也是这样的一种诠释。</p>
-<h3 id="团队一致性-–-持续弱刺激"><a href="#团队一致性-–-持续弱刺激" class="headerlink" title="团队一致性 – 持续弱刺激"></a>团队一致性 – 持续弱刺激</h3><p>任何一个员工反馈的时机，都是打造团队一致性的好时机。发奖金的时机就是一个好时机。</p>
-<h3 id="撒谎的信号"><a href="#撒谎的信号" class="headerlink" title="撒谎的信号"></a>撒谎的信号</h3><p>一个人在撒谎时，会抚摸自我安慰区，女性的自我安慰区是胸口，男性的自我安慰区是脑后。另外耸肩，摸鼻子，抓痒，快速眨眼也是说谎的一些信号。</p>
-<h3 id="绩效最终体现在员工的成长中"><a href="#绩效最终体现在员工的成长中" class="headerlink" title="绩效最终体现在员工的成长中"></a>绩效最终体现在员工的成长中</h3><p>员工为企业的成长投资了最宝贵的资源–时间，因此企业要保证在这些时间内让员工有所提升，企业严格管理员工，是为了提升员工的职场价值。对职场人士来说，如果在工作中没有开拓新领域，获得新能力，只是日复一日重复，所谓的”工作经验“是非常廉价的。员工的进步跟管理者的严格管理有很大关系，是团队自信的底气。</p>
+<p>我们知道一句话，谎言重复千遍，那就是真理。重复的弱刺激，是形成印象，占领心智的有效武器。</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><h3 id="管理并不需要换位思考"><a href="#管理并不需要换位思考" class="headerlink" title="管理并不需要换位思考"></a>管理并不需要换位思考</h3><p>管理并不需要换位思考，沟通需要换位思考。这句话看上去挺冷漠，但又实实在在。管理者真心希望组织稳定，以达成组织绩效，因为管理者是更具目标感和专业度的一撮人，理解达成使命或解决问题是价值的体现。人的管理又是有些复杂，因为他是意愿和能力的综合体，不仅仅要关注技能成长（绩效诉求体现在下属的成长中），同样要影响和关注意愿变动。人员流动在所难免，淘汰率和留存率又是一组相杀相爱的指标。最后让我们看看一个企业留人的因素</p>
+<ul>
+<li>薪资留人</li>
+<li>事业留人</li>
+<li>文化留人</li>
+</ul>
+<h3 id="文化留人有那么重要么"><a href="#文化留人有那么重要么" class="headerlink" title="文化留人有那么重要么"></a>文化留人有那么重要么</h3><p>案例中的并购冲突，本质上事业没变，其实主要是两家企业文化不同。在软性的人文关怀，机会发展和品牌认同上，造成了员工使命和认同的差异。</p>
+<p>企业治理和组织能力打造中，现在更强调变革的基因，生态化的组织，创新迎接压力，这也是跟大家都在强调学阿里，学华为的调调相符，这两家都是不断组织变革的代表。新态势下的组织，需要使命，价值观驱动，并结合激励。而非传统的要求，惩罚来逼你做。围绕人，构建发挥人最大能动性的文化和环境，非常重要。</p>
+<p>说这么虚，文化包含啥</p>
+<ol>
+<li>使命，价值观</li>
+<li>激励机制</li>
+<li>福利，培训，工作设备，工作环境，工资</li>
+<li>信息共享</li>
+</ol>
+<p>也许还有更多，文化对于较好的人员留存有较大影响比重，经营一家伟大的企业需要重视。</p>
 ]]></content>
       <categories>
         <category>学而思</category>
-        <category>读书笔记</category>
+        <category>经营管理</category>
       </categories>
       <tags>
         <tag>经营管理</tag>
@@ -1293,124 +1432,6 @@
       </tags>
   </entry>
   <entry>
-    <title>相爱相杀 -- 企业并购中团队管理观察</title>
-    <url>/2020/10/27/%E7%9B%B8%E7%88%B1%E7%9B%B8%E6%9D%80%20--%20%E4%BC%81%E4%B8%9A%E5%B9%B6%E8%B4%AD%E4%B8%AD%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86%E8%A7%82%E5%AF%9F/</url>
-    <content><![CDATA[<p><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQJmpU6VvmXtZ0Gb_gDKQmTAmtpmXSgX5AGdA&amp;usqp=CAU" alt=""></p>
-<h2 id="突如其来的并购"><a href="#突如其来的并购" class="headerlink" title="突如其来的并购"></a>突如其来的并购</h2><p>并购有风声，但一定有辟谣。当消息降临在打工人的那一刻，答案在风中已经飘了很久了。在小范围的核心团队圈层，势必已做了心理建设和鸡汤灌输。大量的基层人员，在此种场景必然分群，有本来就打算要走，多来一个N+1心中小甜美的；有心有不甘，小范围拉伙准备抗议到底的；有准备呆更久领取N+X补偿后，在另做打算的；有走一步看一步步步为营的。哪种比例会更高？肯定是后一种或后两种，否则也不是厌恶风险的打工人了。</p>
-<p>这里矛盾的大主角，显然是劳资双方。被收购方出卖的除了平台，品牌，商誉，还有团队。但在互联网领域，固定资产的机器不算什么，人是最大的资产。搞定人，搞定收购过来的团队，是横亘在高管面前的一套题。</p>
-<h2 id="绩效的产出需保持组织稳定"><a href="#绩效的产出需保持组织稳定" class="headerlink" title="绩效的产出需保持组织稳定"></a>绩效的产出需保持组织稳定</h2><a id="more"></a>
-<p>收购新上了一套高层班子，踌躇满志，战略战术有待检验，这需要士兵冲锋上前。解决执行问题是直观诉求，潜在诉求其实是组织的稳定，因为只有稳定的组织，才有绩效产出的保障。保持组织的稳定明面上不是重中之重，背地里却是。我们知道选好人，用对人，留住人是我们团队管理的三个角度，除去这些，影响个人，还有一些技巧。我们分别从这几个维度看看上演的做法。</p>
-<h3 id="选好人-–-消除负面弱刺激"><a href="#选好人-–-消除负面弱刺激" class="headerlink" title="选好人 – 消除负面弱刺激"></a>选好人 – 消除负面弱刺激</h3><p>在一波打算离职的人中，容易和抗争到底的人形成联盟，充当其为民请命的代表。这两拨人分开对待，要离职的人，利用威权和大局观游说，促成其放弃冲锋抵抗的角色，尽最大可能让其尽快离职。对于负隅顽抗的人，进行孤立，促使其向自行离职做转换。</p>
-<h3 id="用对人-–-保持建制"><a href="#用对人-–-保持建制" class="headerlink" title="用对人 – 保持建制"></a>用对人 – 保持建制</h3><p>尽量保持原有建制和团队关系不变，维持一个相对放松的环境。利用原有的管理关系，进行影响力释放。</p>
-<h3 id="留住人-–-利诱核心骨干"><a href="#留住人-–-利诱核心骨干" class="headerlink" title="留住人 – 利诱核心骨干"></a>留住人 – 利诱核心骨干</h3><p>对于核心团队，保持待遇不衰减，提升管理机遇，许有上市激励。</p>
-<p>其实新东家还有一些好的制度，如加班调休制度，但在并购振荡期，这些新制度并不是宣传战的要点。种植一个梦想才是洗脑的高境界。</p>
-<h3 id="洗脑-–-重复弱刺激"><a href="#洗脑-–-重复弱刺激" class="headerlink" title="洗脑 – 重复弱刺激"></a>洗脑 – 重复弱刺激</h3><ol>
-<li>尽量保持原有建制和团队关系不变，维持一个相对放松的环境，也容易营造从众态势</li>
-<li>包装权威，领军人的传奇经历，让部分愿意相信的人相信继续成功的可能性</li>
-<li>推脱原来的不成功是旧环境的问题</li>
-<li>由原有带队人不断组织团队建设，进行鸡汤灌输，营造我们能赢，我们能收获跟原来不一样的结果的念想</li>
-<li>虚许空头支票（职位，股票），营造更具个人意向的目标感。</li>
-</ol>
-<p>我们知道一句话，谎言重复千遍，那就是真理。重复的弱刺激，是形成印象，占领心智的有效武器。</p>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><h3 id="管理并不需要换位思考"><a href="#管理并不需要换位思考" class="headerlink" title="管理并不需要换位思考"></a>管理并不需要换位思考</h3><p>管理并不需要换位思考，沟通需要换位思考。这句话看上去挺冷漠，但又实实在在。管理者真心希望组织稳定，以达成组织绩效，因为管理者是更具目标感和专业度的一撮人，理解达成使命或解决问题是价值的体现。人的管理又是有些复杂，因为他是意愿和能力的综合体，不仅仅要关注技能成长（绩效诉求体现在下属的成长中），同样要影响和关注意愿变动。人员流动在所难免，淘汰率和留存率又是一组相杀相爱的指标。最后让我们看看一个企业留人的因素</p>
-<ul>
-<li>薪资留人</li>
-<li>事业留人</li>
-<li>文化留人</li>
-</ul>
-<h3 id="文化留人有那么重要么"><a href="#文化留人有那么重要么" class="headerlink" title="文化留人有那么重要么"></a>文化留人有那么重要么</h3><p>案例中的并购冲突，本质上事业没变，其实主要是两家企业文化不同。在软性的人文关怀，机会发展和品牌认同上，造成了员工使命和认同的差异。</p>
-<p>企业治理和组织能力打造中，现在更强调变革的基因，生态化的组织，创新迎接压力，这也是跟大家都在强调学阿里，学华为的调调相符，这两家都是不断组织变革的代表。新态势下的组织，需要使命，价值观驱动，并结合激励。而非传统的要求，惩罚来逼你做。围绕人，构建发挥人最大能动性的文化和环境，非常重要。</p>
-<p>说这么虚，文化包含啥</p>
-<ol>
-<li>使命，价值观</li>
-<li>激励机制</li>
-<li>福利，培训，工作设备，工作环境，工资</li>
-<li>信息共享</li>
-</ol>
-<p>也许还有更多，文化对于较好的人员留存有较大影响比重，经营一家伟大的企业需要重视。</p>
-]]></content>
-      <categories>
-        <category>学而思</category>
-        <category>经营管理</category>
-      </categories>
-      <tags>
-        <tag>经营管理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>情商这玩意</title>
-    <url>/2015/01/08/%E6%83%85%E5%95%86%E8%BF%99%E7%8E%A9%E6%84%8F/</url>
-    <content><![CDATA[<p><img src="http://cdn.diffday.com/picgo/20201019191019.png" alt="情绪图谱"></p>
-<p>此文来自一次培训，觉得京东大学的讲师还是把知识串接的挺棒的，不光有理论，还有自己的真实经验，且没有保留，多少改变了我对情商的认识或建立了我对情商的认识。</p>
-<p><strong>转移到情商的定义上来：来自亚里士多德的观点，每个人都会发脾气，这非常容易，但是把脾气发在对的人身上，用对的程度在对的时间，为了对的目的，运用对的方法，却不容易。</strong></p>
-<blockquote>
-<p>Anyone can be angry,that is easy.But to be angry with the right person to the right degree at the right time, for the right purpose and in the right way, that is not easy</p>
-</blockquote>
-<h2 id="情绪绑架你躲不开"><a href="#情绪绑架你躲不开" class="headerlink" title="情绪绑架你躲不开"></a>情绪绑架你躲不开</h2><p>道理谁都懂，可就是办不到。这过程中，你就是与你的原始大脑对抗不过</p>
-<blockquote>
-<p>理性脑与情绪脑的脱离，200w年的大脑和5000w年的大脑部分达不成一致，所以人痛苦。人再经过5000w年，三脑可以合一，反应都达到毫秒级 (<em>一亿年的脑干和5000w年的中脑已经可以认为已合并</em>)</p>
-</blockquote>
-<a id="more"></a>
-<p>情绪的反应是毫秒级-微表情的反应是毫秒级，它会泄露你的秘密，故才有测谎仪，才有《FBI教你读心术》这本书。只有高手才能转移微表情，通过训练，转移到没那么容易观察到的角落。例如你内向不适合当众讲话，会紧张脸红，可以转移这些微表情到到捏拳头，若还容易被察觉，可以转移到脚趾头抓地。</p>
-<p>2秒钟左右大脑皮层(理性大脑)产生干预。大脑皮层有反应到情商起作用，要6秒钟时间，这比2秒的干预启动还要慢些。还有一个60秒圣境（我当前的60秒圣境是与家人在游轮上），能让你平静调整到最美好的心态来处理事情，这时你最聪明。</p>
-<p>情商启动时间在秒级，所以你不可能控制情绪，只能察觉，理解和管理。<u>我们讨论情商的最终目的，也是想发挥情商的最大作用【不后悔或洋洋得意】</u></p>
-<p>带情绪说话和不带情绪，能量差24倍。</p>
-<p>11~12，17~18岁最容易出现情绪绑架，可能在激素的作用或大脑快速发育过程中，理性脑和情绪脑产生脱离，pheromone真的很厉害。</p>
-<p>发散谈一下，在教育小孩过程中，要多做延迟满足训练。这样的小孩儿长大后能更好的应对复杂情况的能力。【每天目击那么多宠爱，这恶习肿么破】</p>
-<h2 id="大脑最高级的功能，乃白日梦也"><a href="#大脑最高级的功能，乃白日梦也" class="headerlink" title="大脑最高级的功能，乃白日梦也"></a><strong>大脑最高级的功能，乃白日梦也</strong></h2><p>大脑有三大功能，记忆(最初级)，思考，想象(白日梦，最有价值的模块)，当前第六代时间管理已推崇更多时间到想象，清空大脑是第一步。</p>
-<p>带团队过程中把大家的想象调动起来，这种力量最有用。放松的时候最利于想象，深圳有午休的习惯，故利于想象创新。而京东的同事也不午休，太紧张，只能做安全不出错的事情。</p>
-<p>通过想象(视觉化训练)把未知的领域拉进自己的范畴。在体育领域最常用明显，想象自己要学的新动作。未知的自己也是自己，就像你去面试时能看到某些年轻人后续的发展可能一样(可能会像自己公司的某位同事，但被面试者认识不到)</p>
-<h2 id="Self-Talk-实际日常中的理论体现"><a href="#Self-Talk-实际日常中的理论体现" class="headerlink" title="Self_Talk 实际日常中的理论体现"></a><strong>Self_Talk 实际日常中的理论体现</strong></h2><p>正常人一天给自己说4000句，自我对话。希望能整理出10句对自己最有用或常用的self talk，救命时用的。</p>
-<p>一天 = 一生，先要察觉到自己每天的4000句都是些什么。</p>
-<p>万达主题乐园的领到4000元月薪的一线员工，有客户对其服务反馈时，是会真诚的笑的，而不是职业的笑。然而迪斯尼的员工不关心客户的考评，而是真诚的喜欢这份工作，但他们的薪水是1w块的。</p>
-<p>曾经做了一首歌让新员工每天唱，这也是一种形式的self talk，对人来进行筛选(初期这个歌曲产品的预期有效期是半年，也就是半年能完成人员淘汰筛选)。这就像常听歌，某些歌词能让你发生变化一样。</p>
-<h2 id="软化自己的壳儿"><a href="#软化自己的壳儿" class="headerlink" title="软化自己的壳儿"></a><strong>软化自己的壳儿</strong></h2><p>已知的自己和未知的自己之间有一个硬硬的壳儿，你甚至可以只向自己提难题但不思考回答。类似于向潜意识的自己(未知的自己)提问和学习，反正已知的自己是解决不了，何必费劲，潜意识的自己你能帮我解决就解决。</p>
-<p>你能利用自己的潜意识或团队的潜意识来解决复杂的问题吗？睡觉刚起来的时候，这个壳儿可能最软，存在于一个坚硬的自己将要回来接管的这么一个时刻。</p>
-<p><strong>放松冥想，让潜意识的自己找到答案。情绪是一种强大的能量。</strong></p>
-<h3 id="与世界的四种认知关系"><a href="#与世界的四种认知关系" class="headerlink" title="与世界的四种认知关系"></a>与世界的四种认知关系</h3><p><img src="http://cdn.diffday.com/picgo/20201020102543.png" alt=""></p>
-<blockquote>
-<p>我是世界的中心(自信)，我是世界的边缘(自卑)，我在世界之外(跳出画面来看)，我无处不在(瞬移)。</p>
-</blockquote>
-<p>大部分人在一二状态中间反复流转，完成碌碌无为的download的人生。</p>
-<p>好有意思的四维说法，我在世界之外，我无处不在。（当时讲师的说法并没有照搬网上的拗口的我中我，你中我等说法，是一种认真的面向主题和受众的姿态，所以我才觉得此次培训印象深刻吧）</p>
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p><strong>课堂上听到薇姐的一句self_talk, 颇为欣赏，正能量美好无比：</strong></p>
-<blockquote>
-<p><strong>我们的征程是星辰大海。</strong></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>学而思</category>
-      </categories>
-      <tags>
-        <tag>心理学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>软件哲学</title>
-    <url>/2007/04/22/%E8%BD%AF%E4%BB%B6%E5%93%B2%E5%AD%A6/</url>
-    <content><![CDATA[<p><img src="http://cdn.diffday.com/picgo/20201112190431.png" alt=""></p>
-<p><strong>希伯来最著名的故事或许是</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">一位异教徒来到Rabbi Shammal面前和他说：“要我改变信仰只有一个条件：那就是你在我单脚站立时教完Torah【圣经旧约之首五卷】的所有内容。”Rabbi Shammal将其赶走。然后他就来到Rabbi Hillel（一个令其改变信仰的人）面前。Hillel告诉他，“勿对人做出连自己都憎恶之事，这就是Torah的全部；其它都是注释，你自己去学习。”</span><br></pre></td></tr></table></figure>
-<p>Rabbi Shammal有赶走这个异教徒的充足理由</p>
-<blockquote>
-<p>任何简化都只会误导。编写优秀的软件要比做出可靠的设计更复杂，细节就是魔鬼。</p>
-</blockquote>
-<p>Rabbi Hillel没有赶走他也有充足的理由</p>
-<blockquote>
-<p>理解最本质的思想为接下来的所有细节提供了一个上下文关系。书籍多只给出一个框架性理解，其余的内容都融入到案例研究中。</p>
-</blockquote>
-<p><u><strong>“单脚”注释了此种哲学</strong></u></p>
-<p><strong>确认你已理解问题，由小型的有才干的团队来实现解决方案，并且让你的客户告诉你如何改进它。这就是全部，其它的都是注释。</strong></p>
-]]></content>
-      <categories>
-        <category>学而思</category>
-        <category>软件工程</category>
-      </categories>
-      <tags>
-        <tag>软件工程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>线粒体夏娃</title>
     <url>/2020/11/18/%E7%BA%BF%E7%B2%92%E4%BD%93%E5%A4%8F%E5%A8%83/</url>
     <content><![CDATA[<p><img src="http://cdn.diffday.com/picgo/20201119100742.png" alt=""></p>
@@ -1451,52 +1472,6 @@
 <p><strong>各自所处时代的“女主角”，年代相差数百万年。</strong></p>
 <p>露西其实已经不是最早的南方古猿化石，还不是最早的人属成员。最早发现的的南方古猿化石为“汤恩小孩”，目前已知最完整的南方古猿化石为“小脚”，最早的人属成员还存争议，南方古猿阿法种（露西所属）和南方古猿湖畔种都是有力的竞争者。</p>
 <p>南方古猿只是智人的远亲，属于灭绝的一种。称为早期人类还行，人类非洲老祖母称号不适合露西。</p>
-]]></content>
-      <categories>
-        <category>学而思</category>
-        <category>过分好奇</category>
-      </categories>
-      <tags>
-        <tag>概念解读</tag>
-        <tag>历史</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>亚伯拉罕诸教的差异</title>
-    <url>/2020/11/17/%E4%BA%9A%E4%BC%AF%E6%8B%89%E7%BD%95%E8%AF%B8%E6%95%99%E7%9A%84%E5%B7%AE%E5%BC%82/</url>
-    <content><![CDATA[<p><img src="http://cdn.diffday.com/picgo/20201117200324.png" alt=""></p>
-<h2 id="亚伯拉罕诸教"><a href="#亚伯拉罕诸教" class="headerlink" title="亚伯拉罕诸教"></a>亚伯拉罕诸教</h2><p>基督教、伊斯兰教和犹太教被学术界称为亚伯拉罕诸教，因为他们都相信有位先知亚伯拉罕，在古兰经里，亚伯拉罕叫以易卜拉欣。</p>
-<h3 id="经典成书的时间和过程"><a href="#经典成书的时间和过程" class="headerlink" title="经典成书的时间和过程"></a>经典成书的时间和过程</h3><ul>
-<li><p>《旧约》 前1200-前400年，上帝只选了犹太人做他的子民，从埃及返回迦南福地，建立国家，可惜后又被巴比伦国蹂躏。</p>
-</li>
-<li><p>《新约》 公元50-100年 ，两约之间是记录空白。普世性较好，因为耶稣的时代，以色列这地方已经有很多不同种族混居，所以发展为其它种族也可以信仰基督。可惜不被犹太人所容，被钉死在十字架上。</p>
-</li>
-<li><p>《古兰经》 公元610-633年。阿拉伯地区部落常年征战，贵族作威作福，商人和穷人都生活吴王，且被波斯人欺压。默罕默德嫁给一个遗孀后，生活的挺滋润，经常山洞清修，本身不识字，但听过基督教牧师很多故事，在这样的时代背景下，借了基督教的很多信息创立了伊斯兰教。给了穷人希望，从实用的角度上强调顺从，团结阿拉伯人，取得了空前的成功。</p>
-</li>
-</ul>
-<p><strong>相当于每个后继者是前者的补丁版，古兰经是矛盾处最少的一个</strong></p>
-<a id="more"></a>
-<p><img src="http://cdn.diffday.com/picgo/20201117200256.png" alt=""></p>
-<h3 id="主旨概念异同"><a href="#主旨概念异同" class="headerlink" title="主旨概念异同"></a>主旨概念异同</h3><ul>
-<li>古兰经大量故事与新旧约一致</li>
-<li>古兰经不承认基督是神的儿子，因为这违背一神教的原则，基督只是与默罕默德一样的先知</li>
-<li>古兰经认为旧约，新约都是被篡改的经，而古兰经是创始之前就有的，天使授与先知</li>
-<li>根据圣经，人是堕落的罪人，而古兰经则说人不是罪人，但他基本上是善良的</li>
-<li>根据圣经，魔鬼是堕落的天使，而根据古兰经，魔鬼不是堕落的天使，而是堕落的精灵</li>
-</ul>
-<h3 id="文本风格差异"><a href="#文本风格差异" class="headerlink" title="文本风格差异"></a>文本风格差异</h3><p>《圣经》文本的风格各异，不一而足，内容包括历史，诗歌，哲学，甚至私人信件和讲章，历史版本也多，原始文本是希伯来文和希腊文，现实流行文本是英文等欧洲文字。神学贯穿于文本意义的表达之中。</p>
-<p>《古兰经》文本的风格统一，是自由的韵文体。原始文本和现实通用文本是阿拉伯文，译本只能用做参考。信仰的表达不仅在于文本（text），还在于诵读（chanting）。与意义相比，声音的作用更加直接和实在。</p>
-<p>《古兰经》共114章，6236节，其中穆罕默德在麦加口述了86章，占全书的三分之二，他迁移到麦地那以后又口述了28章，占全书的三分之一。麦地那的部分的确提倡圣战，应该也是解决矛盾的实用主义需要吧，毕竟默罕默德它最终发展成是政教合一。</p>
-<h3 id="信仰体系总体特征"><a href="#信仰体系总体特征" class="headerlink" title="信仰体系总体特征"></a>信仰体系总体特征</h3><h4 id="《圣经》最终表达是一种末世观"><a href="#《圣经》最终表达是一种末世观" class="headerlink" title="《圣经》最终表达是一种末世观"></a>《圣经》最终表达是一种末世观</h4><p>《旧约》强调对神的“顺服”，但缺少普世性；《新约》强调的普世性，而弱化了仪式、律法的约束。从《旧约》中犹太人不断恶化的历史产生了末世观和对弥赛亚的期待。学者认为，比类福音所表达的是末世观。人们期待耶稣的再次降临和末日审判，他们过集体的生活（使2：44-45），轻现世。</p>
-<p>保罗神学提出了“十字架奥义”即“赎罪说”，强调灵魂的拯救，是对末世观的扭转。但《新约》以《启示录》结局，末世观的影响非常深远，直至今日。</p>
-<h4 id="《古兰经》最终表达的是两世观"><a href="#《古兰经》最终表达的是两世观" class="headerlink" title="《古兰经》最终表达的是两世观"></a>《古兰经》最终表达的是两世观</h4><p>造物主是绝对的超越的，人对主是绝对的依赖和服从。而信仰和仪式是紧密结合的。把对造物主的信仰与普世性结合起来，把精神的信与实践的信结合起来。刘智说：“以认主为宗旨，以敬事为工夫，以复命归真为究竟。” 在人类始祖犯罪以后，真主在《古兰经》里说：“你们互相仇视地下去吧。大地上有你们暂时的住处和享受。”（2：36）“你们都从这里下去吧！我的引导如果达到你们，那么，谁遵守我的引导，谁在将来没有恐惧，也不忧愁”（2：38）表达了与《圣经》不同的观点。</p>
-<h3 id="正信差异"><a href="#正信差异" class="headerlink" title="正信差异"></a>正信差异</h3><p>你行公义，好怜悯，存谦卑的心，与你的神同行。（弥迦书6：8） 耶稣对他说：“你要尽心、尽性、尽意爱主你的神。这是诫命中第一，且是最大的。其次也相仿，就是爱人如己。这两条诫命是律法和先知一切道理的总纲。”（马太22：37-40）、</p>
-<p>把自己的脸转向东方和西方，都不是正义。正义是信真主，信末日，信天神，信天经，信先知，并将所爱的财产施济亲戚、孤儿、贫民、旅客、乞丐和赎取奴隶，并谨守拜功，完纳天课，履行约言，忍受贫困、患难和战争。这等人，确是忠贞的；这等人，确是敬畏的。（古兰经2：177）— 一方面同情穷人，一方面让人忍受现世。</p>
-<h2 id="扩展好奇下"><a href="#扩展好奇下" class="headerlink" title="扩展好奇下"></a>扩展好奇下</h2><h3 id="佛教是一神教吗"><a href="#佛教是一神教吗" class="headerlink" title="佛教是一神教吗"></a>佛教是一神教吗</h3><p>如果“神”指的是世界的主宰、造物，佛教就是无神教（接近于万物有灵论）。佛教信仰的目标是涅槃，不是神，是一种修行的状态。</p>
-<p>如果“神”指的是超自然的存在，佛教就是多神教。佛教有许多天神地祗，但不包括佛、菩萨、罗汉。</p>
-<h3 id="宗教一字师"><a href="#宗教一字师" class="headerlink" title="宗教一字师"></a>宗教一字师</h3><p>基督教：爱</p>
-<p>佛教：空</p>
-<p>伊斯兰教：从（顺从）</p>
 ]]></content>
       <categories>
         <category>学而思</category>
@@ -1561,6 +1536,31 @@
       </categories>
       <tags>
         <tag>硬核知识</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>软件哲学</title>
+    <url>/2007/04/22/%E8%BD%AF%E4%BB%B6%E5%93%B2%E5%AD%A6/</url>
+    <content><![CDATA[<p><img src="http://cdn.diffday.com/picgo/20201112190431.png" alt=""></p>
+<p><strong>希伯来最著名的故事或许是</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">一位异教徒来到Rabbi Shammal面前和他说：“要我改变信仰只有一个条件：那就是你在我单脚站立时教完Torah【圣经旧约之首五卷】的所有内容。”Rabbi Shammal将其赶走。然后他就来到Rabbi Hillel（一个令其改变信仰的人）面前。Hillel告诉他，“勿对人做出连自己都憎恶之事，这就是Torah的全部；其它都是注释，你自己去学习。”</span><br></pre></td></tr></table></figure>
+<p>Rabbi Shammal有赶走这个异教徒的充足理由</p>
+<blockquote>
+<p>任何简化都只会误导。编写优秀的软件要比做出可靠的设计更复杂，细节就是魔鬼。</p>
+</blockquote>
+<p>Rabbi Hillel没有赶走他也有充足的理由</p>
+<blockquote>
+<p>理解最本质的思想为接下来的所有细节提供了一个上下文关系。书籍多只给出一个框架性理解，其余的内容都融入到案例研究中。</p>
+</blockquote>
+<p><u><strong>“单脚”注释了此种哲学</strong></u></p>
+<p><strong>确认你已理解问题，由小型的有才干的团队来实现解决方案，并且让你的客户告诉你如何改进它。这就是全部，其它的都是注释。</strong></p>
+]]></content>
+      <categories>
+        <category>学而思</category>
+        <category>软件工程</category>
+      </categories>
+      <tags>
+        <tag>软件工程</tag>
       </tags>
   </entry>
 </search>
