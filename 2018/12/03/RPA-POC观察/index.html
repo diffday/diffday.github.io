@@ -1,25 +1,290 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
 
+  
+  <title>RPA-POC观察 | Diffday</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="POC目标  提供技术可行性验证，展示课预估的商业价值  技术：识别关键的技术壁垒，验证后续的扩展性 商业：是否可以得到预期的回报 Proposal三种方案，一种是BP（BluePrism），一种是AA（AutomationAnywhere），AA和BP都是基于.net的，会.net比较好 另一个是UIPATH，罗马尼亚的一家公司创造出来的，进行广泛的授权合作，也有一定的跟随者。 POC过程1.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RPA-POC观察">
+<meta property="og:url" content="http://yoursite.com/2018/12/03/RPA-POC%E8%A7%82%E5%AF%9F/index.html">
+<meta property="og:site_name" content="Diffday">
+<meta property="og:description" content="POC目标  提供技术可行性验证，展示课预估的商业价值  技术：识别关键的技术壁垒，验证后续的扩展性 商业：是否可以得到预期的回报 Proposal三种方案，一种是BP（BluePrism），一种是AA（AutomationAnywhere），AA和BP都是基于.net的，会.net比较好 另一个是UIPATH，罗马尼亚的一家公司创造出来的，进行广泛的授权合作，也有一定的跟随者。 POC过程1.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9MaWMzV0lqbm80Z3piZmFsaWF3aWJ6Z29HUWZpY21KWUFLNGNKUDkwejU5UDFsdkhaS09ybjBXb0I2V0FqMnl5ZGE3RThyZ1JMQnpaSU1zTUJma0hwc2NvVUEvNjQw?x-oss-process=image/format,png">
+<meta property="article:published_time" content="2018-12-03T04:59:57.000Z">
+<meta property="article:modified_time" content="2020-11-11T08:51:11.000Z">
+<meta property="article:author" content="卓">
+<meta property="article:tag" content="生活感悟">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9MaWMzV0lqbm80Z3piZmFsaWF3aWJ6Z29HUWZpY21KWUFLNGNKUDkwejU5UDFsdkhaS09ybjBXb0I2V0FqMnl5ZGE3RThyZ1JMQnpaSU1zTUJma0hwc2NvVUEvNjQw?x-oss-process=image/format,png">
+  
+    <link rel="alternate" href="/atom.xml" title="Diffday" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
 
-{% block title %}{{ page.title }} | {{ title }}{% endblock %}
+<meta name="generator" content="Hexo 5.4.0"></head>
 
-{% block page_class %}page-post-detail{% endblock %}
-
-
-{% block content %}
-
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Diffday</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-RPA-POC观察" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/03/RPA-POC%E8%A7%82%E5%AF%9F/" class="article-date">
+  <time datetime="2018-12-03T04:59:57.000Z" itemprop="datePublished">2018-12-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/">生活随笔</a>
   </div>
 
-{% endblock %}
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      RPA-POC观察
+    </h1>
+  
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9MaWMzV0lqbm80Z3piZmFsaWF3aWJ6Z29HUWZpY21KWUFLNGNKUDkwejU5UDFsdkhaS09ybjBXb0I2V0FqMnl5ZGE3RThyZ1JMQnpaSU1zTUJma0hwc2NvVUEvNjQw?x-oss-process=image/format,png"></p>
+<h2 id="POC"><a href="#POC" class="headerlink" title="POC"></a>POC</h2><h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><blockquote>
+<p> 提供技术可行性验证，展示课预估的商业价值</p>
+</blockquote>
+<p><strong>技术：识别关键的技术壁垒，验证后续的扩展性</strong></p>
+<p><strong>商业：是否可以得到预期的回报</strong></p>
+<p>Proposal三种方案，一种是BP（BluePrism），一种是AA（AutomationAnywhere），AA和BP都是基于.net的，会.net比较好</p>
+<p>另一个是UIPATH，罗马尼亚的一家公司创造出来的，进行广泛的授权合作，也有一定的跟随者。</p>
+<h3 id="POC过程"><a href="#POC过程" class="headerlink" title="POC过程"></a>POC过程</h3><p>1.业务案例（访谈）– &gt; 2.RPA场景提取（机会识别）–&gt; 3. 搭建原型（实施开发）–&gt; 4.评估（原型验证）–&gt; 5.试点运行（小规模部署/生产化）</p>
+<p><strong>本文的过程在1~3环节，以期筛选出合适的合作商</strong></p>
+<p>本身是成本优化项目，成本考量同样需关注</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">基本问题：使用率如何定义？机器人设备的部署量如何评估？</span><br><span class="line">普遍现状：一个终端同时在运行一个机器人任务</span><br></pre></td></tr></table></figure>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+<h3 id="POC感受"><a href="#POC感受" class="headerlink" title="POC感受"></a>POC感受</h3><ul>
+<li>正所谓人靠衣装，佛靠金装。体会到了职场的场面的重要性，机会降临给准备充分的人</li>
+<li>流程及流程输出物的标准化</li>
+<li>高强度，一点不比系统研发轻松</li>
+</ul>
+<h2 id="合作商过程记录"><a href="#合作商过程记录" class="headerlink" title="合作商过程记录"></a>合作商过程记录</h2><span id="more"></span>
+
+<h3 id="ISearch"><a href="#ISearch" class="headerlink" title="ISearch"></a>ISearch</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Q：一定要虚拟化终端？A：不要求</span><br><span class="line">Q：任务的部署下发是指定终端，还是全终端有全部的待运行任务</span><br><span class="line">Q：多终端的中间结果互通整合，如何处理？A：支持在服务端的数据打通</span><br><span class="line">Q：申请个单独的机器人账号最好</span><br><span class="line">Q：设计器的软件如何安装？A：非标准软件，可以分Set控制配置不同的服务端</span><br><span class="line">Q：如何分开各部门的权限？A：回复待确认是否有任务资源的编辑访问控制</span><br><span class="line">基于UIPATH</span><br></pre></td></tr></table></figure>
+
+<p>上海的公司，国内做RPA比较早，其最大优势是有一些既有的国内客户，如银行，已有实施案例。曾经一度是重点考察对象，成本优势应该也是有的。</p>
+<h3 id="安永"><a href="#安永" class="headerlink" title="安永"></a>安永</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">基于UIPATH</span><br><span class="line">Q：推荐的开发语言是什么？对VB的支持是最好的，其余几种语言还不确定支持完备度如何</span><br><span class="line">Q：UIPATH的Studio对任务的配置，没有中间层的调配管理，全量推送到机器人终端。有Server的三层方案在中华区还没有应用案例</span><br><span class="line">碰到的问题，就是个性化系统的操作识别有些问题，但UIPATH有较好的扩展性，还要考虑是否与终端软件的防护有无冲突。</span><br></pre></td></tr></table></figure>
+
+<p>远程参会，两轮对口人，完成讲解。从形式上就让甲方觉得不够重视，陪跑是必然的</p>
+<h3 id="IBM"><a href="#IBM" class="headerlink" title="IBM"></a>IBM</h3><p>来的阵仗第二大，从售前，带队领导，到工程师代表一应俱全。准备全面，重点由工程师代表方案讲解发言</p>
+<p>讲述方法论比较成熟，包括ROI的模板分析方法，维度4象限（需求清晰度/业务重复度）划分，结合ROI分析。异常处理机制，显出功力</p>
+<ul>
+<li>重试</li>
+<li>邮件告警</li>
+<li>异常截图</li>
+<li>异常日志</li>
+</ul>
+<p>支持BP, AA两套方案，优推BP，也显出他们人员配置完备。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Q：现有的模块库已经完备？反馈说已经有</span><br><span class="line">Q：拆分比较细的机器人时，如何建议部署量</span><br></pre></td></tr></table></figure>
+
+<h3 id="富璟科技"><a href="#富璟科技" class="headerlink" title="富璟科技"></a>富璟科技</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">基于AA</span><br><span class="line">业务咨询能力：数字化的劳动力，处理重复的工作（有点吹大--人工智能，100%准确率，投资回报精确计算）</span><br><span class="line">技术难点的识别上，显出整体人员的研发功力距离IBM有较大的差距（VBA操作Excel，处理邮件）</span><br><span class="line">但强调了排班的安排，倒是说的对，其余厂家没多强调</span><br><span class="line">团队的培养，确实重要，仅有这家提了</span><br></pre></td></tr></table></figure>
+
+<p>深圳的单位，来了两个人，研发总监和一个开发，因为对比大厂没有优势，大概率陪跑角色，事实证明确实陪跑</p>
+<h3 id="毕马威（KPMG）"><a href="#毕马威（KPMG）" class="headerlink" title="毕马威（KPMG）"></a>毕马威（KPMG）</h3><p>来的人就几个，阵仗不大，评审人反馈过往的合作也一直比较实在老实，但后来报价很机械（反向佐证？）</p>
+<h3 id="德勤"><a href="#德勤" class="headerlink" title="德勤"></a>德勤</h3><p>来的售前阵仗最大，从香港跑过来一批合伙人大佬，装束精致，给招标方一种非常高规格的感觉，大佬们不懂技术，但话讲的漂亮</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1000台机器人--UIPATH的应用，在日本的银行客户</span><br><span class="line">2018年的新版本支持一个并发license模型</span><br><span class="line">好像他们也是UIPATH的东亚区核心代理</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/03/RPA-POC%E8%A7%82%E5%AF%9F/" data-id="ckoy179vm000atmja52jw9zpt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB%E6%84%9F%E6%82%9F/" rel="tag">生活感悟</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/12/11/%E7%BA%A2%E8%A1%A3%E6%95%99%E4%B8%BB%E4%BA%92%E6%96%B9%E8%AE%BA/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          红衣教主互方论
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/09/17/OKR-VS-KPI/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">OKR VS KPI</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/">学而思</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E5%8F%8D%E5%88%8D%E6%95%B4%E7%90%86/">反刍整理</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">数据挖掘</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E7%BB%8F%E8%90%A5%E7%AE%A1%E7%90%86/">经营管理</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E8%BF%87%E5%88%86%E5%A5%BD%E5%A5%87/">过分好奇</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/">生活随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E6%96%87%E7%B2%BE%E6%91%98/">网文精摘</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91/" rel="tag">互联网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E6%80%9D%E7%BB%B4/" rel="tag">互联网思维</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E7%89%A9%E8%AE%BF%E8%B0%88/" rel="tag">人物访谈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E7%BE%A4%E8%A7%82%E5%AF%9F/" rel="tag">人群观察</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%81%E4%B8%9A%E7%BB%8F%E8%90%A5/" rel="tag">企业经营</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%86%E5%8F%B2/" rel="tag">历史</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9C%B0%E5%9F%9F%E5%B7%AE%E5%BC%82/" rel="tag">地域差异</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%9A%E9%9D%A2%E4%BD%93%E7%9F%A5%E8%AF%86/" rel="tag">多面体知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%8F%E8%A7%82%E7%A0%94%E5%88%A4/" rel="tag">宏观研判</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E7%90%86%E5%AD%A6/" rel="tag">心理学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%9D%E6%83%B3%E5%90%AF%E8%BF%AA/" rel="tag">思想启迪</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E8%82%B2/" rel="tag">教育</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag">数据挖掘</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E5%AD%A6/" rel="tag">文学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A6%82%E5%BF%B5%E8%A7%A3%E8%AF%BB/" rel="tag">概念解读</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB%E6%84%9F%E6%82%9F/" rel="tag">生活感悟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E7%89%A9%E5%AD%A6/" rel="tag">生物学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F/" rel="tag">用户画像</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A1%AC%E6%A0%B8%E7%9F%A5%E8%AF%86/" rel="tag">硬核知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%8F%E6%B5%8E%E5%AD%A6/" rel="tag">经济学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%8F%E8%90%A5%E7%AE%A1%E7%90%86/" rel="tag">经营管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" rel="tag">软件工程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E5%AE%9E%E5%8A%9B/" rel="tag">软实力</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91/" style="font-size: 10px;">互联网</a> <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E6%80%9D%E7%BB%B4/" style="font-size: 15px;">互联网思维</a> <a href="/tags/%E4%BA%BA%E7%89%A9%E8%AE%BF%E8%B0%88/" style="font-size: 11.25px;">人物访谈</a> <a href="/tags/%E4%BA%BA%E7%BE%A4%E8%A7%82%E5%AF%9F/" style="font-size: 12.5px;">人群观察</a> <a href="/tags/%E4%BC%81%E4%B8%9A%E7%BB%8F%E8%90%A5/" style="font-size: 10px;">企业经营</a> <a href="/tags/%E5%8E%86%E5%8F%B2/" style="font-size: 16.25px;">历史</a> <a href="/tags/%E5%9C%B0%E5%9F%9F%E5%B7%AE%E5%BC%82/" style="font-size: 13.75px;">地域差异</a> <a href="/tags/%E5%A4%9A%E9%9D%A2%E4%BD%93%E7%9F%A5%E8%AF%86/" style="font-size: 10px;">多面体知识</a> <a href="/tags/%E5%AE%8F%E8%A7%82%E7%A0%94%E5%88%A4/" style="font-size: 12.5px;">宏观研判</a> <a href="/tags/%E5%BF%83%E7%90%86%E5%AD%A6/" style="font-size: 12.5px;">心理学</a> <a href="/tags/%E6%80%9D%E6%83%B3%E5%90%AF%E8%BF%AA/" style="font-size: 12.5px;">思想启迪</a> <a href="/tags/%E6%95%99%E8%82%B2/" style="font-size: 11.25px;">教育</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 11.25px;">数据挖掘</a> <a href="/tags/%E6%96%87%E5%AD%A6/" style="font-size: 12.5px;">文学</a> <a href="/tags/%E6%A6%82%E5%BF%B5%E8%A7%A3%E8%AF%BB/" style="font-size: 18.75px;">概念解读</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%84%9F%E6%82%9F/" style="font-size: 20px;">生活感悟</a> <a href="/tags/%E7%94%9F%E7%89%A9%E5%AD%A6/" style="font-size: 11.25px;">生物学</a> <a href="/tags/%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F/" style="font-size: 11.25px;">用户画像</a> <a href="/tags/%E7%A1%AC%E6%A0%B8%E7%9F%A5%E8%AF%86/" style="font-size: 12.5px;">硬核知识</a> <a href="/tags/%E7%BB%8F%E6%B5%8E%E5%AD%A6/" style="font-size: 10px;">经济学</a> <a href="/tags/%E7%BB%8F%E8%90%A5%E7%AE%A1%E7%90%86/" style="font-size: 17.5px;">经营管理</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" style="font-size: 11.25px;">软件工程</a> <a href="/tags/%E8%BD%AF%E5%AE%9E%E5%8A%9B/" style="font-size: 10px;">软实力</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/11/">十一月 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/09/">九月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/05/">五月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/04/">四月 2007</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/05/12/%E7%94%B5%E5%AD%90%E6%B8%B8%E6%88%8F%E5%8F%B2/">电子游戏史</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/10/%E5%8D%9A%E5%BC%88%E7%9F%A5%E8%AF%86&%E9%A2%84%E6%B5%8B%E6%94%B6%E6%95%9B%E6%B3%95/">博弈知识&amp;预测收敛法</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/04/%E4%BD%8E%E7%94%9F%E8%82%B2%E9%99%B7%E9%98%B1/">低生育陷阱</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/21/%E4%BC%81%E4%B8%9A%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%8E%86%E5%8F%B2%E4%B8%8E%E5%BA%94%E7%94%A8%E8%B6%8B%E5%8A%BF/">企业大数据历史与应用趋势</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/10/%E6%AF%8D%E4%BA%B2%E5%9B%9E%E5%BF%86%E5%BD%95--%E7%AB%A5%E5%B9%B4/">母亲回忆录--童年</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 卓<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

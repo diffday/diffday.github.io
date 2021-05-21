@@ -1,25 +1,846 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
 
+  
+  <title>人种迁徙与语言分布 | Diffday</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="当初看《人类基因的历史地图》这本书，实在有些啃不下去，配图太少，不善用符号，文字没有情感，导致基本只能记住线粒体夏娃，中国的黄种人由东南亚进入中国版图这样的印象。是近几年中读书没有读完丢在一边的特例，但仍埋下了种子。无意间网络间见一老兄推荐天涯的一篇帖子讲世界中国史，过去一观，开篇的问题就能勾住我的眼球，没想到接着往下翻，前面古人类的篇章，写的非常好，遂摘录整理，非常感谢原作者。作者的帖子火了，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="人种迁徙与语言分布">
+<meta property="og:url" content="http://yoursite.com/2021/03/27/%E4%BA%BA%E7%A7%8D%E8%BF%81%E5%BE%99%E4%B8%8E%E8%AF%AD%E8%A8%80%E5%88%86%E5%B8%83/index.html">
+<meta property="og:site_name" content="Diffday">
+<meta property="og:description" content="当初看《人类基因的历史地图》这本书，实在有些啃不下去，配图太少，不善用符号，文字没有情感，导致基本只能记住线粒体夏娃，中国的黄种人由东南亚进入中国版图这样的印象。是近几年中读书没有读完丢在一边的特例，但仍埋下了种子。无意间网络间见一老兄推荐天涯的一篇帖子讲世界中国史，过去一观，开篇的问题就能勾住我的眼球，没想到接着往下翻，前面古人类的篇章，写的非常好，遂摘录整理，非常感谢原作者。作者的帖子火了，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324192851.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210326103913.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210326130702.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324160605.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324173601.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324173634.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324173943.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324174033.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324174200.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324174226.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324173517.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210323182852.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210323183010.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210323183629.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210323183650.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210323184741.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324102714.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324103255.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324130147.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324131055.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324131157.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324131301.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324131727.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324131828.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324164529.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324164631.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324164959.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324192254.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324165051.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324165159.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324165300.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324165349.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324165450.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324165555.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324165724.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324165908.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324165944.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324170021.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324170626.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324170655.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324170738.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324170305.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324170948.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324171254.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324171534.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324171740.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324172133.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324172221.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324172433.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324172515.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324172609.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324173110.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324173157.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324173328.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324174258.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324175446.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324174539.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324174737.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324175001.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210324175109.png">
+<meta property="article:published_time" content="2021-03-26T16:05:06.000Z">
+<meta property="article:modified_time" content="2021-03-29T01:39:58.000Z">
+<meta property="article:author" content="卓">
+<meta property="article:tag" content="历史">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://cdn.diffday.com/picgo/20210324192851.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Diffday" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
 
-{% block title %}{{ page.title }} | {{ title }}{% endblock %}
+<meta name="generator" content="Hexo 5.4.0"></head>
 
-{% block page_class %}page-post-detail{% endblock %}
-
-
-{% block content %}
-
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Diffday</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-人种迁徙与语言分布" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/03/27/%E4%BA%BA%E7%A7%8D%E8%BF%81%E5%BE%99%E4%B8%8E%E8%AF%AD%E8%A8%80%E5%88%86%E5%B8%83/" class="article-date">
+  <time datetime="2021-03-26T16:05:06.000Z" itemprop="datePublished">2021-03-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%BD%91%E6%96%87%E7%B2%BE%E6%91%98/">网文精摘</a>
   </div>
 
-{% endblock %}
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      人种迁徙与语言分布
+    </h1>
+  
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://cdn.diffday.com/picgo/20210324192851.png"></p>
+<p>当初看《人类基因的历史地图》这本书，实在有些啃不下去，配图太少，不善用符号，文字没有情感，导致基本只能记住线粒体夏娃，中国的黄种人由东南亚进入中国版图这样的印象。是近几年中读书没有读完丢在一边的特例，但仍埋下了种子。无意间网络间见一老兄推荐天涯的一篇帖子讲<a target="_blank" rel="noopener" href="http://bbs.tianya.cn/post-no05-309858-1.shtml">世界中国史</a>，过去一观，开篇的问题就能勾住我的眼球，没想到接着往下翻，前面古人类的篇章，写的非常好，遂摘录整理，非常感谢原作者。作者的帖子火了，后来也出了书（在参考资料章节），是对知识和实力的肯定</p>
+<h1 id="地理与气候"><a href="#地理与气候" class="headerlink" title="地理与气候"></a>地理与气候</h1><p><u>地区盛兴的气候，植被，风向本文并不细讲，其实地理联合气候决定了很多大历史</u>，是探讨大周期历史必须要关注的，正所谓地理是最大的历史，不过本文摘录的重心不在这里，就简要记录几个有名的地点解释，放在文尾。</p>
+<h1 id="人类登场"><a href="#人类登场" class="headerlink" title="人类登场"></a>人类登场</h1><span id="more"></span>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+<p>在登场之前的年代，最有名的就是恐龙时代了，距今过于久远，人类并不是最佳运动员，不是体力身形最大者，但现在是地球实际的霸主，我们来一张动物身形对比图, 看看我们地球上曾经出现过的恐龙猛兽们。</p>
+<img src="http://cdn.diffday.com/picgo/20210326103913.png" style="zoom: 80%;" />
+
+<blockquote>
+<p>蓝鲸没有恐龙大，但可能借助海洋的浮力，有着更多肉更重的身体。</p>
+<p>翼龙不是恐龙，而是一种会飞的爬行动物，翼龙和恐龙、鳄鱼都是从主龙类爬行动物进而而来，翼龙没能进而为鸟类就灭亡了，一般人类鸟类是由恐龙中个体较小，身体轻巧，速度快速的驰龙科进而而来的。</p>
+</blockquote>
+<p>按照现代生物进化分类学“界门纲目科属种”七分法，<u><strong>人类属于动物界—脊索动物门—哺乳纲—灵长目—类人猿亚目—人科—人属—智人种</strong></u>。现存与人类关系最亲密的就是类人猿亚目生物，共分为长臂猿、红毛猩猩、大猩猩、黑猩猩四大类，号称四大类人猿。</p>
+<h2 id="直立人"><a href="#直立人" class="headerlink" title="直立人"></a>直立人</h2><p><img src="http://cdn.diffday.com/picgo/20210326130702.png"></p>
+<p>更古老的南方古猿等等猿类就不讲了，直接从直立人开始。为何直立人能如此强大，成为猿人中唯一幸存者？答案就在他的名字上——直立，以猩猩为代表的灵长类动物其上肢比下肢更发达，而直立人下肢骨骼明显比上肢粗硕，关节韧带牢固，大腿肌肉发达发达，已经和人基本无异，完全为行走而生。</p>
+<p>其大脑左右两半球出现了不对称性，显示出直立人已经有了掌握有声语言的能力。两足行走和大脑发展让他们更好的使用双手并进行发明创造，他们开始使用火种，并发明了制造工具的工具——手斧。</p>
+<p>手斧让他们制造工具更加精细，并出现较先进捕猎工具——石球，石球是一种投掷工具，除了用手直接投掷外，还能作绊兽索和飞石索使用，其有效射程可达50-60米之远。</p>
+<p>工具的更新让直立人狩猎能力大大提高，而直立行走让他们完全他们更好的迁移和奔走，直立人开始大批走出非洲，向世界各地扩张觅食，在欧亚大陆各地发现的欧洲前人、印尼瓜哇猿人、中国的北京猿人、陕西蓝田人、云南元谋人都属于直立人种。</p>
+<h2 id="多地区进化说被否决"><a href="#多地区进化说被否决" class="headerlink" title="多地区进化说被否决"></a>多地区进化说被否决</h2><p>因为中国出土了连续性化石遗址，而世界各地也都出土猿人的化石，所以中国原来一直是“人类多地区进化说”的支持者，主张现今的棕黑黄白四大人种分别起源于澳大利亚、非洲、中国、欧洲四个地区，分别从当地猿人进化而来。这种学说符合种族主义的观点，也就是说现存人类早在猿猴时期就分出个高下不同，不过在化石和地质学发现上目前却非常不给力。</p>
+<h3 id="东亚直立人灭绝"><a href="#东亚直立人灭绝" class="headerlink" title="东亚直立人灭绝"></a>东亚直立人灭绝</h3><p>通过地质学推测在10万——6万前，东亚地区经历了一次剧烈的冰川期，东亚气候可能不再适合人类生存，原来繁盛的东亚古代直立人（如北京人、蓝田人）消失了。在距今8万——5万年间，中国境内没有发现古人类化石。化石断层的存在说明中国境内直立人可能都灭绝了，没有进化为距今3万年左右的山顶洞人。</p>
+<p>当然化石没发现，并不代表没有，但是<strong>“人类多地区进化说”最关键的是违反了遗传学上的常识。因为这根本无法解释太早分化却没造成我们和其它人种的生殖隔离</strong>，如狮子和豹子间才有100万年的进化距离，就无法繁殖后代，直立人可是180万年前就出现的物种，能够繁衍后代的四大人种间显然没有这么大的进化距离。 </p>
+<p>如果“多源说”成立，意味着中国人和直立人这些猿人血缘关系比白人、黑人更近，既然中国人能和白人、黑人混血，意味着更能和和直立人等猿人混血繁衍后代，想想直立人是什么样的吧，眉骨突出，嘴巴突出，全身长毛，相当于现代人和猩猩差别一样大，完全是两个物种，连语言发音都可能不相同，而白人、黑人主要只是肤色、发色差别，语言也无发音障碍。明显从外貌看中国人和黑人、白人更像是近戚，而<u>直立人只能和猩猩攀亲戚。而且各地直立人能一致突变出只是肤色不同、还能繁殖后代的现代人类，这对进化论来说根本就是天方夜谭</u>。</p>
+<h2 id="单源说是主流"><a href="#单源说是主流" class="headerlink" title="单源说是主流"></a>单源说是主流</h2><p>目前科学家通过基因检测的方法得出北京猿人是一种已灭绝的人科动物，<strong>四大人种都是起源于非洲的智人的后代</strong>，单源说已经成为主流。</p>
+<p>黑人腿长，擅长奔跑和跳跃，打篮球。黄种人四肢短适合举重，如女子举重几乎被中国和朝鲜垄断。</p>
+<p>海德堡人大约在70万年前从直立人演化而来，是直立人的一个亚种，比直立人脑容量大（1100<del>1400vs900</del>1200 ml），被认为是智人的祖先, 且已经会制作工具，其活动范围主要在欧洲和非洲，那时这两块大陆相连，后来海平面上升，欧洲和非洲被隔离，遂区分为欧洲海德堡人和非洲海德堡人，演化出两种不同的智人。欧洲的先行演化成适应寒冷生活的尼安德特人（早期智人），其分布足迹遍布整个欧洲到西亚，甚至中国和西伯利亚也留下踪影，但非洲没有发现化石，估计没进入非洲。他们会保存火，形成了原始的宗教，虽然有比现代人更大的大脑，但未必更聪明，从数万年间工具没有更新就可见一斑。在非洲的海德堡人稍晚一点在撒哈拉以南演化出现代人祖先，成为晚期智人。现代人有出色的狩猎技术，进入欧洲时，也是尼安德特人遗迹消失的时候，在灭亡大部分尼安德特人时，也在地中海东部与小部分尼安德特人发生了混血，所以目前除非洲外的人类大都含有尼安德特人的基因。</p>
+<p>除了尼安德特人和现代人外，印尼猿人也演化出新的物种佛洛勒斯人，传说被称为“小矮人”–霍比特人，身材矮小，仅1米左右，脑容量为现代人1/3，但构造复杂智商也高，遗憾的是，1.3w年前的一次火山喷发，这群印尼霍比特人全部灭绝。</p>
+<h2 id="现代智人"><a href="#现代智人" class="headerlink" title="现代智人"></a>现代智人</h2><p>人科动物虽然下属种类极多，但只有现代智人种存活下来，这说明拥有高智力并非就能在物种竞争中占据优势，就好比现在最聪明的猩猩也当不了百兽之王一样。只有当智力发展到一定高度，人类才整正成为地球霸主，现代人的演化也并非一蹴而就。</p>
+<p>过去教科书一般把现代人种根据肤色划分为几大人种，但其实更应该以遗传学为依据，通过演化的过程进行划分，肤色只是表象而非本质。</p>
+<blockquote>
+<p>就像非洲鬣狗虽然长了副狗的模样却属于猫型亚目，和其他猫科动物一样有相同的祖先，和狗只有八竿子打不着的关系。</p>
+</blockquote>
+<p>基因也并非越纯种越好，事实证明较纯种的基因大多是人口较少，与世隔绝的小部落，而发达地区，因为吸纳各地优秀人才，必然融入更多种族基因。分子生物学的研究，现在地球各人种，都是十五万年前某一非洲女性祖先的后代，男性祖先是一名六万年前居住在非洲的男子(亚当年限不同文献有不同的说法，wiki百科倾向于6~9万年之间)，有究底兴趣可看<a target="_blank" rel="noopener" href="http://blog.diffday.com/2020/11/18/%E7%BA%BF%E7%B2%92%E4%BD%93%E5%A4%8F%E5%A8%83/">另一篇文章</a>，相差近9万年。</p>
+<h1 id="人类迁徙发展"><a href="#人类迁徙发展" class="headerlink" title="人类迁徙发展"></a>人类迁徙发展</h1><h2 id="Y染色体立大功"><a href="#Y染色体立大功" class="headerlink" title="Y染色体立大功"></a>Y染色体立大功</h2><p>当前科学家已经将各民族的父系来源通过Y染色体研究的比较清楚，<strong>而母系来源至今如同雾里看花，几乎所有民族的母系构成都比父系复杂</strong>，主要有以下两点原因：</p>
+<ol>
+<li>斗争中，弱小民族的男子多数被杀死，而女子往往作为战利品被战胜方掠走，导致母系来源较丰富</li>
+<li>通婚主要表现为女子外嫁，一个地方男性来源都是本地男性，而女性来源则来自各地。</li>
+</ol>
+<p>只要通过Y染色体就能比较清晰发现人群的迁徙和发展，但这仅仅是因为其遗传模式简单，容易研究，无关疾病，相貌，相对说得清楚一些。</p>
+<blockquote>
+<p>忽略n代前无数个母系祖先而只管一个纯父系祖先传下来的遗传物质，无疑是荒谬的，如欧洲白人基因R，世代娶E（黑人基因）女性为妻，尽管父系染色体还是R，但体质实际上就等同于E，已经完全是黑人了。</p>
+</blockquote>
+<p>今天所有人类的Y染色体单倍体类型（只有精子和卵子是单倍体，其他细胞都是双倍体）都能在非洲找到（M168、YAP、M130）类型，而非洲以外的居民，都是一支走出非洲居民的后裔，他们的Y染色体上都带有M168的突变点。这就是亚当的后代，在以后的历史中，人类依次发生几次基因分化，形成现在不同的人种，按先后，用A、B、C等来标识</p>
+<blockquote>
+<p>Y染色体在遗传的过程中，每经历一定的世代就会出现一个随机的SNP突变，父系关系更近的男性共享更多的SNP突变，通过这个方法我们可以判断不同男性之间的父系家族关系。将所有男性的Y染色体进行对比，我们就能得到<strong>人类父系家族的谱系树</strong></p>
+<p>SNP突变发生的速率基本是稳定的，这样我们只要得到两个男性的Y染色体各自积累的特异SNP数量，就可以据此计算出这两个男性个体的最近共祖时间</p>
+</blockquote>
+<h2 id="结论先行"><a href="#结论先行" class="headerlink" title="结论先行"></a>结论先行</h2><p><img src="http://cdn.diffday.com/picgo/20210324160605.png" alt="一种将Y染色体单倍群与体质人种对应的模型"></p>
+<p><img src="http://cdn.diffday.com/picgo/20210324173601.png" alt="染色体分化图2"></p>
+<h3 id="分化次序文字化解释"><a href="#分化次序文字化解释" class="headerlink" title="分化次序文字化解释"></a>分化次序文字化解释</h3><p>一：祖先人——A科伊桑人（南部非洲棕种人）、b非科伊桑人</p>
+<blockquote>
+<p>A——科伊桑人：代表是南部非洲棕种人，目前非洲南部国家有大量他们的单倍群类型 </p>
+</blockquote>
+<p>二：非科伊桑人——B尼格利罗人、c.非尼格利罗人</p>
+<blockquote>
+<p>B——尼格利罗人：代表是非洲中西部矮小俾格米黑人，主要集中在非洲中西部国家</p>
+</blockquote>
+<p>三： 非尼格利罗人——CF集团、DE尼格罗—尼格利陀人种（亚非黑种人）</p>
+<p>四：DE尼格罗—尼格利陀人种——D阿伊努—尼格利陀人人种、E.尼格罗人种（常见黑人）</p>
+<blockquote>
+<p>D——尼格利陀人：他们父系单倍群比率占印度安达曼群岛土著(100%)、尼格利陀人苏门答腊岛土著(91%)、阿伊努人（90%）、冲绳人(55%)、藏族(50%)、彝族（40%）、日本(34.7%)、朝鲜(7%) </p>
+<p>E——尼格罗人：常见到的身材高大非洲黑人单倍群 </p>
+</blockquote>
+<p>五：CF集团——C棕色人种、F中东部落</p>
+<blockquote>
+<p>C棕种人在大洋洲他们的父系占澳大利亚土著的70%、几内亚岛的25%、婆罗洲的17%、在南亚个别达罗毗图语系民族中比率达到20%</p>
+<p>C3——蒙古支：如今亚洲满族的25%、朝鲜族的16%、蒙古族的58%、布拉特蒙古人在60%、哈萨克族的45%、吉尔吉斯人60%、回族的23%、阿尔泰族的23%、乌孜别克族的17%都含有C3单倍群，尤其是西伯利亚南部和东北亚鄂温克族、鄂伦春族等通古斯民族C3单倍群更高达60%以上，在北美阿拉斯加印第安人种比率也高达30%， </p>
+</blockquote>
+<p>六：F中东部落——G高加索单倍群、H印度蒙达单倍群和IJK集团</p>
+<blockquote>
+<p>中东部落：广泛分布欧亚，其中有一支较古老的在斯里兰卡，又叫斯里兰卡单倍群，占达罗毗荼人诸民族的13% </p>
+<p>G高加索人种：占亚美尼亚人20%，又叫亚美尼亚单倍群，意大利族的6%、伊朗族的5%、土耳其族的11%</p>
+<p>印度H单倍群 占达罗毗荼人种18% 、印欧语系的印度人的20% </p>
+</blockquote>
+<p>七：IJK集团——克罗马农人种I、地中海人种J、欧亚部落K</p>
+<blockquote>
+<p>I克罗马农人：主要分布北欧—巴尔干—欧洲—中东，今天克罗地亚50%、冰岛的37%、苏格兰的20%、挪威族的30%、德意志族 的25%、西班牙族的12%、意大利族的15%、伊朗族的18%、俄罗斯族的18%、土耳其族的15%都为I </p>
+<p>J典型地中海人种：闪米特阿拉伯-犹太单倍群，主要分布中东-南欧，中东阿拉伯族的48%、土耳其族的25%、意大利族的 20%、埃塞俄比亚族的15%、伊朗族的12%、印度达罗毗图诸民族的12%、维吾尔族的10%、苏丹的10%为J类型</p>
+</blockquote>
+<p>八：K欧亚部落——LT集团和MNOPS集团</p>
+<p>九：LT集团——L达罗毗荼人单倍群和T埃塞俄比亚单倍群</p>
+<blockquote>
+<p>印度L单倍群：占达罗毗荼人种30%、印欧语系的印度人26% </p>
+<p>T埃塞俄比亚单倍群：主要分布在埃塞俄比亚和埃及，又叫做埃及基因 </p>
+</blockquote>
+<p>十：MNOPS集团——伊里安查亚新几内亚M单倍群、巴布亚新几内亚S单倍群、NO黄种人和P中亚部落</p>
+<blockquote>
+<p>S——巴布亚新几内亚高地人S单倍群：主要分布在大洋州、巴布亚新几内亚单倍群，苏门答腊岛的15%、婆罗洲的16%、伊里安查亚新几内亚5%、巴布亚新几内亚的59% </p>
+<p>M——伊里安查亚新几内亚M单倍群，伊里安查亚新几内亚的70%、巴布亚新几内亚的34%拥有M </p>
+<p>N——芬兰-乌拉尔极北单倍群，主要分布在乌拉尔山两侧、北欧北部、东欧北部和北极圈内，占部分乌拉尔族80%、芬兰52%、爱沙尼亚40%、爱斯基摩人40%、喀山鞑靼21%、俄罗斯18%、满族15%、叶尼塞鄂温克族17%、</p>
+</blockquote>
+<p>十一：NO黄种人——N北亚黄种人、O东亚—东南亚黄种人</p>
+<p>十二：O东亚—东南亚黄种人——O1南岛支、O2泰柬支、O3华夏支 </p>
+<blockquote>
+<p>O1——南岛支：主要分布在马来半岛、马来群岛、以及太平洋三大半岛上，其中高山族100%、汤加82%、壮族的17.9%、泰国泰族的10%、越南京族的7%、柬埔寨高棉族的8%、土家族的20%、朝鲜族有12%O1单倍群 </p>
+<p>O2——泰柬支：柬埔寨高棉族90%、泰国65%、壮族的35.95%，日本族31.7%，朝鲜族32%，满族11%都有O2单倍群 </p>
+<p>O3——华夏支：是汉藏缅甸族父系主体黄种单倍群，其他民族占独龙族100%、越南北部50%、朝鲜族40%、满族38%、日本人20.1%、蒙古族20.5%、鄂伦春族 22%、吉尔吉斯族24%、回族17%，维吾尔族14%都含有O3 </p>
+</blockquote>
+<p>十三：P中亚部落——Q印第安人、R印欧人种 </p>
+<blockquote>
+<p>P——中亚部落：该单倍群类型主要分布在中亚和阿尔泰地区，目前已不多见。 </p>
+<p>Q——北亚-美洲单倍群：占印第安人90%、部分西伯利亚土著民族66%、爱斯基摩人47%、印第安人因混血棕种母系而和东亚人有较相似外貌，而爱基斯摩人父系基本是N+Q结合种。 </p>
+</blockquote>
+<p>十四：R印欧人种——R1a印欧东支、R1b印欧西支</p>
+<blockquote>
+<p>R1a——印欧东支、又被称为雅利安人单倍群：占波兰56%、阿尔泰族的50%、俄罗斯47%、挪威族的30%、冰岛族的22%、德意志族的20%、芬兰人的20%、吉尔吉斯族的40%、喀山鞑靼的18%、维吾尔族的20%、乌孜别克族的18%、印度讲印欧语的40%、波斯人的18%、土耳其族的8%。 </p>
+<p>R1b——印欧西支，其基因又被称为西欧基因：占苏格兰族的75%、西班牙族的65%、德意志族的48%、意大利族的44%、冰岛族的40%、挪威族的25%、维吾尔族的17%、土耳其族的 14%、回族的12%。</p>
+</blockquote>
+<p><img src="http://cdn.diffday.com/picgo/20210324173634.png" alt="染色体分化图3"></p>
+<h3 id="父系单倍群和色系人种对应规律"><a href="#父系单倍群和色系人种对应规律" class="headerlink" title="父系单倍群和色系人种对应规律"></a>父系单倍群和色系人种对应规律</h3><p>A型、B型、E型主要对黑种人。 </p>
+<p>C型、D型主要对黄种人、棕种人。 </p>
+<p>F型、G型、H型、I型、J型、R型主要对白种人。 </p>
+<p>K型、L型、M型棕、白、黄都有。 </p>
+<p>NO型、Q型主要对黄种人。</p>
+<p><img src="http://cdn.diffday.com/picgo/20210324173943.png" alt="Y染色体迁徙图"></p>
+<p><img src="http://cdn.diffday.com/picgo/20210324174033.png" alt="染色体分布图"><br><img src="http://cdn.diffday.com/picgo/20210324174200.png" alt="染色体分布图2"><br><img src="http://cdn.diffday.com/picgo/20210324174226.png" alt="染色体分布图3"></p>
+<h2 id="敲黑板的说明"><a href="#敲黑板的说明" class="headerlink" title="敲黑板的说明"></a>敲黑板的说明</h2><p><img src="http://cdn.diffday.com/picgo/20210324173517.png" alt="染色体分化图1"></p>
+<p><strong>单倍群的字母并不是严格按照支系的远近关系划分的。比如由于早期发现的SNP较少，认为C、D、E、F是并列的四个支系，后来发现C和F具有更近的共同祖先，D和E具有更近的共同祖先。L、M、N、O、P、Q、R、S、T也是类似的情况。即字母顺序并不能完全反映分化次序和远近关系。</strong></p>
+<p>研究者还发现非洲之外人群中的男性都属于单倍群CT，共享M168等SNP突变，可以追溯到7万年前左右的一个共同男性祖先。这个祖先的两个男性后代分别成为了单倍群CF与单倍DE的祖先</p>
+<p>通过Y染色体的分化时间表明，中东人种（J、G单倍群）虽然过去被划分为白人，但是他们和欧洲白人(R)分离的时间比欧洲白人(R)和黄种人(NO)分离的时间还早，所以从主体父系基因角度中东白人和欧洲白人关系反而会更远些。 </p>
+<p>不过因地理上接近，欧洲白人和中东白人有更多的机会进行混血，所以他们也逐渐形成某些相同体态特征，而同样地理上接近欧洲白人的芬兰黄种人N和欧洲白人R混血后，就基本分不出差别来，芬兰的父系单倍群有60%属于黄种人，但是他们不但跟周边国家的白种人相貌相似，其皮肤白得程度让大部分欧洲人都自叹不如，更难以想象的是一个有如此多黄种人血统的国家，居然是世界上金发碧眼比率最高的国家，所以无论是从血缘角度，还是从生理特征角度，纯种的欧洲白人和纯种黄种人亲缘关系要比和纯种中东白人更接近。 </p>
+<p>和我们是亲兄弟的芬兰人，长得像白人，而和我们只是表兄弟，和欧洲白人才是亲兄弟的印第安人却长得像黄种人，由此可以看出过去只依外形划分的人种是多么片面不科学，中东白人和欧洲白人、亚洲黄人和美洲黄人、南亚棕人和澳洲棕人这些血缘较远的人类，过去被同归一类，认为是同种起源。</p>
+<p>可以说四大人种的划分方法和过去“人类多地区进化说”对应，“人类多地区进化说”就是主张棕黑黄白四大人种分别从澳洲、非洲、东亚、欧洲四个地区的当地猿人进化而来，然后这四大人种再混血形成世界各民族的样貌，其中黄种基因占绝对优势中国人，竟然被认为是蒙古人种（蒙古人被认为是纯种黄种人）和其他人种混血的产物，如今从Y染色体单倍群分化时间看来这种观点已经不适用了。 </p>
+<h1 id="人种登场"><a href="#人种登场" class="headerlink" title="人种登场"></a>人种登场</h1><p>所有人类的Y染色体单倍体类型都能在非洲找到(M168\YAP\M130)类型，这说明人类都起源于非洲，不过(M168\YAP\M130)虽然在非洲生活，他皮肤可能也是黑的，但是他不是我们所说黑人。现代黑人是在后期人类分化中形成的，他们单倍群类型是E，希特勒就是E的后代，而除黑人以外大部分人种，如我们中国人单倍群类型都不是E</p>
+<blockquote>
+<p>中国人单倍型是CF集团下F中东部落的进一步变异细分，是棕种人集团的后代，黑种人是DE集团</p>
+</blockquote>
+<h2 id="A-科伊桑人（南部非洲棕种人）"><a href="#A-科伊桑人（南部非洲棕种人）" class="headerlink" title="A- 科伊桑人（南部非洲棕种人）"></a>A- 科伊桑人（南部非洲棕种人）</h2><p>被认为现存最古老的人种，可能是人类最早的样子，身材矮小，平均身高145~150厘米，和其它人种最大的不同在于他们的女人又超级巨大的臀部。过去一般把科伊桑人归为黑色人种，但他们肤色呈黄褐色，面部扁平多皱，眼睛细小，体貌与黑人有明显差别反更像是黄种人，且他们都是单眼皮。</p>
+<img src="http://cdn.diffday.com/picgo/20210323182852.png" style="zoom:50%;" />
+
+<img src="http://cdn.diffday.com/picgo/20210323183010.png" style="zoom:50%;" />
+
+<p><strong><u>有一种说法认为单眼皮是黄种人在蒙古沙漠为防止风沙从双眼皮进化而来的（白人黑人都是双眼皮），但事实并非如此，单眼皮是人类最古老人种的特征，双眼皮反而是后来才出现的。</u></strong></p>
+<p>从语系和外貌上看，科伊桑人又分为科伊科伊人和桑人两支，科伊科伊人又名霍屯督人（意为“笨嘴笨舌者”），桑人又名布须曼人（英语意即丛林人），其中分布于西南非的布须曼人在外貌上比霍屯督人有更多热带特征：如卷发（但卷曲形状和黑人不同），较宽的鼻子和较大且较厚的嘴唇。 </p>
+<p>过去科伊桑人广泛分布于撒哈拉以南的非洲，后来由于黑人的屠杀、强奸和驱逐，目前现存不足20万，主要分布在非洲南部从纳米比亚到莫桑比克再到南非的一条狭长且辽阔的沙漠地区。直到今日纯种的科伊桑人大部分依然过着原始的采集、狩猎生活，而赤道南部黑人身上大多混有他们的基因，**<u>比如南非前总统曼德拉就是黑人和科伊桑人的混血后代</u>**。</p>
+<h2 id="B-尼格利陀人（非洲小黑人）"><a href="#B-尼格利陀人（非洲小黑人）" class="headerlink" title="B- 尼格利陀人（非洲小黑人）"></a>B- 尼格利陀人（非洲小黑人）</h2><p>第二支分化出去的基因是一支更加矮小的尼格利罗人，在希腊语中意思为侏儒，成年平均身高只有130~140厘米。</p>
+<p>尼格利罗人外貌特征是：黑皮肤、深眼窝、塌鼻梁、高颧骨、头大腿短、长得精瘦、人人都腆着大肚子，肚脐眼凸起鸡蛋大小的肉疙瘩。他们没有青春期，8岁即发育成熟，可以结婚生子。他们外貌和我们常见非洲黑人明显不同，所以也深受黑人歧视，<strong>在刚果共和国俾格米人和笨蛋就是同义词</strong>。 </p>
+<p>目前这群非洲小黑人主要生活在非洲中西部的原始森林中，他们称森林为“万能的父母”，自己是“森林的儿子”，过着最原始的狩猎采集生活，他们以白蚁为美食，用芭蕉叶、棕榈叶当衣料和盖房子，从生产力看，他们甚至还不知道怎样取得火种，因此保存火种就成了妇女日常的重要工作。</p>
+<p><img src="http://cdn.diffday.com/picgo/20210323183629.png"></p>
+<p><img src="http://cdn.diffday.com/picgo/20210323183650.png"></p>
+<h2 id="亚非黑人种DE"><a href="#亚非黑人种DE" class="headerlink" title="亚非黑人种DE"></a>亚非黑人种DE</h2><p>祖先分化出两支小矮人后，约5万年前进一步分化出CF集团和亚非黑人种DE，<strong>亚非黑人种又叫做尼格罗—尼格利陀人种</strong>，是现在非洲尼格罗人种（黑人）和亚洲尼格利陀人种（矮黑人）的共同祖先。 </p>
+<p><u>亚非黑人是第一批走出非洲的现代人，一般认为他们其中一支最早在东南非沿海居住，并开始沿着印度洋海岸向东方扩散开来，沿海地区一路都有稳定的高蛋白海洋食物来源，保证他们可以一直沿着海岸快速移动</u>。 这支黑人从东非沿海—阿拉伯半岛—伊朗沿海一线前进抵达印度、东南亚的沿海，成为亚洲最早的主人。</p>
+<p><strong>进入亚洲后这群黑人和留在非洲黑人同胞由于长期隔离，基因发生分化，分别形成D基因亚洲矮黑人（尼格利陀）和E基因非洲黑人（尼格罗）两种不同的类型。</strong></p>
+<h3 id="E-尼格罗人"><a href="#E-尼格罗人" class="headerlink" title="E-尼格罗人"></a>E-尼格罗人</h3><p>E类黑人就是我们最常见的高大强壮黑人，在体型上**<u>分为赤道北部纯黑肤色的苏丹黑人 &amp; 赤道南部浅黑肤色的班图黑人两大亚种</u>**（班图黑人大量进入中国，广州就达到20w以上，即将成为中国第57个民族）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">真正非洲纯种黑人很多都是单眼皮，如西非黑人单眼皮几率接近100%，比亚洲单眼皮比例最高（93%）的蒙古人还高，中非黑人单眼皮也达到92%，美国黑人明星双眼皮多，因其父系远祖26.5%是白人，白人都是双眼皮，而双眼皮是显性基因</span><br></pre></td></tr></table></figure>
+
+<h3 id="D-尼格利陀人-亚洲矮黑人"><a href="#D-尼格利陀人-亚洲矮黑人" class="headerlink" title="D-尼格利陀人-亚洲矮黑人"></a>D-尼格利陀人-亚洲矮黑人</h3><p>D基因的亚洲矮黑人成年男性只有1.55-1.6米，矮黑人除又矮又黑外，还有小眼睛、深眼窝、厚嘴唇、粗颧骨、短方脸、黑眼珠、体毛发达、头发黑色呈波状发等特征，不过也有人认为他们最初肤色可能并不太黑，应该改叫古亚洲人更合适。 </p>
+<p><u>独霸亚洲让矮黑人得到快速繁衍发展，并迅速扩张开来，他们从印度进入东南亚，向西北进入青藏高原</u>，<strong>如今矮黑人基因在藏族中比例非常高，达50%以上</strong>，彝族矮黑人血统高达近40%的，在苗瑶人群也有较高的比率。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">现代矮黑人的纯种直系后代主要包括印度安达曼群岛和印尼苏门答腊岛的土著，其中印度安达曼群岛土著矮黑人父系血统比率达100%，在苏门答腊岛土著达91%。</span><br><span class="line">此外在东南亚菲律宾、马来半岛、泰国、缅甸也有矮黑人零星分布过着半原始半游牧的生活，我们从印度和东南亚人黝黑的皮肤也可发现他们身上定混有不少矮黑人的血统。在中国除西藏外，生活在西南地区许多少数民族也有不少矮黑人的血统，如上已经提及。</span><br></pre></td></tr></table></figure>
+
+
+
+<img src="http://cdn.diffday.com/picgo/20210323184741.png" alt="印度安达曼群岛土著" style="zoom:60%;" />
+
+<h4 id="D2-适应寒冷气候的矮黑人"><a href="#D2-适应寒冷气候的矮黑人" class="headerlink" title="D2-适应寒冷气候的矮黑人"></a>D2-适应寒冷气候的矮黑人</h4><p>矮黑人D基因下有一最特别分支D2基因，<u><strong>从东南亚沿海北上中国，并一路扩张至朝鲜，日本。这支矮黑人甚至一度被认为是白人，他们就是日本现在唯一的少数民族–阿依努人，又叫虾夷人，因适应高纬度寒冷气候，进化出较浅肤色</strong></u></p>
+<p><img src="http://cdn.diffday.com/picgo/20210324102714.png" alt="虾夷人"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">高眉深目外貌和最旺盛的体毛，长相甚至类似白人明显不同于周边的黄种人，是日本最早的原住民，创造了一万年前日本最早的新石器时代--绳纹时代，直到公元前三世纪才被外来黄种民族弥生人征服取代，他们中一部分北逃到本州岛北部、北海道和库页岛等地，而另一部分则和外来的弥生人混血融合，成为今天近37%的日本人的祖先。古代日本人身材矮小被称为小日本也和其矮黑人血统有很大关系。如今阿伊努人（90%）、冲绳人(55%)、日本(34.7%)、朝鲜(7%)都有D2基因</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>过去人种学将非洲尼格利罗小黑人、尼格罗黑人、科伊桑人共同被划分为黑色人种，而将亚洲矮黑人划为棕色人种。同时因为亚洲矮黑人和非洲小黑人外形相似，连其学名尼格利罗人也相同，尼格利陀人也都源自西班牙文小黑人之意，所以两者都被统称为俾格米人。 </p>
+</blockquote>
+<p>现在从基因分化顺序可以看出亚洲矮黑人无论是和非洲小黑人的血缘关系还是和澳洲人种血缘关系都不及和非洲尼格罗黑人(现在的E型高大黑人)来得亲，原属棕种的亚洲矮黑人应划为黑色人种更合适。</p>
+<h2 id="棕色人种-CF集团–C棕色人种-F中东部落"><a href="#棕色人种-CF集团–C棕色人种-F中东部落" class="headerlink" title="棕色人种 CF集团–C棕色人种+F中东部落"></a>棕色人种 CF集团–C棕色人种+F中东部落</h2><p>矮黑人独霸亚洲没多久，距今5万年前单倍群CF集团中的一支也沿着矮黑人的老路进入亚洲，离开非洲时，还是原始的CF型，<u>到达印度时，亚洲CF人群因长期与非洲CF人群隔绝，演化成独立的单倍群为C棕色人种类型</u>，</p>
+<ul>
+<li><p>这群C棕色人种和D矮黑人是最早抵达亚洲的现代人，统称为“老亚洲人”</p>
+</li>
+<li><p>留在非洲的CF人群则继续演化出F类型，他们早期活动在中东地带，所以又叫中东部落。</p>
+</li>
+</ul>
+<p>在4万—5万年前，<u>棕种人从印度南部向东迁移，那时地球海平面很低，东南亚的马来群岛与中南半岛连成一片，澳大利亚以及美拉尼西亚的许多岛屿也连在一起。所以棕种人并不需要航海技术就可以扩散到整个太平洋诸岛</u>。在4万年前，棕色人种已经进入澳大利亚，曾经澳大利亚的霸主，历史上最大的蜥蜴——长达6米的古巨蜥，就是在这一时期被棕种人灭绝的，成为人类进入澳洲发展的牺牲品。 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如今东南亚印尼东部27.3%的马来人、17%的婆罗洲土著都有棕种人单倍群，印度个别达罗毗图语系民族棕种人血统比例达到20%，而较纯种棕种人的直系后代主要分布在澳大利亚、新西兰以及南太平洋的岛屿上，占到澳大利亚土著70%、波利尼西亚人63.3%以上父系血统比率。</span><br></pre></td></tr></table></figure>
+
+<p>在白人<strong>发现新大陆前，棕种人独霸澳大利亚，这也是棕色人种别称澳洲人种的原因</strong>。由于与世隔绝，他们文化仍长期停滞于旧石器时代。</p>
+<img src="http://cdn.diffday.com/picgo/20210324103255.png" alt="澳洲棕种土著" style="zoom:35%;" />
+
+<h3 id="C3单倍群-通古斯-蒙古支"><a href="#C3单倍群-通古斯-蒙古支" class="headerlink" title="C3单倍群-通古斯-蒙古支"></a>C3单倍群-通古斯-蒙古支</h3><p>在4万年前左右，<strong>一支棕色人种从东南亚北上东亚沿海，演化出单倍群C3人种，这是单倍群C棕种人下影响最大支系，C3支又可称为通古斯—蒙古支，顾名思义，他们是通古斯民族和蒙古族的主要单倍群类型</strong>。 </p>
+<p>棕种人出非洲进东亚的路线，都是沿矮黑人路线走来。他们和先到的矮黑人发出冲突，事实证明，棕种人更加英勇善战，矮黑人犹如丧家之犬，被一路驱逐追杀，棕种人所到之地，矮黑人都不复存在，<strong>大部分矮黑人都被驱逐至边缘的日本、琉球列岛和中国西南的山地、高寒的青藏地区以及东南亚的密林里。C3棕种人成为东亚的新霸主，并扩张至北亚和中亚，还继续沿西伯利亚东海岸北上越过白令海峡直至美洲地区，成为美洲最早的居民</strong>，在今天北美洲阿拉斯加地区印第安人也有比例高达30%的C3单倍群。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">如今亚洲满族的25%、朝鲜族的16%、蒙古族的58%、布拉特蒙古人在60%、哈萨克族的45%、吉尔吉斯人60%、回族的23%、阿尔泰族的23%、乌孜别克族的17%都含有C3单倍群，尤其是西伯利亚南部和东北亚鄂温克族、鄂伦春族等通古斯民族C3单倍群更高达60%以上。在中国发现山顶洞人化石也被认为是棕色人种。</span><br><span class="line">这些人群后来多少都受来自中国黄种人单倍群混血（尤其是内蒙古人）故形成和中国人较相似的外貌，过去一般都将C3单倍群为主人群划分为黄种人，现在看来叫他们棕黄人种也许更合适点。 </span><br></pre></td></tr></table></figure>
+
+<p>C单倍群棕种人体貌总体特征是单眼皮、黑眼珠、小眼睛、宽平脸、粗颧骨、扁鼻梁、塌鼻头、黑卷发、身材矮小。</p>
+<p>而C3单倍群棕种人因为所处维度较高，所以进化出较浅肤色，此外还有浅眼窝，眉骨不明显、身体柔韧性好等特征，现代亚洲黄种人因大多混血棕种人，所以也大量保留了这些特点，在混血较多的满族、朝鲜族身上更加明显。</p>
+<p>目前较纯种C3棕种人是俄罗斯的卡尔梅克蒙古人，他们是古代蒙古人西支，因为远离东亚黄种人基地中国，所以基本没有和中国黄种人混血，其蒙古C3单倍群高达70%，保留了较原始蒙古人的样貌， 和成吉思汗长相也接近。蒙古人不光脸大，整个头都大，这是C单倍群基因下的主体特征</p>
+<p><img src="http://cdn.diffday.com/picgo/20210324130147.png" alt="棕种人迁徙路线图"></p>
+<blockquote>
+<p>物种竞争不仅来自异种的竞争，也来自同种，好比是同行业，同类产品的竞争，因为古人类生存方式相同，竞争也必然激烈，新物种的出现必然导致旧物种受到冲击，好比手机更新换代一样。一个物种生存如何，不在于更聪明或更强大，在于是否适应变换环境，就像恐龙，猛犸象都绝了，古代人类密度小，是由于采集狩猎原始生产方式决定的，在生产力提高之前多大面积只能养活多少人口有上限，所以不能同时容纳另一种人类生存。现代人进入除南极以外的世界各地，只要现代人进入的地方，其它古人类就无立足之地。</p>
+</blockquote>
+<h2 id="F-中东部落"><a href="#F-中东部落" class="headerlink" title="F-中东部落"></a>F-中东部落</h2><blockquote>
+<p>F中东部落——G高加索集团、H印度蒙达集团和IJK集团 </p>
+</blockquote>
+<p>棕种人和矮黑人一样，也没能笑到最后，像矮黑人被棕种人驱逐一样，棕种人也重蹈了矮黑人的命运。大约4万年前，他们在非洲的F单倍群也走出非洲，这是人类第三次走出非洲，也是影响最大的一次。<strong>F单倍群是现代人中数量占压倒性的类型，是今日中东、欧洲、亚洲大部分民族的祖先，大概全世界80%以上的人都是这个变异点的后代</strong>。</p>
+<blockquote>
+<p>科学家推测F单倍群集团有大眼睛、双眼皮、粗眉骨、颧骨明显、椭圆脸、棕皮肤、棕色波浪发、棕眼珠等外貌特征。</p>
+</blockquote>
+<p><strong>中东部落F进入亚洲的路线和老亚洲人C、D不同，他们没有走海岸线，而是走陆路进入中东，途径高加索山脉，南下进入印度直至斯里兰卡岛，这一路都有人定居下来，由于<u>地理分割</u>形成以下几大单倍群集团：</strong> </p>
+<h3 id="斯里兰卡混血F单倍群"><a href="#斯里兰卡混血F单倍群" class="headerlink" title="斯里兰卡混血F单倍群"></a>斯里兰卡混血F单倍群</h3><p>进入斯里兰卡F人群和本地棕种人混血，形成今天斯里兰卡东南部低洼地带的维达人，他们身上保留这较古老原始F单倍群。今天维达人依然过着原始社会的生活，男人们只在腰间悬一根腰带，女人们只用布片盖住肚脐至膝盖的区域，他们现存数量比大熊猫还要稀少，据统计目前他们只剩下800人左右。 </p>
+<p><img src="http://cdn.diffday.com/picgo/20210324131055.png" alt="斯里兰卡维达人"></p>
+<h3 id="H单倍群"><a href="#H单倍群" class="headerlink" title="H单倍群"></a>H单倍群</h3><p>留在印度大陆F单倍群体变异为H单倍群体，他们也和当地棕种人大量混血，目前H单倍群占印度人总体比率不超过20%，<u>纯种H单倍群民族已经找不到了，所以对于H单倍群最初是什么样子，无法判断。H单倍群最高频种族是印度蒙达人</u>，过去他们被划为棕种人，是印度第三大种群，人口多达900万。蒙达人曾经广泛分布印度各地，但由于受到后来的达罗毗荼人和雅利安人排挤，现居住在印度中部和东部深山密林之中，该地区山脉连绵，丛林密集，土地贫瘠，远离印度文明中心。 </p>
+<p><img src="http://cdn.diffday.com/picgo/20210324131157.png" alt="印度蒙达人"></p>
+<h3 id="G单倍群"><a href="#G单倍群" class="headerlink" title="G单倍群"></a>G单倍群</h3><p>留在高加索山脉F单倍群演化出G单倍群，如今G单倍群体主要分布在高加索山脉地区，所以又叫高加索集团，和H单倍群一样，他们由于和后来白人大量混血，纯种G单倍群同样也找不到了，<u>含G单倍群比例较高的高加索山脉的亚美尼亚民族，所占比率也只达到20%，并不能构成体内的主体基因。不过含G单倍群较多的高加索人外貌还是明显和其它地区不同，他们体毛更加浓密、鼻梁更高、鹰钩鼻的特征也更加明显。这些很可能是G单倍群体的原始外貌特征</u>。</p>
+<img src="http://cdn.diffday.com/picgo/20210324131301.png" alt="高加索人种" style="zoom:50%;" />
+
+<h3 id="IJK集团"><a href="#IJK集团" class="headerlink" title="IJK集团"></a>IJK集团</h3><p><u>留在中东西部沿海的F单倍群</u> 后来成为黄白人种的祖先，我们称其为IJK集团，该集团人群分出IJ、K两支</p>
+<h2 id="IJ集团-K欧亚部落"><a href="#IJ集团-K欧亚部落" class="headerlink" title="IJ集团+K欧亚部落"></a>IJ集团+K欧亚部落</h2><p>大约4万到3.5万年前，IJK集团的<strong>一支向东进入伊朗阿富汗高原并在此演化出K单倍群集团，他们后代遍布欧亚，所以我们暂且称他们为欧亚部落；而留在原地(中东西部沿海)的IJK集团则演变成IJ集团</strong>。 </p>
+<h3 id="J单倍群体–地中海基因"><a href="#J单倍群体–地中海基因" class="headerlink" title="J单倍群体–地中海基因"></a>J单倍群体–地中海基因</h3><p>IJ集团后来分为两支，一支进入地中海沿岸演化出J单倍群体，他们成为整个西亚和北非及地中海沿岸地区主要的单倍群类型，是地中海人种最主要的父系基因来源，所以又被称为地中海基因。 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">过去地中海人种被划为白种人两大亚种之一，对比白种人另一大亚种“北欧白人”的显白肤色，他们肤色暗白，有些甚至比黄种人还黑，所以又叫做暗白人种，此外他们身材也较北欧白人矮小，高鼻深目特征更加明显，并有大胡子、鹰钩鼻等特征。他们也不是金发碧眼，其头发和眼珠都呈棕褐色</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>因从地理位置上看，地中海人种离黑人较近，所以过去认为他们样貌是北欧白人和黑人混血导致。不过现在从DNA检测上否定了这样的观点，他们样貌特征应为J单倍群人种主体特征。 </p>
+</blockquote>
+<p>目前，中东阿拉伯族、犹太人的48%、土耳其族的25%、意大利族的20%、埃塞俄比亚族的15%、伊朗族的12%都含有J单倍群。</p>
+<p>含J单倍群较多的人种被称为典型地中海人种，集中在地中海沿岸地区。而原本高加索山地G单倍群后来也被外来J单倍群大量混血所以也被划为地中海人种，不过因为体内G单倍群基因的缘故和纯种J单倍群还有较大差别，所以一般又将地中海人种分为两大类</p>
+<ul>
+<li>J单倍群为主体的典型地中海亚人种</li>
+<li>含有一定G单倍群的高加索亚人种</li>
+</ul>
+<img src="http://cdn.diffday.com/picgo/20210324131727.png" alt="阿拉伯人是典型地中海人种" style="zoom:50%;" />
+
+<img src="http://cdn.diffday.com/picgo/20210324131828.png" alt="地中海高加索亚人种" style="zoom:50%;" />
+
+<h3 id="I克罗马农人种"><a href="#I克罗马农人种" class="headerlink" title="I克罗马农人种"></a>I克罗马农人种</h3><p>IJ集团另一支进入伊朗高原和小亚细亚演化出I单倍群，如今伊朗族的18%、土耳其族的15%、亚美尼亚的8%人群的父系染色体标示都为I。<strong>不过含有I单倍群最多的地方不是在他们老家西亚，而是在欧洲</strong>。<u>约3万5千多年前，I单倍群体开始分成两支从高加索和小亚细亚两地北上进入尼安德特人的大本营欧洲</u>，他们是最早进入欧洲的现代人，也就是考古发现欧洲最早的现代智人——克罗马农人。</p>
+<blockquote>
+<p>克罗马农人因最早发现于法国的克罗马农山洞而得名，他们是冰河世纪结束后，全新世到来前这阶段最早被发现的完整人类化石。全新世也就是我们目前所处最年轻的地质年代，它开始于距今1.1万年前后，最近一次亚冰期结束、以气候转暖为标志，因此又称为冰后期。</p>
+</blockquote>
+<p>从欧洲克罗马农人的遗骨可以看出I单倍群的原始特征，这群人身材高大魁梧，大多男性平均身高达1.82米，体格强壮，以狩猎为主要食物来源，连曾经欧洲霸主尼安德特人被他们成群猎杀捕食，到3万年前这批人已经到达欧洲最西端的大西洋边，并彻底导致尼安德特人的灭绝。</p>
+<img src="http://cdn.diffday.com/picgo/20210324164529.png" alt="克罗马农人" style="zoom:50%;" />
+
+<p>I单倍群人种是上古欧洲分布最广的种族，不过也不能将他们完全就等于欧洲克罗马农人，因为欧洲克罗马农人还包括在1.1万年全新世到来之前，进入欧洲所有现代人种。<strong>继I单倍群进入欧洲后，稍晚一点进入欧洲的有地中海J单倍群体，他们主要分布在南欧希腊和意大利半岛，如今南欧地区人们多留有他们的单倍群基因。</strong></p>
+<h3 id="欧洲人也有不少黑人基因"><a href="#欧洲人也有不少黑人基因" class="headerlink" title="欧洲人也有不少黑人基因"></a>欧洲人也有不少黑人基因</h3><p>非洲黑人单倍群E进入欧洲时间似乎比J更早，他们主要集中在南欧、意大利南部、西班牙、希腊这些地方，从如今许多欧洲人中多少都带一点黑人单倍群类型可以看出这点。二战时期，黑人和犹太人一样受到希特勒迫害，而如今从希特勒身上单倍群检查发现他的父系单倍群标示为E，也就是说希特勒最早的远祖父就是黑人。因为一直和白人女子通婚，而成为现在这样貌。</p>
+<blockquote>
+<p>现代人在走出非洲时曾经和尼安德特人发生过混血，而现代人既然起源于非洲，在形成之初也可能和非洲直立人发生混血，从基因角度上讲，你也可以认为这是古人类是“融入”到新人类里，不过这其中比率相当稀少，就物种角度来说直立人和尼安德特人这两个物种确实是灭绝了。就像我们说华南虎灭绝，不代表他们基因不在其他老虎身上存在。</p>
+<p>可以肯定的是现代人并没有和东亚直立人混血，因为东亚的直立猿人（元谋人）在大约170万年前就出现了，而现代人走出非洲的时间最早也在15万年到8万年前，这中间分化时间非常长，足够产生“生殖隔离”。到东亚时，现代人直立人外貌差别相当大了，语言和血型也不同，就猿人那猩猩一样长相，就算现代人性欲再难以满足，能想到和猿人发生性关系，也只有极少数超重口味的，而且就算能现代人真和东亚直立猿人能杂交有后代，也基本很难生存下来。比如同样狮子，科学家让印度狮和非洲狮杂交的后代连行走都很困难。</p>
+</blockquote>
+<h2 id="K-欧亚部落"><a href="#K-欧亚部落" class="headerlink" title="K-欧亚部落"></a>K-欧亚部落</h2><p>在伊朗高原演化出的K单倍群是继F单倍群后的又一个伟大的演化，K单倍群是F单倍群下的最大分支，全世界基本除西亚、非洲以外，大部分都是K单倍群的后裔，如我们<strong>汉族中，96%的人都是K类型下的分支</strong>。</p>
+<p><u>K单倍群在伊朗高原繁衍一段时间后，分化出LT集团和MNOPS集团两支</u>，LT集团先行一步离开伊朗高原，兵分两路，一支向东进入印度，另一支向西进入非洲。</p>
+<h3 id="LT集团——L达罗毗荼集团和T埃塞俄比亚集团"><a href="#LT集团——L达罗毗荼集团和T埃塞俄比亚集团" class="headerlink" title="LT集团——L达罗毗荼集团和T埃塞俄比亚集团"></a>LT集团——L达罗毗荼集团和T埃塞俄比亚集团</h3><h4 id="印度L单倍群"><a href="#印度L单倍群" class="headerlink" title="印度L单倍群"></a>印度L单倍群</h4><p>进入印度K单倍群演化出印度L单倍群，事实证明，K单倍群分支<strong>L就是比较强悍，虽然是后来者，但是L单倍群还是成为前几批进入印度的中东部落后裔（F、H、J单倍群）的领袖，他们一起征服了当地最早的土著矮黑人和棕种人，并且抢了他们的女人作配偶</strong>，L、F、H、J单倍群与当地矮棕黑人种母系不断混血，最后形成了以达罗毗荼人为代表的南亚人种，其中L单倍群占主导地位。</p>
+<p>达罗毗荼人又叫德拉维达人，目前主要分布在印度南部、斯里兰卡和巴基斯坦，占印度全部人口的21.6%，他们也我们常见的印度黑人，过去一般把他们划为棕色人种，但是他们占主导地位单倍群还是F中东部落下属类型（F、L、H、J），应该独立列为一个人种。</p>
+<p><img src="http://cdn.diffday.com/picgo/20210324164631.png" alt="L单倍群为主体的达罗毗荼人"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">过去达罗毗荼人皮肤应该比现在白，但是后来由于白种雅利安人南下，许多白种人特征较多的达罗毗荼人都被雅利安人同化了，直到今天，在巴基斯坦境内还生活着属于白色人种的达罗毗荼人分支——布拉灰人</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://cdn.diffday.com/picgo/20210324164959.png" alt="布拉灰人"></p>
+<img src="http://cdn.diffday.com/picgo/20210324192254.png" alt="布拉灰人2" style="zoom:40%;" />
+
+<p>达罗毗荼人种父系单倍群比率：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">L——印度L单倍群占达罗毗荼人种30%、印欧语系的印度人26%</span><br><span class="line">F——斯里兰卡维达F单倍群占达罗毗荼人诸民族的13%</span><br><span class="line">H——印度蒙达H单倍群占达罗毗荼人种18%</span><br><span class="line">J——地中海J单倍群占达罗毗图诸民族的12%</span><br><span class="line">C、D——矮黑人和棕种人大多成为达罗毗荼人母系祖先，在达罗毗荼人父系中含量较少，但在个别达罗毗荼语系民族中比例达到20%。</span><br></pre></td></tr></table></figure>
+
+<h4 id="T埃塞俄比亚集团"><a href="#T埃塞俄比亚集团" class="headerlink" title="T埃塞俄比亚集团"></a>T埃塞俄比亚集团</h4><p>进入非洲的K单倍群演化出埃塞俄比亚T单倍群，目前T单倍群体主要分布在埃及和东非埃塞俄比亚。从外貌上看，就会发现<u>埃塞俄比亚黑人和其它地区黑人差别很大，一般将他们单独划为高原黑人种</u>。从外貌上看他们应该属于最俊美的黑人了，双眼皮、大眼睛、五官立体感强，这<strong>和他们体内含有T单倍群基因，并大量混血阿拉伯人有关</strong>。目前这一种族主要分布于东非埃塞俄比亚高原及附近索马里等地区，人口约几千万，是东非黑人的主体。</p>
+<img src="http://cdn.diffday.com/picgo/20210324165051.png" alt="埃塞俄比亚黑人" style="zoom:50%;" />
+
+<h3 id="MNOPS集团——S巴布亚新几内亚高地人、M伊里安查亚新几内亚人、ON黄色人种、P中亚部落"><a href="#MNOPS集团——S巴布亚新几内亚高地人、M伊里安查亚新几内亚人、ON黄色人种、P中亚部落" class="headerlink" title="MNOPS集团——S巴布亚新几内亚高地人、M伊里安查亚新几内亚人、ON黄色人种、P中亚部落"></a>MNOPS集团——S巴布亚新几内亚高地人、M伊里安查亚新几内亚人、ON黄色人种、P中亚部落</h3><p>LT集团从K欧亚部落分离出后，留在伊朗高原印欧人K单倍群在3.5万年分化&gt;</p>
+<p>一支向北进入中亚里海附近，形成P单倍群的中亚部落;</p>
+<p>一支后来演化成黄种人祖先NO。</p>
+<p>另有两支S、M沿着棕色人种的路线，从马来半岛出发，分批进入苏门答腊岛和婆罗洲，挺近大洋洲，并一度大举入侵澳大利亚，但最终不敌澳洲棕种土著C而被融合。</p>
+<h4 id="SM"><a href="#SM" class="headerlink" title="SM"></a>SM</h4><p>S、M虽然没能成功征服澳洲，不过他们却成功进入大洋洲最大的岛屿、世界第二大岛新几内亚岛。新几内亚岛以东经141°为界线，东西两端分为巴布亚新几内亚国和印度尼西亚伊里安查亚省，而S和M则分别形成巴布亚新几内亚国和印尼伊里安查亚省的土著居民。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">如今S单倍群后代广泛分布在大洋州和马来群岛：巴布亚新几内亚的59%，苏门答腊岛的15%、婆罗洲的16%、伊里安查亚新几内亚5%都为S单倍群。</span><br><span class="line"></span><br><span class="line">而M单倍群后代则主要居中在新几内亚岛，如今伊里安查亚新几内亚的70%、巴布亚新几内亚的34%都为M单倍群。</span><br></pre></td></tr></table></figure>
+
+<p>新几内亚岛上的S、M单倍群体由于长期混血棕种人，现已经具备有明显棕种人特征，过去也将他们划为棕色人种，但是如果要和C单倍群棕色人种区别还是很明显。</p>
+<blockquote>
+<p>父系单倍群为S、M的人群脸更狭长、鼻子更高、有鹰钩鼻、皮肤相对较白，这都和周边棕色人种明显不同。对比如下两图，是不是头发是否卷也是一种特征？</p>
+</blockquote>
+<img src="http://cdn.diffday.com/picgo/20210324165159.png" alt="S、M后代的新几内亚人" style="zoom:70%;" />
+
+<img src="http://cdn.diffday.com/picgo/20210324165300.png" alt="C单倍群棕色人种" style="zoom:50%;" />
+
+<h4 id="黄色人种"><a href="#黄色人种" class="headerlink" title="黄色人种"></a>黄色人种</h4><p>黄种人祖先NO从伊朗高原向东南进入印度北部、并通过东南亚进入中国，最后成为东亚、东南亚最后的霸主。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">为什么古人类全都喜欢绕道印度、东南亚进入中国，而不直接近道走直线经西亚过新疆直到中原呢？这是因为中原地区和西亚之间隔着大面积沙漠戈壁和草原，原始人只靠打猎和采集野果，是很难通过此地的。只有等到发明畜牧业，尤其是成功驯化马和骆驼后此路才变得畅通。所以大规模的原始部落进入中国途径印度、东南亚是必然的</span><br></pre></td></tr></table></figure>
+
+<h2 id="NO黄种人"><a href="#NO黄种人" class="headerlink" title="NO黄种人"></a>NO黄种人</h2><blockquote>
+<p>N北亚黄种人人和O东亚与东南亚黄种人</p>
+</blockquote>
+<p>NO黄种人在东南亚分化为南北两支，南支演化出O单倍群体，并成为后来东亚与东南亚黄种人的主体类型。而北支先行一步进入东亚，目前达斡尔族2.6%、鄂温克族3.82%、赫哲族2.2%、回族2.9%，华北汉族2.3%，华南汉族2.5%，越南人3.1%，外蒙古人0.7%、布依族5.7%、日本人2.1%、韩国人2.3%、彝族人2.3%都为NO单倍群类型。</p>
+<h3 id="N单倍群黄种人"><a href="#N单倍群黄种人" class="headerlink" title="N单倍群黄种人"></a>N单倍群黄种人</h3><p>向北发展的NO最终演化出N单倍群黄种人，他们大致在距今2~1.5万前从东亚出发，进入叶尼塞河和阿尔泰山区域，并分化为东西两支。</p>
+<p>一支向西北迁移至乌拉尔山两侧到北冰洋沿岸形成了芬兰-乌拉尔语系的主体民族，<strong>在历史上入侵欧洲游牧民族多属于这支黄种N单倍群集团（这和入侵中国地区游牧集团主要是棕种C单倍群集团不同）</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">从今天N单倍群在东欧和北欧广泛存在就可看出来，目前芬兰人65%、爱沙尼亚55%，立陶宛、拉托维亚等人群中50%，俄罗斯北部35%，中部20%，南部10%，挪威和瑞典人的5-10%都为N单倍群类型。这些在欧洲的N单倍群黄种人因为长期和白人混血，样貌已经和白人相差不大</span><br></pre></td></tr></table></figure>
+
+<p>而另一支N单倍群则迁移到西伯利亚北部和东部地区，在如今西伯利亚北部地区，N单倍群占绝对的优势，如雅库特人N3占92.2%，北部埃文人中，N3占90.9%。而在西伯利亚南部地区，北亚黄种单倍群N则和南部棕种C单倍群的通古斯民族发生混血，目前N南部西伯利亚通古斯人比例一般在20—50%之间，中国属于通古斯语系的满族也有15%黄种N单倍群的血统。</p>
+<p>N单倍群最东方的一支就是和印第安人混血而成的爱斯基摩人。<u>由于N单倍群人群主要生活在地球最北方，所以N单倍群基因又被称为极北基因</u>。N 单倍群黄种人在欧洲的基地，芬兰和爱沙尼亚。严重白化的黄种人代表——芬兰人，在外貌上已经和白人很难区别呢，但是头颅还是明显黄种人类型。</p>
+<img src="http://cdn.diffday.com/picgo/20210324165349.png" alt="芬兰人" style="zoom:50%;" />
+
+<p>北亚N单倍群黄种人代表——西伯利亚北部的雅库特人，他们N比率高达92.2%</p>
+<img src="http://cdn.diffday.com/picgo/20210324165450.png" style="zoom:80%;" />
+
+<h3 id="O单倍群黄种人"><a href="#O单倍群黄种人" class="headerlink" title="O单倍群黄种人"></a>O单倍群黄种人</h3><p>在东南亚黄种人南支O，在大约两万年前进入中国，被称为“新亚洲人”，他们与亚洲上任霸主棕种人爆发了激烈的领地争端，最终，“新亚洲人”O取得了胜利，<strong>棕色人种被一路向北驱逐，最后逃亡到蒙古高原和东北亚地区，不过他们的女性却大部分留下来和“新亚洲人”O混血融合成了现在东亚—东南亚黄种人。</strong></p>
+<blockquote>
+<p>据统计今日中国人来自棕种的母系成分大致占60%的成分，越往北汉人就吸收越多棕种人母系血统，在个别地区棕色人种的母系达到80%以上。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">从单倍群类型可以看出，亚洲黄种人基本的父系祖先和小部分母系祖先是来自于伊朗高原单倍群K的欧亚人，而大部分母系祖先则是更早到达亚洲的老亚洲人，所以亚洲黄种人实际上就是第三批走出非洲的欧亚人和前两批出非洲的老亚洲人女性的混血儿。</span><br></pre></td></tr></table></figure>
+
+<p>黄种人扩张过程主要兵分三路，并形成现代黄种人O1、O2、O3三种不同单倍群。</p>
+<h4 id="南岛支O1"><a href="#南岛支O1" class="headerlink" title="南岛支O1"></a>南岛支O1</h4><p>第一路O1黄种人我们称之为南岛支，这支黄种人擅长航海，他们从东南亚马来半岛出发，扩张到印度洋到太平洋半岛和岛屿上，向北他们抵达台湾，今日台湾高山族O1单倍群成分高达97%，是最纯种O1民族；向西他们一直抵达到非洲的马达加斯加岛，建立非洲唯一黄种人国家马达加斯加，向东南他们占领马来群岛(马来西亚、印尼、菲律宾等地)，并一路扩张到大洋洲三大群岛。</p>
+<img src="http://cdn.diffday.com/picgo/20210324165555.png" alt="南岛支主要分布图" style="zoom:70%;" />
+
+<p><img src="http://cdn.diffday.com/picgo/20210324165724.png" alt="马达加斯加黄种人"></p>
+<p>在浩瀚的太平洋上，星星点点散布着许许多多的岛屿，它们被分成三大岛群，即密克罗尼西亚、美拉尼西亚和波利尼西亚。O1黄种人成功入驻三大群岛，并与当地棕种土著混血，形成密克罗尼西亚、美拉尼西亚和波利尼西亚三大人种，其中又以波利尼西亚人种数量最多。</p>
+<blockquote>
+<p>波利尼西亚意思是“多岛群岛”，它北起夏威夷，南至新西兰，东至复活节岛，是太平洋三大群岛中范围最大的群岛。波利尼西亚人种包括毛利人、汤加人、夏威夷人、复活节岛人等10多个支系，共有90多万人，可能是由于渡海迁移，只有最强壮的人活了下来的原因，这些波利尼西亚人是世界最高大强壮种族之一，其种毛利人男性平均身高180CM，在过去是著名食人族。</p>
+<p>虽然波利尼西亚人种为棕黄混血人种，但是在部分地区O1的成分占绝对优势，其中汤加岛上的汤加人黄种O1单倍群高达82%，汤加在过去是一个以肥胖为美的国家，其前国王体重达到世界吉尼斯纪录，是世界上体重最重的君主。</p>
+</blockquote>
+<p>**<u>除称霸印度洋和太平洋外，O1黄种人还沿东部海岸线北上中国，并成为中国人的第二大单倍类型</u>**。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">虽然在中国北方黄河流域的山东、河北地区的汉族人中，O1的比例都小于5%，但是在长江以南O1占父系比率平均12%左右，尤其以江苏南部和浙江地区比例最高，超过20%以上，而这还只是父系祖先的比率，在母系祖先中比率更高，可以说O1成分不同是导致南北方汉人外貌不同一重大原因</span><br></pre></td></tr></table></figure>
+
+<p>除汉族外，亚洲北部贝加尔湖畔的布里亚特人O1的比例高达34%，外蒙、满族、朝鲜、日本、堪察加人等民族也有部分O1类型，但一般比例不超过10%，都不是主体单倍群类型。</p>
+<p><img src="http://cdn.diffday.com/picgo/20210324165908.png" alt="黄种人东亚迁移图"></p>
+<h4 id="泰柬支O2"><a href="#泰柬支O2" class="headerlink" title="泰柬支O2"></a>泰柬支O2</h4><p>第二路黄种人O2可称为泰柬支，目前O2单倍群比例在中印半岛中部的泰国和柬埔寨最高，其中柬埔寨高棉族O2比率高达90%以上，泰国O2比例也高达55%，周边国家按离泰柬两国的远近相应递减，由此大致可以推测<strong>O2变异最初出现在泰柬两地</strong>，并以此为根据地，向四方扩散开来。</p>
+<img src="http://cdn.diffday.com/picgo/20210324165944.png" alt="混血较少的O1，O2人种" style="zoom:50%;" />
+
+<p>在东南亚O2单倍群体与来自马来半岛和马来群岛O1融合，一起征服原本在东南亚矮黑人和棕种人，并和棕黑人种的女性混血形成今日东南亚地区的马来人种，由于东南亚丛林中矮黑人较多，所以马来人种外貌有较多矮黑人的特征。</p>
+<p><img src="http://cdn.diffday.com/picgo/20210324170021.png" alt="混血后的马来人种"></p>
+<p>除称霸中南半岛外，O2单倍群体还沿东南亚海岸北上中国，如今O2单倍群在中国东南沿海广泛分布、中国少数民族人口最多的壮族就有36%属于O2单倍群，与广西相邻的广东O2单倍群也达到15%。与O1一样，O2在母系成分中比率更高，广东、广西部分地区甚至可以达到85%。**<u>目前O2是中国汉族第三大单倍群类型，不过除两广外，其它地区比例都不高</u>**</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这也造成广东汉人（客家人除外）外貌及语言和汉族其它地区都大为不同，北方人常说广东人一副马来人的长相原因就在于其混血较多O1、O2种群基因。</span><br></pre></td></tr></table></figure>
+
+<p>除中国南方外，O2人群最北直达东北亚地区融入当地通古斯民族，并经朝鲜直达日本，如今满族人身上就有十分之一O2基因，**<u>朝鲜和日本O2比例甚至高达三分之一以上，比来自中国华夏族O3单倍群类型还多。可以说日本人、朝鲜人和东南亚人血缘关系更近，和中国血缘关系反而更远些</u>**。</p>
+<blockquote>
+<p>但是由于来自内陆中国华夏族O3的扩张，O2被分割成南北两支，因为长期隔离，形成南支以东南亚人主体为O2a和北支以日韩人为主体为O2b两种不同类型。</p>
+</blockquote>
+<h4 id="华夏支O3"><a href="#华夏支O3" class="headerlink" title="华夏支O3"></a>华夏支O3</h4><p>第三路<u>黄种人O3最初在缅甸生存了很长一段时间</u>，后来也北上进入中国，不过<strong>他们和O1、O2沿海北上不同，走的是陆路。这条路可比沿海路线难走，最早的人类部落，大多只能沿海迁徙，这是因为内陆地区固体盐矿不如海盐丰富，缺乏人类的生存繁殖必要的盐和碘</strong>，尤其是中国云贵一代，盐巴自古紧俏，由于缺碘导致大脖子病很普遍，所以能<u>走陆路说明O3已经具备较发达生产力</u>。 </p>
+<p>O3群体表现出强大的战斗力，早先进入中国的黄种基因NO、N、O1、O2基本全都融入O3群体中，他们成为汉藏语族黄种人的祖先，尤其在汉族血统中更占主导地位，所以又把第三路黄种人称为华夏支。</p>
+<blockquote>
+<p>O3-M134和O3—M122是今日中华民族中体内含量最多的，O3-M134是O3—M122下的亚型， </p>
+<p>南方O1虽高，但是这是上一级的，只能和O3对比，O3—M122也是O3-M134上一级， </p>
+<p>在O3-M134同级成员中，没有任何Y染色体能比O3-M134还高，而且O3-M134更是为汉藏民族所特有，可以说是华夏民族一大标志。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">目前O3大致占汉族单倍群的55-65%，其中华北地区、黑龙江、陕西、客家人比例较高，大致在65%-75%，尤其是福建客家人更是O3比率最高的群体；而江浙地区和闽粤除客家人以外人群O3比例较低，大致在50-55%。</span><br><span class="line"></span><br><span class="line">如今南北汉族在父系Y染色体单倍群上相似度高达90%，也就是说南北方汉族父系祖先都是同源的。南北汉族的差异主要体现在mtDNA上，也就是母系祖先来源上。</span><br></pre></td></tr></table></figure>
+
+<h5 id="中国人母系来源分析"><a href="#中国人母系来源分析" class="headerlink" title="中国人母系来源分析"></a>中国人母系来源分析</h5><p>据统计今日中国人来自棕种的母系成分大致占60%的成分，越往北汉人就吸收越多棕种人母系血统，在个别地区棕色人种的母系达到80%以上。通过母系mtDNA检测结果得出，目前参与DNA验证人群是非常多的，可以肯定东亚黄种人母系有大量来自原老亚洲人的成分，老亚洲女性大多留下来的真实情况是黄种人打跑了老亚洲人的男人，抢走了他们的女人。</p>
+<p>黄种人O原本母系来源就较复杂，最初主要为N系下属各支，其原配具体可能B、F*,F1a，R9等，进入亚洲棕种人区域时，有大量的M加入进来，M被认为是棕种人的女人，如今M东亚地区最主要的母系来源。纯种的百越人，纯种的巴蜀人的确找不到，但是在汉人单倍群里还留有他们的基因。</p>
+<p>人类的历史证明，一个社会集团，其文化的进步往往取决于它是否有机会吸取邻近社会集团的经验。一个社会集团所获得的种种发现可以传给其他社会集团；彼此之间的交流愈多样化，相互学习的机会也就愈多。大体上，文化最原始的部落也就是那些长期与世隔绝的部落，因而，它们不能从邻近部落所取得的文化成就中获得好处。换句话说，如果其他地理因素相同，那么人类取得进步的关键就在于各民族之间的可接近性。最有机会与其他民族相互影响的那些民族，最有可能得到突飞猛进的发展。</p>
+<blockquote>
+<p>上古时期，随着华夏族的扩张，很多周别民族都融入华夏族，今日有些姓氏如：黄、徐、马、谭、郝、江等就是源自东夷族，汉族是在汉朝才形成的，春秋时期的楚国长期和南蛮混血，秦国和戎狄混血现在都是普遍的观点。</p>
+<p>古代战争中，男人往往被杀死，女人却被往往当作战利品留下来，所以导致世界上所有民族母系来源非常丰富。母系mtDNA成分也更复杂，汉族也不例外。</p>
+<p>越是强大民族，由于征服地区越多，母系往往越是复杂，在宠物中纯种意味着稀有，所以价钱也就越贵，但人不是拿来卖的，不以纯种论高贵，完全纯种民族都是与世隔绝的稀有民族，太纯种也意味不够强大，强大民族都有一个主体Y染色体类型，并融入其它各地区优秀种族人群</p>
+</blockquote>
+<p>从周朝开始，O3主体的中原王朝开始控制O1、O2的大本营中国南方地区，大量的O3单倍群汉族开始迁往长江以南，迁移的原因包括服兵役、逃避战乱、因罪流放、拓荒开发等，这些人基本都是男性，带家属的情况不多，所以大多娶了当地的女性，这就造成了南方汉族和北方汉族有着相同的父系祖先，却有不同的母系祖先。北方汉人的母系融入较多的棕种人类型，所以有些类似蒙古人，身材高大威猛，多国字脸和单眼皮，南方人融合大量O1、O2黄种人的血统，所以有些类似马来人，五官精致秀气，多瓜子脸和双眼皮。 </p>
+<p>南方汉族不仅和北方汉族在母系来源上不同，南方各地区之间差异也很大，如江西的汉族和福建的汉族母系mtDNA就不同；甚至同是福建人，闽南人和客家人在母系mtDNA上也不同。这主要是因为南方多山远不如北方平原开阔，少数民族种类数量更多，各地区交流不便导致。 </p>
+<h5 id="汉族的单倍群发展"><a href="#汉族的单倍群发展" class="headerlink" title="汉族的单倍群发展"></a>汉族的单倍群发展</h5><p>虽然O3单倍群是当今汉族的主体，但是除汉族外，东亚、东南亚各地也都含有大量的O3单倍群，所以并不能说O3就能代表汉族，如果将O3单倍群细化，O3基因下O3-M122的亚型O3a5-M134仅现于汉藏民族，可以说华夏汉族重要标记，所以也有学者将O3-M122/O3-M134单倍群体称为古羌族。</p>
+<p><img src="http://cdn.diffday.com/picgo/20210324170626.png"></p>
+<p><img src="http://cdn.diffday.com/picgo/20210324170655.png" alt="汉族的近亲羌族"></p>
+<p>研究人士认为，大约六千年前，古羌族分为东西两支，一支向东最终形成华夏族，另一支向西形成羌族。羌人后来进入青藏高原遇到了当地生活数千年的土著矮黑人D，他们一起融合形成后来的藏族。今天，藏族的父系血统里D矮黑人与O3黄种人各占一半，离汉族最远的喜马拉雅山西南地区的藏族矮黑人的血统比例最高，而离汉族最近的四川境内的嘉绒藏族等则有最高的黄种人比例。</p>
+<img src="http://cdn.diffday.com/picgo/20210324170738.png" alt="混血D单倍群的西藏人" style="zoom:50%;" />
+
+<p><img src="http://cdn.diffday.com/picgo/20210324170305.png" alt="各省Y染色体父系单倍群比值表"></p>
+<h5 id="华夏各地区单倍群历史变迁图"><a href="#华夏各地区单倍群历史变迁图" class="headerlink" title="华夏各地区单倍群历史变迁图"></a>华夏各地区单倍群历史变迁图</h5><img src="http://cdn.diffday.com/picgo/20210324170948.png" style="zoom:50%;" />
+
+<h4 id="蒙古种人并不是黄种人"><a href="#蒙古种人并不是黄种人" class="headerlink" title="蒙古种人并不是黄种人"></a>蒙古种人并不是黄种人</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">外蒙古人血统=28.7%黄种O单倍群+55%棕色人种+13%白种人+2%中东人+1.3%其它人种 </span><br><span class="line"></span><br><span class="line">北方汉人血统=77%黄种O单倍群+6%黄种N单倍群+5%棕色人种+12%其它人种 </span><br><span class="line"></span><br><span class="line">朝鲜族血统=75%黄种O单倍群+15%棕色人种+6%小黑人D +4%其它人种 </span><br><span class="line"></span><br><span class="line">日本族血统=54.2%黄种O单倍群+34.7%小矮黑人+8.5%棕色人种+2.6其它人种</span><br></pre></td></tr></table></figure>
+
+<p>黄种人学名叫做蒙古人种，蒙古人曾经被认为是最纯种的黄种人，这是因为19世纪的西方人种学家布卢门巴赫（Blumenbach）在划分世界各大人种时，认为单眼皮是黄种人的本质特征，而蒙古族人群中90%为单眼皮，所以他想当然认为蒙古人的相貌特征才是纯种的黄种人特征，其它黄种人相貌都是混血的产物，于是他就将黄种人学名定为蒙古人种，并成为了当今流行的说法。现在通过Y染色体的研究，让我们看看东亚各民族单倍群比率。</p>
+<blockquote>
+<p>从单倍群类型可以看出蒙古人的黄种单倍群O是最少的，蒙古人种相貌特征更接近C3棕色人种，单眼皮也是棕色人种的遗传特征，因为外蒙古族棕色人种单倍群比例高达55%，所以大部分蒙古人为单眼皮。朝鲜族单眼皮的比率也相当高同样是因为他们体内有大量棕色人种的基因。</p>
+</blockquote>
+<blockquote>
+<p>而黄种人的发源地东南亚则完全是双眼皮的天下，黄种人的近亲F中东部落下属各支也都是双眼皮，中国双眼皮比率南方占86%，北方占52%，整体上也是双眼皮占优势，所以再把黄色人种称为蒙古种人，并用单眼皮来判断是否为纯种黄种人明显不合适。 </p>
+</blockquote>
+<p><img src="http://cdn.diffday.com/picgo/20210324171254.png" alt="东亚各民族单倍群比例"></p>
+<p>将黄色人种称为蒙古人种并不合适。很多人可能会对中国人有那么多新几内亚K单倍群感到好奇，其实中国K单倍群主要是欧亚部落K下属的黄种人单倍群（NO、N*等），因为当时没有进一步化验，所以都归类到上属的k欧亚部落， </p>
+<p><strong><u>从图中可以看出南方父系来自棕种人比北方多，但是北方棕种人母系会更多点</u></strong></p>
+<h4 id="纯种O3黄种人推测"><a href="#纯种O3黄种人推测" class="headerlink" title="纯种O3黄种人推测"></a>纯种O3黄种人推测</h4><p>关于纯种黄种人NO最初究竟是什么样子，有学者推测其特征可能为：双眼皮、眉骨粗、颧骨细、瓜子脸、浅皮肤、深棕直发、棕色眼珠、脑容量大等，不过这也只是推测，毕竟经历数万年混血黄种人早已经不是最初的模样，<strong>目前最纯种黄种O3人群，当属云南省贡山的独龙族，他们是云南特有民族中人口最少的，现约有7000人，由于山区的与世隔绝，他们父系O3成分高达100%的，也许他们的外貌就是O3黄种人最初的模样。</strong></p>
+<img src="http://cdn.diffday.com/picgo/20210324171534.png" alt="独龙族妹子" style="zoom:50%;" />
+
+<h2 id="P-中亚部落"><a href="#P-中亚部落" class="headerlink" title="P-中亚部落"></a>P-中亚部落</h2><p>亚洲黄种人征战棕种人的同时，曾经在伊朗高原和NO黄种人<strong>分离北上的“中亚部落”P于距今大约2万年发生分化</strong>，他们中的一支向东北进入西伯利亚演化出**<u>Q单倍群</u>**。</p>
+<h3 id="西伯利亚驯鹿土著，爱斯基摩人"><a href="#西伯利亚驯鹿土著，爱斯基摩人" class="headerlink" title="西伯利亚驯鹿土著，爱斯基摩人"></a>西伯利亚驯鹿土著，爱斯基摩人</h3><p>Q单倍群一部分留在西伯利亚融入当地黄种人N、棕种人C中，在今天西伯利亚的驯鹿土著塞尔库普人Q高达60%以上，在靠近美洲附近，Q单倍群人群融合部分北亚黄种人N形成爱斯基摩人，如今爱斯基摩人单倍群中N占50%、Q占47%。</p>
+<h3 id="Q-印第安人"><a href="#Q-印第安人" class="headerlink" title="Q-印第安人"></a>Q-印第安人</h3><p>不过Q单倍群最成功地方不是在西伯利亚，而是在美洲，Q单倍群下的一支Q3通过亚洲和美洲交界的白令海峡进入并扩散到整个美洲大陆成为了印第安人的祖先。 </p>
+<p>由此可以看出印第安人并不是过去所说的是中国人北上迁移过去的，而是从中亚部落P中分离出来，但是为什么印第安人会有着黄种人的样貌呢？ </p>
+<p>这是因为<strong>印第安人和亚洲黄种人有着共同的母系祖先棕种人，正如黄种人驱逐老亚洲棕种人父系，霸占他们的母系，美洲印第安人也同样征服先到达美洲的棕种人父系，并融合部分棕种人母系血统，棕种人母系基因无疑是显性基因，对后代外貌遗传影响更大，导致东亚黄种人和印第安人外貌上相似</strong></p>
+<blockquote>
+<p>两者主要区别是印第安人面形宽大，肤色黄褐色，头发黑、直、硬，颧骨突出，多铲形门齿，鼻子更像白人，鼻根较高，鼻梁多呈凸形且前突，眼窝更深，身材也相对高大，其中南美的巴塔哥尼亚印第安人男性平均身高达183CM。</p>
+</blockquote>
+<p>虽然现在普遍把印第安人归类为黄种人，但是如果从遗传学角度，应该把印第安人排除出黄种人，只有NO单倍群才能称为黄色人种，印第安人应另外划为印第安人种或美洲人种更合适，也可以按照最初方法划为红色人种。（最早印第安人因常在皮肤各处涂红色颜料被划为红色人种）</p>
+<p><strong>印第安人身上没有任何来自东亚—东南亚黄种O成分，父系基本都是Q和少量的C3，尤其是南美洲地区全是Q</strong> </p>
+<img src="http://cdn.diffday.com/picgo/20210324171740.png" style="zoom:50%;" />
+
+<p>生活在地球最北端的爱斯基摩人，是N和Q的混血后代，国内著名主持人柳岩穿得少，特别“抗冻”，她经过DNA检测发现原来其先祖是古爱斯基摩人。</p>
+<blockquote>
+<p>现代东亚黄种人就算不混血，经过数万年演化也和古人不同，如果真要了解最早黄种人样貌，还是需要通过科技手段复原出土的头骨遗骸</p>
+</blockquote>
+<h2 id="I克罗马农人-欧洲"><a href="#I克罗马农人-欧洲" class="headerlink" title="I克罗马农人@欧洲"></a>I克罗马农人@欧洲</h2><p>到目前为止，智人已经遍布除南极以外的世界各大洲，在已发现各地区智人遗址中，以欧洲地区最多、最为丰富，这可能是因为欧洲比较湿润，不像中东和非洲那么干旱，有较丰富的采集和狩猎资源，当然这也和欧洲考古工作更早、技术更发达有关。目前在欧洲发现著名现代智人遗址包括： </p>
+<ul>
+<li><p>距今3.4万～2.9万年的奥瑞纳文化，遗址出土人类最早乐器——骨笛，并出现人类最早的艺术作品——洞穴壁画、岩画和陶制雕像等。 </p>
+</li>
+<li><p>距今2.1万～1.8万年的梭鲁特文化，以高超的压制石器技术著称，达到了旧石器时代石器制作技术的顶峰，骨器制作的手工艺也非常突出，大量骨制的鱼叉、矛头、针等被发现。 </p>
+</li>
+<li><p>距今1.7万～1.15 万年的马格德林文化，这时期原始艺术作品被誉为是美术史上最早的惊世的杰作，其中最著名的当属法国拉斯科洞窟壁画（被誉为“史前卢浮宫”）和西班牙的阿尔塔米拉洞窟壁画（被誉为“史前西斯廷教堂”）。 </p>
+<blockquote>
+<p>法国拉斯科洞窟壁画距今已有15000年左右，它由一条长长的、宽狭不等的通道组成，其中有一个外形不规则的圆厅最为壮观，洞顶画有数十头大型动物形象，包括野马、野牛、鹿等，图像长度大多在2米到3米，最长的约5米以上，被誉为“史前卢浮宫”。 </p>
+<p><img src="http://cdn.diffday.com/picgo/20210324172133.png"></p>
+</blockquote>
+</li>
+</ul>
+<h4 id="雕塑艺术成就"><a href="#雕塑艺术成就" class="headerlink" title="雕塑艺术成就"></a>雕塑艺术成就</h4><p>小型雕塑艺术上克罗马农人同样取得巨大的成就，雕像以小型动物雕刻为主，也有一些圆雕和浮雕的女裸体雕像，女裸体雕像最具有代表性的就是奥地利出土的“原始的维纳斯”，雕像极大夸张突出女神的乳房、臀部、孕肚等女性特征形象，而脸部和手脚几乎被忽略，是这时期女裸体雕像的代表特征，一般认为这些雕像和的巫术有关，体现出晚期克罗马农人对女性和生殖崇拜思想。</p>
+<p><img src="http://cdn.diffday.com/picgo/20210324172221.png" alt="原始的维纳斯"></p>
+<p>创造这些灿烂的上古石器文化的是以I单倍群为主体的克罗马农人，可以说上古欧洲克罗马农人遗址是已发现旧石器时代晚期文化最杰出的代表，所以上世纪欧洲的主流学者一直声称现代欧洲人就是由克罗马农人演化而来的；</p>
+<h3 id="巴斯克人是克罗马农人直接后裔？"><a href="#巴斯克人是克罗马农人直接后裔？" class="headerlink" title="巴斯克人是克罗马农人直接后裔？"></a>巴斯克人是克罗马农人直接后裔？</h3><blockquote>
+<p>后来随着语言学的研究，欧洲主流说法又变成：就像克罗马农人淘汰尼安德特人一样，称霸欧洲的克罗马农人也被后来进入欧洲的印欧人所淘汰，他们中男性大都遭到杀害，女性则成为了新征服者的配偶，现居住在西班牙比利牛斯山脉不讲印欧语的巴斯克人(巴斯克人是西班牙足球重要力量)是他们仅存的直系后裔。 <strong>但Y染色体检测发现这种说法并不正确。</strong></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">巴斯克人语法复杂异常，外族人绝难掌握，传说魔鬼迁居巴斯克人居住区，可是住了7年之后又不得不搬走了，因为他无法与巴斯克人沟通！7年里，魔鬼只学会了两个巴斯克语单词：“是”和“不是”。 巴斯克因此被认为是“上帝的语言”，因为只有上帝才能听得懂。</span><br><span class="line"></span><br><span class="line">巴斯克人在欧洲历史可以追溯到旧石器时代，目前已经发现了上万年前的巴斯克人骨骸，在全世界各个民族中，巴斯克人可谓真正意义上的“钉子户”，他们上万年蜗居在西班牙和法国交界的比利牛斯山脉中，不愿与外界沟通，目前有70多万巴斯克人居住在西班牙，另有约12万居住在法国，他们语言极其独特。是目前西欧惟一不属于印欧语系的语言，而且也不属于世界上任何语系，语法复杂异常，外族人难以掌握，很多学者认为巴斯克语就是上古欧洲的克罗马农人的语言，并因此断定印欧人在进入欧洲后，从东欧开始自东而西横扫I单倍群的克罗马农人，只剩下少数躲进了土地贫瘠的比利牛斯山脉成为巴斯克人。 </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">巴斯克人身上基本没有最早的克罗马农人的I单倍群类型，他们的单倍群类型基本都是印欧人西支R1b，其比率甚至高达到90%以上，可以算得上是最纯种的印欧R1b单倍群人群，但究竟是什么原因，导致了同为R单倍群巴斯克人语言和周边印欧民族语言如此不同，巴斯克人为何不讲R单倍群体的语言印欧语，而讲一种不属于世界任何语系的语言。目前对此主要有以下两种猜测。 </span><br><span class="line"></span><br><span class="line">第一种猜测认为：巴斯克语就是最早克罗马农人I单倍群集团的语言，这种看法认为印欧人西支R1b是分批进入欧洲的，而巴斯克人就是最早进入欧洲的一支，由于他们进入欧洲时人口很少，所以被当地土著克罗马农人同化，不再说印欧语。后来印欧人主体进入欧洲，征服了克罗马农人，但巴斯克人因在偏僻的山区没被印欧人同化，导致他们和印欧人语言的不同。 </span><br><span class="line"></span><br><span class="line">第二种猜测认为：巴斯克语是印欧人西支R1b最早的语言，而印欧语最早只是印欧人东支R1a的语言，R1a才是真正印欧人，西支印欧人R1b其实就是被印欧化的巴斯克人。 </span><br><span class="line"></span><br><span class="line">第一种可能性要大得多，因为少数巴斯克人被多数克罗马农人同化，要比多数R1b被少数R1a同化要容易得多。如今除巴斯克人，英国和爱尔兰的凯尔特人也是R1b占绝对优势，红发绿眼是凯尔特人常见特征，在R1b占优势的西欧地区也是红发高发区，所以红发绿眼很可能R1b单倍群特有基因特征，金发对比黑发是隐性基因，而红发对比金发又是隐性基因，作为隐性基因中的隐性基因导致现实中红发绿眼如同大熊猫一样的稀少</span><br></pre></td></tr></table></figure>
+
+<h3 id="克罗马农人被吸收"><a href="#克罗马农人被吸收" class="headerlink" title="克罗马农人被吸收"></a>克罗马农人被吸收</h3><p>I单倍群克罗马农人并没有灭绝，目前很多欧洲人都属于克罗马农人I单倍群，不过现在完全纯种I单倍群克罗马农人已经找不到了，I单倍群在欧洲比率不是很高，一般不超过20%，但是在北欧、巴尔干半岛地区所占比率较高，达40%左右，其中巴尔干半岛地区克罗地亚人I单倍群高达50%以上，尤其是波黑共和国的克罗地亚人中I的比率更是高达73.3%，算得上是I单倍群克罗马农人最直系的后代。其它如冰岛的37%、苏格兰的20%、挪威族的30%、德意志族的25%、西班牙族的12%、意大利族的15%、俄罗斯族的18%都为克罗马农人I单倍群类型。可以说大部分克罗马农人是被欧洲人所同化，改用印欧语，而且由于和欧洲人长期混血，已经基本变成白人的样貌。 </p>
+<p>波黑共和国的克罗地亚人中I的比率更是高达73.3%，算得上是I单倍群克罗马农人最直系的后代，从出土遗骸上看，克罗马农人身材高大臃肿，他们一些后代多少继承这个特征。（此处欠一张克罗地亚大只妹的picture）</p>
+<h2 id="R-印欧人种-from-P"><a href="#R-印欧人种-from-P" class="headerlink" title="R-印欧人种 from P"></a>R-印欧人种 from P</h2><p>在P中亚部落分离出Q单倍群印第安人后，他们中的另一支向西进入南俄罗斯草原并在一万五千年前发生突变形成R单倍群，<strong>虽然R单倍群和印第安人Q单倍群同属P中亚部落为兄弟类型</strong>，但是印第安人Q反而和关系较远的黄种人NO有相似的外貌，这不仅<strong>因为印第安人和东亚人同有棕种母系祖先，另一个重要的原因是因为父系Q单倍群和黄种父系NO单倍群外貌并没有太大差别</strong>，正是<u>R单倍群这次突变，形成了与黄种人甚至和他们兄弟印第安人完全不同的外貌。</u> </p>
+<p>这些<u><strong>R单倍群体皮肤变得亮白、发色变浅、并形成高鼻深目、金发碧眼的外貌，曾有人认为高纬度地区容易形成这样特征，但是生活在地球最北端的N系黄种人却不是这种外貌，所以纬度样貌说并不合理</strong></u>。 </p>
+<h3 id="印度R单倍群"><a href="#印度R单倍群" class="headerlink" title="印度R单倍群"></a>印度R单倍群</h3><p>金发碧眼是R单倍群体一重要特征，今日北欧是世界金发碧眼最多的地区，R单倍群后来进入印度形成今日印度主体民族印度斯坦人，但是印度斯坦人却基本没有金发，不过印度斯坦人传说中的祖先雅利安人就是金发蓝眼，这是因为金发是隐性基因，不容易遗传，所以在人种多样，混血严重的印度金发绝迹，但也能找到个别稀有纯种雅利安人的后代。</p>
+<img src="http://cdn.diffday.com/picgo/20210324172433.png" style="zoom:67%;" />
+
+<img src="http://cdn.diffday.com/picgo/20210324172515.png" alt="蓝眼印度人" style="zoom:50%;" />
+
+<p><img src="http://cdn.diffday.com/picgo/20210324172609.png" alt="混血后常见印度人"></p>
+<p>不仅如此，随着全球化频繁的婚配和移民活动，白皮肤和金发碧眼的基因将会被深色发和深色皮肤的种族基因压倒，金发一族终将会成为濒危人群。 </p>
+<h3 id="东支R1a和西支R1b"><a href="#东支R1a和西支R1b" class="headerlink" title="东支R1a和西支R1b"></a>东支R1a和西支R1b</h3><p>中亚印欧人种R单倍群后来分化成东支R1a(雅利安人)和西支R1b（西欧基因）</p>
+<h4 id="R1b（西欧基因）"><a href="#R1b（西欧基因）" class="headerlink" title="R1b（西欧基因）"></a>R1b（西欧基因）</h4><p>其中西支R1b在1万5000年左右开始进入I单倍群欧洲克罗马农人的土地。R1b单倍群在欧洲占有重要的地位，尤其在西欧地区更是明显，所以又被叫做西欧基因，可以说欧洲西部大部分讲印欧语都是R1b后代</p>
+<blockquote>
+<p> 如意大利R1a成分不到2%，而R1b却达到49%，其它如苏格兰族72.5%、西班牙族65%、德意志族的48%都为R1b单倍群。</p>
+</blockquote>
+<p>但是为何这些R1b的后代都纷纷忘记了自己的祖先语言巴斯克语，而讲起R1a的印欧语呢？</p>
+<p>相关研究学者认为，约在6000年前印欧人东支R1a曾入侵欧洲，并征服西支R1b，只剩下躲在比利牛斯山脉中巴斯克人，R1a以少数征服了多数，并强迫他们学习自己的语言，而他们血统则被大多数的欧洲原住民R1b所同化。 </p>
+<p>英国和爱尔兰的凯尔特人也是R1b占绝对优势，红发绿眼是凯尔特人常见特征，在R1b占优势的西欧地区也是红发高发区，所以红发绿眼很可能R1b单倍群特有基因特征，红发是很稀有的。</p>
+<h4 id="R1a单倍群-雅利安人"><a href="#R1a单倍群-雅利安人" class="headerlink" title="R1a单倍群-雅利安人"></a>R1a单倍群-雅利安人</h4><p>他们约在6000年——4000年左右大肆扩张，不仅入侵欧洲，同时还侵入伊朗和印度。目前R1a是欧洲白人、印度斯坦人、中亚突厥人的主要单倍群类型之一。</p>
+<p>在欧洲R1a分布从发源地东欧开始，自东向西、自北向南减少。</p>
+<blockquote>
+<p>今天波兰56.5%、俄罗斯46%、挪威29%、冰岛22%、芬兰20%、喀山鞑靼的18%、德意志16%都为R1a单倍群类型。 </p>
+<p>而在亚洲R1a则主要分布在中亚、中东和南亚，其中阿尔泰族的50%、吉尔吉斯族的40%、印度的印欧语系民族的40%、维吾尔族的21%、乌孜别克族的18%、波斯族的18%、土耳其族的8%都为R1a类型后代。</p>
+</blockquote>
+<p>德国希特勒执政后推崇纯种印欧人种——雅利安人，他认为斯拉夫民族（俄国、乌克兰、波兰等）是混血后的印欧人，已经沦为劣等种族，应被消灭，在二战时期希特勒共屠杀200万波兰人和500多万苏联人，<strong>现从雅利安人R1a单倍群分布看来，波兰高达56.5%，俄国也高达46%，是雅利安人成份最高的民族之一</strong>，那么是否意味着希特勒梦想消灭的他所谓的劣种斯拉夫民族就是他最崇拜的雅利安人呢？ </p>
+<p>从希特勒的语录中我们可以了解到他所说的雅利安人应为纯种印欧人种，包括R1a和R1b两支，而并不是单指R1a人群。斯拉夫民族R1a比率虽然高，但是被N系黄种人混血严重，确实不属于纯种R系种群，希特勒种族歧视和屠杀无疑是错误，不过说斯拉夫民族是混血后的雅利安人并没错。 </p>
+<p>印欧人R的迁徙最终形成古代欧亚大陆的人种格局，目前欧洲主体三大单倍群R1a、R1b、I分布情况如下：</p>
+<p>一：印欧人东支雅利安R1a单倍群占绝对优势的欧洲国家和地区，R1a东支受黄种N单倍群影响严重，说明历史上入侵欧洲游牧民族多是N单倍群为主 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">波兰：R1a占56.5%，R1b占16.5%，I占16%、N占11% </span><br><span class="line">俄国：R1a占46%，R1b占6%，I占15.5%，N占23% </span><br><span class="line">立陶宛：R1a占38%，R1b占5%，I占13%，N占42% </span><br><span class="line">芬兰：R1a占7.5%、R1b占3.5%，I占29%，N占60%</span><br></pre></td></tr></table></figure>
+
+<p>二：印欧人西支R1b单倍群占优势，或R1a、R1b含量相当欧洲国家和地区 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">威尔士：R1b占82%，R1a占2%，I占7.5%。 </span><br><span class="line">爱尔兰：R1b占79%，R1a占3%，I占13%。 </span><br><span class="line">苏格兰：R1b占72.5%，R1a占8.5%，I占14%。 </span><br><span class="line">英格兰：R1b占67%，R1a占4.5%，I占21%。 </span><br><span class="line">法国：R1b占61%，R1a占2.5%，I占16.5%，J占7%。 </span><br><span class="line">西班牙：R1b占69%，R1a占2%，I占7%，J占4%。 </span><br><span class="line">荷兰：R1b占53.5%，R1a占6%，I占25.5%，J占6%，E1b1b占4.5%。 </span><br><span class="line">意大利：R1b占49%，R1a占2.5%，I占6.5%，J占20%，E1b1b占11%。（意大利的南部，主要是来自中东的J，而意大利的北部R的比率高一些） </span><br><span class="line">丹麦：R1b占44.5%，R1a占12.5%，I占36%。 </span><br><span class="line">德国：R1b占44.5%，R1a占16%，I占22%，J占4.5%，E1b1b占5.5%。 </span><br><span class="line">挪威：R1b占28%，R1a占28%，I占37%， </span><br><span class="line">瑞典：R1b占21%。R1a占23.5%，I占44%， </span><br><span class="line">希腊：R1b占12%，R1a占12%，I占15.5%，J占27%，E1b1b占27%。（从比率看希腊人R所占比例甚至没有来自西亚的J基因和非洲黑人E基因多，所以古希腊文明并不是纯粹的R创造的，明显受到亚非两地的影响。希腊人的外貌也和欧洲人不同，他们属于欧洲人和西亚人、非洲人混血类型，颅型短宽，胡须、体毛尤其发达，其肤色较深，发色、眼色也较深，几乎没有金发碧眼的类型.）</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="http://cdn.diffday.com/picgo/20210324173110.png"></p>
+<blockquote>
+<p>由于这是较早的图，图中一些叫法不是很妥当，阿尔泰基因就是R1a（雅利安人），过去由于阿尔泰族的50%都是R1a，所以叫阿尔泰基因 </p>
+</blockquote>
+<p>北欧基因就是克罗马农人的I基因，在北欧分布比较多，不过最多还是巴尔干半岛克罗地亚人，从基因上看，北欧人是最纯种白人的说法并不正确，凯尔特人反而会纯种点</p>
+<p><img src="http://cdn.diffday.com/picgo/20210324173157.png"></p>
+<blockquote>
+<p>图中将G单倍群称为突厥基因叫法错误，很多突厥人都没有G基因，G基主要是高加索民族，应叫高加索基因</p>
+</blockquote>
+<p>和中东人种混血最多的R系印欧人——伊朗人，伊朗就是“雅利安人的国家”的意思，</p>
+<p>三大混血R系印欧人群，看谁混血混的最好看，从左到右依次为希腊、印度、伊朗</p>
+<p><img src="http://cdn.diffday.com/picgo/20210324173328.png"></p>
+<h2 id="亚洲现代人类迁徙地图"><a href="#亚洲现代人类迁徙地图" class="headerlink" title="亚洲现代人类迁徙地图"></a>亚洲现代人类迁徙地图</h2><p><img src="http://cdn.diffday.com/picgo/20210324174258.png" alt="人类亚洲迁徙图"></p>
+<h1 id="语系"><a href="#语系" class="headerlink" title="语系"></a>语系</h1><p>19世纪时，语言学界的比较学派研究了世界上近百种语言，发现有些语言的某些语音、词汇、语法规则之间有对应关系，他们把世界上的语言按相似程度分为语系、语族、语支和语种。其中我们日常所说的就是语种，相似的语种归为同支语言——语支，相似语支再归为同族语言——语族，同一语族一般和广义上的一个大民族对应，如突厥语族对应突厥民族，日耳曼语族对应日耳曼民族。而有些语族与语族之间又有些对应关系，又被归为同系语言，这样就形成了语言的谱系关系，目前学术界通过语言间的亲属关系将世界的语言大体划分为以下九大语系（也有十大、七大划分法），<strong>通过语系和Y染色单倍群的对照，我们可以发现，他们之间有着较一致的对应关系</strong>。</p>
+<p>Y染色体虽不能对应四大人种，但是却和民族有极强的对应关系，而民族之间最重要的区别之一就是语言。<strong>除Y染色体单倍群外，语言也是反映人类亲缘关系的一大标准，单倍群所占比率只代表血统的同化，而语言则代表政治和文化的同化。</strong>例如中欧的匈牙利人单倍群为R1a占20.4%、R1b占20.4%、I占28.3%、Q占2.6%，从单倍群类型上看，匈牙利无疑算是相当纯种是欧洲人，当代匈牙利人外貌和体质也和周别欧洲民族类似，不过他们在语言上却完全不同。</p>
+<p>匈牙利人讲着和芬兰人类似的乌拉尔系语言，而不是周别欧洲民族所说的印欧语，这是因为当地居民曾经被来自东方的马扎尔人征服过（注：匈牙利的祖先不是匈奴人），马扎尔人以少数征服多数，他们的血统也被当地土著同化，但是作为统治者，他们语言却成为当地人的常用语，可以说语言比单倍群比率更能反映一个种族的胜利。 </p>
+<p>匈牙利人单倍群为R1a占20.4%、R1b占20.4%、I占28.3%、Q占2.6%，从单倍群类型上看，匈牙利无疑算是相当纯种是欧洲人（R、I占优势），当代匈牙利人外貌和体质也和周别欧洲民族类似。</p>
+<p>有人称他们祖先是匈奴人，但是你看他们那有一点像亚洲人的样子，只是因为他们使用来自东方征服者的语言，从血统上看，基本都是欧洲土著</p>
+<h2 id="语系分布地图"><a href="#语系分布地图" class="headerlink" title="语系分布地图"></a>语系分布地图</h2><img src="http://cdn.diffday.com/picgo/20210324175446.png" alt="各大语系分布图"/>
+
+<h2 id="印欧语系"><a href="#印欧语系" class="headerlink" title="印欧语系"></a>印欧语系</h2><p>这是世界上最大的语系，主要使用者为R单倍群的印欧人，代表R系民族迁移和征服。印欧语系分为两大类：S类语言和K类语言，分别对应印欧人东支R1a和印欧人西支R1b </p>
+<h3 id="S类语言"><a href="#S类语言" class="headerlink" title="S类语言"></a>S类语言</h3><p>S类语言人群的主体R单倍群为R1a，下属语族包括： </p>
+<p>1、印度语族：该语族人民统称为印度斯坦人，包括梵语、印地语、巴利语等， </p>
+<p>2、伊朗语族：包括波斯语、阿富汗语等，该语族和印度语族为近亲语言，伊朗人和印度人也都称自己祖先为雅利安人，说明他们之间有较大亲缘关系。 </p>
+<p>3、斯拉夫语族：对应斯拉夫民族，共分为东部、西部、南部三大语支：东部语支包括俄语、乌克兰语、白俄罗斯语，对应东斯拉夫民族；西部语支包括捷克语、斯洛伐克语、波兰语、卢萨提亚语，对应西斯拉夫民族；南部语支包括保加利亚语、马其顿语、塞尔维亚-克罗地亚语和斯洛文尼亚语，对应南斯拉夫民族。 </p>
+<p>4、波罗的海语族：主要分布在原苏联的波罗的海沿岸，原先有三种语言，拉脱维亚语，立陶宛语和古普鲁士语，但后来古普鲁士被德意志人征服，古普鲁士语随之消亡。波罗的海语族和斯拉夫语族有较大的亲缘关系，由于波罗的海民族都含有较多黄种N单倍群，所以其语言也受到N单倍群乌拉尔语系的较大影响。 </p>
+<p>5、其它独立语族：包括巴尔干半岛阿尔巴尼亚语族和高加索山脉亚美尼亚语族等。 </p>
+<h3 id="K类语言"><a href="#K类语言" class="headerlink" title="K类语言"></a>K类语言</h3><p>K类语言人群的**<u>主体R单倍群为R1b</u>**，或R1b与R1a大体相当，下属语族包括： </p>
+<p>1、日耳曼语族：包括英语、德语、荷兰语、北欧各主要语言，使用者被称为日耳曼民族，对应单倍群为R1b下的U106。 </p>
+<p>2、拉丁语族：又称为罗曼语族或罗马语族，包括法语、意大利语、西班牙语、葡萄牙语和罗马尼亚语，这些国家使用语言都是从古罗马的拉丁语演化而来，罗马拉丁语相当于汉语文言文，现今拉丁语国家语言相当于汉语方言白话文。拉丁语国家在过去大多属于西罗马帝国的领土，西罗马帝国被日耳曼蛮族灭亡后，入侵西罗马境内的日耳曼蛮族，其单倍群类型、语言和文化都被拉丁罗马化，今日拉丁人无论是外貌，语言、还是性格习俗都和日耳曼民族大为不同，拉丁人对应单倍群类型多为罗马时代的R1b-u152和R1b-M269，和日耳曼民族的R1b-u106不一样，其信仰也多为罗马天主教，而日耳曼语族多信仰新教。在性格方面拉丁人热情奔放，注重生活，多艺术家，擅长生产各类奢侈品，法国菜和意大利菜等拉丁菜系都世界享有盛名，而日耳曼人性格严谨，工作认真，多科学家和哲学家，擅长机械制造，英国菜和德国菜都以难吃出名。 </p>
+<p>3、希腊语族：目前主要在希腊和塞普路斯两地使用。 </p>
+<p>4、凯尔特语族：使用者称凯尔特人，目前主要分布在苏格兰、爱尔兰、威尔士地区。对应的单倍群类型是R1b-L21。</p>
+<img src="http://cdn.diffday.com/picgo/20210324174539.png" style="zoom:50%;" />
+
+<p>拉丁人大多混血比较严重，他们身材比日耳曼矮小，金发碧眼很少见，多信仰天主教，爱喝红酒。性格热情、奔放、浪漫（有时有点散漫）、追求艺术、生活和爱情，讲究生活第一，工作第二。文艺复兴兴起源于拉丁国家意大利，达芬奇、毕加索等著名艺术大家都是拉丁人。世界上的生活奢侈品牌如服装、鞋包、香水、豪华轿车等主要来自拉丁国家（法国、意大利、西班牙）。法国饮食和意大利饮食在世界享有盛名，拉丁人喜欢跳更奔放更有野性的拉丁舞和听歌剧（三大男高音歌手都是来自拉丁国家）。</p>
+<p>日尔曼人身材更高大，多金发碧眼，皮肤更白，日耳曼人性格严谨，工作认真，多科学家和哲学家，擅长机械制造，英国菜和德国菜都以难吃出名，而代表美国饮食的更是只有缺乏营养的快餐。日尔曼人喜欢跳有基本套路的国际标准舞（起源于英国）和听交响乐。</p>
+<h2 id="汉藏语系"><a href="#汉藏语系" class="headerlink" title="汉藏语系"></a>汉藏语系</h2><p>这个不用说，就是我们中国人的主体语系，也是世界上的第二大语系，代表单倍群类型是黄种人的O3，下属语族包括： </p>
+<ul>
+<li><p>汉语族：对应汉语各类方言，共分北方话（简称：北语，代表普通话）、广东话（简称：粤语）、江浙话（简称：吴语）、福建话（简称：闽语）、湖南话（简称：湘语）、江西话（简称：赣语）、客家话（简称：客语）七大方言，下又分各小方言，如闽语按其语言特点大致分为5大主要的语言片：闽北语、闽东语、闽南语、闽中语和莆仙话。从汉语方言分布看，汉语七大方言就有六大在南方，北方汉族语言统一，而南方不但各省方言不同，连省内方言也各不相同，南方一些山区甚至在几里之内就有好几种不同的方言，这也正好和南方母系来源各不相同对应。中国北方话的相似有利于北方人的团结也是历来北方更容易统一南方的重要原因之一。 </p>
+</li>
+<li><p>藏缅语族：主要包括中国彝族语、藏语、羌语、东南亚缅甸语、印度曼尼普尔民族语言等，有些学者认为汉语也应该被划入藏缅语族（不过要改名为汉藏语族），因为汉语族和藏缅语族十分相似，而且汉语和藏语之间的关系比藏语和缅甸语的关系更密切，从东亚人类迁移上看也是汉藏民族先和缅甸族分化后，然后汉族和藏族才发生进一步的分化，如果藏语和缅甸语能划在一起，那么汉语和藏语就更应该能划在一起。从汉语和藏缅语族关系大致可以推出汉族和彝族、藏族、羌族、缅甸族关系应为同宗，从Y染色体的单倍群类型上也证明了这一点。 </p>
+</li>
+<li><p>苗瑶语族：就是我国苗族和瑶族的语言，苗瑶两族关系密切，瑶族一度被认为是苗族的分支，过去很多人从蚩尤和女娲的传说认为苗族和汉族是很晚才分化，不过从单倍群上看，虽然苗瑶语族单倍群也是以O3为主，但下属分支不同，苗瑶语族属于O3c＋O3d类型，而汉藏语族多属于O3e类型，而且从语系上看，苗族和汉族语言差别较大，反而是较远的缅甸族和汉族关系更密切。 </p>
+</li>
+<li><p>壮侗语族：下属语支包括壮傣语支（含泰国语、老挝语、中国西南部布依族的布依语、缅甸东北部掸族的掸语、印度东北部阿萨姆邦的阿萨姆语）；侗水语支（包括中国西南地区少数民族的侗语、水语、仫佬语等）；黎语支（海南黎族语言。）壮侗语族Y染色体单倍群O2成分普遍比O3还高，语言也和其它的汉藏语系大为不同，所以现在学者大多把他们独立划为壮侗语系，也有学者认为壮侗语系和南亚语系关系比汉藏语系更接近。</p>
+</li>
+</ul>
+<p><img src="http://cdn.diffday.com/picgo/20210324174737.png" alt="汉藏语系分化表"></p>
+<h3 id="印度地区的汉藏语系"><a href="#印度地区的汉藏语系" class="headerlink" title="印度地区的汉藏语系"></a>印度地区的汉藏语系</h3><p>印度有2000万黄种人，其中包括大量汉藏语系民族，许多都和中国人一样以龙为图腾，他们和中国人有非常大的亲源关系，印度东北各邦的民族，包括藏南地的阿鲁纳恰尔邦，相貌和中国人很相似，在印度地区经常面对各种各样种族歧视,印度,东北邦的人一直想从印度独立出来，由于人种和中国接近,很多人想干脆加入中国算了， </p>
+<p>印度的汉藏语系主要分布在中印交界藏南地区。不丹语也属于汉藏语系 ，不丹原来是中国的附属国，受中国的册封。他们也用中国龙作为他们的图腾，每个不丹人都相信自己是龙的传人，不丹国旗有龙，并且不丹国旗上的龙严格符合中国藩属的规格，采用的是四爪金龙，这是藩王级别的标志（五爪金龙只有中国皇帝才可以采用），代表不丹中国心。</p>
+<h2 id="南亚语系"><a href="#南亚语系" class="headerlink" title="南亚语系"></a>南亚语系</h2><p>南亚语系与汉族语系中壮侗语族无论是血统还是语言都有密切的关系。</p>
+<p>南亚语系基因成分复杂多样，但还是可以将其相对较多的O2单倍群作为标示。</p>
+<p>该语系主要包括柬埔寨语、越南语、缅甸孟族语，也包括印度蒙达语族和部分中国西南部少数民族语言，也有学者认为南亚语系和南岛语系本为同源。 </p>
+<h2 id="南岛语系"><a href="#南岛语系" class="headerlink" title="南岛语系"></a>南岛语系</h2><p>也叫马来—波利尼西亚语系，对应的是黄种O1单倍群，它主要分布于西起马达加斯加，东到复活节岛，北起台湾岛和夏威夷群岛，南抵新西兰的广阔海域内的岛屿上，是世界上唯一一种主要分布在海岛上的语系，也是世界上分布面积最广的语系之一。下属包括印度尼西亚语族、波利尼西亚语族、美拉尼西亚语族、密克罗尼西亚语族四大语族。其中最大的印度尼西亚语族是菲律宾、马来西亚、印尼、文莱等国语言，也包括台湾高山族语、非洲马达加斯加语等，而其它三大语族则分别对应大洋洲波利尼西亚、美拉尼西亚、密克罗尼西亚三大群岛土著所用语言。 （南岛语系与O1南岛支分布图相同）</p>
+<p><img src="http://cdn.diffday.com/picgo/20210324175001.png"></p>
+<h2 id="乌拉尔语系"><a href="#乌拉尔语系" class="headerlink" title="乌拉尔语系"></a>乌拉尔语系</h2><p>分布于从北欧的斯堪的纳维亚半岛往东到乌拉尔山脉，再到西伯利亚地区的一组语言，对应的是黄种N单倍群。下属包括芬兰-乌戈尔语族和西伯利亚地区萨莫耶德语族（含有一定的Q单倍群）。其中芬兰—乌戈尔语族包括芬兰语支和乌戈尔语支，前者包括芬兰语、爱沙尼亚语等，后者包括中欧的匈牙利语和鄂毕河流域的曼西语等，主要为侵入欧洲的N系、Q系黄种游牧民族使用的语言。 </p>
+<p>乌拉尔语系和阿尔泰语系关系密切，在过去曾被一起划分为乌拉尔-阿尔泰语系。</p>
+<h2 id="阿尔泰语系"><a href="#阿尔泰语系" class="headerlink" title="阿尔泰语系"></a>阿尔泰语系</h2><p>这是世界第三大语系，也是我国北方少数民族主要语系，**<u>代表的单倍群是亚洲棕种C3类型</u>**，<u>阿尔泰语系的扩张对应的是棕种游牧民族的扩张，下属包括突厥、蒙古、通古斯3个语族，有时也包括朝鲜语族和日本语族</u>。 突厥语系的发源地阿尔泰山脉，阿尔泰山脉也是阿尔泰语系得名的原因</p>
+<ul>
+<li><p>突厥语族是指古代突厥民族使用过的，现在突厥后裔仍在使用的语言，他们又常被统一称为突厥人，突厥语族是阿尔泰语系中最大的一个语族，分布于西起巴尔干半岛，东至西伯利亚东部的勒拿河，南临阿拉伯半岛，北至亚洲大陆北端的新西伯利亚群岛的广大地区，使用突厥语为主要地区包括土耳其、阿塞拜疆、塞浦路斯、哈萨克斯坦、乌兹别克斯坦、土库曼斯坦、吉尔吉斯斯坦、俄罗斯鞑靼斯坦共和国以及中国的新疆等地（中国境内使用人口约750万）。虽然突厥语是中亚民族的主要语言，但是在过去中亚、新疆等地使用的都是印欧语，而且直到今日印欧人R单倍群依然是中亚、新疆单倍群主要成分之一，之所以现在会改用阿尔泰语，原因就在于来自东方讲阿尔泰语的突厥人的征服。 </p>
+</li>
+<li><p>蒙古语族：不用说就是蒙古人以及和蒙古相关民族的语言，蒙古语族各语言主要分布在中国、蒙古国、俄罗斯联邦、阿富汗等地，使用人口约500万。从使用人数上看，虽然蒙古帝国的领土和声威都远胜曾经突厥汗国，但是在语言文明的同化方面，突厥人要远胜过蒙古人。 </p>
+<blockquote>
+<p>蒙古人民共和国境内的蒙古语属喀尔喀方言，使用人口约 180万;中国境内的蒙古语分内蒙古、卫拉特、巴尔虎布利亚特3种方言，使用人口近300万。 </p>
+<p>不过今日中国许多蒙古族已经不会说蒙古语了，蒙古国人口也增加到290万</p>
+</blockquote>
+</li>
+<li><p>通古斯语族：通古斯语族包括中国满族语和东北亚鄂伦春语、埃文基语、鄂温克语、赫哲语等，一般认为该语族共同起源于西伯利亚东部森林的通古斯河畔，现在使用通古斯语的人数已经十分稀少，最大的通古斯语族—满族也基本不会讲满语。 </p>
+</li>
+<li><p>朝鲜语族：朝鲜语和通古斯语关系密切，又被合称为朝鲜-通古斯语族，虽然从单倍群类型上看，朝鲜基本都是黄种O类型，但是从语言上看朝鲜人基本被棕种通古斯人同化，这说明朝鲜民族最初很可能是以外来移民的方式不断融入当地棕种C3通古斯民族，而不是像汉族一样征服当地棕种民族，从单倍群类型上看汉族是以O3单倍群为主体，而朝鲜族O1、O2、O3成分都有一定比例，反映出朝鲜族是不同类型黄种人分批进入棕种通古斯人区域，不断被通古斯同化的过程。不过也有人认为朝鲜语和通古斯语还是有较大不同，应该被单独划为一语系。 </p>
+</li>
+<li><p>日本语族：日本学者曾经提议将日语单独划为一个语系，包含日语族和琉球语族两大分支，也有学者认为日本和朝鲜语系接近，应该划出“日朝语系”。从实际情况上看，日语主要是来自从朝鲜东渡过来的弥生人的语言，既然朝鲜属于阿尔泰语，所以也有人认为日本语系和朝鲜语系一样应该同归为“阿尔泰语系”。</p>
+</li>
+</ul>
+<p><img src="http://cdn.diffday.com/picgo/20210324175109.png" alt="阿尔泰语系分布图"></p>
+<h3 id="土耳其的吊诡"><a href="#土耳其的吊诡" class="headerlink" title="土耳其的吊诡"></a>土耳其的吊诡</h3><p>土耳其最常被称为突厥人的后代，但是土耳其的父系单倍群：R1b占15%，R1a占7.5%，I占5.5%，J占33.5%，E1b1b占11%。基本上没有任何来自东方的成分，<u><strong>从血统上看大部分土耳其人实际上是希腊人和阿拉伯人（J–地中海人）的混血，讲突厥语原因就在于他们被来自东方突厥人征服过</strong></u></p>
+<h3 id="中亚新疆语言亦是征服产物"><a href="#中亚新疆语言亦是征服产物" class="headerlink" title="中亚新疆语言亦是征服产物"></a>中亚新疆语言亦是征服产物</h3><blockquote>
+<p>中亚五国都是突厥语国家</p>
+</blockquote>
+<p>中亚、新疆原本是R系印欧语的天下，但是<u>来自东方C3棕种人（游牧民族）后来征服这里，虽然这里依然以R单倍群为主，但是语言已经从印欧语系变成了阿尔泰语系</u> </p>
+<p>突厥语族中的哈萨克人基本就是来自东方的棕黄人种 。今日突厥国家中以哈萨克人C3成分最多，<strong>哈萨克人应该最接近古代突厥人的模样，土耳其人则基本没多少古突厥的血统</strong> （哈萨克人是标准的东方面孔和维吾尔人相貌大不相同）</p>
+<p>而突厥语族的维吾尔人、乌兹别克人虽然改用阿尔泰语系，则单倍群类型大多还是以印欧语系R单倍群为主 </p>
+<h2 id="闪-含语系"><a href="#闪-含语系" class="headerlink" title="闪-含语系"></a>闪-含语系</h2><p>该语系又叫做亚非语系，主要分布于北非和西南亚地区，对应的是地中海J单倍群，也包括东北非E3b单倍群，下属包括闪米特语族和含米语族。</p>
+<p>闪-含语系的由来据《圣经﹒旧约﹒创世纪》记载：上帝觉得人类十分邪恶，所以要将所有人消灭。在罪孽深重的人类中，只有诺亚在上帝面前蒙恩。上帝认为他是一个有德之人，很守本分；诺亚的三个儿子也在他的严格教育下也没有误入歧途。于是诺亚夫妇、三个儿子及其媳妇听从上帝的旨意造出“诺亚方舟”逃过大洪水，作为新一代人种保存下来，这三个儿子大哥叫做闪，老二叫做含，最小一个叫雅弗。 </p>
+<p>闪的子孙叫闪米特人，“闪米特”意即“闪的子孙”，又称“塞姆人”或“闪族”，他们被认为是亚洲人祖先，现在的闪米特人特指闪米特语族，包括犹太语和阿拉伯语等。他们现在主要分布在西亚和北非地区，体内J单倍群(地中海基因)占主体地位。 </p>
+<p>含的子孙叫含米特人，“含米特”意即“含的子孙”，又称“哈姆人”或“含族”，被认为是古埃及、古努比亚等非洲人祖先。他们主要分布在北非，除J单倍群外，大部分含米特人体内东北非黑人E3b单倍群的比率比J单倍群还多。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">含米特语可以认为是东北非E3b单倍群黑人在J单倍群闪米特民族混合下产生语言。含米特语可分为北支、东支：北支系指北非的柏柏尔人的语言，东支指非洲东北部古埃及人（不是今日埃及人）、科普特人和库希特各族的语言。 </span><br></pre></td></tr></table></figure>
+
+<p>雅弗的子孙相传为雅利安人，亦称“印欧人”，被认为是欧洲白人的祖先。不过印欧语系和闪-含语系可是大为不同。 </p>
+<h2 id="高加索语系"><a href="#高加索语系" class="headerlink" title="高加索语系"></a>高加索语系</h2><p>主要指分布于黑海和里海之间高加索山区的民族语言，其代表是格鲁吉亚语和车臣语，<u><strong>从地理位置和人种单倍群类型上看，很可能对应的是高加索G单倍群语系</strong></u>，虽然G单倍群已经普遍不是当地居民比率最大的单倍群类型。 </p>
+<h2 id="达罗毗荼语系"><a href="#达罗毗荼语系" class="headerlink" title="达罗毗荼语系"></a>达罗毗荼语系</h2><p>就是印度达罗毗荼人使用的语言，前面说过他们的单倍群类型就是一个万花筒，所以具体也不清楚其到底对应的是哪支父系单倍群的语言（含量最多L单倍群可能性最大），也许就是一种混合语言，<strong>已知达罗毗荼语系支系多达20多种，和他们体内多样化的单倍群一样复杂</strong>，其中最重要的四种是泰米尔语、马拉雅拉姆语、卡纳里斯语和泰卢固语，分别为印度泰米尔纳德邦、喀拉拉邦、卡纳塔克邦和安得拉邦的官方语言。 </p>
+<h2 id="其它语系"><a href="#其它语系" class="headerlink" title="其它语系"></a>其它语系</h2><p>除了这以上九大语系外，还有一些非洲、美洲地区的语系，如非洲的尼日尔—刚果语系、沙里—尼罗语系、科依桑语系（对应A单倍群），美洲的爱斯基摩—阿留申语系以及一些印第安语系（对应Q单倍群），不过因为都比较孤立，在以后讲世界史中的民族关系应用较少，就不一一介绍了。</p>
+<h1 id="地理小记"><a href="#地理小记" class="headerlink" title="地理小记"></a>地理小记</h1><h2 id="帕米尔高原"><a href="#帕米尔高原" class="headerlink" title="帕米尔高原"></a>帕米尔高原</h2><p>帕米尔高原（塔吉克语中就是世界屋脊的意思）平均海拔高过青藏高原，只是面积较小，加上海拔峰值在喜马拉雅山，所以世界屋脊还是被青藏高原戴着。帕米尔高原是亚洲的一个重要分隔位，东西方在近代前都难以逾越，正所谓是东西方的隔离屏障，各方打到这里，都变成强弩之末，势不能穿鲁缟。</p>
+<h2 id="干旱牧区"><a href="#干旱牧区" class="headerlink" title="干旱牧区"></a>干旱牧区</h2><p>草原人民活动在欧亚大陆干旱半干旱气候区，这里是欧亚大陆除西伯利亚以外最恶劣的生存坏境，但是却盛产冷兵器时代最可怕的军备——马匹，艰苦的坏境和强大的军备使他们对富裕的周边文明馋涎欲滴，只要一有机会他们就去掠夺周边文明的财富，他们常常自比作狼，而把周边文明比作羊，认为对富裕文明的掠夺如同狼吃羊一样天经地义。在古代史上草原游牧文明是世界各大文明中最可怕的敌人，直到火器广泛应用以后，游牧民族骑兵作战优势不复存在，从此逐渐退出历史的舞台。</p>
+<h2 id="中东"><a href="#中东" class="headerlink" title="中东"></a>中东</h2><blockquote>
+<p> <strong>这里是古代世界文明最早的交流中心</strong></p>
+</blockquote>
+<p>广义的中东包括整个西亚和北非，狭义的中东是指地中海东部到波斯湾的大片地区，即西亚北非中从埃及到土耳其、伊朗的部分，这片地段被称为两洋三州五海之地，其处是联系亚欧非三大洲，沟通大西洋和印度洋的枢纽地带，周边被地中海、黑海、里海、红海、阿拉伯海五大海所环绕。这片地区与黑非洲文明间隔着撒哈拉沙漠、与欧洲文明间隔着土耳其海峡和高加索山脉、与东亚文明间隔着帕米尔高原、与南亚文明间隔着兴都库什山，中东处在各大文明的地理中心位置，这也是为何这片炎热干旱，沙漠遍野的地区能够在古代长期保持较先进的文明重要原因之一。</p>
+<h2 id="伊朗高原"><a href="#伊朗高原" class="headerlink" title="伊朗高原"></a>伊朗高原</h2><p>伊朗高原周围被雄伟的高山所包围，其南部边界是印度洋和波斯湾，高原中央是辽阔的内陆盆地，没有河流通往大海。</p>
+<h2 id="扎格罗斯山脉"><a href="#扎格罗斯山脉" class="headerlink" title="扎格罗斯山脉"></a>扎格罗斯山脉</h2><p>位于伊朗伊朗高原西南部，是伊朗第一大山脉，为伊朗高原和伊拉克美索不达米亚平原的分界线</p>
+<h2 id="美索不达米亚平原"><a href="#美索不达米亚平原" class="headerlink" title="美索不达米亚平原"></a>美索不达米亚平原</h2><p>是指伊拉克及叙利亚东部，为西亚地区最大的平原，又称中东两河流域。</p>
+<h2 id="小亚细亚"><a href="#小亚细亚" class="headerlink" title="小亚细亚"></a>小亚细亚</h2><blockquote>
+<p>亚细亚即亚洲，源自希腊语中的日出之地</p>
+</blockquote>
+<p>小亚细亚意思就是小亚洲，小亚细亚又名安纳托利亚或西亚美尼亚，是亚洲西南部的一个半岛，包括土耳其的安那托利亚一带和塞浦路斯岛，<strong>大体上相当于土耳其的亚洲部分</strong>，位于黑海和地中海之间。</p>
+<h2 id="非洲"><a href="#非洲" class="headerlink" title="非洲"></a>非洲</h2><p>源自希腊语，全称是阿非利加洲，意思是：阳光灼热的地方，以撒哈拉沙漠为界，分为北非和撒哈拉以南非洲两部分，北非现在70%以上为阿拉伯人，阿拉伯文化与伊斯兰教为北非重要人文特征，和西亚文化类似，撒哈拉沙漠中部以南的非洲以黑色人种为主，所以又叫做黑非洲。</p>
+<h1 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h1><p>世界史讲的过程中，一直有一个问题，把世界各个文明孤立介绍，这种世界史不如称之为国别史，且介绍顺序也常有问题。例如常从埃及，巴比伦，印度，希腊，罗马这顺序过来，仿佛这几个国家是先后出现的。实际上巴比伦地区的苏美尔文明比埃及更早，只是巴比伦国出现的较晚，占印度大篇幅的列国时期，孔雀帝国出现时间都比古希腊开始和繁荣的时间要晚。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><strong>全球史下看中国（第1部）：上古时代</strong>【翁启宇】</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2021/03/27/%E4%BA%BA%E7%A7%8D%E8%BF%81%E5%BE%99%E4%B8%8E%E8%AF%AD%E8%A8%80%E5%88%86%E5%B8%83/" data-id="ckoy179wt001mtmja0ag5d1ni" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8E%86%E5%8F%B2/" rel="tag">历史</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/04/06/Tittytainment/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Tittytainment
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/03/23/%E7%A9%B7%E6%9F%A5%E7%90%86%E5%AE%9D%E5%85%B8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">穷查理宝典</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/">学而思</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E5%8F%8D%E5%88%8D%E6%95%B4%E7%90%86/">反刍整理</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">数据挖掘</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E7%BB%8F%E8%90%A5%E7%AE%A1%E7%90%86/">经营管理</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E8%BF%87%E5%88%86%E5%A5%BD%E5%A5%87/">过分好奇</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/">生活随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E6%96%87%E7%B2%BE%E6%91%98/">网文精摘</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91/" rel="tag">互联网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E6%80%9D%E7%BB%B4/" rel="tag">互联网思维</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E7%89%A9%E8%AE%BF%E8%B0%88/" rel="tag">人物访谈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E7%BE%A4%E8%A7%82%E5%AF%9F/" rel="tag">人群观察</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%81%E4%B8%9A%E7%BB%8F%E8%90%A5/" rel="tag">企业经营</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%86%E5%8F%B2/" rel="tag">历史</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9C%B0%E5%9F%9F%E5%B7%AE%E5%BC%82/" rel="tag">地域差异</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%9A%E9%9D%A2%E4%BD%93%E7%9F%A5%E8%AF%86/" rel="tag">多面体知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%8F%E8%A7%82%E7%A0%94%E5%88%A4/" rel="tag">宏观研判</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E7%90%86%E5%AD%A6/" rel="tag">心理学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%9D%E6%83%B3%E5%90%AF%E8%BF%AA/" rel="tag">思想启迪</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E8%82%B2/" rel="tag">教育</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag">数据挖掘</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E5%AD%A6/" rel="tag">文学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A6%82%E5%BF%B5%E8%A7%A3%E8%AF%BB/" rel="tag">概念解读</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB%E6%84%9F%E6%82%9F/" rel="tag">生活感悟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E7%89%A9%E5%AD%A6/" rel="tag">生物学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F/" rel="tag">用户画像</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A1%AC%E6%A0%B8%E7%9F%A5%E8%AF%86/" rel="tag">硬核知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%8F%E6%B5%8E%E5%AD%A6/" rel="tag">经济学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%8F%E8%90%A5%E7%AE%A1%E7%90%86/" rel="tag">经营管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" rel="tag">软件工程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E5%AE%9E%E5%8A%9B/" rel="tag">软实力</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91/" style="font-size: 10px;">互联网</a> <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E6%80%9D%E7%BB%B4/" style="font-size: 15px;">互联网思维</a> <a href="/tags/%E4%BA%BA%E7%89%A9%E8%AE%BF%E8%B0%88/" style="font-size: 11.25px;">人物访谈</a> <a href="/tags/%E4%BA%BA%E7%BE%A4%E8%A7%82%E5%AF%9F/" style="font-size: 12.5px;">人群观察</a> <a href="/tags/%E4%BC%81%E4%B8%9A%E7%BB%8F%E8%90%A5/" style="font-size: 10px;">企业经营</a> <a href="/tags/%E5%8E%86%E5%8F%B2/" style="font-size: 16.25px;">历史</a> <a href="/tags/%E5%9C%B0%E5%9F%9F%E5%B7%AE%E5%BC%82/" style="font-size: 13.75px;">地域差异</a> <a href="/tags/%E5%A4%9A%E9%9D%A2%E4%BD%93%E7%9F%A5%E8%AF%86/" style="font-size: 10px;">多面体知识</a> <a href="/tags/%E5%AE%8F%E8%A7%82%E7%A0%94%E5%88%A4/" style="font-size: 12.5px;">宏观研判</a> <a href="/tags/%E5%BF%83%E7%90%86%E5%AD%A6/" style="font-size: 12.5px;">心理学</a> <a href="/tags/%E6%80%9D%E6%83%B3%E5%90%AF%E8%BF%AA/" style="font-size: 12.5px;">思想启迪</a> <a href="/tags/%E6%95%99%E8%82%B2/" style="font-size: 11.25px;">教育</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 11.25px;">数据挖掘</a> <a href="/tags/%E6%96%87%E5%AD%A6/" style="font-size: 12.5px;">文学</a> <a href="/tags/%E6%A6%82%E5%BF%B5%E8%A7%A3%E8%AF%BB/" style="font-size: 18.75px;">概念解读</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%84%9F%E6%82%9F/" style="font-size: 20px;">生活感悟</a> <a href="/tags/%E7%94%9F%E7%89%A9%E5%AD%A6/" style="font-size: 11.25px;">生物学</a> <a href="/tags/%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F/" style="font-size: 11.25px;">用户画像</a> <a href="/tags/%E7%A1%AC%E6%A0%B8%E7%9F%A5%E8%AF%86/" style="font-size: 12.5px;">硬核知识</a> <a href="/tags/%E7%BB%8F%E6%B5%8E%E5%AD%A6/" style="font-size: 10px;">经济学</a> <a href="/tags/%E7%BB%8F%E8%90%A5%E7%AE%A1%E7%90%86/" style="font-size: 17.5px;">经营管理</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" style="font-size: 11.25px;">软件工程</a> <a href="/tags/%E8%BD%AF%E5%AE%9E%E5%8A%9B/" style="font-size: 10px;">软实力</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/11/">十一月 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/09/">九月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/05/">五月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/04/">四月 2007</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/05/12/%E7%94%B5%E5%AD%90%E6%B8%B8%E6%88%8F%E5%8F%B2/">电子游戏史</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/10/%E5%8D%9A%E5%BC%88%E7%9F%A5%E8%AF%86&%E9%A2%84%E6%B5%8B%E6%94%B6%E6%95%9B%E6%B3%95/">博弈知识&amp;预测收敛法</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/04/%E4%BD%8E%E7%94%9F%E8%82%B2%E9%99%B7%E9%98%B1/">低生育陷阱</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/21/%E4%BC%81%E4%B8%9A%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%8E%86%E5%8F%B2%E4%B8%8E%E5%BA%94%E7%94%A8%E8%B6%8B%E5%8A%BF/">企业大数据历史与应用趋势</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/10/%E6%AF%8D%E4%BA%B2%E5%9B%9E%E5%BF%86%E5%BD%95--%E7%AB%A5%E5%B9%B4/">母亲回忆录--童年</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 卓<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
