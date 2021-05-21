@@ -1,23 +1,734 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
 
-{% block title %}{{ title }}{% if theme.index_with_subtitle and subtitle %} – {{ subtitle }}{% endif %}{% endblock %}
+  
+  <title>Diffday</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一个成年人的自我博雅探索，以求不惑">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Diffday">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Diffday">
+<meta property="og:description" content="一个成年人的自我博雅探索，以求不惑">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="卓">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Diffday" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
 
-{% block page_class %}
-  {% if is_home() %}page-home{% endif -%}
-{% endblock %}
+<meta name="generator" content="Hexo 5.4.0"></head>
 
-{% block content %}
-  <section id="posts" class="posts-expand">
-    {% for post in page.posts %}
-      {{ post_template.render(post, true) }}
-    {% endfor %}
-  </section>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Diffday</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-电子游戏史" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/05/12/%E7%94%B5%E5%AD%90%E6%B8%B8%E6%88%8F%E5%8F%B2/" class="article-date">
+  <time datetime="2021-05-12T08:53:06.000Z" itemprop="datePublished">2021-05-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/">学而思</a>►<a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+  </div>
 
-  {% include '_partials/pagination.swig' %}
-{% endblock %}
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/05/12/%E7%94%B5%E5%AD%90%E6%B8%B8%E6%88%8F%E5%8F%B2/">电子游戏史</a>
+    </h1>
+  
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <img src="http://cdn.diffday.com/picgo/20210512164846.png" style="zoom:80%;" />
+
+<p>最近看了一本《游戏学》，涉嫌给游戏洗地，想必是学界的人写的，更多冷门的东西都有人作书立传，更别说这么大的产业了，一天就看完了 ，权且当做了解技术之外的历史也是挺好的，还是有些框架性的收获，能解一些惑。</p>
+<h1 id="游戏发展史"><a href="#游戏发展史" class="headerlink" title="游戏发展史"></a>游戏发展史</h1><h2 id="美国篇"><a href="#美国篇" class="headerlink" title="美国篇"></a>美国篇</h2><p><img src="http://cdn.diffday.com/picgo/20210511170608.png"></p>
+<p>美国游戏历史发展连贯，自1947年第一个电子游戏（阴极射线管娱乐装置）诞生，第一个主机游戏（1967 Brown Box），电脑游戏（1962，太空战争），第一个网游，第一个手游（1994 俄罗斯方块，贪吃蛇还要靠后），多类游戏均诞生在美国。期间经历过家用游戏平台重量不重质的雅达利崩溃，让位让日本游戏主机厂商有了居上的契机。总体上美国游戏产业始终健康发展，形成主机，端游，手游三足鼎立局面，也在主要的主机游戏中形成任天堂，索尼及微软三足鼎立的稳定态势。</p>
+<blockquote>
+<p>苹果两位创始人都曾是雅达利的游戏开发工程师，他们在1974年一同合作，仅用4天就完成了一个《打砖块》的雏形游戏–《突出重围》– 关卡升级玩法机制的越狱游戏，首次加入了斜角度物体运动概念，反弹两侧墙壁造成连锁撞击效果</p>
+</blockquote>
+<h3 id="第一个电脑游戏"><a href="#第一个电脑游戏" class="headerlink" title="第一个电脑游戏"></a>第一个电脑游戏</h3>
+        
+          <p class="article-more-link">
+            <a href="/2021/05/12/%E7%94%B5%E5%AD%90%E6%B8%B8%E6%88%8F%E5%8F%B2/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2021/05/12/%E7%94%B5%E5%AD%90%E6%B8%B8%E6%88%8F%E5%8F%B2/" data-id="ckoy179y1004ctmjafm2x7qlb" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91/" rel="tag">互联网</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-博弈知识&amp;预测收敛法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/05/10/%E5%8D%9A%E5%BC%88%E7%9F%A5%E8%AF%86&%E9%A2%84%E6%B5%8B%E6%94%B6%E6%95%9B%E6%B3%95/" class="article-date">
+  <time datetime="2021-05-10T13:35:06.000Z" itemprop="datePublished">2021-05-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/">学而思</a>►<a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/05/10/%E5%8D%9A%E5%BC%88%E7%9F%A5%E8%AF%86&%E9%A2%84%E6%B5%8B%E6%94%B6%E6%95%9B%E6%B3%95/">博弈知识&amp;预测收敛法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://cdn.diffday.com/picgo/20210512102748.png"></p>
+<h2 id="人脑云计算：没大数据时如何预测"><a href="#人脑云计算：没大数据时如何预测" class="headerlink" title="人脑云计算：没大数据时如何预测"></a>人脑云计算：没大数据时如何预测</h2><h3 id="土法炼钢-德菲尔法"><a href="#土法炼钢-德菲尔法" class="headerlink" title="土法炼钢-德菲尔法"></a>土法炼钢-德菲尔法</h3><blockquote>
+<p>把专家的独立观点不断收敛</p>
+</blockquote>
+<ol>
+<li>从各领域邀请20位权威专家，预测最高，最低，最可能三个值</li>
+<li>独立预测，不要召专家在一起开会讨论，避免相互影响</li>
+<li>统计回归：归纳整理后，匿名反馈给各位专家，然后请专家参考修正自己的预测。如此往复几次，一般到第四次预测时，大部分专家已不再修改自己的意见，彼此的预测也越来越接近（收敛）</li>
+<li>分析结果，用“主观概率加权平均法”，最低25%权重，最高25%权重，最可能50%权重，加权求和，得到你想要的预测值。</li>
+</ol>
+<p>在20世纪中期，此套方法就在发生功效，准确预测朝鲜战争的结果。此套方法可充分利用专家的专业判断，在一些很难定量分析预测的问题上，实现“人脑云计算”，获得相对准确的预测结果。使用的注意事项是专家可以多样化，专家不一定是咨询公司，也是可以是一线管理人员，可以是客户，但他们必须独立给出预测。</p>
+<h2 id="拍卖博弈"><a href="#拍卖博弈" class="headerlink" title="拍卖博弈"></a>拍卖博弈</h2>
+        
+          <p class="article-more-link">
+            <a href="/2021/05/10/%E5%8D%9A%E5%BC%88%E7%9F%A5%E8%AF%86&%E9%A2%84%E6%B5%8B%E6%94%B6%E6%95%9B%E6%B3%95/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2021/05/10/%E5%8D%9A%E5%BC%88%E7%9F%A5%E8%AF%86&%E9%A2%84%E6%B5%8B%E6%94%B6%E6%95%9B%E6%B3%95/" data-id="ckoy179x3002atmja6smk1vyh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A6%82%E5%BF%B5%E8%A7%A3%E8%AF%BB/" rel="tag">概念解读</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-低生育陷阱" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/05/04/%E4%BD%8E%E7%94%9F%E8%82%B2%E9%99%B7%E9%98%B1/" class="article-date">
+  <time datetime="2021-05-03T17:18:21.000Z" itemprop="datePublished">2021-05-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%BD%91%E6%96%87%E7%B2%BE%E6%91%98/">网文精摘</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/05/04/%E4%BD%8E%E7%94%9F%E8%82%B2%E9%99%B7%E9%98%B1/">低生育陷阱</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <img src="http://cdn.diffday.com/picgo/20210502154701.png" style="zoom: 40%;" />
+
+<h1 id="低生育陷阱"><a href="#低生育陷阱" class="headerlink" title="低生育陷阱"></a>低生育陷阱</h1><p>中国难以走出低生育陷阱（尽可以参阅东亚的几个邻居），这里面有多方面的原因。也有人说低生育陷阱（自身强化）本身是个大忽悠，就如上图有爬出来的国家，但中国现有低生育意愿是真实存在的，这样提完全没毛病。日韩这两位小哥确实跌进去现在还没爬出来，中国布其后尘，也有很大的近似风险。</p>
+<h2 id="东亚难兄难弟"><a href="#东亚难兄难弟" class="headerlink" title="东亚难兄难弟"></a>东亚难兄难弟</h2><blockquote>
+<p>东亚几个邻居的状况差不多，只不过韩国体量较小，相当于广东省，日本走得更早，体量也更大，对我们更有借鉴意义。但中国的幅员纵深及多样性非日本能比，所以中国在人口下降时所能做的挽救和努力空间稍大点，但个人因生活在城市中，不太看好。</p>
+</blockquote>
+<p>儒家文化下的隐忍，勤奋和内敛使东亚几国成为百年仅有的几个强国俱乐部后起之秀。但无一例外发力阶段用力过猛，导致一大堆后遗症。</p>
+        
+          <p class="article-more-link">
+            <a href="/2021/05/04/%E4%BD%8E%E7%94%9F%E8%82%B2%E9%99%B7%E9%98%B1/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2021/05/04/%E4%BD%8E%E7%94%9F%E8%82%B2%E9%99%B7%E9%98%B1/" data-id="ckoy179ww001utmja6766appn" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%8F%E8%A7%82%E7%A0%94%E5%88%A4/" rel="tag">宏观研判</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-企业大数据历史与应用趋势" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/04/21/%E4%BC%81%E4%B8%9A%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%8E%86%E5%8F%B2%E4%B8%8E%E5%BA%94%E7%94%A8%E8%B6%8B%E5%8A%BF/" class="article-date">
+  <time datetime="2021-04-21T09:17:00.000Z" itemprop="datePublished">2021-04-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/">学而思</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/04/21/%E4%BC%81%E4%B8%9A%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%8E%86%E5%8F%B2%E4%B8%8E%E5%BA%94%E7%94%A8%E8%B6%8B%E5%8A%BF/">企业大数据历史与应用趋势</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://cdn.diffday.com/picgo/20210421170120.png"></p>
+<h2 id="大数据"><a href="#大数据" class="headerlink" title="大数据"></a>大数据</h2><h3 id="Gartner-技术成熟度曲线的随动"><a href="#Gartner-技术成熟度曲线的随动" class="headerlink" title="Gartner 技术成熟度曲线的随动"></a>Gartner 技术成熟度曲线的随动</h3><p>大数据并不是一个学术概念，而是自2010年从产业界孕育起始，陆续有开源项目配套出现。2013年大数据到了炒作顶点，到14年往落地方面去走。从15年开始，大数据概念已经消失，取而代之的是“机器学习”。16年机器学习炒作到顶峰，17年深度学习代替机器学习站在顶点上，18年都差不多只谈深度学习。</p>
+        
+          <p class="article-more-link">
+            <a href="/2021/04/21/%E4%BC%81%E4%B8%9A%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%8E%86%E5%8F%B2%E4%B8%8E%E5%BA%94%E7%94%A8%E8%B6%8B%E5%8A%BF/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2021/04/21/%E4%BC%81%E4%B8%9A%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%8E%86%E5%8F%B2%E4%B8%8E%E5%BA%94%E7%94%A8%E8%B6%8B%E5%8A%BF/" data-id="ckoy179wv001rtmjaf6irgmca" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%80%9D%E6%83%B3%E5%90%AF%E8%BF%AA/" rel="tag">思想启迪</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag">数据挖掘</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-母亲回忆录--童年" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/04/10/%E6%AF%8D%E4%BA%B2%E5%9B%9E%E5%BF%86%E5%BD%95--%E7%AB%A5%E5%B9%B4/" class="article-date">
+  <time datetime="2021-04-10T06:17:00.000Z" itemprop="datePublished">2021-04-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/">生活随笔</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/04/10/%E6%AF%8D%E4%BA%B2%E5%9B%9E%E5%BF%86%E5%BD%95--%E7%AB%A5%E5%B9%B4/">母亲回忆录--童年</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://cdn.diffday.com/picgo/20210410135027.png"></p>
+<h2 id="康家大院"><a href="#康家大院" class="headerlink" title="康家大院"></a>康家大院</h2><p>我出身在河南罗山的一个小县城里，那时的小县城以十字街为中心，东到电影院，西到粮食局，南到跃进门，北到县一中，以这往外都属于农村（现叫郊区）</p>
+<p>我家住在西街，上有父母亲，兄弟姐妹六人。老大是个哥，1944年出生，起名叫世有，老二大姐，1948年出生起名叫康毛，老三三姐，1952年出身，起名二毛，我排行老四，1954年出生，又是个女孩，起名叫嫌毛，把给别人，又没人要，肯定是嫌弃哟，老五是个弟弟，1959年出生，起名叫国有，那时正赶上过粮食关，几家的粮食供应他一人，精心的喂养，才算活了下来。那时很多人都被饿死了。1963年腊月，我又来了个老妹，起名叫够毛，上户口时，那人可能文化浅，写不到那个字，写成了个康狗毛，后来邻居老奶奶说：“叫什么够毛，我孙女冬月出生叫冬云，你这是腊月出生的就叫腊云吧”。</p>
+<p>一家八口人，就靠我父亲做杂货生意维持生活，母亲是家庭妇女，清理家务很有一套，父母都不识字，在这种困难情况下，还让我们每个孩子上学，不能当新社会的文盲，读个高小（小学）毕业，大哥，大姐，都下学做临工来补贴家庭生活，每个孩子都要做些力所能及的活（二姐除外），比如：上街到处窜着捡烟头，打石子，捡庄稼，挑土方等等，只要能换来钱，什么活都做，童年真是太苦了，不是我们一家街邻的孩子都是这样。</p>
+        
+          <p class="article-more-link">
+            <a href="/2021/04/10/%E6%AF%8D%E4%BA%B2%E5%9B%9E%E5%BF%86%E5%BD%95--%E7%AB%A5%E5%B9%B4/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2021/04/10/%E6%AF%8D%E4%BA%B2%E5%9B%9E%E5%BF%86%E5%BD%95--%E7%AB%A5%E5%B9%B4/" data-id="ckoy179xu003wtmjaa6a5dso4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%96%87%E5%AD%A6/" rel="tag">文学</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-中年的意义" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/04/10/%E4%B8%AD%E5%B9%B4%E7%9A%84%E6%84%8F%E4%B9%89/" class="article-date">
+  <time datetime="2021-04-10T04:56:00.000Z" itemprop="datePublished">2021-04-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/">学而思</a>►<a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/04/10/%E4%B8%AD%E5%B9%B4%E7%9A%84%E6%84%8F%E4%B9%89/">中年的意义</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://cdn.diffday.com/picgo/20210410113124.png"></p>
+<p>人类取得食物的整个系统都很独特，成年成员取得卡路里的能力，会随着学习狩猎和采集技巧而不断提升，中年人为社群取得资源的能力一向最强。年轻个体除了基因会得到另外一种形式的中重要信息—跟长辈学习</p>
+<p><strong>中年人则擅长分析，计划，组织和文化延续，</strong>见树又见林，可称为洞察力。</p>
+<h2 id="人脑能力进化的驱动"><a href="#人脑能力进化的驱动" class="headerlink" title="人脑能力进化的驱动"></a>人脑能力进化的驱动</h2><p>人类取得食物的整个系统都很独特，大部分灵长类会消耗大量养分含量低，但非常容易获取的食物，灵长类中，人类特别擅长取得埋在土里，有外壳，外层有毒或跑得比我们快的食物，专门找需要技巧才能取得的各式宝贵食物（要靠寻找，挖掘，剥皮，智取），而这大概是我们变得如此聪明的主要因素之一（当时扳机可能是200万年前的气候变迁，人类为适应草原扩张的干旱气候而待在没有遮蔽的地方），人类需要时间来学习这些技巧。</p>
+<p>现代狩猎采集的社会中，成年成员取得卡路里的能力，会随着学习狩猎和采集技巧而不断提升，狩猎采集者在25-30岁之间取得食物的能力会提高3倍，取得食物的能力在45岁达到巅峰（黑猩猩大多活不到那个岁数），45岁，狩猎采集者的体力逐渐变差，骨质量和灵活度也开始下降，但他们拥有多年的实践经验，所以还是胜过年轻的同伴，中年人为社群取得资源的能力一向最强。</p>
+        
+          <p class="article-more-link">
+            <a href="/2021/04/10/%E4%B8%AD%E5%B9%B4%E7%9A%84%E6%84%8F%E4%B9%89/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2021/04/10/%E4%B8%AD%E5%B9%B4%E7%9A%84%E6%84%8F%E4%B9%89/" data-id="ckoy179w2000vtmjag6fbglm3" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%9F%E7%89%A9%E5%AD%A6/" rel="tag">生物学</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-文学回忆录（下）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/04/08/%E6%96%87%E5%AD%A6%E5%9B%9E%E5%BF%86%E5%BD%95%EF%BC%88%E4%B8%8B%EF%BC%89/" class="article-date">
+  <time datetime="2021-04-08T01:26:06.000Z" itemprop="datePublished">2021-04-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/">学而思</a>►<a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/04/08/%E6%96%87%E5%AD%A6%E5%9B%9E%E5%BF%86%E5%BD%95%EF%BC%88%E4%B8%8B%EF%BC%89/">文学回忆录（下）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://cdn.diffday.com/picgo/20210322111306.png" alt="image"></p>
+<h2 id="总纲弥补"><a href="#总纲弥补" class="headerlink" title="总纲弥补"></a>总纲弥补</h2><p>历史是更伟大的圣经，文学史是在讲文学的圣经，学文学，就是文学的神学。</p>
+<h3 id="精髓"><a href="#精髓" class="headerlink" title="精髓"></a>精髓</h3><p><u>讲文学史课，胜于读书，就好在可以讲私房话</u></p>
+<h3 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h3><p>这几年开讲文学，是为了他自己，是想训练口才，第一次讲完，气也透不过来，后来七八个小时也能讲，以后回大陆见人，可以当众说话。</p>
+<blockquote>
+<p>发现其课程里的确”私货“越讲越通畅，在这下半册中，的确内容很多，只可惜自己认识的文学家太少，读的太少，感同身受不得，所以摘录有限，算是一种无知的不太尊重。</p>
+</blockquote>
+<h2 id="十九世纪的文学"><a href="#十九世纪的文学" class="headerlink" title="十九世纪的文学"></a>十九世纪的文学</h2><p>木心想，凡能搞起主义运动的，大致是二流角色，走兽飞禽中，可以找到例证：鹰，狮，虎，都是孤独的，不合群的，牛马羊蚁，一大群，还哇哇叫，最合群是蛆虫。“文革”最聪明，他们把你“隔离审查”，他们知道人是合群的，可是连陶渊明也受不了—结庐在人境，却无车马喧，只要一隔离，全部都完蛋。</p>
+<p>所以文学的黄金时代，是十九世纪，这时的大作家都不合群，那时没有作家协会，十九世纪是个光荣的世纪。偏近代的人的主观观点如此相似，反过来看十九世纪，叔本华，尼采，等等，都异乎寻常，这也是十九世纪的魅力。</p>
+        
+          <p class="article-more-link">
+            <a href="/2021/04/08/%E6%96%87%E5%AD%A6%E5%9B%9E%E5%BF%86%E5%BD%95%EF%BC%88%E4%B8%8B%EF%BC%89/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2021/04/08/%E6%96%87%E5%AD%A6%E5%9B%9E%E5%BF%86%E5%BD%95%EF%BC%88%E4%B8%8B%EF%BC%89/" data-id="ckoy179xr003ptmjaega6dy5f" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%96%87%E5%AD%A6/" rel="tag">文学</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Tittytainment" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/04/06/Tittytainment/" class="article-date">
+  <time datetime="2021-04-06T10:16:06.000Z" itemprop="datePublished">2021-04-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%BD%91%E6%96%87%E7%B2%BE%E6%91%98/">网文精摘</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/04/06/Tittytainment/">Tittytainment</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <img src="http://cdn.diffday.com/picgo/20210406180555.png" style="zoom:67%;" />
+
+<p><strong>教育从来问题多多，从来没有得到根本的解决，因为教育不等于教育制度，教育是个体的事情，教育制度的根本目的是维系社会稳定。</strong></p>
+<p>现今经常被家长抱怨的网络游戏，国家从来没有真正意义上想解决过，因为网络游戏本身就是国家的一套工具。</p>
+<blockquote>
+<p>也别全信游戏产业利益集团的说辞。什么“<u>网游本身并不让人沉迷，沉迷的本质是家长关怀的缺位</u>”<strong>这种政治正确的假话</strong>，<u>让人沉迷的就是从业者设计的“好玩”，专业设局诱捕你大脑欣快感分泌</u>。这跟反禁枪的人说“杀人的不是枪，是人”一样在玩逻辑诡辩，<strong>世界的真相就是</strong>：禁枪的地方就是比不禁枪的地方安全。</p>
+</blockquote>
+<p>奶头乐大家都知道了，网上一搜一大堆，记录下来仅仅是录下一套不那么复杂的体系化表达。</p>
+<h3 id="奶头乐"><a href="#奶头乐" class="headerlink" title="奶头乐"></a>奶头乐</h3><blockquote>
+<p> “奶头乐”理论（Tittytainment） 由2017年刚去世的美国战略大师布热津斯基【曾任吉米-卡特总统的国家安全顾问】在20多年前提出。</p>
+</blockquote>
+<p>资本主义天然会造成严重的贫富分化，而全球化进一步加速了全球范围内的贫富分化，这使得二八现象更加严重，20%的人掌握80%的资源，掌握人类社会各领域的话语权，而高达80%的人口会被”边缘化”。过去通过社保制度，工人持股等方式改良的资本主义制度也无法对抗广大底层民众的不满情绪，罢工，抗议，甚至革命会再次发生。</p>
+<p>解除边缘人不满情绪的办法只有一个，就是在他们嘴中塞一个“奶嘴”，让他们以为自己过得很充实，很幸福。</p>
+<p><img src="http://cdn.diffday.com/picgo/20210406181601.png"></p>
+<p>奶嘴的形式有两种：</p>
+<ul>
+<li>一种是发泄性娱乐，比如开放色情业，博彩业，鼓励暴力网络游戏，鼓动网络口水战；</li>
+<li>一种是满足性游戏，比如拍摄大量不切实际的肥皂剧和偶像剧，大量报道明星丑闻，播放很多虚假的真人秀等大众娱乐节目。</li>
+</ul>
+<p>把这些令人很轻松就可以沉迷其中的娱乐感官体验疯狂堆砌在边缘人面前，占据他们的业余时间，就算白天干活辛苦，收入微薄，受到剥削和不公平待遇，而且没有向上跃迁的阶层通道，他们也会在不知不觉中丧生独立思考的能力，这时，只要给他们一份能填饱肚子的工作，他们便会沉浸在“快乐”中。</p>
+<p><img src="http://cdn.diffday.com/picgo/20210406181958.png"></p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>真要没人玩王者荣耀了，你出头只会更难。你有多强烈的延迟满足的反人性特质？奋斗是个慢跑，游戏马上享受不等一秒。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2021/04/06/Tittytainment/" data-id="ckoy179vp000etmja2y8oc3c0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A6%82%E5%BF%B5%E8%A7%A3%E8%AF%BB/" rel="tag">概念解读</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-人种迁徙与语言分布" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/03/27/%E4%BA%BA%E7%A7%8D%E8%BF%81%E5%BE%99%E4%B8%8E%E8%AF%AD%E8%A8%80%E5%88%86%E5%B8%83/" class="article-date">
+  <time datetime="2021-03-26T16:05:06.000Z" itemprop="datePublished">2021-03-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%BD%91%E6%96%87%E7%B2%BE%E6%91%98/">网文精摘</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/27/%E4%BA%BA%E7%A7%8D%E8%BF%81%E5%BE%99%E4%B8%8E%E8%AF%AD%E8%A8%80%E5%88%86%E5%B8%83/">人种迁徙与语言分布</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://cdn.diffday.com/picgo/20210324192851.png"></p>
+<p>当初看《人类基因的历史地图》这本书，实在有些啃不下去，配图太少，不善用符号，文字没有情感，导致基本只能记住线粒体夏娃，中国的黄种人由东南亚进入中国版图这样的印象。是近几年中读书没有读完丢在一边的特例，但仍埋下了种子。无意间网络间见一老兄推荐天涯的一篇帖子讲<a target="_blank" rel="noopener" href="http://bbs.tianya.cn/post-no05-309858-1.shtml">世界中国史</a>，过去一观，开篇的问题就能勾住我的眼球，没想到接着往下翻，前面古人类的篇章，写的非常好，遂摘录整理，非常感谢原作者。作者的帖子火了，后来也出了书（在参考资料章节），是对知识和实力的肯定</p>
+<h1 id="地理与气候"><a href="#地理与气候" class="headerlink" title="地理与气候"></a>地理与气候</h1><p><u>地区盛兴的气候，植被，风向本文并不细讲，其实地理联合气候决定了很多大历史</u>，是探讨大周期历史必须要关注的，正所谓地理是最大的历史，不过本文摘录的重心不在这里，就简要记录几个有名的地点解释，放在文尾。</p>
+<h1 id="人类登场"><a href="#人类登场" class="headerlink" title="人类登场"></a>人类登场</h1>
+        
+          <p class="article-more-link">
+            <a href="/2021/03/27/%E4%BA%BA%E7%A7%8D%E8%BF%81%E5%BE%99%E4%B8%8E%E8%AF%AD%E8%A8%80%E5%88%86%E5%B8%83/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2021/03/27/%E4%BA%BA%E7%A7%8D%E8%BF%81%E5%BE%99%E4%B8%8E%E8%AF%AD%E8%A8%80%E5%88%86%E5%B8%83/" data-id="ckoy179wt001mtmja0ag5d1ni" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8E%86%E5%8F%B2/" rel="tag">历史</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-穷查理宝典" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/03/23/%E7%A9%B7%E6%9F%A5%E7%90%86%E5%AE%9D%E5%85%B8/" class="article-date">
+  <time datetime="2021-03-23T09:25:06.000Z" itemprop="datePublished">2021-03-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/">学而思</a>►<a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/23/%E7%A9%B7%E6%9F%A5%E7%90%86%E5%AE%9D%E5%85%B8/">穷查理宝典</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <img src="http://cdn.diffday.com/picgo/20210323171846.png" style="zoom:40%;" />
+
+<h2 id="芒格的生活、学习和决策方法"><a href="#芒格的生活、学习和决策方法" class="headerlink" title="芒格的生活、学习和决策方法"></a>芒格的生活、学习和决策方法</h2><p>他们花在学习和思考上的时间，比花在行动上的时间要多，这种习惯绝对不是偶然的。这是每个行业真正的大师身上所体现出来的纪律和耐心的混合物：一种绝不妥协的“把手上的牌打好”的决心。就像世界级的桥牌大师理查德·萨克豪瑟那样，查理在意的并不是他本人是否能赢牌，而是是否能把手上的牌打好。尽管在芒格和巴菲特的世界里，糟糕的结果是可以接受的（因为有些结果并不在他们的掌握之中），但准备不足和仓促决策是不可原谅的，因为这些因素是可以控制的。</p>
+<blockquote>
+<p>这跟孙子兵法中的观念：不可胜在已，可胜在敌是一致的</p>
+</blockquote>
+<h3 id="多元思维模型"><a href="#多元思维模型" class="headerlink" title="多元思维模型"></a>多元思维模型</h3><p>若想在任何领域拥有竞争力，就必须熟练地掌握该领域的方方面面，不管你是否喜欢这么做，这是人类大脑的深层结构决定的。</p>
+<p>大多数人都只养成一个学科——比如说经济学——的思维模型，试图用一种方法来解决所有问题。你知道谚语是怎么说的：“在手里拿着铁锤的人看来，世界就像一颗钉子。”这是一种处理问题的笨方法。</p>
+<blockquote>
+<p>如果把人脑比喻做决策树模型或深度学习的模型，那么有偏的训练做出的决策是有风险的</p>
+</blockquote>
+<p>得到系统的常（非常）识——非常基础的知识——是一种威力巨大的工具。你拥有的基本知识越多，你需要吸取的新知识就越少，这也是招聘时基本问题基本功的重要性。</p>
+<h4 id="获取跨学科的知识"><a href="#获取跨学科的知识" class="headerlink" title="获取跨学科的知识"></a>获取跨学科的知识</h4>
+        
+          <p class="article-more-link">
+            <a href="/2021/03/23/%E7%A9%B7%E6%9F%A5%E7%90%86%E5%AE%9D%E5%85%B8/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2021/03/23/%E7%A9%B7%E6%9F%A5%E7%90%86%E5%AE%9D%E5%85%B8/" data-id="ckoy179y4004jtmja620k3n0b" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BC%81%E4%B8%9A%E7%BB%8F%E8%90%A5/" rel="tag">企业经营</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BB%8F%E6%B5%8E%E5%AD%A6/" rel="tag">经济学</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">下一页 &amp;raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/">学而思</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E5%8F%8D%E5%88%8D%E6%95%B4%E7%90%86/">反刍整理</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">数据挖掘</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E7%BB%8F%E8%90%A5%E7%AE%A1%E7%90%86/">经营管理</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E8%BF%87%E5%88%86%E5%A5%BD%E5%A5%87/">过分好奇</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/">生活随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E6%96%87%E7%B2%BE%E6%91%98/">网文精摘</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91/" rel="tag">互联网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E6%80%9D%E7%BB%B4/" rel="tag">互联网思维</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E7%89%A9%E8%AE%BF%E8%B0%88/" rel="tag">人物访谈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E7%BE%A4%E8%A7%82%E5%AF%9F/" rel="tag">人群观察</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%81%E4%B8%9A%E7%BB%8F%E8%90%A5/" rel="tag">企业经营</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%86%E5%8F%B2/" rel="tag">历史</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9C%B0%E5%9F%9F%E5%B7%AE%E5%BC%82/" rel="tag">地域差异</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%9A%E9%9D%A2%E4%BD%93%E7%9F%A5%E8%AF%86/" rel="tag">多面体知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%8F%E8%A7%82%E7%A0%94%E5%88%A4/" rel="tag">宏观研判</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E7%90%86%E5%AD%A6/" rel="tag">心理学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%9D%E6%83%B3%E5%90%AF%E8%BF%AA/" rel="tag">思想启迪</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E8%82%B2/" rel="tag">教育</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag">数据挖掘</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E5%AD%A6/" rel="tag">文学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A6%82%E5%BF%B5%E8%A7%A3%E8%AF%BB/" rel="tag">概念解读</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB%E6%84%9F%E6%82%9F/" rel="tag">生活感悟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E7%89%A9%E5%AD%A6/" rel="tag">生物学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F/" rel="tag">用户画像</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A1%AC%E6%A0%B8%E7%9F%A5%E8%AF%86/" rel="tag">硬核知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%8F%E6%B5%8E%E5%AD%A6/" rel="tag">经济学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%8F%E8%90%A5%E7%AE%A1%E7%90%86/" rel="tag">经营管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" rel="tag">软件工程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E5%AE%9E%E5%8A%9B/" rel="tag">软实力</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91/" style="font-size: 10px;">互联网</a> <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E6%80%9D%E7%BB%B4/" style="font-size: 15px;">互联网思维</a> <a href="/tags/%E4%BA%BA%E7%89%A9%E8%AE%BF%E8%B0%88/" style="font-size: 11.25px;">人物访谈</a> <a href="/tags/%E4%BA%BA%E7%BE%A4%E8%A7%82%E5%AF%9F/" style="font-size: 12.5px;">人群观察</a> <a href="/tags/%E4%BC%81%E4%B8%9A%E7%BB%8F%E8%90%A5/" style="font-size: 10px;">企业经营</a> <a href="/tags/%E5%8E%86%E5%8F%B2/" style="font-size: 16.25px;">历史</a> <a href="/tags/%E5%9C%B0%E5%9F%9F%E5%B7%AE%E5%BC%82/" style="font-size: 13.75px;">地域差异</a> <a href="/tags/%E5%A4%9A%E9%9D%A2%E4%BD%93%E7%9F%A5%E8%AF%86/" style="font-size: 10px;">多面体知识</a> <a href="/tags/%E5%AE%8F%E8%A7%82%E7%A0%94%E5%88%A4/" style="font-size: 12.5px;">宏观研判</a> <a href="/tags/%E5%BF%83%E7%90%86%E5%AD%A6/" style="font-size: 12.5px;">心理学</a> <a href="/tags/%E6%80%9D%E6%83%B3%E5%90%AF%E8%BF%AA/" style="font-size: 12.5px;">思想启迪</a> <a href="/tags/%E6%95%99%E8%82%B2/" style="font-size: 11.25px;">教育</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 11.25px;">数据挖掘</a> <a href="/tags/%E6%96%87%E5%AD%A6/" style="font-size: 12.5px;">文学</a> <a href="/tags/%E6%A6%82%E5%BF%B5%E8%A7%A3%E8%AF%BB/" style="font-size: 18.75px;">概念解读</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%84%9F%E6%82%9F/" style="font-size: 20px;">生活感悟</a> <a href="/tags/%E7%94%9F%E7%89%A9%E5%AD%A6/" style="font-size: 11.25px;">生物学</a> <a href="/tags/%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F/" style="font-size: 11.25px;">用户画像</a> <a href="/tags/%E7%A1%AC%E6%A0%B8%E7%9F%A5%E8%AF%86/" style="font-size: 12.5px;">硬核知识</a> <a href="/tags/%E7%BB%8F%E6%B5%8E%E5%AD%A6/" style="font-size: 10px;">经济学</a> <a href="/tags/%E7%BB%8F%E8%90%A5%E7%AE%A1%E7%90%86/" style="font-size: 17.5px;">经营管理</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" style="font-size: 11.25px;">软件工程</a> <a href="/tags/%E8%BD%AF%E5%AE%9E%E5%8A%9B/" style="font-size: 10px;">软实力</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/11/">十一月 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/09/">九月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/05/">五月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/04/">四月 2007</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/05/12/%E7%94%B5%E5%AD%90%E6%B8%B8%E6%88%8F%E5%8F%B2/">电子游戏史</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/10/%E5%8D%9A%E5%BC%88%E7%9F%A5%E8%AF%86&%E9%A2%84%E6%B5%8B%E6%94%B6%E6%95%9B%E6%B3%95/">博弈知识&amp;预测收敛法</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/04/%E4%BD%8E%E7%94%9F%E8%82%B2%E9%99%B7%E9%98%B1/">低生育陷阱</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/21/%E4%BC%81%E4%B8%9A%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%8E%86%E5%8F%B2%E4%B8%8E%E5%BA%94%E7%94%A8%E8%B6%8B%E5%8A%BF/">企业大数据历史与应用趋势</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/10/%E6%AF%8D%E4%BA%B2%E5%9B%9E%E5%BF%86%E5%BD%95--%E7%AB%A5%E5%B9%B4/">母亲回忆录--童年</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 卓<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

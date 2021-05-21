@@ -1,25 +1,292 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
 
+  
+  <title>LVS三类工作模式 | Diffday</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="业界明星LVS是国内程序员界为行业付出的最响当当产品了，在互联网界更是采用的多。 背景介绍个人认为LVS出现的基础有三点：  IPV4 公网ip不够用的现状 加之DNS更新调整的麻烦度 服务器之间需要负载均衡，硬件负载均衡还是贵，原来国外大厂的闭源软件同样也贵  在TCP&#x2F;IP协议簇上，能做到的方案肯定最低工作在IP层做路由转发和负载均衡。 大家都用过交换机和路由器，家用的都是路由器，因为有公网">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LVS三类工作模式">
+<meta property="og:url" content="http://yoursite.com/2016/04/18/LVS%E4%B8%89%E7%B1%BB%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F/index.html">
+<meta property="og:site_name" content="Diffday">
+<meta property="og:description" content="业界明星LVS是国内程序员界为行业付出的最响当当产品了，在互联网界更是采用的多。 背景介绍个人认为LVS出现的基础有三点：  IPV4 公网ip不够用的现状 加之DNS更新调整的麻烦度 服务器之间需要负载均衡，硬件负载均衡还是贵，原来国外大厂的闭源软件同样也贵  在TCP&#x2F;IP协议簇上，能做到的方案肯定最低工作在IP层做路由转发和负载均衡。 大家都用过交换机和路由器，家用的都是路由器，因为有公网">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20201020083838.png">
+<meta property="article:published_time" content="2016-04-18T06:55:52.000Z">
+<meta property="article:modified_time" content="2020-10-21T06:17:18.000Z">
+<meta property="article:author" content="卓">
+<meta property="article:tag" content="硬核知识">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://cdn.diffday.com/picgo/20201020083838.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Diffday" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
 
-{% block title %}{{ page.title }} | {{ title }}{% endblock %}
+<meta name="generator" content="Hexo 5.4.0"></head>
 
-{% block page_class %}page-post-detail{% endblock %}
-
-
-{% block content %}
-
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Diffday</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-LVS三类工作模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/04/18/LVS%E4%B8%89%E7%B1%BB%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F/" class="article-date">
+  <time datetime="2016-04-18T06:55:52.000Z" itemprop="datePublished">2016-04-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/">学而思</a>
   </div>
 
-{% endblock %}
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      LVS三类工作模式
+    </h1>
+  
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://cdn.diffday.com/picgo/20201020083838.png"></p>
+<h2 id="业界明星"><a href="#业界明星" class="headerlink" title="业界明星"></a>业界明星</h2><p>LVS是国内程序员界为行业付出的最响当当产品了，在互联网界更是采用的多。</p>
+<h3 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h3><p>个人认为LVS出现的基础有三点：</p>
+<ol>
+<li><strong>IPV4 公网ip不够用的现状</strong></li>
+<li><strong>加之DNS更新调整的麻烦度</strong></li>
+<li><strong>服务器之间需要负载均衡，硬件负载均衡还是贵，原来国外大厂的闭源软件同样也贵</strong></li>
+</ol>
+<p>在TCP/IP协议簇上，能做到的方案肯定最低工作在IP层做路由转发和负载均衡。</p>
+<p>大家都用过交换机和路由器，家用的都是路由器，因为有公网IP，一台路由器代理几台设备，家用路由器NAT转换协议也是为上面1,2点而来。</p>
+<h3 id="作者语述"><a href="#作者语述" class="headerlink" title="作者语述"></a>作者语述</h3><p>真正有用的软件来源于实际应用，不同于闭门造车想象出来的功能，且看LVS作者章文嵩博士的回忆：</p>
+<blockquote>
+<p>“我在国防科大学读书之余，也帮湖南电信做一些系统集成项目，见到许多服务器忙不过来的情况。这时就需要考虑负载均衡。那时业界也有一些商用方案，常用的是思科LocalDirector。我希望在Linux内核上写点东西，又知道思科LocalDirector的工作原理。所以我当时就花了两个星期写了一个最简单的版本，那是1998年5月。（一套LocalDirector当时价值几万美元，我那时心里有疑问——这东西并不难写，为什么卖那么贵？）”</p>
+</blockquote>
+<span id="more"></span>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+<blockquote>
+<p>“当时LVS开源放在网上一个星期，就被一家澳大利亚小公司用起来了，公司的负责人写邮件感谢我，说效果很好。我觉得这件事挺有意思，因为自己写的软件被别人用起来了，为他人创造了价值。2000年前后，收到了许多用户的感谢邮件。也有公司给我捐送服务器，有个瑞士用户寄了一大包饼干来感谢我。我把饼干拿回家，被丈母娘看到了，她说原来你半夜这么辛苦地工作，就是为了一大包饼干啊。</p>
+<p><strong>做这些事是很有成就感的，更多的是乐趣。</strong>”</p>
+</blockquote>
+<h2 id="硬核正题"><a href="#硬核正题" class="headerlink" title="硬核正题"></a>硬核正题</h2><p>旁话不多讲，进工作模式正题。</p>
+<p>介绍前，先列几个缩写概念：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. LB(Load Balancer) :负载均衡器，也就是装有LVS（ipvsadm）的server</span><br><span class="line"></span><br><span class="line">2. VIP(VirtualIP):给远程客户端提供服务的外部IP，LVS设备具有此IP</span><br><span class="line"></span><br><span class="line">3. real server:后端提供真是服务的server</span><br><span class="line"></span><br><span class="line">4. RIP(Real Server IP):后端realserver的IP</span><br></pre></td></tr></table></figure>
+
+<p><strong>LVS有三种工作模式</strong></p>
+<p><strong>1.DR（direct routing直接路由）</strong></p>
+<p><strong>2.NAT（Network Address Translation网络地址转换）</strong></p>
+<p><strong>3.Tune（IP Tunneling隧道）</strong></p>
+<h3 id="NAT模式"><a href="#NAT模式" class="headerlink" title="NAT模式"></a>NAT模式</h3><p>所有real server可分配保留私有地址，只有LB分配一个公网IP，但所有的请求包和应答包都经过LB，且不说网卡流量问题。包因为要修改再生，需要消耗CPU时间。举个例子，如果TCP包平均长度536字节，平均再生延迟60纳秒，那么这个延迟，导致LB的最大允许吞吐能力是8.93M/s（1/60*536）。做负载均衡，real server多了，就满足不了要求（如果单台real server允许400K/s，22台就达到极限）。这种模式下LB很容易成为整个系统的瓶颈。NAT通常的负担量也就在20台real server左右。</p>
+<h3 id="DR模式"><a href="#DR模式" class="headerlink" title="DR模式"></a>DR模式</h3><p>与NAT模式一样，同样要求real server与LB在同一物理网段，这样对组网布线是有要求的。且realserver上须有一块网卡不接受arp广播（同样配上VIP）。</p>
+<p>涉及网络细节，且性能在三种模式下最好，详细讲下DR过程【模式出现 动机之一，在于现实发现许多Internet服务（例如WEB服务器）的请求包很短小，而应答包通常很大。如果只让LB处理入包，定可以提升吞吐能力】。</p>
+<ol>
+<li>客户端得到服务的目的IP（为VIP，可能是通过DNS查询），目的端口80。</li>
+<li>于是客户端与VIP的80端口建立连接，LVS在VIP上收到之后，根据均衡策略，从后端realserver中选出一台（RIP1）作为此次请求的接收者，然后将请求包的目的mac地址更改为RIP1的mac地址，封装后转发给后端的RIP1，同时将该链接记录在hash表中。</li>
+<li>RIP1的某块网卡，如eth0，接收到这个转发包看到mac地址是自己的，于是就转发给上层的IP层，IP层解包后，发现目的IP地址也是自己（VIP配置在一块non-arp的网卡上，如lo:0）,然后接着根据协议上传。</li>
+<li>应用处理完请求后，将数据传给TCP，TCP将源端口改为80，源IP更改为VIP，目的端口更改为客户端端口，目的IP为客户端IP，IP层根据目的地址进行路由，然后经网络返给Client，完成了一次请求，而不经过LB。</li>
+</ol>
+<p><strong>DR模式的优缺点：</strong></p>
+<p><strong>优：可扩展性强，LB不会成为业务增长的瓶颈</strong></p>
+<p><strong>缺：节点不能跨网段，real server上须有一块网卡不接受arp广播</strong></p>
+<h3 id="TUN模式"><a href="#TUN模式" class="headerlink" title="TUN模式"></a>TUN模式</h3><p>就是针对DR模式的物理网段限制而来，针对互联网业务的特点，也比NAT效率高。但需要所有的服务器支持 “IP Tunneling(IP Encapsulation)”协议。但跨网段，服务器离的近，还好，离得不近，则网络延迟会成为主要瓶颈。</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><blockquote>
+<p>当前7层负载均衡，如Nginx已经让程序员大呼方便，但7层的效率肯定比不了在3层的处理效率，聊以此文，作为LVS工作模式简短总结介绍。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/04/18/LVS%E4%B8%89%E7%B1%BB%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F/" data-id="ckoy179vi0007tmjacc6g76yh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%A1%AC%E6%A0%B8%E7%9F%A5%E8%AF%86/" rel="tag">硬核知识</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/11/30/%E5%AD%A6%E4%B9%A0%E9%A3%8E%E6%A0%BC%E4%B8%8E%E5%8F%91%E5%B1%95%E6%96%B9%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          学习风格与发展方式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/07/28/%E4%BA%A7%E5%93%81%E6%84%8F%E8%AF%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">产品意识</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/">学而思</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E5%8F%8D%E5%88%8D%E6%95%B4%E7%90%86/">反刍整理</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">数据挖掘</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E7%BB%8F%E8%90%A5%E7%AE%A1%E7%90%86/">经营管理</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E8%BF%87%E5%88%86%E5%A5%BD%E5%A5%87/">过分好奇</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/">生活随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E6%96%87%E7%B2%BE%E6%91%98/">网文精摘</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91/" rel="tag">互联网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E6%80%9D%E7%BB%B4/" rel="tag">互联网思维</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E7%89%A9%E8%AE%BF%E8%B0%88/" rel="tag">人物访谈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E7%BE%A4%E8%A7%82%E5%AF%9F/" rel="tag">人群观察</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%81%E4%B8%9A%E7%BB%8F%E8%90%A5/" rel="tag">企业经营</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%86%E5%8F%B2/" rel="tag">历史</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9C%B0%E5%9F%9F%E5%B7%AE%E5%BC%82/" rel="tag">地域差异</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%9A%E9%9D%A2%E4%BD%93%E7%9F%A5%E8%AF%86/" rel="tag">多面体知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%8F%E8%A7%82%E7%A0%94%E5%88%A4/" rel="tag">宏观研判</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E7%90%86%E5%AD%A6/" rel="tag">心理学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%9D%E6%83%B3%E5%90%AF%E8%BF%AA/" rel="tag">思想启迪</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E8%82%B2/" rel="tag">教育</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag">数据挖掘</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E5%AD%A6/" rel="tag">文学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A6%82%E5%BF%B5%E8%A7%A3%E8%AF%BB/" rel="tag">概念解读</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB%E6%84%9F%E6%82%9F/" rel="tag">生活感悟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E7%89%A9%E5%AD%A6/" rel="tag">生物学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F/" rel="tag">用户画像</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A1%AC%E6%A0%B8%E7%9F%A5%E8%AF%86/" rel="tag">硬核知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%8F%E6%B5%8E%E5%AD%A6/" rel="tag">经济学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%8F%E8%90%A5%E7%AE%A1%E7%90%86/" rel="tag">经营管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" rel="tag">软件工程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E5%AE%9E%E5%8A%9B/" rel="tag">软实力</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91/" style="font-size: 10px;">互联网</a> <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E6%80%9D%E7%BB%B4/" style="font-size: 15px;">互联网思维</a> <a href="/tags/%E4%BA%BA%E7%89%A9%E8%AE%BF%E8%B0%88/" style="font-size: 11.25px;">人物访谈</a> <a href="/tags/%E4%BA%BA%E7%BE%A4%E8%A7%82%E5%AF%9F/" style="font-size: 12.5px;">人群观察</a> <a href="/tags/%E4%BC%81%E4%B8%9A%E7%BB%8F%E8%90%A5/" style="font-size: 10px;">企业经营</a> <a href="/tags/%E5%8E%86%E5%8F%B2/" style="font-size: 16.25px;">历史</a> <a href="/tags/%E5%9C%B0%E5%9F%9F%E5%B7%AE%E5%BC%82/" style="font-size: 13.75px;">地域差异</a> <a href="/tags/%E5%A4%9A%E9%9D%A2%E4%BD%93%E7%9F%A5%E8%AF%86/" style="font-size: 10px;">多面体知识</a> <a href="/tags/%E5%AE%8F%E8%A7%82%E7%A0%94%E5%88%A4/" style="font-size: 12.5px;">宏观研判</a> <a href="/tags/%E5%BF%83%E7%90%86%E5%AD%A6/" style="font-size: 12.5px;">心理学</a> <a href="/tags/%E6%80%9D%E6%83%B3%E5%90%AF%E8%BF%AA/" style="font-size: 12.5px;">思想启迪</a> <a href="/tags/%E6%95%99%E8%82%B2/" style="font-size: 11.25px;">教育</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 11.25px;">数据挖掘</a> <a href="/tags/%E6%96%87%E5%AD%A6/" style="font-size: 12.5px;">文学</a> <a href="/tags/%E6%A6%82%E5%BF%B5%E8%A7%A3%E8%AF%BB/" style="font-size: 18.75px;">概念解读</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%84%9F%E6%82%9F/" style="font-size: 20px;">生活感悟</a> <a href="/tags/%E7%94%9F%E7%89%A9%E5%AD%A6/" style="font-size: 11.25px;">生物学</a> <a href="/tags/%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F/" style="font-size: 11.25px;">用户画像</a> <a href="/tags/%E7%A1%AC%E6%A0%B8%E7%9F%A5%E8%AF%86/" style="font-size: 12.5px;">硬核知识</a> <a href="/tags/%E7%BB%8F%E6%B5%8E%E5%AD%A6/" style="font-size: 10px;">经济学</a> <a href="/tags/%E7%BB%8F%E8%90%A5%E7%AE%A1%E7%90%86/" style="font-size: 17.5px;">经营管理</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" style="font-size: 11.25px;">软件工程</a> <a href="/tags/%E8%BD%AF%E5%AE%9E%E5%8A%9B/" style="font-size: 10px;">软实力</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/11/">十一月 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/09/">九月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/05/">五月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/04/">四月 2007</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/05/12/%E7%94%B5%E5%AD%90%E6%B8%B8%E6%88%8F%E5%8F%B2/">电子游戏史</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/10/%E5%8D%9A%E5%BC%88%E7%9F%A5%E8%AF%86&%E9%A2%84%E6%B5%8B%E6%94%B6%E6%95%9B%E6%B3%95/">博弈知识&amp;预测收敛法</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/04/%E4%BD%8E%E7%94%9F%E8%82%B2%E9%99%B7%E9%98%B1/">低生育陷阱</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/21/%E4%BC%81%E4%B8%9A%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%8E%86%E5%8F%B2%E4%B8%8E%E5%BA%94%E7%94%A8%E8%B6%8B%E5%8A%BF/">企业大数据历史与应用趋势</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/10/%E6%AF%8D%E4%BA%B2%E5%9B%9E%E5%BF%86%E5%BD%95--%E7%AB%A5%E5%B9%B4/">母亲回忆录--童年</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 卓<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
