@@ -1,25 +1,446 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %}{{ page.title }} | {{ title }}{% endblock %}
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-{% block page_class %}page-post-detail{% endblock %}
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="《十日谈》2020年全球疫情，历史什么时候跟这个阶段有些相似呢，大家把目光投向薄伽丘的《十日谈》。当时佛罗伦萨和欧洲很多地方都爆发了黑死病，仅佛罗伦萨就死了10w+人，欧洲可能因疫情损失的人口在7000w~2亿之间。 1350年，薄伽丘开始创作《十日谈》，内容是讲述十位年轻男女跑到佛罗伦萨郊外躲避瘟疫。他们在宜人的花园住下，每天除了唱歌跳舞之外，每个人要讲一个故事，十天下来就讲了一百个故事，这些">
+<meta property="og:type" content="article">
+<meta property="og:title" content="换个视角理解人生-十日谈">
+<meta property="og:url" content="http://yoursite.com/2021/02/01/%E6%8D%A2%E4%B8%AA%E8%A7%86%E8%A7%92%E7%90%86%E8%A7%A3%E4%BA%BA%E7%94%9F-%E5%8D%81%E6%97%A5%E8%B0%88/index.html">
+<meta property="og:site_name" content="Diffday">
+<meta property="og:description" content="《十日谈》2020年全球疫情，历史什么时候跟这个阶段有些相似呢，大家把目光投向薄伽丘的《十日谈》。当时佛罗伦萨和欧洲很多地方都爆发了黑死病，仅佛罗伦萨就死了10w+人，欧洲可能因疫情损失的人口在7000w~2亿之间。 1350年，薄伽丘开始创作《十日谈》，内容是讲述十位年轻男女跑到佛罗伦萨郊外躲避瘟疫。他们在宜人的花园住下，每天除了唱歌跳舞之外，每个人要讲一个故事，十天下来就讲了一百个故事，这些">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210201150639.png">
+<meta property="article:published_time" content="2021-02-01T05:37:06.000Z">
+<meta property="article:modified_time" content="2021-02-01T07:08:07.000Z">
+<meta property="article:author" content="卓">
+<meta property="article:tag" content="生活感悟">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://cdn.diffday.com/picgo/20210201150639.png">
+
+<link rel="canonical" href="http://yoursite.com/2021/02/01/%E6%8D%A2%E4%B8%AA%E8%A7%86%E8%A7%92%E7%90%86%E8%A7%A3%E4%BA%BA%E7%94%9F-%E5%8D%81%E6%97%A5%E8%B0%88/">
 
 
-{% block content %}
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+  <title>换个视角理解人生-十日谈 | Diffday</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Diffday</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/01/%E6%8D%A2%E4%B8%AA%E8%A7%86%E8%A7%92%E7%90%86%E8%A7%A3%E4%BA%BA%E7%94%9F-%E5%8D%81%E6%97%A5%E8%B0%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="卓">
+      <meta itemprop="description" content="一个成年人的自我博雅探索，以求不惑">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Diffday">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          换个视角理解人生-十日谈
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-02-01 13:37:06 / 修改时间：15:08:07" itemprop="dateCreated datePublished" datetime="2021-02-01T13:37:06+08:00">2021-02-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E6%96%87%E7%B2%BE%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网文精摘</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="http://cdn.diffday.com/picgo/20210201150639.png"></p>
+<h2 id="《十日谈》"><a href="#《十日谈》" class="headerlink" title="《十日谈》"></a>《十日谈》</h2><p>2020年全球疫情，历史什么时候跟这个阶段有些相似呢，大家把目光投向薄伽丘的《十日谈》。当时佛罗伦萨和欧洲很多地方都爆发了黑死病，仅佛罗伦萨就死了10w+人，欧洲可能因疫情损失的人口在7000w~2亿之间。</p>
+<p>1350年，薄伽丘开始创作《十日谈》，内容是讲述十位年轻男女跑到佛罗伦萨郊外躲避瘟疫。他们在宜人的花园住下，每天除了唱歌跳舞之外，每个人要讲一个故事，十天下来就讲了一百个故事，这些故事合在一起，就是这本书。书中故事离奇有趣，人物类型众多，有王公贵族、僧侣骑士，也有平民百姓、贩夫走卒。书中教会里面的人物，特别是头面人物，嘴上都是仁义道德，骨子里却是男盗女娼，而且贪得无厌。相比之下，人间正常的男欢女爱广受赞颂，书的内容从主题到形式的差异非常大，但思想内核突出，就是赞美人间美好的生活，讽刺教会和贵族骑士。</p>
+<h2 id="《第一天-第二个》"><a href="#《第一天-第二个》" class="headerlink" title="《第一天-第二个》"></a>《第一天-第二个》</h2><span id="more"></span>
+
+<p>犹太人亚伯拉罕是个Good guy，有个天主教好友杨诺，杨诺为了劝说他皈依天主教，不断吹嘘天主教的好处。时间长了，亚伯拉罕真的有点信了杨诺的话，但他说耳听为虚眼见为实，他要去罗马一趟，亲眼见见天主教什么样，才能决定信与不信。</p>
+<p>杨诺一想，亚伯拉罕一到罗马，目睹教会腐败的生活，肯定就不信了，所以就劝说他不要去罗马。但亚伯拉罕很坚决，这样杨诺已经打定了朋友回来肯定不信天主教的结果了。</p>
+<p>果然，罗马教廷丑陋的东西让亚伯拉罕看到了，但回来后，亚伯拉罕说他准备皈依天主教了，杨诺很困惑，问他为什么？</p>
+<p>亚伯拉罕讲，罗马本该是神圣的，但成了包容一切罪恶的大熔炉，教皇以及主教们（牧羊人）本该做天主教的支柱和基础，却日夜千方地想要天主教早些垮台。但是亚伯拉罕话锋一转的讲，我还是决定皈依天主教，为什么呢，因为无论他们千方百计挖墙角想把天主教推翻，天主教还是岿然不动，还发扬光大，那么天主教肯定有圣灵在做支柱和基石，你们的宗教的确比其它宗教更正大神圣。</p>
+<p>好友杨诺万万没想到，亚伯拉罕会因教会的腐朽得出这么个大反转结论来。</p>
+<h2 id="故事的启示–追寻合理的本质，换个视角理解人生"><a href="#故事的启示–追寻合理的本质，换个视角理解人生" class="headerlink" title="故事的启示–追寻合理的本质，换个视角理解人生"></a>故事的启示–追寻合理的本质，换个视角理解人生</h2><h3 id="应用场景1"><a href="#应用场景1" class="headerlink" title="应用场景1"></a>应用场景1</h3><p>例如举此文章例子的作者吴军在给从google来腾讯的员工开解问题时，就借道讲过这个故事。来自google的这位同学，跑来抱怨代码质量这么差，单元测试也没有，三天两头死机，没救了，很郁闷，通过这个故事，开导他换个角度看问题。</p>
+<p>你看，照理说，这么差的工程质量，系统三天两头崩溃，用户早该跑光了，可他的用户还在不断增加，大家使用好像也没有遇到什么麻烦，这说明这像故事里的天主教，有圣灵给他做支柱。</p>
+<p>接下来建议他去找原因，这个原因一定是价值所在，果然他找到了原因，且能客观的评价腾讯的工程工作，自己也发展很顺利。</p>
+<p>能提醒我们思考表现和本质的区别，表现可能是假的，当表现解释不了原因时，就需要思考我们是否没看到本质。</p>
+<h3 id="应用场景2"><a href="#应用场景2" class="headerlink" title="应用场景2"></a>应用场景2</h3><p>他还举了一个应用此故事的例子，某个创业公司，盯着它很多细节看，大把问题，但很奇怪的是，很多企业做不成的事情，它都能做成。因此外面整体看起来发展的很好，国内本来有一家基金，看到乱象问题没有跟投，几年后回问，为什么当年坚持看好他，就以此故事来解释。当你发现这个大厦有很多蛀虫，却屹立不倒，说明他可能有过人之处，找到他就可以放心投了。这家的创始人确实厉害，总是先人一步进入一个蓬勃发展的领域，这就是他致胜的秘诀。</p>
+<p><strong>文学对读理工科、做技术、做投资没用么，显然不是。</strong></p>
+<h2 id="回望文艺复兴与十日谈"><a href="#回望文艺复兴与十日谈" class="headerlink" title="回望文艺复兴与十日谈"></a>回望文艺复兴与十日谈</h2><p>黑死病对欧洲影响巨大，大家对宗教的兴趣大减，转而关注世俗的幸福。</p>
+<ol>
+<li>离上帝更近的教士也没少死，对上帝的崇拜大减。神治不了病，还得靠医生，促进了欧洲医学的发展</li>
+<li>原本重来世，一下死这么多人，倍觉生命可贵，重视当下生活，加上十字军带回了阿拉伯地区的生活方式，以意大利为代表的欧洲进入一种享乐主义，教皇亦不例外</li>
+<li>劳动力一下少了好多，荒地处处，幸存者变得非常值钱，城里的雇主为了吸引劳工都在涨工资，逐渐形成城市中产阶级，因为缺少劳动力，欧洲开始寻求通过机械替代人力，促使了欧洲的工业革命。</li>
+</ol>
+<p>《十日谈》和《神曲》分别从民间的、世俗的故事和神的、精神的故事开始文学从中世纪到新世纪的转折。在中世纪，文学体裁远没有现在这么丰富，只有宗教文学、诗歌和宫廷文学。凡人的故事是难登大雅之堂的，《十日谈》之后，欧洲出现了大量的讲述人间故事的短篇小说。这些短篇小说后来又成了一些著名戏剧的创作原本。比如莎士比亚的很多戏剧的情节就来源于那些短篇小说。好的经典文学在历史上同样是功德无量。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%94%9F%E6%B4%BB%E6%84%9F%E6%82%9F/" rel="tag"># 生活感悟</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/26/Yarn%E8%B5%84%E6%BA%90%E8%B0%83%E5%BA%A6%E7%AD%96%E7%95%A5/" rel="prev" title="Yarn资源调度策略">
+      <i class="fa fa-chevron-left"></i> Yarn资源调度策略
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/02/02/%E4%BA%BA%E6%96%87%E6%97%85%E8%80%85/" rel="next" title="人文旅者">
+      人文旅者 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E3%80%8A%E5%8D%81%E6%97%A5%E8%B0%88%E3%80%8B"><span class="nav-number">1.</span> <span class="nav-text">《十日谈》</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E3%80%8A%E7%AC%AC%E4%B8%80%E5%A4%A9-%E7%AC%AC%E4%BA%8C%E4%B8%AA%E3%80%8B"><span class="nav-number">2.</span> <span class="nav-text">《第一天-第二个》</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%85%E4%BA%8B%E7%9A%84%E5%90%AF%E7%A4%BA%E2%80%93%E8%BF%BD%E5%AF%BB%E5%90%88%E7%90%86%E7%9A%84%E6%9C%AC%E8%B4%A8%EF%BC%8C%E6%8D%A2%E4%B8%AA%E8%A7%86%E8%A7%92%E7%90%86%E8%A7%A3%E4%BA%BA%E7%94%9F"><span class="nav-number">3.</span> <span class="nav-text">故事的启示–追寻合理的本质，换个视角理解人生</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF1"><span class="nav-number">3.1.</span> <span class="nav-text">应用场景1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF2"><span class="nav-number">3.2.</span> <span class="nav-text">应用场景2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E6%9C%9B%E6%96%87%E8%89%BA%E5%A4%8D%E5%85%B4%E4%B8%8E%E5%8D%81%E6%97%A5%E8%B0%88"><span class="nav-number">4.</span> <span class="nav-text">回望文艺复兴与十日谈</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">卓</p>
+  <div class="site-description" itemprop="description">一个成年人的自我博雅探索，以求不惑</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">卓</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">213k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:14</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

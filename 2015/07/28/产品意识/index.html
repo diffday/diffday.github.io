@@ -1,25 +1,460 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %}{{ page.title }} | {{ title }}{% endblock %}
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-{% block page_class %}page-post-detail{% endblock %}
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="造神前言在互联网圈里混，多少要培养一些个人的产品意识。用最直白的话来说，什么是产品意识，其实就是对人性的洞察。所有的大而玄的东西谈产品，如果不说人话，你就可以把它们踢到垃圾堆里。有一段时间，在鹅厂狂吹张小龙，造神一样，其实也是广研团队下层自身需要的宣传，虽说造神，但不得不说张小龙确是人才，杰出程序员，到了不惑年纪，看透纷繁复杂的羁绊，了解各种行业迷障，搞产品懂用户也是一等一的厉害。特摘录改写部分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="产品意识">
+<meta property="og:url" content="http://yoursite.com/2015/07/28/%E4%BA%A7%E5%93%81%E6%84%8F%E8%AF%86/index.html">
+<meta property="og:site_name" content="Diffday">
+<meta property="og:description" content="造神前言在互联网圈里混，多少要培养一些个人的产品意识。用最直白的话来说，什么是产品意识，其实就是对人性的洞察。所有的大而玄的东西谈产品，如果不说人话，你就可以把它们踢到垃圾堆里。有一段时间，在鹅厂狂吹张小龙，造神一样，其实也是广研团队下层自身需要的宣传，虽说造神，但不得不说张小龙确是人才，杰出程序员，到了不惑年纪，看透纷繁复杂的羁绊，了解各种行业迷障，搞产品懂用户也是一等一的厉害。特摘录改写部分">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20201126174951.png">
+<meta property="article:published_time" content="2015-07-28T12:14:21.000Z">
+<meta property="article:modified_time" content="2020-11-26T12:12:10.000Z">
+<meta property="article:author" content="卓">
+<meta property="article:tag" content="互联网思维">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://cdn.diffday.com/picgo/20201126174951.png">
+
+<link rel="canonical" href="http://yoursite.com/2015/07/28/%E4%BA%A7%E5%93%81%E6%84%8F%E8%AF%86/">
 
 
-{% block content %}
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+  <title>产品意识 | Diffday</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Diffday</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/07/28/%E4%BA%A7%E5%93%81%E6%84%8F%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="卓">
+      <meta itemprop="description" content="一个成年人的自我博雅探索，以求不惑">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Diffday">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          产品意识
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-07-28 20:14:21" itemprop="dateCreated datePublished" datetime="2015-07-28T20:14:21+08:00">2015-07-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-26 20:12:10" itemprop="dateModified" datetime="2020-11-26T20:12:10+08:00">2020-11-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/" itemprop="url" rel="index"><span itemprop="name">学而思</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="http://cdn.diffday.com/picgo/20201126174951.png"></p>
+<h2 id="造神前言"><a href="#造神前言" class="headerlink" title="造神前言"></a>造神前言</h2><p>在互联网圈里混，多少要培养一些个人的产品意识。用最直白的话来说，什么是产品意识，其实就是对人性的洞察。所有的大而玄的东西谈产品，如果不说人话，你就可以把它们踢到垃圾堆里。有一段时间，在鹅厂狂吹张小龙，造神一样，其实也是广研团队下层自身需要的宣传，虽说造神，但不得不说张小龙确是人才，杰出程序员，到了不惑年纪，看透纷繁复杂的羁绊，了解各种行业迷障，搞产品懂用户也是一等一的厉害。特摘录改写部分分享内容，提醒自己没有一身研发功夫的产品经理不是好运营。我们这里不看营销，不看技术，只看产品。</p>
+<p>后来梁宁的产品经理30讲和增长30讲也讲的很好，讲到产品经理的能力其实是建立信息秩序的能力，干这行也需天分，天分的一点是敏感度高。这一点是后期培养难以及时的，就像个性特征+动机+价值观=天赋一样，这些都是在其过往的经历中基本已经定型了，瓜若强扭大概率不甜。</p>
+<h2 id="用户定位"><a href="#用户定位" class="headerlink" title="用户定位"></a>用户定位</h2><span id="more"></span>
+
+<p><strong>要设计一款网络产品，我觉得最关键的是首先是定位用户，而不是想做个什么，</strong>就像张小龙这样，<strong>研究透了群体，做么样的东西如何做不容易错。想干个东西，多问问题把自己问醒。三个就够，what/who/why。</strong></p>
+<h3 id="who"><a href="#who" class="headerlink" title="who"></a>who</h3><p>这个层面谁人都绕不过去，举例说微信就是做普通百姓，不限行业，不限能力，不限年龄。</p>
+<h3 id="why"><a href="#why" class="headerlink" title="why"></a>why</h3><p>各种不同类型的产品，<strong>就是找自己的价值点</strong>。微信以好玩起家，以简洁干练的爽构造自己的体验哲学，以低噪音生活化信息流经营自己的最大价值。莫提生态体系，那是讲给市场听的。</p>
+<h3 id="what"><a href="#what" class="headerlink" title="what"></a>what</h3><p>张小龙分享谈到的内容，更多的集中于what这个层面（因为他的who很宽泛）。what中的产品气质的定位和哲学，粗线条的观点是有演绎推广内涵的。细的举例又具有醍醐灌顶的趣味效果。</p>
+<p>一款产品的气质其实也是讲产品经理的自我修养。what!</p>
+<h2 id="洞察最本质的用户心理诉求"><a href="#洞察最本质的用户心理诉求" class="headerlink" title="洞察最本质的用户心理诉求"></a>洞察最本质的用户心理诉求</h2><p>心理满足的驱动力，远胜工具和省钱。面向普通用户的互联网产品，要利用好人性的驱动力，贪嗔痴或性。举例来说，微博上的用户心理诉求是自我存在感，微信植根于手机环境，定位要比它更简单好玩，而不是简单的点对点省钱。</p>
+<h2 id="营造群体趋势里的口碑与时尚"><a href="#营造群体趋势里的口碑与时尚" class="headerlink" title="营造群体趋势里的口碑与时尚"></a>营造群体趋势里的口碑与时尚</h2><p>像《乌合之众》中说的一样，群体智商本身低于个体智商，群体自己会表现出像一个完整生命个体的特性，就好像蜜蜂群尽管没有管理层却会统一行动一样。傻傻的人们他们会跟风，自认为跟的是“时尚”，这种时尚是互联网产品重要的推动力，有价值的好用产品，会成为时尚。抛开价值，怎个好用？乔布斯的高境界在于<strong>stay hungry，stay foolish，如果套在用户身上，就是让我爽，不要让我思考。爽是用户需求，不思考是用户体验。</strong>在这种情况下，<strong>面向懒人设计，简化场景选择，保持主线质量，给用户自由用完即走</strong>，这样你才有好用的口碑。</p>
+<p><strong>洞察诉求</strong>，要懂人，如何<strong>获取用户心理</strong>？</p>
+<p>这条线中，其实你无法了解他人，只能理解自己，要<strong>从己出发推演人最普遍的心理活动</strong>，<strong>捕捉大众需求</strong>，而不是海量的个性化需求。其实你蹦出来的或听到的琐碎好点子99%都是脱离需求的，用户反馈也只是帮你了解他们的想法，终要回到内省归纳。莫太相信集体智慧，集体决策导致平庸和各个部分的分裂，不要贬低自己，你的短板可能就是你的强项（例如，社交恐惧者可能知道怎么做社交产品）。哐哐哐地列了这么一大堆，强调的是重视让人都能用都会用的基本需求，很多（个性）需求都是不必做的。逼迫自己变成傻瓜看待产品，变不成就别放过第一印象（忘性大就记下来）</p>
+<h2 id="产品设计-少即是多"><a href="#产品设计-少即是多" class="headerlink" title="产品设计-少即是多"></a>产品设计-少即是多</h2><p>像科学界的奥卡姆剃刀原则一样，理论都是宁少勿多。很多物理学家会说我们发现宇宙的规律是很简单的，那么既然上帝创造宇宙订立的规则都这么简单，然后演化出这么一个多样世界，为什么我们要把很多事情搞复杂化？留点空间，多点可能，因为你的决策来自个体推演，<strong>群体行为有规律但难以预测</strong>，你不也在试验和迭代吗，<strong>站在上帝身边的PM，也要学着上帝的哲学（做多就是抹杀）</strong>。体验要简单，规则要简单。记得每增加一种选择，都让用户迷惑，不固定感跟用户对随机的好奇，不是一个事儿。</p>
+<p>举个不设定复杂规则的例子，<strong>SNS玩的都是群体效应的功能</strong>。当初做摇一摇或者基于LBS的附近的人，也没想到用户会拿来干什么，只是往好玩好用，爽方面做。让用户自己去演化发掘（人们首次相互被看到时，值得期待用户间会发生什么，况且陌生人交友嗷嗷待哺，是你保底的需求点）。产品迭代的过程中，主线功能不强，堆再多辅助功能也没用，做好条理分类清晰的主体特性（分类本身就是人脑的学习&amp;工作机制的天性），感受关注用户的潮流和反应（非常重要），等待他们说，太好玩了。</p>
+<h2 id="平等-amp-灵魂"><a href="#平等-amp-灵魂" class="headerlink" title="平等 &amp; 灵魂"></a>平等 &amp; 灵魂</h2><p><strong>跟用户平等做朋友，做有灵魂的产品</strong></p>
+<p>有机联系的结构（产品结构），有肌肉（功能），有气质（价值观），反应敏捷（速度快），理性（逻辑清晰，交互合理），谈吐佳（文案）</p>
+<p>文案特别提下，<strong>产品中的文字是你和用户在说话，反映了你的气质。不讨好用户，不抬高自己</strong>。不用“吧”，“哦”，提示语不累赘加“成功”等多余字眼，用你不用您，不勉强用户使用功能。QQ邮箱管理员附上真人信息，也是尊重用户的一种体现。</p>
+<p>欢迎页是你为数不多的表达感受的地方，让每个欢迎页都是一个故事，让产品值得期待，传递人文意识当然更高级。</p>
+<p><strong>互联网产品应让个体更自由，个性化长尾产品越来越成为未来走向。工业化满足低成本的诉求，个性化体现独特价值。所以碎片化越来越明显，App越来越多。大家可创造的希望也越来越多。</strong></p>
+<h2 id="好玩的补充（醍醐提醒）"><a href="#好玩的补充（醍醐提醒）" class="headerlink" title="好玩的补充（醍醐提醒）"></a>好玩的补充（醍醐提醒）</h2><ul>
+<li>管理是不自然的，SNS产品不要让用户卷入到管理工作中。例如通讯录分组（微博分组，google+其实做出来了没人用），别以为这是真实大众需求</li>
+<li>不搞已发送已阅读之类的，也是做到简洁自然不累赘。再之搞了这个，老板用上已阅读特性，还不把下面的人紧张死，要允许人性的缺陷存在。</li>
+<li>需要打通，说明不是需求。需要整合，说明都不行了。需要拉动，说明是KPI了。需要导入，说明没有生命力了。避免全面，全面的东西是平庸的。</li>
+<li>微博上的人的心理诉求是自我存在感，其实活得都不是自己，并不是自言自语，而是博主希望在听众心目中构筑自己希望的形象。微信植根朋友圈，信噪比高，让用户使用维护起来简单轻松，胜在这里</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E6%80%9D%E7%BB%B4/" rel="tag"># 互联网思维</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2015/07/23/%E4%BA%92%E8%81%94%E7%BD%91%E4%BA%A4%E5%8F%8B/" rel="prev" title="互联网交友">
+      <i class="fa fa-chevron-left"></i> 互联网交友
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2016/04/18/LVS%E4%B8%89%E7%B1%BB%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F/" rel="next" title="LVS三类工作模式">
+      LVS三类工作模式 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%A0%E7%A5%9E%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">造神前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E5%AE%9A%E4%BD%8D"><span class="nav-number">2.</span> <span class="nav-text">用户定位</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#who"><span class="nav-number">2.1.</span> <span class="nav-text">who</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#why"><span class="nav-number">2.2.</span> <span class="nav-text">why</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#what"><span class="nav-number">2.3.</span> <span class="nav-text">what</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B4%9E%E5%AF%9F%E6%9C%80%E6%9C%AC%E8%B4%A8%E7%9A%84%E7%94%A8%E6%88%B7%E5%BF%83%E7%90%86%E8%AF%89%E6%B1%82"><span class="nav-number">3.</span> <span class="nav-text">洞察最本质的用户心理诉求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%90%A5%E9%80%A0%E7%BE%A4%E4%BD%93%E8%B6%8B%E5%8A%BF%E9%87%8C%E7%9A%84%E5%8F%A3%E7%A2%91%E4%B8%8E%E6%97%B6%E5%B0%9A"><span class="nav-number">4.</span> <span class="nav-text">营造群体趋势里的口碑与时尚</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%A7%E5%93%81%E8%AE%BE%E8%AE%A1-%E5%B0%91%E5%8D%B3%E6%98%AF%E5%A4%9A"><span class="nav-number">5.</span> <span class="nav-text">产品设计-少即是多</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B3%E7%AD%89-amp-%E7%81%B5%E9%AD%82"><span class="nav-number">6.</span> <span class="nav-text">平等 &amp; 灵魂</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A5%BD%E7%8E%A9%E7%9A%84%E8%A1%A5%E5%85%85%EF%BC%88%E9%86%8D%E9%86%90%E6%8F%90%E9%86%92%EF%BC%89"><span class="nav-number">7.</span> <span class="nav-text">好玩的补充（醍醐提醒）</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">卓</p>
+  <div class="site-description" itemprop="description">一个成年人的自我博雅探索，以求不惑</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">卓</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">213k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:14</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

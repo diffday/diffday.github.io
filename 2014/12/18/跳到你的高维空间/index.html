@@ -1,25 +1,478 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %}{{ page.title }} | {{ title }}{% endblock %}
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-{% block page_class %}page-post-detail{% endblock %}
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="不要做在褶皱纸面上行进被推得东倒西歪的虫  自然规律在高维空间表述会变得更为简单和优美。 在近几个世纪的数学和物理学都在高维领域得到了绝佳的扩展和应用。高维离科学那么近，离生活又那么远。生活中虽体味不明显，但不代表这个不重要。 我们不能看见高维，就像我们是水里的鱼看不见水一样，只有岸上的生物（更高维度空间生活）才能体察到水的存在。另外一个方面，其余的维度可能蜷缩在普朗克尺度上，成为类似小球的形">
+<meta property="og:type" content="article">
+<meta property="og:title" content="跳到你的高维空间">
+<meta property="og:url" content="http://yoursite.com/2014/12/18/%E8%B7%B3%E5%88%B0%E4%BD%A0%E7%9A%84%E9%AB%98%E7%BB%B4%E7%A9%BA%E9%97%B4/index.html">
+<meta property="og:site_name" content="Diffday">
+<meta property="og:description" content="不要做在褶皱纸面上行进被推得东倒西歪的虫  自然规律在高维空间表述会变得更为简单和优美。 在近几个世纪的数学和物理学都在高维领域得到了绝佳的扩展和应用。高维离科学那么近，离生活又那么远。生活中虽体味不明显，但不代表这个不重要。 我们不能看见高维，就像我们是水里的鱼看不见水一样，只有岸上的生物（更高维度空间生活）才能体察到水的存在。另外一个方面，其余的维度可能蜷缩在普朗克尺度上，成为类似小球的形">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://imglf6.lf127.net/img/d01tNzZDbERSbEM5Z2wxcWJlYUZQMHozaCthU0M0OGthaUdZNGRBNENkYzF5YUliUTZnZXdRPT0.jpg">
+<meta property="article:published_time" content="2014-12-18T07:48:06.000Z">
+<meta property="article:modified_time" content="2020-10-19T07:29:45.000Z">
+<meta property="article:author" content="卓">
+<meta property="article:tag" content="硬核知识">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://imglf6.lf127.net/img/d01tNzZDbERSbEM5Z2wxcWJlYUZQMHozaCthU0M0OGthaUdZNGRBNENkYzF5YUliUTZnZXdRPT0.jpg">
+
+<link rel="canonical" href="http://yoursite.com/2014/12/18/%E8%B7%B3%E5%88%B0%E4%BD%A0%E7%9A%84%E9%AB%98%E7%BB%B4%E7%A9%BA%E9%97%B4/">
 
 
-{% block content %}
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+  <title>跳到你的高维空间 | Diffday</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Diffday</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/12/18/%E8%B7%B3%E5%88%B0%E4%BD%A0%E7%9A%84%E9%AB%98%E7%BB%B4%E7%A9%BA%E9%97%B4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="卓">
+      <meta itemprop="description" content="一个成年人的自我博雅探索，以求不惑">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Diffday">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          跳到你的高维空间
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2014-12-18 15:48:06" itemprop="dateCreated datePublished" datetime="2014-12-18T15:48:06+08:00">2014-12-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-19 15:29:45" itemprop="dateModified" datetime="2020-10-19T15:29:45+08:00">2020-10-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/" itemprop="url" rel="index"><span itemprop="name">学而思</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="https://imglf6.lf127.net/img/d01tNzZDbERSbEM5Z2wxcWJlYUZQMHozaCthU0M0OGthaUdZNGRBNENkYzF5YUliUTZnZXdRPT0.jpg"></p>
+<blockquote>
+<p>不要做在褶皱纸面上行进被推得东倒西歪的虫</p>
+</blockquote>
+<p>自然规律在高维空间表述会变得更为简单和优美。</p>
+<p>在近几个世纪的数学和物理学都在高维领域得到了绝佳的扩展和应用。高维离科学那么近，离生活又那么远。生活中虽体味不明显，但不代表这个不重要。</p>
+<p>我们不能看见高维，就像我们是水里的鱼看不见水一样，只有岸上的生物（更高维度空间生活）才能体察到水的存在。另外一个方面，其余的维度可能蜷缩在普朗克尺度上，成为类似小球的形状，以人类当前的观察能力，尚无法观察到这个尺度范围。</p>
+<p>大家都知道欧几里得几何，但其描述的完美形状在现实世界中基本不存在，我们的自然界中没有什么地方能使我们看到平坦的理想化的欧几里得几何图形，山脉，海浪，云彩和漩涡都是不完美的原型，三角形和正方形，而是以无穷多样的方式表现出的弯弯扭扭的弯曲物体。<a target="_blank" rel="noopener" href="https://v.youku.com/v_show/id_XNTg1MTc5MDE2.html">连我们的几大行星都是螺旋形绕着太阳在疯狂赶路。</a></p>
+<span id="more"></span>
+
+<p>高斯作为黎曼的导师，其实也对欧几里得几何学持有深刻而广泛的保留意见，但其非常保守，不愿意与人争论，有自己在这方面的研究发展，但不愿意拿出来。黎曼在做非欧几何的探索时，还在帮物理学做一些电学方面的实验，好挣些收入糊口。</p>
+<p>当时，大家都知道电和磁有相关性，黎曼直观地把电和磁认为是同一种力的某种表现形式，这是电磁一体化的第一小步。一方面，他又在按导师要求准备一个关于“几何基础”的重要公开演讲，在这种交叉情况下，他提出一种惊人的“力”的含义。自牛顿开始，科学家认为力是两个远距离物体间的瞬间相互作用，称为超距作用。</p>
+<p>黎曼认为“力”是几何的结果，类比一个生活在二位褶皱平面上的虫，其肯定认为其前进的世界是平坦的，因为他们的身体也将被弄皱，而不会注意到他们的世界被扭曲了。当运动时，他们将觉得有一种神秘的看不见的“力”在阻止他们沿直线运动，每当他们的身体越过纸的一道皱纹，他们就会被推的左右晃动。</p>
+<p>黎曼推断，电，磁，引力都是我们的三维宇宙在看不见的第四维中起皱所致。因此，力本身并不存在，它只是几何畸变引起的明显结果。（大家现在看，这个设想也足够大胆，超出一般人的常识范围）</p>
+<p>黎曼的度规张量使他建立了一种强有力的工具来描述具有任意曲率的任何维空间，但他不知道度规张量遵循的精确方程，即他不知道什么使纸张起皱。但其先进的数学超过了19世纪相对落后的物理认识。为了使物理学家赶上数学家，我们必须等待有一个世纪。</p>
+<p>而后爱因斯坦的发现，就不用赘述了。</p>
+<p>在大学里，爱因斯坦证实了他的才艺，知道光可以用法拉第的电磁场描述。这些场遵循麦克斯韦的场方程，他发现麦克斯韦方程不允许静止的冻结的波，事实上也证明，不管你怎么辛苦的追赶光束，这束广总是以同样的速度c前进。在麦克斯韦场方程基础上，得出了狭义相对论。</p>
+<p>当讨论宇宙的归宿时，某一种说法我们可以通过高维逃跑。在宇宙创生后的瞬间，四维宇宙以牺牲六维宇宙为代价膨胀，我们的姊妹宇宙已收缩到普朗克尺度。当我们的四维宇宙塌缩时，我们的姊妹宇宙可能是开放的，使得维际旅行再一次变得可能。</p>
+<p>当前物理学已经重新进入瓶颈期在举步维艰。电影《星际穿越》里设想了那核心的秘密正在视界之外（黑洞中心），让人难以窥见终极奥义。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-----------如上回顾了那些科技史上让人精心赞叹的历史----------</span><br></pre></td></tr></table></figure>
+
+<p>科学可以在高维得到完美简单的推广解释，人类社会，也在某些理论模型下，也能够解释那反复重现的历史模型与大事件，显得非常的有意思，例如人口的马尔萨斯陷阱，可以用来解释科学改造人类社会之前的历史路径，当在这种更高维度看问题的理论</p>
+<p>指引下，循环往复出现的问题，不再那么模糊不清，没有那么多旁枝末节，跌跌撞撞。</p>
+<p>炒股活动大家都知道赔的人多，赚的人少，又看似一个复杂的迷局，每一天都有无数升升跌跌，但又在大周期里涨涨落落。只有成为高维度的玩家（智商），才能成为周期的赢家。</p>
+<p>人类除了有知识，人类还有情绪，是一个活在错综复杂情绪场的动物，学会管理自己的情绪（情商），也是一个非常关键的升级能力。</p>
+<p>世上多少人失败，不是因为不懂业务（能力），而是控制不了自己的情绪和欲望。</p>
+<p>赌博式的经济活动如炒股，控制自己的情绪，才能掌握成功的主动权。大周期虽在，但小时间跨度内仍然是波云诡谲的，总有黑天鹅的出现。输赢都控制在10%以内。不管输到10%，或者赢到10%，你都学会坚决离场，即使在最顺的时候，也不要纠缠。</p>
+<p>在这个世上，能在赢时退场的人，才是真正的赢家。</p>
+<p>读懂大周期，是超级能力（知识），辅以在一段段的小时间周期里修心（情绪），不断磨练升级。</p>
+<blockquote>
+<p>知识</p>
+</blockquote>
+<p>广泛经历是一个途径（还要勤于思考）</p>
+<p>深度研究也是一个途径，这条路更准，因广度知识通常是深度研究的副产品。包括熟读历史其实也是要到一定深度的。</p>
+<blockquote>
+<p>情绪</p>
+</blockquote>
+<p>情商论中有四个阶段。</p>
+<ol>
+<li>我是世界的中心</li>
+<li>我在世界的边缘</li>
+<li>我在世界之外</li>
+<li>我无处不在</li>
+</ol>
+<p>大部分人在1~2阶段中反复流转，当你进入第三阶，能在世界之外，人生也就更快乐了，或许你离改变世界的更大范围的成功就不远了。因为你已经跳到了更高的维度</p>
+<p>努力跳到你的更高维度吧，不要做在褶皱纸面上行进被推得东倒西歪的虫。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%A1%AC%E6%A0%B8%E7%9F%A5%E8%AF%86/" rel="tag"># 硬核知识</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2014/10/08/95%E5%B9%B4%E7%9A%84Jobs%E8%AE%BF%E8%B0%88/" rel="prev" title="95年的Jobs访谈-持续创新与天才的管理">
+      <i class="fa fa-chevron-left"></i> 95年的Jobs访谈-持续创新与天才的管理
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2015/01/08/%E6%83%85%E5%95%86%E8%BF%99%E7%8E%A9%E6%84%8F/" rel="next" title="情商这玩意">
+      情商这玩意 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">卓</p>
+  <div class="site-description" itemprop="description">一个成年人的自我博雅探索，以求不惑</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">卓</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">213k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:14</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

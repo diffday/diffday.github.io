@@ -1,25 +1,455 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %}{{ page.title }} | {{ title }}{% endblock %}
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-{% block page_class %}page-post-detail{% endblock %}
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="魔幻的20202020在近代史上定有一笔，全球肺炎疫情，地球村给干成了不相往来。从2019年底先在武汉流行，西方一顿喷，到中国动用集权政府的强大组织能力，生生给压了下去，成为首个从肺炎流行中脱离迈入常态化的国家。 作为地球上的寄生虫的人类，这场病毒要么是地球用来自我清理的，要么是人为制造生物攻击却失控的，总之，口罩是带了一年，很多人也美了一年。随着北半球冬季的来临，有继续加重和重流行的可能，希望">
+<meta property="og:type" content="article">
+<meta property="og:title" content="回望2020">
+<meta property="og:url" content="http://yoursite.com/2020/12/31/%E5%9B%9E%E6%9C%9B2020/index.html">
+<meta property="og:site_name" content="Diffday">
+<meta property="og:description" content="魔幻的20202020在近代史上定有一笔，全球肺炎疫情，地球村给干成了不相往来。从2019年底先在武汉流行，西方一顿喷，到中国动用集权政府的强大组织能力，生生给压了下去，成为首个从肺炎流行中脱离迈入常态化的国家。 作为地球上的寄生虫的人类，这场病毒要么是地球用来自我清理的，要么是人为制造生物攻击却失控的，总之，口罩是带了一年，很多人也美了一年。随着北半球冬季的来临，有继续加重和重流行的可能，希望">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210105162027.png">
+<meta property="article:published_time" content="2020-12-31T07:21:36.000Z">
+<meta property="article:modified_time" content="2021-01-05T08:29:23.000Z">
+<meta property="article:author" content="卓">
+<meta property="article:tag" content="生活感悟">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://cdn.diffday.com/picgo/20210105162027.png">
+
+<link rel="canonical" href="http://yoursite.com/2020/12/31/%E5%9B%9E%E6%9C%9B2020/">
 
 
-{% block content %}
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+  <title>回望2020 | Diffday</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Diffday</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/31/%E5%9B%9E%E6%9C%9B2020/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="卓">
+      <meta itemprop="description" content="一个成年人的自我博雅探索，以求不惑">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Diffday">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          回望2020
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-31 15:21:36" itemprop="dateCreated datePublished" datetime="2020-12-31T15:21:36+08:00">2020-12-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-05 16:29:23" itemprop="dateModified" datetime="2021-01-05T16:29:23+08:00">2021-01-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">生活随笔</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="http://cdn.diffday.com/picgo/20210105162027.png"></p>
+<h2 id="魔幻的2020"><a href="#魔幻的2020" class="headerlink" title="魔幻的2020"></a>魔幻的2020</h2><p>2020在近代史上定有一笔，全球肺炎疫情，地球村给干成了不相往来。从2019年底先在武汉流行，西方一顿喷，到中国动用集权政府的强大组织能力，生生给压了下去，成为首个从肺炎流行中脱离迈入常态化的国家。</p>
+<p>作为地球上的寄生虫的人类，这场病毒要么是地球用来自我清理的，要么是人为制造生物攻击却失控的，总之，口罩是带了一年，很多人也美了一年。随着北半球冬季的来临，有继续加重和重流行的可能，希望各位国人都能过个平安喜乐的春节。</p>
+<p>这一年中上演了各种美好与丑恶，有代际冲突，有全国一心，有传媒控制，有叛国出卖，有人发国难财，有人赔的底掉，年初没有货发，年终货发不出去（集装箱大排队）。直播带货成为风口，年底又干出了社区团购，却给官方戴上紧箍咒，说资本无序创新，却不看星辰大海。</p>
+<span id="more"></span>
+
+<p>疫情伊始，远程办公，对于各家公司的IT基础设施大为挑战，对管理能力也大为挑战。环比中验出了互联网的组织能力还是更高，企业文化也更胜一筹（对雇员来说）。无聊经济和电子商务，都在今年赚的盆满钵满。疫情封锁刚刚告一段落，有人就思考了工作的意义，选择与旧岗位告别，更多人是选择规避风险敞口，再走走看。今年对多数公司是艰难的一年，对多数打工人同样也是。</p>
+<p>川建国经济干的漂亮，可没控制好疫情，连任无望，但一年中让中国感受到了科技卡脖子的力量，荣耀从华为中拆分，我看凶多吉少，时代浪潮就那么残酷，大厂的人别以为在什么平台都是一等一的好手。</p>
+<h3 id="又进入风象元素时代"><a href="#又进入风象元素时代" class="headerlink" title="又进入风象元素时代"></a>又进入风象元素时代</h3><p>从星象学上来说，土木合相从1980年应该就进入了风元素时代了，只是2000~2020又在土元素时代（金牛座）游了一波，这20年里文化比较废，不似人才辈出的1980年代。20年末，土木合相又进入水瓶座的区间，不回头的迈入到风元素周期，大概要延续到2159年。</p>
+<p>土元素时代重资源物质，风元素时代重信息沟通。暗合计算机产业，互联网产业的爆发，也暗合金融创新，时代使然，今后的20年互联网科技肯定继续突进。从细分上来说，前10年受木星影响</p>
+<blockquote>
+<p>1920年的咆哮风格，1940年的帝国扩张及跨越边界，1960年的享乐主义，1980年的雅皮士</p>
+</blockquote>
+<p>后10年，土星的衰退，修整和计划又重新占据主导。在2020-2030这十年间，继续绚烂的疯狂，是大概率事件</p>
+<h2 id="近几年"><a href="#近几年" class="headerlink" title="近几年"></a>近几年</h2><h3 id="2018"><a href="#2018" class="headerlink" title="2018"></a>2018</h3><p>年在变动之际，去了几个网红城市，厦门，西南二城，成都重庆。厦门有南方特色，温润舒服，重庆更魔幻，成都如饮茶，平淡宜居。</p>
+<h3 id="2019"><a href="#2019" class="headerlink" title="2019"></a>2019</h3><p>2019 4月去北京参加Qcon会，记错飞机时间差点赶不上，会议结束之际，去了天津一睹风采，夜晚商业民俗一条街早早关门，颇感失望，但天津真是一个气候文化和北京迥异的地方。</p>
+<p>5月底去青海甘肃来了一圈，领略了西北风光，卸去了高节奏的枷锁，西部是片可以让人放空，离心灵更近的天地。</p>
+<p>国庆假期带刚上幼儿园的男仔上了南岳衡山，是一份深刻的记忆，我对拥有这么一个男娃感到欣慰，除了扛他上山，今后还有长路在肩，如何引导和呵护他的发展，他的下限不会差，但上限能去到哪，一生能否快快乐乐，虽有平常心，亦任重道远。</p>
+<p>冬季随家人闪现网红城市，西安，就住在鼓楼商业区附近的特色小旅馆里，没那么多时间去逛博物馆标杆历史景点啊，选择去了交通成本不太高的大唐芙蓉园，陪着家人同行，不那么累，是一种莫大的幸福吧</p>
+<h3 id="2020"><a href="#2020" class="headerlink" title="2020"></a>2020</h3><p>这个疫情年，除了驾车回老家，未远行，走走亲友大家也都是无惧病毒风险。2020个人与以往突破最多的是，对于非技术领域的阅读和领略。看书不算少，尤其是传记类的原来不愿碰的，都啃完了，受益匪浅，遗憾没早些年听技术总监的话去读传记，但我能技术持续深入掌握精髓，也离不开那时的那股愣头劲吧。看书且更愿意做下笔记。对于讲一个概念更能形象化的给出类比。对于组织的培训，有更客观的看待与珍惜，且会更留意教师的授课技巧和风格，体悟体系化的知识对于经验的转化率和传承性的作用。应该做培训是今后的一种职业出路。</p>
+<p>2020与来自蚂蚁的前同事侃天说地，了解了蚂蚁风波的核心问题，感叹总理同事多金仍怀揣大梦想。大学同事也有自己出来当老板开干的，我未到时候，甘愿当个干饭打工人，说实在的在资源型社会除了这副皮囊也没有什么拿得出手的核心资源。对于选择大于努力的大原则明确的太晚，落在后面，愿它是一场长跑…</p>
+<p>体重继续慢速攀升，仍有晚睡的差习惯，现在在体重平台期。表哥用自己减重成功的成绩现身说法，刺激了自己对减重的期待（实际还是体检结果在刺激，毛病越来越多），一些无趣的运动，自己是坚持不下来的。实践管住嘴，成为必由之路（读研时期有效果），相信在2021年会有收获。</p>
+<h2 id="新年展望"><a href="#新年展望" class="headerlink" title="新年展望"></a>新年展望</h2><p>2021，体重稳步下降，重在可喜的趋势，这里就不立什么FLAG了</p>
+<p>2021，团队管理工作继续开悟，形成更体系化的知识，更能把一个事情本质浅显的讲明白。AI中台建设成果落地开花，给予团队成员成就感</p>
+<p>2021，更懂理财</p>
+<p>2021，老房子翻新装潢下，愿家庭生活和谐健康</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%94%9F%E6%B4%BB%E6%84%9F%E6%82%9F/" rel="tag"># 生活感悟</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/12/15/%E8%9A%82%E8%9A%81%E4%B8%8A%E5%B8%82%E5%8F%97%E9%9A%BE%E8%AE%B0/" rel="prev" title="蚂蚁上市受难记">
+      <i class="fa fa-chevron-left"></i> 蚂蚁上市受难记
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/01/07/%E5%8D%AB%E5%B0%86%E5%86%9B%E9%AA%A0%E9%AA%91%E5%88%97%E4%BC%A0%E8%AF%B4%E5%BC%80%E5%8E%BB/" rel="next" title="卫将军骠骑列传说开去">
+      卫将军骠骑列传说开去 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AD%94%E5%B9%BB%E7%9A%842020"><span class="nav-number">1.</span> <span class="nav-text">魔幻的2020</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%88%E8%BF%9B%E5%85%A5%E9%A3%8E%E8%B1%A1%E5%85%83%E7%B4%A0%E6%97%B6%E4%BB%A3"><span class="nav-number">1.1.</span> <span class="nav-text">又进入风象元素时代</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%91%E5%87%A0%E5%B9%B4"><span class="nav-number">2.</span> <span class="nav-text">近几年</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2018"><span class="nav-number">2.1.</span> <span class="nav-text">2018</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2019"><span class="nav-number">2.2.</span> <span class="nav-text">2019</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2020"><span class="nav-number">2.3.</span> <span class="nav-text">2020</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%B9%B4%E5%B1%95%E6%9C%9B"><span class="nav-number">3.</span> <span class="nav-text">新年展望</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">卓</p>
+  <div class="site-description" itemprop="description">一个成年人的自我博雅探索，以求不惑</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">卓</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">213k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:14</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

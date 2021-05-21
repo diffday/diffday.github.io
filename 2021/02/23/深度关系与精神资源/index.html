@@ -1,25 +1,471 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %}{{ page.title }} | {{ title }}{% endblock %}
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-{% block page_class %}page-post-detail{% endblock %}
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="本期内容主体来自于梁宁产品思维30讲的《02用户体验与结婚教练》课后彩蛋文章汇总节选 一篇是《关系的深度–“纸牌屋”安德伍德与克莱尔夫妇的深刻关系》 一篇是《一个人的精神结构和他的精神资源》 其中第一篇表述更为精彩，第一篇描述要强者，第二篇描述苟安者，这苟安者的出场头牌是慈禧。 文章是节选，我再继续缩写节选警句，尊重原创。 第一篇-深度关系《纸牌屋》中 安德伍德 与克莱尔夫妇独处镜头总是在一起吸">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深度关系与精神资源">
+<meta property="og:url" content="http://yoursite.com/2021/02/23/%E6%B7%B1%E5%BA%A6%E5%85%B3%E7%B3%BB%E4%B8%8E%E7%B2%BE%E7%A5%9E%E8%B5%84%E6%BA%90/index.html">
+<meta property="og:site_name" content="Diffday">
+<meta property="og:description" content="本期内容主体来自于梁宁产品思维30讲的《02用户体验与结婚教练》课后彩蛋文章汇总节选 一篇是《关系的深度–“纸牌屋”安德伍德与克莱尔夫妇的深刻关系》 一篇是《一个人的精神结构和他的精神资源》 其中第一篇表述更为精彩，第一篇描述要强者，第二篇描述苟安者，这苟安者的出场头牌是慈禧。 文章是节选，我再继续缩写节选警句，尊重原创。 第一篇-深度关系《纸牌屋》中 安德伍德 与克莱尔夫妇独处镜头总是在一起吸">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210223150937.png">
+<meta property="article:published_time" content="2021-02-23T11:51:06.000Z">
+<meta property="article:modified_time" content="2021-02-23T11:55:31.000Z">
+<meta property="article:author" content="卓">
+<meta property="article:tag" content="思想启迪">
+<meta property="article:tag" content="心理学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://cdn.diffday.com/picgo/20210223150937.png">
+
+<link rel="canonical" href="http://yoursite.com/2021/02/23/%E6%B7%B1%E5%BA%A6%E5%85%B3%E7%B3%BB%E4%B8%8E%E7%B2%BE%E7%A5%9E%E8%B5%84%E6%BA%90/">
 
 
-{% block content %}
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+  <title>深度关系与精神资源 | Diffday</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Diffday</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/23/%E6%B7%B1%E5%BA%A6%E5%85%B3%E7%B3%BB%E4%B8%8E%E7%B2%BE%E7%A5%9E%E8%B5%84%E6%BA%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="卓">
+      <meta itemprop="description" content="一个成年人的自我博雅探索，以求不惑">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Diffday">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          深度关系与精神资源
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-02-23 19:51:06 / 修改时间：19:55:31" itemprop="dateCreated datePublished" datetime="2021-02-23T19:51:06+08:00">2021-02-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E6%96%87%E7%B2%BE%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网文精摘</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="http://cdn.diffday.com/picgo/20210223150937.png"></p>
+<p>本期内容主体来自于梁宁产品思维30讲的《02用户体验与结婚教练》<a target="_blank" rel="noopener" href="https://www.douban.com/note/699329366/">课后彩蛋文章汇总节选</a></p>
+<p>一篇是《关系的深度–“纸牌屋”安德伍德与克莱尔夫妇的深刻关系》</p>
+<p>一篇是《一个人的精神结构和他的精神资源》</p>
+<p>其中第一篇表述更为精彩，第一篇描述要强者，第二篇描述苟安者，这苟安者的出场头牌是慈禧。</p>
+<p>文章是节选，我再继续缩写节选警句，尊重原创。</p>
+<h3 id="第一篇-深度关系"><a href="#第一篇-深度关系" class="headerlink" title="第一篇-深度关系"></a>第一篇-深度关系</h3><p>《纸牌屋》中 安德伍德 与克莱尔夫妇独处镜头总是在一起吸烟或跑步，从来没有躺在床上松弛聊天的场景。与各自的情人在一起时，场景镜头则不同。克莱尔告诉情人亚当只能爱他偶尔一周，然后继续回到安德伍德身边。</p>
+<p>为甚？因为他们拥有更为深刻的关系。</p>
+<p>人生重要的天分是持续快乐的地方，每个人都没有办法拒绝自己真实的快乐，会不自禁的在自己喜欢的事情上花时间，不知不觉放一万个小时在那里。</p>
+<p>然而，成就最高的某批人，还有一个比快乐更重要的天分 – 痛苦！</p>
+<span id="more"></span>
+
+<p>有人受不了山顶不是他，有人受不了成绩好过他，有人受不了“我想要的那张椅子上坐的不是我”的痛苦。向上爬、严格自律、殚精竭虑，这样日复一日，<strong>委实不快乐，但驱动他们的是痛苦，巨大的痛苦，让他们无法停下来</strong>。</p>
+<p>什么叫普通人？就是快乐没那么强烈，痛苦也没那么巨大。</p>
+<p>什么是杰出的人？就是如果他想要的那个得不到，就像万蚁噬心般痛苦。牺牲什么都可以，他必须得到他要的那个东西。</p>
+<p>当他不再痛苦的时候，也许他超越了，也许他就平庸了。</p>
+<p>所以，要想和一个优秀的人在一起，就要懂他真实的快乐，懂他真实的痛苦，并且给予他能量。</p>
+<p>《纸牌屋》克莱尔的优雅聪慧得体，但内核，一直点燃她，推动她，折磨她的，是她自己勃勃的野心。</p>
+<p>情人亚当对克莱尔说：你一直要万众瞩目。不，我要举足轻重。</p>
+<p>安德伍德则和她有一样的痛，对于拥有这样巨大痛苦的人，欢愉显得短暂与廉价。他们一寸一寸前进，痛苦才能得到慰藉，只有他们二人，才能<strong>真实地分享痛苦，交换能量和灵魂，这就是人与人关系的深浅远近</strong>。</p>
+<p>这就像傻白甜是不可能搞定霸道总裁的，他可能真实地给了霸道总裁欢愉，可欢愉在霸道总裁这里相对脆弱。</p>
+<p><u><strong>很多人一生关系中，最大的痛是与父母的关系。论获得能量，生命都是父母给的，父母的爱是一生最大的能量。</strong></u>可是若父母不能理解子女的快乐，不能理解子女的痛苦的时候，这种生生疏离的痛苦，是多么残酷，也是做儿女的要学会与生活和解的一面，双方的修行。</p>
+<h3 id="第二篇-精神资源"><a href="#第二篇-精神资源" class="headerlink" title="第二篇-精神资源"></a>第二篇-精神资源</h3><p>伊丽莎白和慈禧相差300年，但都单身主政40年，可成就不同，前者英格兰文化达到顶峰（出现莎士比亚，培根等大师），国力猛进；后者虽周遭名臣涌现，难阻败局。</p>
+<p>伊丽莎白童年教师，是英国文艺复兴时期著名人文主义者罗杰·阿斯卡姆，伊丽莎白会六国语言，精神资源中有亚里士多德，凯撒，哥伦布</p>
+<p>而<strong>慈禧的精神资源，是《资治通鉴》，以及戏文《挑滑车》、《四郎探母》，这些内容形成了她的世界观和精神结构</strong>。</p>
+<p>为什么家庭环境对人一生的影响，远大于他在学校里收到的教育？因为，家庭和教育，给予了一个孩子影响他一生的做事习惯与精神资源。孩子成年后一生的所有重要决策，不是基于数学考90分还是60分，而是从幼年开始的经历及有意无意被注入的精神资源。</p>
+<p><strong>精神资源结构会主导他的好恶感和羞耻心，他的愿望，梦想和恐惧，继而对决定产生影响</strong>。</p>
+<p>《三体》中致使太阳系毁灭的美女程心，拥有人类世界最高权柄，却连续两次做出错误决策，放弃对三体人的威慑，放弃曲率飞船研发。因为她不具备在宇宙生存竞争中，带领一个知识和技术不占优势的种族，劈开红海断腕而出，开辟自己的生存空间的精神结构，而书中的地球人温顺，麻木….</p>
+<h3 id="分层视角来看人"><a href="#分层视角来看人" class="headerlink" title="分层视角来看人"></a>分层视角来看人</h3><p>故事来自于一个结婚教练，用从表及里的剖析法来分析潜在配偶，助力姑娘们看准郎君嫁人。分为这么五层：</p>
+<p><strong>感知层，角色层，资源层，能力圈，存在感</strong>。</p>
+<h4 id="存在感"><a href="#存在感" class="headerlink" title="存在感"></a>存在感</h4><p>存在感是前面讲的精神结构/资源下最里面的部分，也是一个人持续让自己变化的内在动力。要深度关系在一起过，你要看他这个人对自己的存在感到底是一种什么样的自我设定和感知，他对自己能力圈的建设和经营，他对自己的资源的建设和管理。</p>
+<p>存在感的不同，驱使同在一批起跑线的青年创业者在若干年后做出不同产品，收获不同的结局。如校内网的王兴，抓虾的徐易容，豆瓣的阿北。三个人的能力圈和资源结构相较于05年都发生了很大变化，而不是当时都很斯文的干web2.0的文艺男青年。</p>
+<p>存在感即是他自己为什么而存在，什么状态下存在感得到满足，什么时候他不爽或烦躁，它是一种触发情绪和推动行动的开关。就像狮子为什么要去咬长颈鹿，其实它也很吃力，很勉强，被踢挨打有风险，但没办法，必须厮杀下去，吃饱了它才不这么费劲呢。</p>
+<p>**<u>一个人为什么奔波，焦虑，不安，机关算尽，上蹿下跳？其实皆因他的存在感还没有被满足</u>**，动物其实只要生存条件满足，就会很愉悦了。男人和女人又不一样，很多女孩在一段关系中如家庭中对方给了足够的确认感，就会很满足，但很多男人是不局限于此的。</p>
+<p>一个人是为了不断强化自己的存在感，在左冲右突中扩充了自己的能力圈。就如同动物在奔波和厮打中强健了自己的肌肉。**<u>换言之存在感满足了，能力圈就不会再扩充了，毕竟扩充能力圈其实是一件很痛苦的事情</u>**。</p>
+<blockquote>
+<p><strong>存在感会驱使改变自己的能力圈，改变自己的资源，然后甚至改变自己外在的样子</strong></p>
+</blockquote>
+<h4 id="释疑"><a href="#释疑" class="headerlink" title="释疑"></a>释疑</h4><h5 id="角色框架"><a href="#角色框架" class="headerlink" title="角色框架"></a>角色框架</h5><p>每个人都生活在角色里，且被角色驯化，你是银行职员，军人，或是公务员，你会看到他身上角色的痕迹。大家日常就是角色的对接。</p>
+<h5 id="资源结构"><a href="#资源结构" class="headerlink" title="资源结构"></a>资源结构</h5><p>出身背景，财富，人脉，精神资源，每个人都不一样。资源结构会推动每个人，去往不同的地方，未来可能会到不同的系统不同的角色中去。</p>
+<h4 id="乔布斯的三个女人"><a href="#乔布斯的三个女人" class="headerlink" title="乔布斯的三个女人"></a>乔布斯的三个女人</h4><p>给生了一个女儿却不愿分一分钱的布伦南</p>
+<p>弥留写自传，潸然泪下坦诚是最美是首爱的蒂娜，向蒂娜求婚却被拒绝。蒂娜觉得用户体验太差了“忽视是一种虐待，爱上一个以自我为中心的人，这种痛苦难以置信”，或者你可以说，蒂娜没有那么爱乔布斯。</p>
+<p>分得百亿遗产的劳伦，陪了乔布斯27年，给了他稳定的情感支撑，她找到了消解糟糕体验的办法，也说的很真实。“他像激光那么专注，当他的光芒照耀到你身上，你就会沐浴着他的关爱。但是，当他的光芒转移到其它关注点的时候，你就会觉得人生非常黑暗”</p>
+<p>摆一个乔布斯在你面前，你能接住么？你要么</p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>个人看法存在感是动态的，跟环境有关，但内核稳定，就像一个人价值观稳定，除非受什么强刺激</p>
+<p>你的存在感是什么？此时我在问自己，总结清楚后，或许我会补充到文章上</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%80%9D%E6%83%B3%E5%90%AF%E8%BF%AA/" rel="tag"># 思想启迪</a>
+              <a href="/tags/%E5%BF%83%E7%90%86%E5%AD%A6/" rel="tag"># 心理学</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/02/22/%E9%98%85%E8%AF%BB%EF%BC%8C%E8%A1%A8%E8%BE%BE%E4%B8%8E%E5%86%99%E4%BD%9C%E7%9A%84%E8%AE%AD%E7%BB%83/" rel="prev" title="阅读，表达与写作的训练">
+      <i class="fa fa-chevron-left"></i> 阅读，表达与写作的训练
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/02/25/%E6%B2%B9%E8%85%BB%E7%9A%84%E5%91%A8%E8%91%A3/" rel="next" title="油腻的周董">
+      油腻的周董 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AF%87-%E6%B7%B1%E5%BA%A6%E5%85%B3%E7%B3%BB"><span class="nav-number">1.</span> <span class="nav-text">第一篇-深度关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AF%87-%E7%B2%BE%E7%A5%9E%E8%B5%84%E6%BA%90"><span class="nav-number">2.</span> <span class="nav-text">第二篇-精神资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%B1%82%E8%A7%86%E8%A7%92%E6%9D%A5%E7%9C%8B%E4%BA%BA"><span class="nav-number">3.</span> <span class="nav-text">分层视角来看人</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%98%E5%9C%A8%E6%84%9F"><span class="nav-number">3.1.</span> <span class="nav-text">存在感</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%8A%E7%96%91"><span class="nav-number">3.2.</span> <span class="nav-text">释疑</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A7%92%E8%89%B2%E6%A1%86%E6%9E%B6"><span class="nav-number">3.2.1.</span> <span class="nav-text">角色框架</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%B5%84%E6%BA%90%E7%BB%93%E6%9E%84"><span class="nav-number">3.2.2.</span> <span class="nav-text">资源结构</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B9%94%E5%B8%83%E6%96%AF%E7%9A%84%E4%B8%89%E4%B8%AA%E5%A5%B3%E4%BA%BA"><span class="nav-number">3.3.</span> <span class="nav-text">乔布斯的三个女人</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">4.</span> <span class="nav-text">结语</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">卓</p>
+  <div class="site-description" itemprop="description">一个成年人的自我博雅探索，以求不惑</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">卓</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">213k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:14</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

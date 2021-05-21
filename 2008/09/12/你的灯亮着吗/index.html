@@ -1,25 +1,496 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %}{{ page.title }} | {{ title }}{% endblock %}
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-{% block page_class %}page-post-detail{% endblock %}
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="整本书中有很多故事举例，本就为问题解决者所写，薄薄一本，通透练达，没看这本书的时候总奇怪到底为什么取这个书名，看看故事就明白了  引子故事问题瑞士日内瓦湖上的山脉中，建成了很长的汽车隧道，从隧道东出口再往400米，就是世界上风景最优美的俯瞰日内瓦湖的度假胜地，每天都有成千上万的游客在此处欣赏美景，同时，每天当着几百名神清气爽的游客返回他们的汽车时，都会有十来个（甚至更多）的人们收到一份意外的惊">
+<meta property="og:type" content="article">
+<meta property="og:title" content="你的灯亮着吗">
+<meta property="og:url" content="http://yoursite.com/2008/09/12/%E4%BD%A0%E7%9A%84%E7%81%AF%E4%BA%AE%E7%9D%80%E5%90%97/index.html">
+<meta property="og:site_name" content="Diffday">
+<meta property="og:description" content="整本书中有很多故事举例，本就为问题解决者所写，薄薄一本，通透练达，没看这本书的时候总奇怪到底为什么取这个书名，看看故事就明白了  引子故事问题瑞士日内瓦湖上的山脉中，建成了很长的汽车隧道，从隧道东出口再往400米，就是世界上风景最优美的俯瞰日内瓦湖的度假胜地，每天都有成千上万的游客在此处欣赏美景，同时，每天当着几百名神清气爽的游客返回他们的汽车时，都会有十来个（甚至更多）的人们收到一份意外的惊">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20201119140946.png">
+<meta property="article:published_time" content="2008-09-11T17:12:21.000Z">
+<meta property="article:modified_time" content="2020-11-19T11:53:36.000Z">
+<meta property="article:author" content="卓">
+<meta property="article:tag" content="思想启迪">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://cdn.diffday.com/picgo/20201119140946.png">
+
+<link rel="canonical" href="http://yoursite.com/2008/09/12/%E4%BD%A0%E7%9A%84%E7%81%AF%E4%BA%AE%E7%9D%80%E5%90%97/">
 
 
-{% block content %}
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+  <title>你的灯亮着吗 | Diffday</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Diffday</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2008/09/12/%E4%BD%A0%E7%9A%84%E7%81%AF%E4%BA%AE%E7%9D%80%E5%90%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="卓">
+      <meta itemprop="description" content="一个成年人的自我博雅探索，以求不惑">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Diffday">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          你的灯亮着吗
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2008-09-12 01:12:21" itemprop="dateCreated datePublished" datetime="2008-09-12T01:12:21+08:00">2008-09-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-19 19:53:36" itemprop="dateModified" datetime="2020-11-19T19:53:36+08:00">2020-11-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/" itemprop="url" rel="index"><span itemprop="name">学而思</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="http://cdn.diffday.com/picgo/20201119140946.png"></p>
+<blockquote>
+<p>整本书中有很多故事举例，本就为问题解决者所写，薄薄一本，通透练达，没看这本书的时候总奇怪到底为什么取这个书名，看看故事就明白了</p>
+</blockquote>
+<h2 id="引子故事"><a href="#引子故事" class="headerlink" title="引子故事"></a>引子故事</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>瑞士日内瓦湖上的山脉中，建成了很长的汽车隧道，从隧道东出口再往400米，就是世界上风景最优美的俯瞰日内瓦湖的度假胜地，每天都有成千上万的游客在此处欣赏美景，同时，每天当着几百名神清气爽的游客返回他们的汽车时，都会有十来个（甚至更多）的人们收到一份意外的惊喜：汽车也跟着放松了（电池没电了）——因为他们在放松之余，忘记关掉车灯！</p>
+<h3 id="解决者出场"><a href="#解决者出场" class="headerlink" title="解决者出场"></a>解决者出场</h3><p>怎么着？只能打911，叫交警过来帮忙呗。为此，游客们这愉快的心情都瞬间化为乌有，“去了日内瓦湖，车都开不走了”。谁让你这么设计的，<u><strong>锅工程师你扛了吧！</strong></u>经过一系列的调研，工程师想出了N个他认为可行的办法来：</p>
+<ol>
+<li><p>可以在尽头挂一块牌，写上：关掉车灯。然而，如果夜间行走的人也关掉车灯，这样真的好吗？</p>
+</li>
+<li><p>他可以装傻，啥也不知道，就让这些“意外”继续上演。然而，这样差评更多，到问责的时候，就会背上“豆腐渣工程”的骂名！</p>
+</li>
+<li><p>他可以在风景俯瞰处建一个充电桩，但是这要不要成本的？还有就是充电桩出故障时，挨骂挨得更多呢！</p>
+</li>
+<li><p>他可以把充电桩承包给私人，然后人家开起小卖部来，什么臭豆腐、黄酒奶茶、茴香豆都在卖起来，还拉动GDP增长呢！但是，这样景区就变成了商业化，游客们的体验更糟糕了。</p>
+</li>
+<li><p>他在隧道尽头挂一块牌即可。<em><strong>想来想去，还是这个办法最靠谱！</strong></em></p>
+</li>
+</ol>
+<h3 id="解决方案出场"><a href="#解决方案出场" class="headerlink" title="解决方案出场"></a>解决方案出场</h3><span id="more"></span>
+
+<p>这张牌写什么内容比较好呢？咱们来一段简约的提示吧：（对于计算机来说，即使是再微小的一步也必须用琐碎的细节表示出来）</p>
+<ul>
+<li><p>如果这是白天，并且如果您的车灯开着，那么请熄灭车灯；</p>
+</li>
+<li><p>如果天色已晚，并且如果您的车灯没开，那么请打开车灯；</p>
+</li>
+<li><p>如果这是白天，并且如果您的车灯没开，那么就不用打开；</p>
+</li>
+<li><p>如果天色已晚，并且如果您的车灯开着，那么就不用关灯。</p>
+</li>
+</ul>
+<p>各位读者，你看蒙了吗？如果这张牌挂在隧道口提醒司机们，他们的时速至少60，如果盯着这个指示牌来看，读完这个指示牌，汽车早就飞过护栏，并且咕噜咕噜地沉到湖底了——这根本没办法实质性解决问题！还可以做得更好一点吗？</p>
+<p><strong>作为一个老司机，他们能通过考试，并且久经各种路况的考验，就不可能是彻头彻尾的傻瓜，他们所需要的，只是隧道尽头加一块牌，写上几个字：</strong></p>
+<p><strong><u>你的灯亮着吗？</u></strong></p>
+<p><em><strong>如果他们连理解这种提醒的能力都没有，那么他们遇到的问题就不只是电池没电这么简单了。</strong></em>一个小小的标牌，就完美的解决了这个问题。因为这条信息足够短，所以标牌上可以用多种语言表达出来，包括英文、法文、德文、中文……</p>
+<h2 id="After-故事"><a href="#After-故事" class="headerlink" title="After 故事"></a>After 故事</h2><p>引子故事有点长，结合书里的其它一众故事引申出来的道理才是书本的核心。</p>
+<h3 id="面对问题不要迷路"><a href="#面对问题不要迷路" class="headerlink" title="面对问题不要迷路"></a>面对问题不要迷路</h3><ul>
+<li><p>不要把人们的解决方法认为是问题的定义。</p>
+</li>
+<li><p>每一种解决方法都会带来新问题。</p>
+</li>
+<li><p>问题最难处理的那一部分恰恰是去意识到它们的存在。</p>
+</li>
+<li><p>或许还可以改变问题的表述来获得不同的解决办法。</p>
+</li>
+<li><p>当你沉迷于寻找问题定义和解决方法时，不要忘记随时都回头看看，看看自己是不是已经迷路了。</p>
+</li>
+</ul>
+<p>与世界上其它动物相比，人类恐怕是最多变的。可惜我们碰到的绝大多数问题都离不开这种动物，甚至往往都是源于这种动物。他们不止多变，还多疑，自私，自以为是。</p>
+<h3 id="正视问题"><a href="#正视问题" class="headerlink" title="正视问题"></a>正视问题</h3><p>在这个时候，大师提醒我们：</p>
+<p>1.当别人能很好的解决自己的问题的时候，千万不要越俎代庖（如果这是他们的麻烦，就让它成为他们的麻烦。）</p>
+<p>2.当某人能解决这个问题，但他本人却不会碰到这个问题时，你要做的第一件事情就是让他也感受到这一问题</p>
+<p>3.不管看上去如何，很少人知道知道他要什么，直到你给了他们所想要的东西（参看Make it Worse）</p>
+<p>4.甚至，事实上，没多少人真希望他的问题被解决</p>
+<h3 id="缺经验的解决者怎么干？"><a href="#缺经验的解决者怎么干？" class="headerlink" title="缺经验的解决者怎么干？"></a>缺经验的解决者怎么干？</h3><p>那些没有经验的问题解决者们，几乎无一例外，<u><strong>都是去匆忙的寻找解决办法，而不是去给要解决的问题下定义</strong></u>。</p>
+<p>即使是有经验的解决者，在社会压力要求他匆忙做决定的时候，也很容易屈服。这样，他们会找到很多解决办法，但未必适合手头这个问题，当一个人努力让别人接受他赞成的解决办法时，总是指责别人太顽固，而不是说对方的观点其实是可以替代的</p>
+<h3 id="经验可贵，常识无价"><a href="#经验可贵，常识无价" class="headerlink" title="经验可贵，常识无价"></a>经验可贵，常识无价</h3><p>如果对问题没有一定的常识，那么解决办法几乎毫无疑问不是针对这一被误解的问题。通常，它就变成那个声音最高或口才最好的人所认为的问题的解决方案了，或者，是那个最有钱的人的认为的问题了。</p>
+<h3 id="让问题起舞"><a href="#让问题起舞" class="headerlink" title="让问题起舞"></a>让问题起舞</h3><p>在某些时候某些人期望的是尽量去减少抱怨，犹如房东。如果抱怨永远不被统计出来，而仅仅是对着空气嘟囔，他也许可以通过不理睬来解决他的问题，鬼知道呢，他或许认为这本就是一个无中生有的问题。</p>
+<h3 id="Make-it-Worse"><a href="#Make-it-Worse" class="headerlink" title="Make it Worse"></a>Make it Worse</h3><p>有时候如果你想找到一个问题的解决办法，试试“让情况变得更糟”，这个不好理解，我们可以从这个角度看待这句话，给你一个角度看当前的问题是不是真正的问题。犹如，例子中，有人在镜子上涂鸦，有人抱怨的问题。其实并不是乱涂乱画的问题，是拙劣和没有想象力的绘画的问题，停下来照镜子和停下来欣赏涂鸦并没有区别，只要他们不觉得乏味，时间过得慢就行</p>
+<h2 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h2><h3 id="给问题下一个哲学定义"><a href="#给问题下一个哲学定义" class="headerlink" title="给问题下一个哲学定义"></a>给问题下一个哲学定义</h3><p>问题其实就是你期望的东西和你体验的东西之间的差别。要么改变期望，要么改变体验。</p>
+<h3 id="作者的感触"><a href="#作者的感触" class="headerlink" title="作者的感触"></a>作者的感触</h3><p>解决问题不会是一个道德上中立的的行为，所以首先对自己要真诚。This above all, to thine own self be true [from 莎士比亚之哈姆雷特]</p>
+<p>如果在对技术的使用和构建过程中没有赋予足够的人文方面的重视，技术将毫无价值，甚至是危险的（technology is worthless even dangerous if we don’t pay attention to the human aspects of both its use and its onstruction）</p>
+<p>还有一些摘录，如作序者的骚柔，作者的人际警言，觉得已不再符合自己2020年时的胃口，想回顾看<a target="_blank" rel="noopener" href="https://www.iteye.com/blog/highsky-240889">传送门</a>在此</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%80%9D%E6%83%B3%E5%90%AF%E8%BF%AA/" rel="tag"># 思想启迪</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2008/05/11/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%A5%B3%E6%80%A7%E6%9C%89%E6%B0%B8%E4%B9%85%E4%B9%B3%E6%88%BF/" rel="prev" title="为什么女性有永久性乳房">
+      <i class="fa fa-chevron-left"></i> 为什么女性有永久性乳房
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2009/11/15/%E7%8A%AC%E5%84%92%E4%B8%BB%E4%B9%89/" rel="next" title="犬儒主义">
+      犬儒主义 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E5%AD%90%E6%95%85%E4%BA%8B"><span class="nav-number">1.</span> <span class="nav-text">引子故事</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">1.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E8%80%85%E5%87%BA%E5%9C%BA"><span class="nav-number">1.2.</span> <span class="nav-text">解决者出场</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%87%BA%E5%9C%BA"><span class="nav-number">1.3.</span> <span class="nav-text">解决方案出场</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#After-%E6%95%85%E4%BA%8B"><span class="nav-number">2.</span> <span class="nav-text">After 故事</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%A2%E5%AF%B9%E9%97%AE%E9%A2%98%E4%B8%8D%E8%A6%81%E8%BF%B7%E8%B7%AF"><span class="nav-number">2.1.</span> <span class="nav-text">面对问题不要迷路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E8%A7%86%E9%97%AE%E9%A2%98"><span class="nav-number">2.2.</span> <span class="nav-text">正视问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%BA%E7%BB%8F%E9%AA%8C%E7%9A%84%E8%A7%A3%E5%86%B3%E8%80%85%E6%80%8E%E4%B9%88%E5%B9%B2%EF%BC%9F"><span class="nav-number">2.3.</span> <span class="nav-text">缺经验的解决者怎么干？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%8F%E9%AA%8C%E5%8F%AF%E8%B4%B5%EF%BC%8C%E5%B8%B8%E8%AF%86%E6%97%A0%E4%BB%B7"><span class="nav-number">2.4.</span> <span class="nav-text">经验可贵，常识无价</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A9%E9%97%AE%E9%A2%98%E8%B5%B7%E8%88%9E"><span class="nav-number">2.5.</span> <span class="nav-text">让问题起舞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Make-it-Worse"><span class="nav-number">2.6.</span> <span class="nav-text">Make it Worse</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%BE%E5%A3%B0"><span class="nav-number">3.</span> <span class="nav-text">尾声</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%99%E9%97%AE%E9%A2%98%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%93%B2%E5%AD%A6%E5%AE%9A%E4%B9%89"><span class="nav-number">3.1.</span> <span class="nav-text">给问题下一个哲学定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E8%80%85%E7%9A%84%E6%84%9F%E8%A7%A6"><span class="nav-number">3.2.</span> <span class="nav-text">作者的感触</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">卓</p>
+  <div class="site-description" itemprop="description">一个成年人的自我博雅探索，以求不惑</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">卓</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">213k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:14</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

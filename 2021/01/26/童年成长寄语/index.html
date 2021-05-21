@@ -1,25 +1,516 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %}{{ page.title }} | {{ title }}{% endblock %}
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-{% block page_class %}page-post-detail{% endblock %}
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="父母存在的意义我们尽量对孩子好一些，让他们在小时候尽量快乐，因为长大以后他们会遇到很多痛苦，那时候，小时候的快乐就会成为他们最美好的回忆和安慰。 父母存在的意义，不是给予孩子舒适和富裕的生活，而是当你想到父母时，你内心就充满力量，会感受到温暖从而拥有克服困难的勇气和能力，以此获得人生真正的乐趣和自信。 幸运的人用童年治愈一生，不幸的人用一生治愈童年。 学校 vs 家长孩子一半时间在学校，195">
+<meta property="og:type" content="article">
+<meta property="og:title" content="童年成长寄语">
+<meta property="og:url" content="http://yoursite.com/2021/01/26/%E7%AB%A5%E5%B9%B4%E6%88%90%E9%95%BF%E5%AF%84%E8%AF%AD/index.html">
+<meta property="og:site_name" content="Diffday">
+<meta property="og:description" content="父母存在的意义我们尽量对孩子好一些，让他们在小时候尽量快乐，因为长大以后他们会遇到很多痛苦，那时候，小时候的快乐就会成为他们最美好的回忆和安慰。 父母存在的意义，不是给予孩子舒适和富裕的生活，而是当你想到父母时，你内心就充满力量，会感受到温暖从而拥有克服困难的勇气和能力，以此获得人生真正的乐趣和自信。 幸运的人用童年治愈一生，不幸的人用一生治愈童年。 学校 vs 家长孩子一半时间在学校，195">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/IMG_8799.jpg">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210423143141.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20210423144304.png">
+<meta property="article:published_time" content="2021-01-26T05:37:06.000Z">
+<meta property="article:modified_time" content="2021-05-18T02:54:05.000Z">
+<meta property="article:author" content="卓">
+<meta property="article:tag" content="生活感悟">
+<meta property="article:tag" content="教育">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://cdn.diffday.com/picgo/IMG_8799.jpg">
+
+<link rel="canonical" href="http://yoursite.com/2021/01/26/%E7%AB%A5%E5%B9%B4%E6%88%90%E9%95%BF%E5%AF%84%E8%AF%AD/">
 
 
-{% block content %}
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+  <title>童年成长寄语 | Diffday</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Diffday</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/26/%E7%AB%A5%E5%B9%B4%E6%88%90%E9%95%BF%E5%AF%84%E8%AF%AD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="卓">
+      <meta itemprop="description" content="一个成年人的自我博雅探索，以求不惑">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Diffday">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          童年成长寄语
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-26 13:37:06" itemprop="dateCreated datePublished" datetime="2021-01-26T13:37:06+08:00">2021-01-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-18 10:54:05" itemprop="dateModified" datetime="2021-05-18T10:54:05+08:00">2021-05-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E6%96%87%E7%B2%BE%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网文精摘</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <img src="http://cdn.diffday.com/picgo/IMG_8799.jpg" style="zoom:40%;" />
+
+<h2 id="父母存在的意义"><a href="#父母存在的意义" class="headerlink" title="父母存在的意义"></a>父母存在的意义</h2><p>我们尽量对孩子好一些，让他们在小时候尽量快乐，因为长大以后他们会遇到很多痛苦，那时候，小时候的快乐就会成为他们最美好的回忆和安慰。</p>
+<p>父母存在的意义，不是给予孩子舒适和富裕的生活，而是当你想到父母时，你内心就充满力量，会感受到温暖从而拥有克服困难的勇气和能力，以此获得人生真正的乐趣和自信。</p>
+<p>幸运的人用童年治愈一生，不幸的人用一生治愈童年。</p>
+<h3 id="学校-vs-家长"><a href="#学校-vs-家长" class="headerlink" title="学校 vs 家长"></a>学校 vs 家长</h3><p>孩子一半时间在学校，195天在校，170天在家，学习的差距不是在学校，而是在家里。</p>
+<p>一是，学校的教育是批发式的，同样的老师，同样的教学</p>
+<p>二是，孩子在学校的习惯和表现也是在家庭中培养出来的</p>
+<p>错过了孩子的成长后续是补不回来的，所以要有固定的更多的陪伴，也不要假手于上一辈，上一辈除非层次很高，否则必然跟现今社会脱节，也错误习惯很多，教不好新时代的儿童。</p>
+<h2 id="带娃是个技术活"><a href="#带娃是个技术活" class="headerlink" title="带娃是个技术活"></a>带娃是个技术活</h2><p>孩子不是随便生的，也不是当猪养的，带娃有多难，谁带谁知道。</p>
+<span id="more"></span>
+
+<p>若是冲突硬碰硬，很容易伤害到孩子的小心灵。且小孩子能有什么坏心思呢，多半是父母搞错了，这是一场无硝烟的心理战。</p>
+<p>几个常见的情况或误区如下，得尽力避开</p>
+<h3 id="没耐性，好贪玩"><a href="#没耐性，好贪玩" class="headerlink" title="没耐性，好贪玩"></a>没耐性，好贪玩</h3><p>最好从1岁半到8-9岁，训练孩子【加外力】（从19个月起就能看出忍耐力的差异），因为在很知名的米歇尔实验中发现，哪些能忍住诱惑的孩子，学业和人际关系都更好，这就是很多人都知晓的延迟满足效应（学会忍耐，往往会得到更多）。可以通过转移注意力（例如要玩时，给他讲故事），让他做积攒类的事情（你甚至可以设计一套奖励货币体系—例如用豆子）。</p>
+<p>训练孩子是好事，怕的是，只训不练，就如下一种情形</p>
+<h3 id="只会消极批评"><a href="#只会消极批评" class="headerlink" title="只会消极批评"></a>只会消极批评</h3><p>只会消极的批评，那就是往教育里注水，不但没啥用，还会让孩子心理抵触，只会重复犯错。看好一个人，他就会变好，这就是心理学中的罗森塔尔效应。平时，要多给孩子期望，赞许。这样孩子会从你的语言，表情甚至每一个细胞里，感觉到自己能行。</p>
+<p>犯错时，别急着骂，要给孩立个好人设，孩子是懂事的，心里觉得自己很优秀，就不想让父母失望。要让孩子愿意听你的话。</p>
+<h3 id="神烦家长"><a href="#神烦家长" class="headerlink" title="神烦家长"></a>神烦家长</h3><p>一件事反复哔哔，会让亲子关系，成为世界上最遥远的距离。咱们用马克吐温的故事来举个例子。由此马老听牧师募捐演讲，一听就想捐款，10分钟后，牧师还没讲完，他烦了，只想捐零钱，又过了10分钟，牧师还是没讲完，他气得直接走人，还顺走了两块钱。咱们把这个总结一下，这种刺激太多，时间太长，让人烦的情况，叫做超限效应，孩子不是不可以批评，但最好只批评一次，或只讲一点才有效，总之就是：点到即止。</p>
+<h3 id="神高侠侣"><a href="#神高侠侣" class="headerlink" title="神高侠侣"></a>神高侠侣</h3><p>家长自视甚高，觉得孩子也是天才，就对孩子要求也神高。试问小孩子哪有那么大能耐，一开始就目标很高，这得吓退多少人。在学习方面，要从简单有趣的东西学期，有兴趣了，才能愿意学下去。</p>
+<h4 id="降级沟通，寓教于乐"><a href="#降级沟通，寓教于乐" class="headerlink" title="降级沟通，寓教于乐"></a>降级沟通，寓教于乐</h4><p>实际上人类孩子说话是自己学会的（常规不超过24个月），周围的人只是帮其纠正纠正，引导引导，他一直在听，听完他就会说，有先开语，也有说贵人语迟的，都学会了，沉浸式学习，体验式学习。要明白，行万里路比读万卷书还重要，花点时间陪孩子出去，沉浸式地去感受一下。</p>
+<p>你跟他需要有一种比较好的方式去沟通和学习，互相提问和启发式的一种学习，你的思维要降到他那个档次，然后再跟他去聊，你变成孩子跟他聊，而不是让他变成成人来跟你聊，这种方式他会把你当朋友，各种各样的问题就会越来越多。</p>
+<p>被夸大的孩子比批评大的一定好，挫折一生太多，无需太多挫折教育，你能把学习寓教于乐是你的本事，但学习真的不快乐，要坚持啊。</p>
+<h4 id="小确幸vs大道理"><a href="#小确幸vs大道理" class="headerlink" title="小确幸vs大道理"></a>小确幸vs大道理</h4><p>小确幸比大道理有用，未来从无数个现在组成，确定性来自于小确幸（每天往前走）</p>
+<h2 id="育儿看法"><a href="#育儿看法" class="headerlink" title="育儿看法"></a>育儿看法</h2><p>犹太人和华人都比较重视教育（也都重视钱），其实普遍重视教育，中国是不及犹太人的，因为也就是近代的事儿。</p>
+<p>犹太人的节日礼物大部分是书，这个华人族群就相形见绌了。在矮大紧的一些犹太朋友里，他举例家庭里甚至定期会举行读书会，外加定期去旅行，并不是那种豪华的，就是到处去看看世界。到处去看看，是我比较向往的看法，遍历山河，才觉人生值得（出走半生，归来仍是少年，难，成长是一定的）</p>
+<blockquote>
+<p>出走半生，归来仍是少年。这句其实改编于东坡的一句词，词写给自己一个乌台诗案牵连被贬的伉俪夫妇 –《定风波·常羡人间琢玉郎》，其中提到 “万里归来颜愈少”</p>
+</blockquote>
+<p>如果你已有孩子，尽量不要那么焦虑吧，不要把养孩子当做一场精细的科学实验，不要像个直升机一样在孩子头顶盘旋，现在的精细教育，一个孩子都快把六个大人逼死了，其实孩子不需要很多东西，也不需要跟别人攀比，这些都是家长自己心里的问题。这样你的孩子或许才能不叛逆，彬彬有礼，拥有一份出走半生仍是少年的正能量心态。</p>
+<h3 id="与孩子的对话"><a href="#与孩子的对话" class="headerlink" title="与孩子的对话"></a>与孩子的对话</h3><p>不是我听不见，是你的脾气让我根本听不见，听不懂</p>
+<h4 id="55-38-7定律"><a href="#55-38-7定律" class="headerlink" title="55-38-7定律"></a>55-38-7定律</h4><blockquote>
+<p>当你跟一个人说话时，对方能感知到的，是55%的形象和态度+38%的眼神和语气+7%的具体内容</p>
+</blockquote>
+<p>当你带着脾气跟孩子说话，孩子真正听到的只有7%，那就意味着，你不得不反反复复地吼叫（你以为自己说的很清楚，但实际上，孩子完全没接收到你的信息，他们的大脑还在考虑安全的问题）</p>
+<p>当大脑遭遇到突发危机时，只会有三种情况：攻击，逃跑，冰冻。这就是孩子表现出来的行为，要么反抗，要么逃避，要么就是呆住</p>
+<h4 id="夸孩子的套路：FFC模型"><a href="#夸孩子的套路：FFC模型" class="headerlink" title="夸孩子的套路：FFC模型"></a>夸孩子的套路：FFC模型</h4><p>Feeling，指的是给我什么感受</p>
+<p>Fact，感受的事实依据</p>
+<p>Compare，跟什么比较</p>
+<p>举个栗子</p>
+<blockquote>
+<p>女儿，妈妈今天很欣慰，我今天什么都没说，你就把锅洗了，居然比我洗的还认真</p>
+</blockquote>
+<h3 id="牛娃培养"><a href="#牛娃培养" class="headerlink" title="牛娃培养"></a>牛娃培养</h3><p>在孩子教育的修罗场，想改变，只有两个办法：一是换个环境，二是不换环境，但无视无孔不入的环境压力。要是选第二条修罗之路。你将带着孩子，与周边的大环境为敌，你们将成为现行牛蛙试炼教育体系中的异类，绝不是一条容易坚持下去的道路。</p>
+<blockquote>
+<p>而作为异类在学校压力也是很大的，娃很难开心起来，对其成长也有影响</p>
+</blockquote>
+<p>你选择不屈服于现行教育体制，人家牛蛙整天在书山题海中搏击，你孩子虽然见多识广，但考试成绩不跻身上流，走国内的高考独木桥肯定会被挤下去，所以有种看法是最早初中毕业，最晚高中毕业，必须得出国，从背背背跳到想想想的国度，开启另一份残酷竞争。如果作为父母，不具备今后送孩子出国留学的经济基础，那你和你的孩子其实没有太多的选择空间。</p>
+<p>一个人的命运，既取决于宏观上的时代大环境，又取决于不可知的偶然性。决定未来富贵贫贱 的因素，其实读书只在第五位，就像老古言说的，一命二运三风水，四积阴德五读书。换种话说，排在教育之前的还有出身与天赋（学区房有一个最大的不确定性是政策性风险），父母的格局和境界也是孩子出身的一种，起跑线的一种。<u>让孩子提升认知，增长见识，关键是从理解学习的乐趣和世界的本质，从“要我学”变成“我要学”，有出色的思辨能力和表达能力，理工科的思维模式和文科的表达能力，是最好的组合，如果还能有一定的艺术欣赏能力，就更好了</u>。整体一生，最需要给孩子的，是理性的思维习惯和健全的人格素养。</p>
+<h4 id="饱和教育"><a href="#饱和教育" class="headerlink" title="饱和教育"></a>饱和教育</h4><p>普通人生活中能用到的数学知识，学到初二就够了，二次函数都用不上，再往后学的什么集合，指数函数，对数函数，复数，数列，立体几何，解析几何，空间向量，大部分早就 还给老师了，但为什么我们还要学习呢，就是要透过数学，掌握这种相对复杂的思维能力。</p>
+<blockquote>
+<p>补充一句：深度的科研，应用技术，及理论层面，都离不开这些数学内容</p>
+</blockquote>
+<h3 id="言传身教"><a href="#言传身教" class="headerlink" title="言传身教"></a>言传身教</h3><blockquote>
+<p>家长陷入了我执（不知足），<strong>其实孩子病了你只希望他赶快好</strong>。</p>
+</blockquote>
+<p>我执的本质应该是执我，而不是去执别人，孩子在弹钢琴的家庭长大，大概率会掌握会乐于弹，地球上只有不合格的父母。</p>
+<p>身教重言传，爹妈不看书孩子为什么看书。大家特别中意生一个蛋，然后告诉这个蛋，你要记载着我上一代做母鸡我就算了，下一代你要变凤凰，咱们俩一起努力变成凤凰，他忘了他自己要先变成凤凰。</p>
+<p><u><strong>三代人培养一代人</strong></u>，其实是他需要从爷爷奶奶姥姥姥爷那一辈，他就要有一个很好的表率，因为他会跨代影响到下一代，你会发现很多高知家庭，孩子后来的气质是不一样的，从小看到的东西生态或文化的基因已经构成了一种他愿意积极向上。贵是指精神的高贵，这是有一个过程。</p>
+<h3 id="静待花开vs拔苗助长"><a href="#静待花开vs拔苗助长" class="headerlink" title="静待花开vs拔苗助长"></a>静待花开vs拔苗助长</h3><p>家长其实在很多的一种要求脱离了孩子当前的一个认知的局限，让孩子在该玩的时候去各种书山字海，等孩子真的该书山字海的时候，他烦了他开始玩了，因为你太早的让他干了不该干的事儿，然后他一定要补偿过来。</p>
+<h3 id="认知拓展过程"><a href="#认知拓展过程" class="headerlink" title="认知拓展过程"></a>认知拓展过程</h3><img src="http://cdn.diffday.com/picgo/20210423143141.png" style="zoom:67%;" />
+
+<h4 id="要不要让孩子从小留学？"><a href="#要不要让孩子从小留学？" class="headerlink" title="要不要让孩子从小留学？"></a>要不要让孩子从小留学？</h4><p>这要反问你的孩子将来会在哪里生活，要知道，各国的基础教育都是为了在那个国家生活好而准备的。它的目的是获得在特定社会生活所需要的最重要的一些东西，包括让你形成对世界的看法，学会一些基本方法和工具，便于将来继续学习具体的技能。</p>
+<p>当你理解基础教育的目的，也就能明白为什么编程和奥数这样的课程，对很多小学生来说是浪费时间，因为基础教育阶段并不需要学习这么具体的技能，这样反而可能耽搁他们的全面发展。</p>
+<p>人到高中，一个人接受的其实仍然是全方位的教育（因为人类寿命的增加，社会分工变得越来越复杂，基础教育不得不延长），所以中学阶段的教育，其实就是在小学教育的基础上再包一个同心圆。</p>
+<h4 id="高等教育怎么说"><a href="#高等教育怎么说" class="headerlink" title="高等教育怎么说"></a>高等教育怎么说</h4><p>其实到了大学生认知边界仍然是个圆，本科教育虽然有专业之分，仍然有通识教育的成分，大学学的，未必会做那方面的事情，只不过有了全面的了解。而到了硕士研究生阶段，人的知识体系重心真正开始往一个方向偏移，因为人没有时间和精力在每一个方向都前进了。</p>
+<blockquote>
+<p>硕士和博士有什么区别？</p>
+</blockquote>
+<p>硕士是学会使用前人经验，解决实际问题；而博士则是需要创造出前人不知道的知识（也就是图上超越原有边界那个突出的红色部分）。</p>
+<p>真实的世界可能是下面这张图所描绘的，知识的边界比人的认知边界要广阔得多。</p>
+<img src="http://cdn.diffday.com/picgo/20210423144304.png" style="zoom:50%;" />
+
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>有很多关乎儿童成长的书，简直汗牛充栋，不知道怎么选时，就去樊登那去找吧，内容没毛病，看一本足够，其余的都是修行。</p>
+<h3 id="童年的意义"><a href="#童年的意义" class="headerlink" title="童年的意义"></a>童年的意义</h3><p>到了一定的年纪，你会发现，生命中很多美好的事情都发生过了，剩下的情节，只是重复和老去，日复一年。</p>
+<p>唯有孩子，他们会冲走重复，原来小时候是如此的纯真和充满想象。让你可以重新经历一次童年，让你去买小时候在爸妈面前求之不得的玩具，让你去不断总结怎样做好父母，让你知道控制自己的情绪，放慢自己的语速，从而认清自己，接纳自己。</p>
+<h3 id="应有的人格心态"><a href="#应有的人格心态" class="headerlink" title="应有的人格心态"></a>应有的人格心态</h3><p>说句难听的话，没几个孩子长大真成功了，最需要最实用的教育是：如何在没能成功的人生里随遇而安，此时，那些“没用”的东西就变得弥足珍贵，孩子长大不会痛苦失落，做父母的就成功了，当然这不是劝你一起始就随遇而安。</p>
+<p>人生识字忧患始，看清了世道险恶，依然选择良善，看清了命途多舛，依然选择乐观，这才是强者应具备的最难得的生存智慧和生命品格。</p>
+<p>我们无法改变出身，无法改变环境，我们能改变的，只有内心的态度。同样是奔赴西域，前途未卜，在王维笔下，是”劝君更尽一杯酒，西出阳关无故人“，在高适笔下，则成了”莫愁前路无知己，天下谁人不识君“的慷慨豪迈。同样是咏梅，陆游笔下成了”无意苦争春，一任群芳妒，零落成泥碾作尘，只有香如故“的落寞寂寥，但在毛泽东笔下，成了”俏也不争春，只把春来报，待到山花烂漫时，她在丛中笑“的豁达开朗。</p>
+<h3 id="父母子女的缘分"><a href="#父母子女的缘分" class="headerlink" title="父母子女的缘分"></a>父母子女的缘分</h3><p>为人父母和为人子女，这辈子这是一种缘分，你们之间真正能相处的时间（考虑到上学，上班的开销，睡觉的时间），很短。小的时候你要照顾他，他有了自我意识自己开始有更强的独立精神后，你可能管不了他了，工作以后他来看你已经变成了你的一种奢望了，<u>你们真正能相处的时间我相信几年吧</u>。</p>
+<p>这就是你们一生的缘分，何必上那么多枷锁，大家都活一辈子，换句话讲，他过的好不好，跟你没关，你觉得你过得好不好，你要怨你的父母吗？<u>你自认为你改变所有事情你才能幸福，后来你才弄明白，你改变你自己就幸福了</u>，<strong>把握现在，自己做好，孩子会跟着你的方式去做的，你快乐了，他就快乐了，他是你的影子，是你的印随效应</strong>。</p>
+<p>给孩子讲什么叫成功，什么叫幸福，他是体会不到的，这些词对成年人来讲都很奢侈，更别说对孩子，**<u>孩子快乐很简单，而成人简单很快乐，我只要简单了，快乐了，孩子自然就快乐了</u>**。</p>
+<h3 id="千言万语一句话"><a href="#千言万语一句话" class="headerlink" title="千言万语一句话"></a>千言万语一句话</h3><p>众生皆苦，愿对孩子献上无条件的❤️</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%94%9F%E6%B4%BB%E6%84%9F%E6%82%9F/" rel="tag"># 生活感悟</a>
+              <a href="/tags/%E6%95%99%E8%82%B2/" rel="tag"># 教育</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/07/%E5%8D%AB%E5%B0%86%E5%86%9B%E9%AA%A0%E9%AA%91%E5%88%97%E4%BC%A0%E8%AF%B4%E5%BC%80%E5%8E%BB/" rel="prev" title="卫将军骠骑列传说开去">
+      <i class="fa fa-chevron-left"></i> 卫将军骠骑列传说开去
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/01/26/Yarn%E8%B5%84%E6%BA%90%E8%B0%83%E5%BA%A6%E7%AD%96%E7%95%A5/" rel="next" title="Yarn资源调度策略">
+      Yarn资源调度策略 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%88%B6%E6%AF%8D%E5%AD%98%E5%9C%A8%E7%9A%84%E6%84%8F%E4%B9%89"><span class="nav-number">1.</span> <span class="nav-text">父母存在的意义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%A6%E6%A0%A1-vs-%E5%AE%B6%E9%95%BF"><span class="nav-number">1.1.</span> <span class="nav-text">学校 vs 家长</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%A6%E5%A8%83%E6%98%AF%E4%B8%AA%E6%8A%80%E6%9C%AF%E6%B4%BB"><span class="nav-number">2.</span> <span class="nav-text">带娃是个技术活</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B2%A1%E8%80%90%E6%80%A7%EF%BC%8C%E5%A5%BD%E8%B4%AA%E7%8E%A9"><span class="nav-number">2.1.</span> <span class="nav-text">没耐性，好贪玩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AA%E4%BC%9A%E6%B6%88%E6%9E%81%E6%89%B9%E8%AF%84"><span class="nav-number">2.2.</span> <span class="nav-text">只会消极批评</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A5%9E%E7%83%A6%E5%AE%B6%E9%95%BF"><span class="nav-number">2.3.</span> <span class="nav-text">神烦家长</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A5%9E%E9%AB%98%E4%BE%A0%E4%BE%A3"><span class="nav-number">2.4.</span> <span class="nav-text">神高侠侣</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%99%8D%E7%BA%A7%E6%B2%9F%E9%80%9A%EF%BC%8C%E5%AF%93%E6%95%99%E4%BA%8E%E4%B9%90"><span class="nav-number">2.4.1.</span> <span class="nav-text">降级沟通，寓教于乐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%8F%E7%A1%AE%E5%B9%B8vs%E5%A4%A7%E9%81%93%E7%90%86"><span class="nav-number">2.4.2.</span> <span class="nav-text">小确幸vs大道理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%82%B2%E5%84%BF%E7%9C%8B%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">育儿看法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8E%E5%AD%A9%E5%AD%90%E7%9A%84%E5%AF%B9%E8%AF%9D"><span class="nav-number">3.1.</span> <span class="nav-text">与孩子的对话</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#55-38-7%E5%AE%9A%E5%BE%8B"><span class="nav-number">3.1.1.</span> <span class="nav-text">55-38-7定律</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%B8%E5%AD%A9%E5%AD%90%E7%9A%84%E5%A5%97%E8%B7%AF%EF%BC%9AFFC%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.1.2.</span> <span class="nav-text">夸孩子的套路：FFC模型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%9B%E5%A8%83%E5%9F%B9%E5%85%BB"><span class="nav-number">3.2.</span> <span class="nav-text">牛娃培养</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A5%B1%E5%92%8C%E6%95%99%E8%82%B2"><span class="nav-number">3.2.1.</span> <span class="nav-text">饱和教育</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%80%E4%BC%A0%E8%BA%AB%E6%95%99"><span class="nav-number">3.3.</span> <span class="nav-text">言传身教</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%99%E5%BE%85%E8%8A%B1%E5%BC%80vs%E6%8B%94%E8%8B%97%E5%8A%A9%E9%95%BF"><span class="nav-number">3.4.</span> <span class="nav-text">静待花开vs拔苗助长</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A4%E7%9F%A5%E6%8B%93%E5%B1%95%E8%BF%87%E7%A8%8B"><span class="nav-number">3.5.</span> <span class="nav-text">认知拓展过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A6%81%E4%B8%8D%E8%A6%81%E8%AE%A9%E5%AD%A9%E5%AD%90%E4%BB%8E%E5%B0%8F%E7%95%99%E5%AD%A6%EF%BC%9F"><span class="nav-number">3.5.1.</span> <span class="nav-text">要不要让孩子从小留学？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AB%98%E7%AD%89%E6%95%99%E8%82%B2%E6%80%8E%E4%B9%88%E8%AF%B4"><span class="nav-number">3.5.2.</span> <span class="nav-text">高等教育怎么说</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">4.</span> <span class="nav-text">结语</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AB%A5%E5%B9%B4%E7%9A%84%E6%84%8F%E4%B9%89"><span class="nav-number">4.1.</span> <span class="nav-text">童年的意义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E6%9C%89%E7%9A%84%E4%BA%BA%E6%A0%BC%E5%BF%83%E6%80%81"><span class="nav-number">4.2.</span> <span class="nav-text">应有的人格心态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%88%B6%E6%AF%8D%E5%AD%90%E5%A5%B3%E7%9A%84%E7%BC%98%E5%88%86"><span class="nav-number">4.3.</span> <span class="nav-text">父母子女的缘分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%83%E8%A8%80%E4%B8%87%E8%AF%AD%E4%B8%80%E5%8F%A5%E8%AF%9D"><span class="nav-number">4.4.</span> <span class="nav-text">千言万语一句话</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">卓</p>
+  <div class="site-description" itemprop="description">一个成年人的自我博雅探索，以求不惑</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">卓</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">213k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:14</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

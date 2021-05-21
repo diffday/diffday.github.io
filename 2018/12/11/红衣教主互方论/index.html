@@ -1,25 +1,473 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %}{{ page.title }} | {{ title }}{% endblock %}
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-{% block page_class %}page-post-detail{% endblock %}
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="体验的力量一切行业都是娱乐业。娱乐业最重用户体验，所有的行业都应向（最靠体验的）娱乐业看齐，销售用户体验。 互联网常谈UE，但判断体验就一个简单的标准，超出预期的才叫用户体验； 为什么着重提体验问题，因为当前已进入了信息更加透明，流动更快的互联网造就的新时代。商家原来的一套信息不对称的玩法被消解不少。消费者或者市场变了，商家很多却没有变。若技术人员想的是我要用怎样的技术去教育用户，技术怎样高，就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="红衣教主互方论">
+<meta property="og:url" content="http://yoursite.com/2018/12/11/%E7%BA%A2%E8%A1%A3%E6%95%99%E4%B8%BB%E4%BA%92%E6%96%B9%E8%AE%BA/index.html">
+<meta property="og:site_name" content="Diffday">
+<meta property="og:description" content="体验的力量一切行业都是娱乐业。娱乐业最重用户体验，所有的行业都应向（最靠体验的）娱乐业看齐，销售用户体验。 互联网常谈UE，但判断体验就一个简单的标准，超出预期的才叫用户体验； 为什么着重提体验问题，因为当前已进入了信息更加透明，流动更快的互联网造就的新时代。商家原来的一套信息不对称的玩法被消解不少。消费者或者市场变了，商家很多却没有变。若技术人员想的是我要用怎样的技术去教育用户，技术怎样高，就">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://5b0988e595225.cdn.sohucs.com/images/20180610/db239ff7e06a4523b6f6ff9c2fcc48f0.jpeg">
+<meta property="article:published_time" content="2018-12-11T12:14:21.000Z">
+<meta property="article:modified_time" content="2020-11-26T12:11:53.000Z">
+<meta property="article:author" content="卓">
+<meta property="article:tag" content="互联网思维">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://5b0988e595225.cdn.sohucs.com/images/20180610/db239ff7e06a4523b6f6ff9c2fcc48f0.jpeg">
+
+<link rel="canonical" href="http://yoursite.com/2018/12/11/%E7%BA%A2%E8%A1%A3%E6%95%99%E4%B8%BB%E4%BA%92%E6%96%B9%E8%AE%BA/">
 
 
-{% block content %}
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+  <title>红衣教主互方论 | Diffday</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Diffday</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/11/%E7%BA%A2%E8%A1%A3%E6%95%99%E4%B8%BB%E4%BA%92%E6%96%B9%E8%AE%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="卓">
+      <meta itemprop="description" content="一个成年人的自我博雅探索，以求不惑">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Diffday">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          红衣教主互方论
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-12-11 20:14:21" itemprop="dateCreated datePublished" datetime="2018-12-11T20:14:21+08:00">2018-12-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-26 20:11:53" itemprop="dateModified" datetime="2020-11-26T20:11:53+08:00">2020-11-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/" itemprop="url" rel="index"><span itemprop="name">学而思</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="https://5b0988e595225.cdn.sohucs.com/images/20180610/db239ff7e06a4523b6f6ff9c2fcc48f0.jpeg"></p>
+<h3 id="体验的力量"><a href="#体验的力量" class="headerlink" title="体验的力量"></a>体验的力量</h3><p><strong>一切行业都是娱乐业</strong>。娱乐业最重用户体验，所有的行业都应向（最靠体验的）娱乐业看齐，销售用户体验。</p>
+<p>互联网常谈UE，但判断体验就一个简单的标准，超出预期的才叫用户体验；</p>
+<p>为什么着重提体验问题，因为当前已进入了信息更加透明，流动更快的互联网造就的新时代。商家原来的一套信息不对称的玩法被消解不少。消费者或者市场变了，商家很多却没有变。若技术人员想的是我要用怎样的技术去教育用户，技术怎样高，就非常危险，因为用户选择产品时，往往想的是，这个东西到底好不好用。大企业里有各种创新研究院，觉得非要搞出一个石破天惊的创新技术不可，多数就是落入了这种误区。</p>
+<p>例如微软vista操作系统，着力于创造出一种新语言和文件系统，界面，这导致研发周期很长，但并没有打动用户，相反，从win8开始，微软开始关注开机速度了，小儿科的技术，但对用户来看，却是一个很重要的问题。</p>
+<p>很多创业方面的创新是从改善用户的体验出发，新感觉，新冲击，打动用户的微创新，也会成为占领市场的巨大力量。消费者其实不理性的，都是感性的。他看到一个东西，脑子就用1秒钟不到，就会快速地给你的产品做一个分类，给它定位。</p>
+<h3 id="立足微创新"><a href="#立足微创新" class="headerlink" title="立足微创新"></a>立足微创新</h3><span id="more"></span>
+
+<p>不要期望某一个版本带来革命，而是要靠很多小版本来实现革命。而且在这个时代，做产品一定要做减法，一定要找对一个点，做到极致。先不说你的资源有限，不够分，就是资源很多，做的产品没特色也不会有鲜明的卖点。思想都是和精益创业想通的。</p>
+<p>在计算机市场上，经常上演的是“次优者胜”，这有点像worse is better。且互联网产品是一个赢家通吃的市场，不成规模想守住一小块市场份额根本不可能。用户膨胀的过程是非常剧烈的，错过了机会，给予你的增长空间机会就没有了。<em>回头看来，中国的触网人群增长真的是很快的，浪潮里多少商业模式发生变化，2005年中国网民是1亿，互联网普及率8%，到2013年，中国网民超6亿，手机网民比电脑网民还多。到2018年，微信都宣称月活账号有10亿，基本中国能上网的人都已经上网了，已经行进到C端市场的顶峰了。再往后，就是挖掘平均用户的时长或付费率了。</em></p>
+<p>对于创业者，都强调一点，不要满脑子想着做平台，而是要找一个大公司看不到的角落，给用户解决问题，平台是大公司玩儿的事情。颠覆要的是微观力，而不是平台力。</p>
+<h4 id="创新的三种形式"><a href="#创新的三种形式" class="headerlink" title="创新的三种形式"></a>创新的三种形式</h4><ol>
+<li>发明（新技术新材料出现越来越难）</li>
+<li>商业模式创新（贵的做成便宜的，收费做成免费的）</li>
+<li>体验上创新（复杂难用东西变简单，笨重变便携）</li>
+</ol>
+<p>商业上对市场格局的颠覆，多数都是商业或体验上的创新，而不是可口可乐的秘方或电灯轰动世界。</p>
+<p>颠覆式的创新都是小型创业公司做的事，因为正在做一些成熟企业认为不值得去做的事。<strong>大型企业对一些虽然可能代表市场方向，却不符合其盈利模式或损害的项目上犹豫不决，进退维谷。</strong>就是常说的“欲想成功，必先自宫”。</p>
+<p>微创新最容易犯的错误是不聚焦。<strong>衡量什么算微创新，其实有一个很简单的标准：用户会不会用最屌丝的语言在用户间流传</strong>。</p>
+<h4 id="微创新还不够，还要思考活下去"><a href="#微创新还不够，还要思考活下去" class="headerlink" title="微创新还不够，还要思考活下去"></a>微创新还不够，还要思考活下去</h4><p>互联网产品，不管是客户端还是Web应用，要赢得用户，首先要找到典型用户群，提供好的用户体验。</p>
+<p>好的用户体验，就得找到能打动用户心扉的那一点，打动有一下子蒙对的，这是运气，有试错试出来的，这就变成了经验。有两点很关键，第一从小处着眼，贴近用户需求心理，第二要小步快跑，快速出击，不断试错。这是微创新的规律。</p>
+<p>强需求产品可以自我发展成强大的渠道，而弱需求产品独立做很难。腾讯的新闻门户靠的就是强大的弹窗渠道。<strong>有时弱需求的产品，并不是说不是好产品，而是对渠道的依赖比较大。</strong></p>
+<p>推广模式也就是以怎样的方式接近目标用户群。</p>
+<ul>
+<li>在中国，永远不要相信酒香不怕巷子深</li>
+<li>要根据你的用户群和产品，去设计相应的推广方法。（不断应证的过程，也是不断打磨你的产品或发现真实用户群的过程，受益不是一般资源型推广可比）</li>
+</ul>
+<p>在<u>传统行业转战互联网时，一定要形成用户这个概念，原来字典里只有客户的概念（客户是上帝），因为客户给企业钱，是衣食父母</u>。当然 <u><strong>钱还是要赚，但要想想谁是你的用户，用户的定义就是你能长期提供一种服务，能长期让他感知到你的存在，保持联系的人，你只有在互联网上积累了足够多的用户，才有能力把其中一些用户转成客户</strong></u>。</p>
+<p>微信对运营商的最可怕之处，是将用户与运营商隔离开了，致使他们根本难以像之前接触客户，开发产品，成为了纯粹的流量商。</p>
+<h3 id="互联网的盈利模式"><a href="#互联网的盈利模式" class="headerlink" title="互联网的盈利模式"></a>互联网的盈利模式</h3><ol>
+<li>卖东西（电子商务，互金），卖服务（O2O），利用平台做传统生意，网聚人的力量</li>
+<li>广告，足够多的眼球，自己不能赚钱，就推荐一些其它，就跟免费看电视一定有广告一个道理</li>
+<li>以网游为代表的增值服务</li>
+</ol>
+<p>基于免费，还需要好产品，且提供一流的用户体验。</p>
+<h3 id="组织能力"><a href="#组织能力" class="headerlink" title="组织能力"></a>组织能力</h3><p>以用户为中心的企业文化是没法靠奖惩制度建立的，而是靠员工对产品发自心底的热爱，对用户的热爱。作为老板，不仅要以身作则，更要言传身教。<em>但当公司大了，原来好的企业文化会受到稀释，这是一个矛盾，但你要接受，相当于你的员工平均素质水准更大几率是随着公司增长往下走的。</em></p>
+<p><em>管理及流程的原本目标，是为了将以往的成功经验/实践变成可复制，保证持续成功。但应对的问题和市场是不断变化的，所以后来人经常不满意公司的现有流程或不理解，这有点像钱穆的书《中国历代政治得失》里讲的问题一样。</em></p>
+<p>用普通人你就需要一个管理流程，把某些东西模式化流程化。但这种管理一定会带来一个平庸的公司，这就是管理上的一个悖论，要保证不断产生优秀的产品，至少要像开经济特区一样，特殊区域放弃流程，聚集一帮很特别的人才。</p>
+<p><em>整个部分，老周都是在借乔布斯的某篇电视访谈在谈感想，这个访谈我也看过，没像他点评这么多，但是的确那篇访谈触及到了很多本质的企业管理和创造的问题，乔布斯也是直言不讳，值得经常回顾，前面的博文里自己也写过（本文的斜体都是自己敲写的文字）</em></p>
+<h3 id="周自评的优秀能力"><a href="#周自评的优秀能力" class="headerlink" title="周自评的优秀能力"></a>周自评的优秀能力</h3><p>有一种善于学习的能力，叫会问问题。特别在不懂的领域会问的话，就可以快速获得别人积累的知识经验。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E6%80%9D%E7%BB%B4/" rel="tag"># 互联网思维</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/12/03/RPA-POC%E8%A7%82%E5%AF%9F/" rel="prev" title="RPA-POC观察">
+      <i class="fa fa-chevron-left"></i> RPA-POC观察
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/02/12/%E5%9F%8E%E5%B8%82%E7%94%A8%E7%94%B5%E9%87%8F%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="next" title="城市用电量大数据">
+      城市用电量大数据 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%93%E9%AA%8C%E7%9A%84%E5%8A%9B%E9%87%8F"><span class="nav-number">1.</span> <span class="nav-text">体验的力量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AB%8B%E8%B6%B3%E5%BE%AE%E5%88%9B%E6%96%B0"><span class="nav-number">2.</span> <span class="nav-text">立足微创新</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E6%96%B0%E7%9A%84%E4%B8%89%E7%A7%8D%E5%BD%A2%E5%BC%8F"><span class="nav-number">2.1.</span> <span class="nav-text">创新的三种形式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BE%AE%E5%88%9B%E6%96%B0%E8%BF%98%E4%B8%8D%E5%A4%9F%EF%BC%8C%E8%BF%98%E8%A6%81%E6%80%9D%E8%80%83%E6%B4%BB%E4%B8%8B%E5%8E%BB"><span class="nav-number">2.2.</span> <span class="nav-text">微创新还不够，还要思考活下去</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%92%E8%81%94%E7%BD%91%E7%9A%84%E7%9B%88%E5%88%A9%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">互联网的盈利模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E7%BB%87%E8%83%BD%E5%8A%9B"><span class="nav-number">4.</span> <span class="nav-text">组织能力</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%A8%E8%87%AA%E8%AF%84%E7%9A%84%E4%BC%98%E7%A7%80%E8%83%BD%E5%8A%9B"><span class="nav-number">5.</span> <span class="nav-text">周自评的优秀能力</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">卓</p>
+  <div class="site-description" itemprop="description">一个成年人的自我博雅探索，以求不惑</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">卓</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">213k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:14</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

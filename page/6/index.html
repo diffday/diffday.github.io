@@ -1,23 +1,1371 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-{% block title %}{{ title }}{% if theme.index_with_subtitle and subtitle %} – {{ subtitle }}{% endif %}{% endblock %}
+<link rel="stylesheet" href="/css/main.css">
 
-{% block page_class %}
-  {% if is_home() %}page-home{% endif -%}
-{% endblock %}
 
-{% block content %}
-  <section id="posts" class="posts-expand">
-    {% for post in page.posts %}
-      {{ post_template.render(post, true) }}
-    {% endfor %}
-  </section>
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-  {% include '_partials/pagination.swig' %}
-{% endblock %}
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+  <meta name="description" content="一个成年人的自我博雅探索，以求不惑">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Diffday">
+<meta property="og:url" content="http://yoursite.com/page/6/index.html">
+<meta property="og:site_name" content="Diffday">
+<meta property="og:description" content="一个成年人的自我博雅探索，以求不惑">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="卓">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/page/6/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Diffday</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Diffday</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/30/%E5%AD%A6%E4%B9%A0%E9%A3%8E%E6%A0%BC%E4%B8%8E%E5%8F%91%E5%B1%95%E6%96%B9%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="卓">
+      <meta itemprop="description" content="一个成年人的自我博雅探索，以求不惑">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Diffday">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/11/30/%E5%AD%A6%E4%B9%A0%E9%A3%8E%E6%A0%BC%E4%B8%8E%E5%8F%91%E5%B1%95%E6%96%B9%E5%BC%8F/" class="post-title-link" itemprop="url">学习风格与发展方式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-11-30 14:39:43" itemprop="dateCreated datePublished" datetime="2017-11-30T14:39:43+08:00">2017-11-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-11 19:19:11" itemprop="dateModified" datetime="2020-11-11T19:19:11+08:00">2020-11-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/" itemprop="url" rel="index"><span itemprop="name">学而思</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>728</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="http://cdn.diffday.com/picgo/20201019132246.png"></p>
+<p>在鹅厂育龙培训时，见过一些关于学习风格的总结，认为符合观察到的情况且有代表性。总结学习风格是为了区分性的引导同事，以得到更有效的提升发展。</p>
+<p>迄今为止，承认特殊性的存在，是我觉得社会科学领域的结论能站得住脚的前提。再进行良好/有趣的分类分析总结，才有意义。</p>
+<p>就像每个出生的小朋友天生就有精力，性格差别倾向一样，不同的小朋友被有效对待的方式自然要求也不同。进入正式教育阶段后，每个人的学习风格也是有别的。大致可以划分为如图的4类，挑了一个有趣点的说明图，有两个类型的边界不是那么清晰，用英语来释义区别更加精确。</p>
+<ul>
+<li>ACTIVIST（行动者）-experience: Do it!</li>
+<li>PRAGMATIST（应用者）-plan: Let’s try it out!</li>
+<li>REFLECTOR（反思者）-review: What happened and why?</li>
+<li>THEORIST（理论者）-conclude: How can we do it?</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/11/30/%E5%AD%A6%E4%B9%A0%E9%A3%8E%E6%A0%BC%E4%B8%8E%E5%8F%91%E5%B1%95%E6%96%B9%E5%BC%8F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/04/18/LVS%E4%B8%89%E7%B1%BB%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="卓">
+      <meta itemprop="description" content="一个成年人的自我博雅探索，以求不惑">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Diffday">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/04/18/LVS%E4%B8%89%E7%B1%BB%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">LVS三类工作模式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-04-18 14:55:52" itemprop="dateCreated datePublished" datetime="2016-04-18T14:55:52+08:00">2016-04-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-21 14:17:18" itemprop="dateModified" datetime="2020-10-21T14:17:18+08:00">2020-10-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/" itemprop="url" rel="index"><span itemprop="name">学而思</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="http://cdn.diffday.com/picgo/20201020083838.png"></p>
+<h2 id="业界明星"><a href="#业界明星" class="headerlink" title="业界明星"></a>业界明星</h2><p>LVS是国内程序员界为行业付出的最响当当产品了，在互联网界更是采用的多。</p>
+<h3 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h3><p>个人认为LVS出现的基础有三点：</p>
+<ol>
+<li><strong>IPV4 公网ip不够用的现状</strong></li>
+<li><strong>加之DNS更新调整的麻烦度</strong></li>
+<li><strong>服务器之间需要负载均衡，硬件负载均衡还是贵，原来国外大厂的闭源软件同样也贵</strong></li>
+</ol>
+<p>在TCP/IP协议簇上，能做到的方案肯定最低工作在IP层做路由转发和负载均衡。</p>
+<p>大家都用过交换机和路由器，家用的都是路由器，因为有公网IP，一台路由器代理几台设备，家用路由器NAT转换协议也是为上面1,2点而来。</p>
+<h3 id="作者语述"><a href="#作者语述" class="headerlink" title="作者语述"></a>作者语述</h3><p>真正有用的软件来源于实际应用，不同于闭门造车想象出来的功能，且看LVS作者章文嵩博士的回忆：</p>
+<blockquote>
+<p>“我在国防科大学读书之余，也帮湖南电信做一些系统集成项目，见到许多服务器忙不过来的情况。这时就需要考虑负载均衡。那时业界也有一些商用方案，常用的是思科LocalDirector。我希望在Linux内核上写点东西，又知道思科LocalDirector的工作原理。所以我当时就花了两个星期写了一个最简单的版本，那是1998年5月。（一套LocalDirector当时价值几万美元，我那时心里有疑问——这东西并不难写，为什么卖那么贵？）”</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2016/04/18/LVS%E4%B8%89%E7%B1%BB%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/07/28/%E4%BA%A7%E5%93%81%E6%84%8F%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="卓">
+      <meta itemprop="description" content="一个成年人的自我博雅探索，以求不惑">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Diffday">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/07/28/%E4%BA%A7%E5%93%81%E6%84%8F%E8%AF%86/" class="post-title-link" itemprop="url">产品意识</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-07-28 20:14:21" itemprop="dateCreated datePublished" datetime="2015-07-28T20:14:21+08:00">2015-07-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-26 20:12:10" itemprop="dateModified" datetime="2020-11-26T20:12:10+08:00">2020-11-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/" itemprop="url" rel="index"><span itemprop="name">学而思</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="http://cdn.diffday.com/picgo/20201126174951.png"></p>
+<h2 id="造神前言"><a href="#造神前言" class="headerlink" title="造神前言"></a>造神前言</h2><p>在互联网圈里混，多少要培养一些个人的产品意识。用最直白的话来说，什么是产品意识，其实就是对人性的洞察。所有的大而玄的东西谈产品，如果不说人话，你就可以把它们踢到垃圾堆里。有一段时间，在鹅厂狂吹张小龙，造神一样，其实也是广研团队下层自身需要的宣传，虽说造神，但不得不说张小龙确是人才，杰出程序员，到了不惑年纪，看透纷繁复杂的羁绊，了解各种行业迷障，搞产品懂用户也是一等一的厉害。特摘录改写部分分享内容，提醒自己没有一身研发功夫的产品经理不是好运营。我们这里不看营销，不看技术，只看产品。</p>
+<p>后来梁宁的产品经理30讲和增长30讲也讲的很好，讲到产品经理的能力其实是建立信息秩序的能力，干这行也需天分，天分的一点是敏感度高。这一点是后期培养难以及时的，就像个性特征+动机+价值观=天赋一样，这些都是在其过往的经历中基本已经定型了，瓜若强扭大概率不甜。</p>
+<h2 id="用户定位"><a href="#用户定位" class="headerlink" title="用户定位"></a>用户定位</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2015/07/28/%E4%BA%A7%E5%93%81%E6%84%8F%E8%AF%86/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/07/23/%E4%BA%92%E8%81%94%E7%BD%91%E4%BA%A4%E5%8F%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="卓">
+      <meta itemprop="description" content="一个成年人的自我博雅探索，以求不惑">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Diffday">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/07/23/%E4%BA%92%E8%81%94%E7%BD%91%E4%BA%A4%E5%8F%8B/" class="post-title-link" itemprop="url">互联网交友</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-07-23 20:14:21" itemprop="dateCreated datePublished" datetime="2015-07-23T20:14:21+08:00">2015-07-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-26 20:12:27" itemprop="dateModified" datetime="2020-11-26T20:12:27+08:00">2020-11-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/" itemprop="url" rel="index"><span itemprop="name">学而思</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E5%8F%8D%E5%88%8D%E6%95%B4%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">反刍整理</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="http://cdn.diffday.com/picgo/%E4%BA%A4%E5%8F%8B%E5%B0%81%E9%9D%A2.png"></p>
+<p>交友，跟人类所有活动一样，都是有动机的。三类诉求应该能涵盖</p>
+<ul>
+<li>要么某种同好聊得来，士为知己者死</li>
+<li>要么有所求(利益/信息流动)</li>
+<li>要么男女之爱</li>
+</ul>
+<h3 id="数字不说谎"><a href="#数字不说谎" class="headerlink" title="数字不说谎"></a>数字不说谎</h3><p>人人都从陌生人开启，转入熟识，有些再继续转入陌生，走着这样的轮回，有些就真成了要好的朋友，但这个比例不会大。经数据调查证实，一个人真正的朋友多在10人以下，且一个人能保持联系的友人在150以下。这个数字在Facebook上也能得到印证，平均每人130个好友，但常联系的只有4-6个（放宽点在7-15个之间），通过分析用户的交际圈分组，85%的组是不属于朋友概念的，且多数是维持4-6组不超过10个人的关系人组。在北美的其它调查中，平均每个人有10个左右关系较近的朋友（每周交流或见面），同样佐证着数据范围。</p>
+<p>你可能好奇，what the hell about 150，150个人的维系差不多是普通人脑袋能力的上限。Oh my god，真的么？新石器时代的村庄，通常在达到150个人后，会拆分为2个，罗马军队也是150个互相认识的人一组，对数字不服来战。</p>
+<p>我更激进的认为，线上的轻量化使得你更容易与人保持联系，其实回归到线下，你会更加缩小朋友范围，以日常电话时间举例，你80%的电话是打给同样的4个人，表明电话圈是强关系控制的。说实在的，你的熟人没你想的那么多，精力跟不上时，你还会启动关注隐私问题。</p>
+<h3 id="两大流派"><a href="#两大流派" class="headerlink" title="两大流派"></a>两大流派</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2015/07/23/%E4%BA%92%E8%81%94%E7%BD%91%E4%BA%A4%E5%8F%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/08/%E6%83%85%E5%95%86%E8%BF%99%E7%8E%A9%E6%84%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="卓">
+      <meta itemprop="description" content="一个成年人的自我博雅探索，以求不惑">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Diffday">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/01/08/%E6%83%85%E5%95%86%E8%BF%99%E7%8E%A9%E6%84%8F/" class="post-title-link" itemprop="url">情商这玩意</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-01-08 18:32:06" itemprop="dateCreated datePublished" datetime="2015-01-08T18:32:06+08:00">2015-01-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-21 09:24:44" itemprop="dateModified" datetime="2020-10-21T09:24:44+08:00">2020-10-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/" itemprop="url" rel="index"><span itemprop="name">学而思</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="http://cdn.diffday.com/picgo/20201019191019.png" alt="情绪图谱"></p>
+<p>此文来自一次培训，觉得京东大学的讲师还是把知识串接的挺棒的，不光有理论，还有自己的真实经验，且没有保留，多少改变了我对情商的认识或建立了我对情商的认识。</p>
+<p><strong>转移到情商的定义上来：来自亚里士多德的观点，每个人都会发脾气，这非常容易，但是把脾气发在对的人身上，用对的程度在对的时间，为了对的目的，运用对的方法，却不容易。</strong></p>
+<blockquote>
+<p>Anyone can be angry,that is easy.But to be angry with the right person to the right degree at the right time, for the right purpose and in the right way, that is not easy</p>
+</blockquote>
+<h2 id="情绪绑架你躲不开"><a href="#情绪绑架你躲不开" class="headerlink" title="情绪绑架你躲不开"></a>情绪绑架你躲不开</h2><p>道理谁都懂，可就是办不到。这过程中，你就是与你的原始大脑对抗不过</p>
+<blockquote>
+<p>理性脑与情绪脑的脱离，200w年的大脑和5000w年的大脑部分达不成一致，所以人痛苦。人再经过5000w年，三脑可以合一，反应都达到毫秒级 (<em>一亿年的脑干和5000w年的中脑已经可以认为已合并</em>)</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2015/01/08/%E6%83%85%E5%95%86%E8%BF%99%E7%8E%A9%E6%84%8F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/12/18/%E8%B7%B3%E5%88%B0%E4%BD%A0%E7%9A%84%E9%AB%98%E7%BB%B4%E7%A9%BA%E9%97%B4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="卓">
+      <meta itemprop="description" content="一个成年人的自我博雅探索，以求不惑">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Diffday">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2014/12/18/%E8%B7%B3%E5%88%B0%E4%BD%A0%E7%9A%84%E9%AB%98%E7%BB%B4%E7%A9%BA%E9%97%B4/" class="post-title-link" itemprop="url">跳到你的高维空间</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2014-12-18 15:48:06" itemprop="dateCreated datePublished" datetime="2014-12-18T15:48:06+08:00">2014-12-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-19 15:29:45" itemprop="dateModified" datetime="2020-10-19T15:29:45+08:00">2020-10-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/" itemprop="url" rel="index"><span itemprop="name">学而思</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://imglf6.lf127.net/img/d01tNzZDbERSbEM5Z2wxcWJlYUZQMHozaCthU0M0OGthaUdZNGRBNENkYzF5YUliUTZnZXdRPT0.jpg"></p>
+<blockquote>
+<p>不要做在褶皱纸面上行进被推得东倒西歪的虫</p>
+</blockquote>
+<p>自然规律在高维空间表述会变得更为简单和优美。</p>
+<p>在近几个世纪的数学和物理学都在高维领域得到了绝佳的扩展和应用。高维离科学那么近，离生活又那么远。生活中虽体味不明显，但不代表这个不重要。</p>
+<p>我们不能看见高维，就像我们是水里的鱼看不见水一样，只有岸上的生物（更高维度空间生活）才能体察到水的存在。另外一个方面，其余的维度可能蜷缩在普朗克尺度上，成为类似小球的形状，以人类当前的观察能力，尚无法观察到这个尺度范围。</p>
+<p>大家都知道欧几里得几何，但其描述的完美形状在现实世界中基本不存在，我们的自然界中没有什么地方能使我们看到平坦的理想化的欧几里得几何图形，山脉，海浪，云彩和漩涡都是不完美的原型，三角形和正方形，而是以无穷多样的方式表现出的弯弯扭扭的弯曲物体。<a target="_blank" rel="noopener" href="https://v.youku.com/v_show/id_XNTg1MTc5MDE2.html">连我们的几大行星都是螺旋形绕着太阳在疯狂赶路。</a></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2014/12/18/%E8%B7%B3%E5%88%B0%E4%BD%A0%E7%9A%84%E9%AB%98%E7%BB%B4%E7%A9%BA%E9%97%B4/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/10/08/95%E5%B9%B4%E7%9A%84Jobs%E8%AE%BF%E8%B0%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="卓">
+      <meta itemprop="description" content="一个成年人的自我博雅探索，以求不惑">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Diffday">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2014/10/08/95%E5%B9%B4%E7%9A%84Jobs%E8%AE%BF%E8%B0%88/" class="post-title-link" itemprop="url">95年的Jobs访谈-持续创新与天才的管理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2014-10-08 18:32:06" itemprop="dateCreated datePublished" datetime="2014-10-08T18:32:06+08:00">2014-10-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-07 15:40:40" itemprop="dateModified" datetime="2020-12-07T15:40:40+08:00">2020-12-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/" itemprop="url" rel="index"><span itemprop="name">学而思</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E7%BB%8F%E8%90%A5%E7%AE%A1%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">经营管理</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>第一次发表于2014.05.18</p>
+</blockquote>
+<p><img src="https://imglf3.lf127.net/img/d01tNzZDbERSbEEzbCtPZHEvdU1NZmZtd3pQK1VxazVVQW44Sjg3cS9EUEtMc2pyLzJXeXRBPT0.jpg"></p>
+<blockquote>
+<p>关于Jobs的述说已经够多，网上的一篇电视采访（那会儿Jobs还在运作着他的NeXT公司，未回归苹果），因为时长够长，且Jobs在那耐心心情大好的侃侃而谈，很值得观看，起码有其亲口述说的早年历史。</p>
+<p>当然这就像没看过MJ打篮球的人，通过那些久远的录像来体味那辉煌时光一样的感觉，毕竟后期的苹果是如此的成功，Jobs作为出类拔萃的CEO，不少果粉只是赶上个末尾或连尾都没追上。</p>
+<p>我想这样的类比是恰当的。</p>
+</blockquote>
+<h3 id=""><a href="#" class="headerlink" title=""></a>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2014/10/08/95%E5%B9%B4%E7%9A%84Jobs%E8%AE%BF%E8%B0%88/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/09/25/%E6%8E%A5%E7%BA%B3%E4%B8%8D%E5%AE%8C%E7%BE%8E%E7%9A%84%E8%87%AA%E5%B7%B1%E4%B9%A6%E6%91%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="卓">
+      <meta itemprop="description" content="一个成年人的自我博雅探索，以求不惑">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Diffday">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2014/09/25/%E6%8E%A5%E7%BA%B3%E4%B8%8D%E5%AE%8C%E7%BE%8E%E7%9A%84%E8%87%AA%E5%B7%B1%E4%B9%A6%E6%91%98/" class="post-title-link" itemprop="url">接纳不完美的自己书摘</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2014-09-25 20:28:54" itemprop="dateCreated datePublished" datetime="2014-09-25T20:28:54+08:00">2014-09-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-19 19:18:08" itemprop="dateModified" datetime="2020-10-19T19:18:08+08:00">2020-10-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/" itemprop="url" rel="index"><span itemprop="name">学而思</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>639</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://n.sinaimg.cn/translate/25/w1080h545/20190212/rPJq-hswimzy2813291.jpg" alt="书皮封面"></p>
+<h3 id="主旨-做一个好人，还是做一个完整的人？"><a href="#主旨-做一个好人，还是做一个完整的人？" class="headerlink" title="主旨: 做一个好人，还是做一个完整的人？"></a>主旨: <strong>做一个好人，还是做一个完整的人？</strong></h3><h3 id="认识自己"><a href="#认识自己" class="headerlink" title="认识自己"></a>认识自己</h3><p>“投影”是一种有趣的心理现象（<strong>为什么你身边会出现某一类人</strong>）：</p>
+<blockquote>
+<p>我们会不自觉地用潜意识去影响周围的人，让他们表现出为我们所压抑的特质和情感，或者把容易表现出这种特质和情感的人吸引到我们身边，这就是投影的机制</p>
+</blockquote>
+<p>认识自己可以问别人，也可以列举3个喜欢/厌恶的人做分解</p>
+<p><strong>用大声讲自己的阴暗面来达到脱敏的效果</strong></p>
+<p>用第三人称的命名方式来区别自己身上的亚人格，与其进行对话</p>
+<blockquote>
+<p>疯狂就是一次又一次地重复同样的事情，希望得到不同的结果（这又是一种愚蠢的象征）</p>
+</blockquote>
+<h3 id="承认自己才能改变自己"><a href="#承认自己才能改变自己" class="headerlink" title="承认自己才能改变自己"></a>承认自己才能改变自己</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2014/09/25/%E6%8E%A5%E7%BA%B3%E4%B8%8D%E5%AE%8C%E7%BE%8E%E7%9A%84%E8%87%AA%E5%B7%B1%E4%B9%A6%E6%91%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/07/02/%E7%B2%BE%E5%93%81%E5%B9%B4%E4%BB%A3%E7%9A%84%E7%AB%9E%E4%BA%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="卓">
+      <meta itemprop="description" content="一个成年人的自我博雅探索，以求不惑">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Diffday">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2014/07/02/%E7%B2%BE%E5%93%81%E5%B9%B4%E4%BB%A3%E7%9A%84%E7%AB%9E%E4%BA%89/" class="post-title-link" itemprop="url">精品年代的竞争</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2014-07-02 12:59:57" itemprop="dateCreated datePublished" datetime="2014-07-02T12:59:57+08:00">2014-07-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-26 20:12:33" itemprop="dateModified" datetime="2020-11-26T20:12:33+08:00">2020-11-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/" itemprop="url" rel="index"><span itemprop="name">学而思</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://imglf6.nosdn0.126.net/img/d01tNzZDbERSbERraG9Xa1IyQTNxa01qV2loV3NybGQ1NTFsMFlwS0Rhd3ZqY3d2cjdJYUpBPT0.jpg"></p>
+<h2 id="由QQ浏览器的背锅遭遇说开去"><a href="#由QQ浏览器的背锅遭遇说开去" class="headerlink" title="由QQ浏览器的背锅遭遇说开去"></a>由QQ浏览器的背锅遭遇说开去</h2><p>看到鹅厂一篇文章反馈用户抱怨QQ浏览器耗费流量，经查其实是其它软件在背后偷跑流量，正巧用户此刻正在使用QQ浏览器。冤~~，某种情况下用户会下意识的把流量消耗归罪于自己常用的东东，特别是历史上有过劣迹（初始版本省流优化并不好），小白用户常有直观思维，包括手机卫士之类的软件其实也不太会用，你的产品对其印象不好，被其直观投诉，背黑锅，惨。。。。从塞班过来的用户亲爱UC，尽管QQ浏览器现在已经明显比UC省流，但用户习惯还是非常难扭转（浏览器成也无用户粘性，败也无用户粘性）。</p>
+<p>针对用户抱怨QQ浏览器的流量消耗问题，为了自证（流量消耗时不在场）加说明自己的特性，QQ浏览器在后续版本中特意突出明显化（<em>通过图表而不是简单数字的形式</em>）了流量消耗统计和节省的流量统计。让用户能更明白，其实你可以看出来对于误解，能采取的手段确实很有限。有更好的用户引导或特性宣传，是产品设计里非常重要的因素。</p>
+<h2 id="精品年代的竞争"><a href="#精品年代的竞争" class="headerlink" title="精品年代的竞争"></a>精品年代的竞争</h2><p>当前已经是精品生存时代，用户见识广，口味挑，远不是几年前的用户寂寞苦楚，插扁担都开花的年代了。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2014/07/02/%E7%B2%BE%E5%93%81%E5%B9%B4%E4%BB%A3%E7%9A%84%E7%AB%9E%E4%BA%89/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2009/11/15/%E7%8A%AC%E5%84%92%E4%B8%BB%E4%B9%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="卓">
+      <meta itemprop="description" content="一个成年人的自我博雅探索，以求不惑">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Diffday">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2009/11/15/%E7%8A%AC%E5%84%92%E4%B8%BB%E4%B9%89/" class="post-title-link" itemprop="url">犬儒主义</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2009-11-15 01:22:00" itemprop="dateCreated datePublished" datetime="2009-11-15T01:22:00+08:00">2009-11-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-11 19:57:05" itemprop="dateModified" datetime="2020-11-11T19:57:05+08:00">2020-11-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E6%96%87%E7%B2%BE%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网文精摘</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="http://cdn.diffday.com/picgo/20201111191532.png"></p>
+<p>犬儒主义（Cynicism）是个外来词，中文里本来没有现成的对应词汇，通常将它理解为讥诮嘲讽、愤世嫉俗、玩世不恭。来源于古希腊犬儒学派学者主张的哲学思潮。早期的犬儒是极其严肃的,提倡对道德的无限追求。随着犬儒理念的流行，犬儒主义的内涵发生了微妙的根本变化。早期的犬儒主义者是根据自身的道德原则去蔑视世俗的观念；后期的犬儒主义者依旧蔑视世俗的观念，但是却丧失了赖为准绳的道德原则。</p>
+<h3 id="理想主义-VS-虚无主义"><a href="#理想主义-VS-虚无主义" class="headerlink" title="理想主义 VS 虚无主义"></a>理想主义 VS 虚无主义</h3><p>后期的犬儒主义者普遍有这样的想法：既然无所谓高尚，也就无所谓下贱。既然没有什么是了不得的，因而也就没有什么是要不得的。这样想法的结果是，对世俗的全盘否定变成了对世俗的照单全收，而且还往往是对世俗中最坏的部分的不知羞耻的照单全收。于是，愤世嫉俗就变成了玩世不恭。</p>
+<p>犬儒一词的演变证明，从愤世嫉俗到玩世不恭，其间只有一步之差。一般来说，愤世嫉俗总是理想主义的，而且是十分激烈的理想主义。玩世不恭则是彻底的虚无主义。偏偏是那些看上去最激烈的理想主义者反倒很容易转变为彻底的虚无主义者。简单不负责任的解释是：犬儒不只是在过去饱尝辛酸，犬儒是对未来过早地失去希望</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2009/11/15/%E7%8A%AC%E5%84%92%E4%B8%BB%E4%B9%89/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">卓</p>
+  <div class="site-description" itemprop="description">一个成年人的自我博雅探索，以求不惑</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">卓</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">213k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:14</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
