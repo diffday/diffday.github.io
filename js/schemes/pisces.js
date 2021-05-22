@@ -80,7 +80,7 @@ NexT.utils.getAffixParam = function() {
   };
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', () => {
 
   Affix.init(document.querySelector('.sidebar-inner'), NexT.utils.getAffixParam());
 });

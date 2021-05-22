@@ -53,7 +53,6 @@ NexT.utils = {
       link.rel = 'noopener external nofollow noreferrer';
       link.target = '_blank';
       link.className = element.className;
-      link.title = element.title;
       link.innerHTML = element.innerHTML;
       element.parentNode.replaceChild(link, element);
     });
@@ -67,7 +66,7 @@ NexT.utils = {
       const box = document.createElement('div');
       element.wrap(box);
       box.classList.add('highlight-container');
-      box.insertAdjacentHTML('beforeend', '<div class="copy-btn"><i class="fa fa-clipboard fa-fw"></i></div>');
+      box.insertAdjacentHTML('beforeend', '<div class="copy-btn"><i class="fa fa-clipboard"></i></div>');
       var button = element.parentNode.querySelector('.copy-btn');
       button.addEventListener('click', event => {
         var target = event.currentTarget;
@@ -86,7 +85,7 @@ NexT.utils = {
         ta.readOnly = false;
         var result = document.execCommand('copy');
         if (CONFIG.copycode.show_result) {
-          target.querySelector('i').className = result ? 'fa fa-check fa-fw' : 'fa fa-times fa-fw';
+          target.querySelector('i').className = result ? 'fa fa-check' : 'fa fa-times';
         }
         ta.blur(); // For iOS
         target.blur();
@@ -98,7 +97,7 @@ NexT.utils = {
       });
       button.addEventListener('mouseleave', event => {
         setTimeout(() => {
-          event.target.querySelector('i').className = 'fa fa-clipboard fa-fw';
+          event.target.querySelector('i').className = 'fa fa-clipboard';
         }, 300);
       });
     });
@@ -219,15 +218,14 @@ NexT.utils = {
   },
 
   registerLangSelect: function() {
-    let selects = document.querySelectorAll('.lang-select');
-    selects.forEach(sel => {
-      sel.value = CONFIG.page.lang;
-      sel.addEventListener('change', () => {
-        let target = sel.options[sel.selectedIndex];
-        document.querySelectorAll('.lang-select-label span').forEach(span => span.innerText = target.text);
-        let url = target.dataset.href;
-        window.pjax ? window.pjax.loadUrl(url) : window.location.href = url;
-      });
+    let sel = document.querySelector('.lang-select');
+    if (!sel) return;
+    sel.value = CONFIG.page.lang;
+    sel.addEventListener('change', () => {
+      let target = sel.options[sel.selectedIndex];
+      document.querySelector('.lang-select-label span').innerText = target.text;
+      let url = target.dataset.href;
+      window.pjax ? window.pjax.loadUrl(url) : window.location.href = url;
     });
   },
 
@@ -235,10 +233,10 @@ NexT.utils = {
     const navItems = document.querySelectorAll('.post-toc li');
     const sections = [...navItems].map(element => {
       var link = element.querySelector('a.nav-link');
-      var target = document.getElementById(decodeURI(link.getAttribute('href')).replace('#', ''));
       // TOC item animation navigate.
       link.addEventListener('click', event => {
         event.preventDefault();
+        var target = document.getElementById(event.currentTarget.getAttribute('href').replace('#', ''));
         var offset = target.getBoundingClientRect().top + window.scrollY;
         window.anime({
           targets  : document.scrollingElement,
@@ -247,7 +245,7 @@ NexT.utils = {
           scrollTop: offset + 10
         });
       });
-      return target;
+      return document.getElementById(link.getAttribute('href').replace('#', ''));
     });
 
     var tocElement = document.querySelector('.post-toc-wrap');

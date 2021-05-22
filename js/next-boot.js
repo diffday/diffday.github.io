@@ -107,7 +107,7 @@ NexT.boot.motion = function() {
   NexT.utils.updateSidebarPosition();
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', () => {
   NexT.boot.registerEvents();
   NexT.boot.refresh();
   NexT.boot.motion();

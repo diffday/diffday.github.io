@@ -1,6 +1,6 @@
 /* global instantsearch, algoliasearch, CONFIG */
 
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', () => {
   const algoliaSettings = CONFIG.algolia;
   const { indexName, appID, apiKey } = algoliaSettings;
 

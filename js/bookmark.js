@@ -1,6 +1,6 @@
 /* global CONFIG */
 
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
   var doSaveScroll = () => {

@@ -1,6 +1,6 @@
 /* global NexT, CONFIG, Velocity */
 
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', () => {
 
   var isRight = CONFIG.sidebar.position === 'right';
   var SIDEBAR_WIDTH = CONFIG.sidebar.width || 320;
