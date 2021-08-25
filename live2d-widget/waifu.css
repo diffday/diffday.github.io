@@ -27,6 +27,7 @@
 	#left: 0;
         bottom: 0;
 	line-height: 0;
+        right: 30px;
 	#margin-bottom: -10px;
 	position: fixed;
 	transform: translateY(3px);
