@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/bitbug_favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/bitbug_favicon32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/bitbug_favicon16.ico">
+  <link rel="mask-icon" href="/images/bitbug_favicon.ico" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="UaMvLIOYuNWHgVq42dlN49RoniU73U6SoqoRnEcit9E">
+  <meta name="baidu-site-verification" content="code-DN25SBuR8T">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.diffday.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="概论每个公司都有自己的企业基因，新浪的基因是网络媒体，腾讯的基因是社交和聊天工具，决定了两家的产品及走向。 微博和微信最核心的区别在于媒体Media和社交Social的侧重。  微博本质是一个媒体工具，同时有社交的功能； 微信的本质是社交工具，同时有一些媒体的功能  微博作为媒体工具，关系主要在兴趣上，关系质量较弱，单向传播多，注重是传播速度和内容公开。弱关系更有利于知识和信息的传播 微信是社交工">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微博微信差别与微博用户画像">
+<meta property="og:url" content="https://blog.diffday.com/%E5%BE%AE%E5%8D%9A%E5%BE%AE%E4%BF%A1%E5%B7%AE%E5%88%AB%E4%B8%8E%E5%BE%AE%E5%8D%9A%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F.html">
+<meta property="og:site_name" content="Diffday">
+<meta property="og:description" content="概论每个公司都有自己的企业基因，新浪的基因是网络媒体，腾讯的基因是社交和聊天工具，决定了两家的产品及走向。 微博和微信最核心的区别在于媒体Media和社交Social的侧重。  微博本质是一个媒体工具，同时有社交的功能； 微信的本质是社交工具，同时有一些媒体的功能  微博作为媒体工具，关系主要在兴趣上，关系质量较弱，单向传播多，注重是传播速度和内容公开。弱关系更有利于知识和信息的传播 微信是社交工">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20211220155042.png">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-a35ed51839af243793fa82e1efb6db09_720w.jpg?source=1940ef5c">
+<meta property="og:image" content="https://pic2.zhimg.com/80/v2-939f0b5ddd8ad9ebc735d9aee8e007ef_720w.jpg?source=1940ef5c">
+<meta property="og:image" content="https://n.sinaimg.cn/tech/transform/64/w553h311/20210312/d816-kmeeiut0807046.png">
+<meta property="og:image" content="https://n.sinaimg.cn/tech/transform/64/w553h311/20210312/00aa-kmeeiut0807528.png">
+<meta property="og:image" content="https://n.sinaimg.cn/tech/transform/64/w553h311/20210312/15a1-kmeeiut0810135.png">
+<meta property="og:image" content="https://n.sinaimg.cn/tech/transform/64/w553h311/20210312/3376-kmeeiut0808677.png">
+<meta property="og:image" content="https://n.sinaimg.cn/tech/transform/64/w553h311/20210312/2b12-kmeeiut0811649.png">
+<meta property="og:image" content="https://n.sinaimg.cn/tech/transform/64/w553h311/20210312/44f9-kmeeiut0809220.png">
+<meta property="og:image" content="https://n.sinaimg.cn/tech/transform/64/w553h311/20210312/f9a1-kmeeiut0821842.png">
+<meta property="og:image" content="https://n.sinaimg.cn/tech/transform/64/w553h311/20210312/7c05-kmeeiut0822696.png">
+<meta property="og:image" content="https://n.sinaimg.cn/tech/transform/64/w553h311/20210312/62f7-kmeeiut0824594.png">
+<meta property="og:image" content="https://n.sinaimg.cn/tech/transform/64/w553h311/20210312/c753-kmeeiut0826162.png">
+<meta property="og:image" content="https://n.sinaimg.cn/tech/transform/64/w553h311/20210312/a53d-kmeeiut0827059.png">
+<meta property="og:image" content="https://n.sinaimg.cn/tech/transform/64/w553h311/20210312/aef0-kmeeiut0830590.png">
+<meta property="og:image" content="https://n.sinaimg.cn/tech/transform/64/w553h311/20210312/8ca0-kmeeiut0831730.png">
+<meta property="og:image" content="https://n.sinaimg.cn/tech/transform/64/w553h311/20210312/fd35-kmeeiut0832954.png">
+<meta property="og:image" content="https://n.sinaimg.cn/tech/transform/64/w553h311/20210312/3c5a-kmeeiut0834578.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20211220105918.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20211220110043.png">
+<meta property="article:published_time" content="2021-12-20T13:10:00.000Z">
+<meta property="article:modified_time" content="2021-12-20T13:13:39.000Z">
+<meta property="article:author" content="DiffDay">
+<meta property="article:tag" content="用户画像">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://cdn.diffday.com/picgo/20211220155042.png">
+
+<link rel="canonical" href="https://blog.diffday.com/%E5%BE%AE%E5%8D%9A%E5%BE%AE%E4%BF%A1%E5%B7%AE%E5%88%AB%E4%B8%8E%E5%BE%AE%E5%8D%9A%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>微博微信差别与微博用户画像 | Diffday</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Diffday</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">29</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">9</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">80</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E5%BE%AE%E5%8D%9A%E5%BE%AE%E4%BF%A1%E5%B7%AE%E5%88%AB%E4%B8%8E%E5%BE%AE%E5%8D%9A%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="DiffDay">
+      <meta itemprop="description" content="一个成年人的自我博雅探索，以求不惑">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Diffday">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          微博微信差别与微博用户画像
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-12-20 21:10:00 / 修改时间：21:13:39" itemprop="dateCreated datePublished" datetime="2021-12-20T21:10:00+08:00">2021-12-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E6%96%87%E7%B2%BE%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网文精摘</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="概论"><a href="#概论" class="headerlink" title="概论"></a>概论</h2><p>每个公司都有自己的企业基因，新浪的基因是网络媒体，腾讯的基因是社交和聊天工具，决定了两家的产品及走向。</p>
+<p>微博和微信最核心的区别在于媒体Media和社交Social的侧重。</p>
+<ul>
+<li>微博本质是一个媒体工具，同时有社交的功能；</li>
+<li>微信的本质是社交工具，同时有一些媒体的功能</li>
+</ul>
+<p>微博作为媒体工具，关系主要在兴趣上，关系质量较弱，单向传播多，注重是传播速度和内容公开。弱关系更有利于知识和信息的传播</p>
+<p>微信是社交工具，关系建立在社会关系上，注重私人内容交流和互动，消息消化率高，评论回复率是肯定高过微博。强关系更倾向于沟通和和分享。</p>
+<h3 id="二者重叠吗"><a href="#二者重叠吗" class="headerlink" title="二者重叠吗"></a>二者重叠吗</h3><p>互联网时代以前，你还是要看电视（媒体），也还要打电话（社交）。</p>
+<p>微博做的是媒体，主要是卖广告，微信做的是社交，卖的是增值服务和平台。</p>
+<h3 id="早期产品模型"><a href="#早期产品模型" class="headerlink" title="早期产品模型"></a>早期产品模型</h3><ul>
+<li>微博：让所有人看到你发的短信</li>
+<li>微信：用流量打电话；公众号针对粉丝订阅模式，很类似邮件营销的进化版本</li>
+</ul>
+<span id="more"></span>
+
+<h3 id="用户心理需求不同"><a href="#用户心理需求不同" class="headerlink" title="用户心理需求不同"></a>用户心理需求不同</h3><p>微博上用户更具隐匿性，因熟人不多，更加倾向于表达真实的自我，满足更多的是用户的<font color="blue">尊重需要和价值实现需要</font>。微信因为是熟人关系网络，重在沟通分享，更多是满足用户的<font color="blue">情感和归属需要</font>（<font color="red"><u>喜怒不形于朋友圈，而形于微博</u></font>）。</p>
+<ul>
+<li>微博：一个人的狂欢。陌生人社交产品，都带着一种扩大交际圈和<font color="green">排解孤独</font>的味道。</li>
+<li>微信：一群人的孤单</li>
+</ul>
+<p>微博微信的用户使用目的雷达图可见下，微博主要目的是“及时了解新闻热点”，微信用户最主要是“和朋友互动”</p>
+<p><img src="http://cdn.diffday.com/picgo/20211220155042.png"></p>
+<p>一种内容结果的比喻，很是揶揄。微博让大家意识到：天下SB数不胜数。微信用朋友圈证明：SB出自亲朋好友。</p>
+<h2 id="微博微信内容分析"><a href="#微博微信内容分析" class="headerlink" title="微博微信内容分析"></a>微博微信内容分析</h2><h3 id="强传播者的差异"><a href="#强传播者的差异" class="headerlink" title="强传播者的差异"></a>强传播者的差异</h3><p>微信总榜前50公众号中，占比最大的是娱乐类型的公众号，达到32%，其中6个是笑话类；其次是文化类公众号，占比24%，然后依次是生活类20%，时事类18%，健康类4%</p>
+<p><img src="https://pic3.zhimg.com/80/v2-a35ed51839af243793fa82e1efb6db09_720w.jpg?source=1940ef5c" alt="微信公众号top10"></p>
+<p>微博总榜前50，占比最大的依然是泛娱乐类的号，达到52%，26个，其中19个是明星个人号，其它几个也是和娱乐明星息息相关的娱乐资讯号。其次是时事类，占比34%，大部分是权威新闻类IP，然后依次是生活类10%，文化类2%</p>
+<p><img src="https://pic2.zhimg.com/80/v2-939f0b5ddd8ad9ebc735d9aee8e007ef_720w.jpg?source=1940ef5c" alt="微博号top10"></p>
+<h4 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h4><p>微博上以强传播力IP以名人和知名品牌为主，微信上强IP为草根IP为主。内容方面，微博以娱乐时事为主，<font color="darkblue">微信上除了娱乐和时事，文化类也占了重要的比例。</font></p>
+<p><font color="blue">深度内容或草根以微信端为主战场会更好。</font></p>
+<p>且很有意思的一点，<u>微博和微信前50强或100强，没有重合，进一步说明微博和微信平台调性和传播方面的巨大差异</u>。</p>
+<h3 id="内容形式区别"><a href="#内容形式区别" class="headerlink" title="内容形式区别"></a>内容形式区别</h3><p>微博内容短文+视频为主，视频多来源于秒拍，新浪也入股了。对外链没限制，外链会以蓝色文字和图片形式展示，效果也是很不错，能有效推广官网，公众号等其它企业宣发渠道。</p>
+<p>相较于微博，微信内容大部分以长篇图文形式展示，适合做深度内容，电商常在公众号里详细描绘产品功能，特性，使用方法，适宜人群等，但只会在微博放上几张图片或视频，外加一个购买链接。</p>
+<p>微博没有点击率一说，都是自动加载。<font color="blue">点击率对微信的重要程度很高，这也是微信中盛行标题党，微博中少见的原因了</font>。</p>
+<h3 id="诱导转发区别"><a href="#诱导转发区别" class="headerlink" title="诱导转发区别"></a>诱导转发区别</h3><p>微博对于诱导转发，诱导关注宽容，甚至成立个官方机构–转发抽奖平台，来保证诱导转发等活动的公开公平公正。诱导转发一直是微博上吸粉最快的方式，大量企业都采用这种方式增加粉丝，提高活跃度。</p>
+<blockquote>
+<p>副作用：放任假粉丝、广告、等诱导信息的肆无忌惮，使得微博的流量生态/风味不好，劣币驱逐良币。</p>
+</blockquote>
+<p>微博的转发率可通过两个方面来提升，内容质量和诱导转发，微信中就只剩前一条了。微信更强调互动深度，微博更强调传播链条和粉丝覆盖。</p>
+<h4 id="根因分析"><a href="#根因分析" class="headerlink" title="根因分析"></a>根因分析</h4><p>对于诱导转发或关注行为的态度不同，主要因为微博和微信的盈利模式存很大差异。微博主要靠影响信息排序来盈利，微信主要靠卖广告位（朋友圈和公众号广告位）盈利。换句话说，微博不干涉甚至支持你获得粉丝，但在你给粉丝发消息的环节，会人为干扰，<font color="blue">给了钱的用户获得消息的优先展示权；</font>微信不干涉消息排序，都是按时间轴排序，但在最开始的品牌曝光环节进行干扰。否则，<font color="red">大家都靠诱导转发增加（粉丝）曝光了，广告位还有谁买？</font></p>
+<blockquote>
+<p>毕竟，一个信息一定能收到，一个或许被淹没。增曝光的结果可测度不同。微信也不显示转发量，来暗示你转发，都转发也不利于它卖广告。</p>
+</blockquote>
+<h4 id="微博的内容排序干预工具"><a href="#微博的内容排序干预工具" class="headerlink" title="微博的内容排序干预工具"></a>微博的内容排序干预工具</h4><p>微博主要通过热门微博，博文头条，微博会员等功能参与信息排序。</p>
+<ul>
+<li><p>热门微博以热度为标题进行排序，有小时榜，天榜，周榜，月榜，还可根据用户喜好划分出兴趣，娱乐，生活，本地等类别。热度值由机器计算，主要指标有转发，点赞，发布时间等，结合其它指标进行热度加权或降权。通过把控这个流量超大的热门微博栏目，实际上很大程度控制了微博用户获取信息的内容。</p>
+</li>
+<li><p>博文头条能在24小时内，让你的博文出现在所有粉丝微博首页第一位，左上角会有热门标记，可增加相关博文阅读量和影响力。支付的费用和粉丝量和曝光量成正比。</p>
+</li>
+<li><p>微博会员有本人主页置顶微博的特权。</p>
+</li>
+</ul>
+<h2 id="微博2020用户发展报告"><a href="#微博2020用户发展报告" class="headerlink" title="微博2020用户发展报告"></a>微博2020用户发展报告</h2><h3 id="年轻化"><a href="#年轻化" class="headerlink" title="年轻化"></a>年轻化</h3><p>90，00占比近80%，80后还剩（18%）。女性用户占比越来越高，00后中，已盖过男性达到61%。</p>
+<blockquote>
+<p>50年代出生1.78亿人</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>60</th>
+<th>70</th>
+<th>80</th>
+<th>90</th>
+<th>00</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>总人口</td>
+<td>2.37亿</td>
+<td>2.17亿</td>
+<td>2.21亿</td>
+<td>2.09亿</td>
+<td>1.63亿</td>
+<td>1.63亿</td>
+</tr>
+<tr>
+<td>微博用户占比</td>
+<td>1%(含50后)</td>
+<td>3%</td>
+<td>18%</td>
+<td>48%</td>
+<td>30%</td>
+<td>未知</td>
+</tr>
+</tbody></table>
+<p><img src="https://n.sinaimg.cn/tech/transform/64/w553h311/20210312/d816-kmeeiut0807046.png"></p>
+<p><img src="https://n.sinaimg.cn/tech/transform/64/w553h311/20210312/00aa-kmeeiut0807528.png"></p>
+<h3 id="内容特征挖掘"><a href="#内容特征挖掘" class="headerlink" title="内容特征挖掘"></a>内容特征挖掘</h3><p><img src="https://n.sinaimg.cn/tech/transform/64/w553h311/20210312/15a1-kmeeiut0810135.png"></p>
+<p><img src="https://n.sinaimg.cn/tech/transform/64/w553h311/20210312/3376-kmeeiut0808677.png"></p>
+<h3 id="接下来进入代际特征大比拼"><a href="#接下来进入代际特征大比拼" class="headerlink" title="接下来进入代际特征大比拼"></a>接下来进入代际特征大比拼</h3><p><u>80后“求知欲”最旺盛，关注大V最多，是00后的近2倍，是90后1.3倍。00后平均关注20多位明星</u>。</p>
+<h4 id="话题总榜"><a href="#话题总榜" class="headerlink" title="话题总榜"></a>话题总榜</h4><blockquote>
+<p>70，80泛社会，90，00泛娱乐</p>
+</blockquote>
+<p>70后和00后，同关注高考和天问一号火星探测。除此之外，70后更关心美股暴跌，腾讯状告老干妈，马拉多纳去世。00后更喜欢创造营2020和2020KPL秋季赛，参与流行热梗。</p>
+<p><img src="https://n.sinaimg.cn/tech/transform/64/w553h311/20210312/2b12-kmeeiut0811649.png" alt="70，80泛社会，90，00泛娱乐"></p>
+<h4 id="活动时段"><a href="#活动时段" class="headerlink" title="活动时段"></a>活动时段</h4><p>12点和晚上22点是微博用户的黄金冲浪时段，上班路上也是高峰，90后和00后的互动量最高。</p>
+<p>90后使用流行梗是80后的4倍。</p>
+<p>热点话题中表情包是用户最直接的表态方式。</p>
+<p><img src="https://n.sinaimg.cn/tech/transform/64/w553h311/20210312/44f9-kmeeiut0809220.png"></p>
+<h4 id="电视剧"><a href="#电视剧" class="headerlink" title="电视剧"></a>电视剧</h4><p>70后关注家庭，在意别人家的小孩</p>
+<p>80后更喜欢都市剧，喜欢寻找情感共鸣</p>
+<p>90后偏好大IP改编，鲜衣怒马快意恩仇</p>
+<p>00后关注写实类电视剧和流星小甜剧</p>
+<p><img src="https://n.sinaimg.cn/tech/transform/64/w553h311/20210312/f9a1-kmeeiut0821842.png" alt="追剧代际不同"></p>
+<h4 id="综艺"><a href="#综艺" class="headerlink" title="综艺"></a>综艺</h4><p>00后偏爱爱豆真人秀</p>
+<p>90后喜欢养成类综艺</p>
+<p>80，70后姐姐粉，喜欢突破年龄禁锢的综艺，在各种跨度综艺中享受生活</p>
+<p><img src="https://n.sinaimg.cn/tech/transform/64/w553h311/20210312/7c05-kmeeiut0822696.png"></p>
+<h4 id="美食"><a href="#美食" class="headerlink" title="美食"></a>美食</h4><p>在美食上，火锅、奶茶、螺蛳粉入选00后美食榜单前三名，螺蛳粉、烤肉、酸辣粉则是90后钟爱的小吃。在年轻用户的频繁讨论和分享中，螺蛳粉迅速培养起热搜体质，以各种花式热门话题频频冲上热搜</p>
+<p><img src="https://n.sinaimg.cn/tech/transform/64/w553h311/20210312/62f7-kmeeiut0824594.png"></p>
+<h4 id="健身"><a href="#健身" class="headerlink" title="健身"></a>健身</h4><p><img src="https://n.sinaimg.cn/tech/transform/64/w553h311/20210312/c753-kmeeiut0826162.png"></p>
+<p><img src="https://n.sinaimg.cn/tech/transform/64/w553h311/20210312/a53d-kmeeiut0827059.png"></p>
+<h4 id="动漫"><a href="#动漫" class="headerlink" title="动漫"></a>动漫</h4><p><img src="https://n.sinaimg.cn/tech/transform/64/w553h311/20210312/aef0-kmeeiut0830590.png"></p>
+<p><img src="https://n.sinaimg.cn/tech/transform/64/w553h311/20210312/8ca0-kmeeiut0831730.png"></p>
+<h4 id="剁手之王"><a href="#剁手之王" class="headerlink" title="剁手之王"></a>剁手之王</h4><p>90后女生成为消费中流砥柱，赢得“剁手之王”的称号，她们通过电商小店购买的商品是清洁用品、药品，非常注重健康防护，伴随着成家立业，她们经常购买的商品还包括居家用品、床上用品、婴儿用品、蔬菜肉类，与生活息息相关</p>
+<p><img src="https://n.sinaimg.cn/tech/transform/64/w553h311/20210312/fd35-kmeeiut0832954.png"></p>
+<h4 id="万物开箱"><a href="#万物开箱" class="headerlink" title="万物开箱"></a>万物开箱</h4><p>不管是丑东西还是雷品，都能遇到猎奇的测评er，万物皆可开箱，每天1500万人观看</p>
+<p><img src="https://n.sinaimg.cn/tech/transform/64/w553h311/20210312/3c5a-kmeeiut0834578.png"></p>
+<h2 id="附录-七普部分人口数据分析"><a href="#附录-七普部分人口数据分析" class="headerlink" title="附录-七普部分人口数据分析"></a>附录-七普部分人口数据分析</h2><p><img src="http://cdn.diffday.com/picgo/20211220105918.png"></p>
+<h3 id="老龄化"><a href="#老龄化" class="headerlink" title="老龄化"></a>老龄化</h3><p>有12个省份65+人口比重超过14%，分别是天津，黑吉辽，上海，江苏，安徽，山东，两湖，重庆，四川。</p>
+<p>除西藏外，全国31个省市（不含港澳台）65+全部超过7%，广东8.58算比新疆7.76号的第二名，比青海都好。</p>
+<p>乡村老龄人口比重比城镇更高</p>
+<h3 id="受教育程度"><a href="#受教育程度" class="headerlink" title="受教育程度"></a>受教育程度</h3><table>
+<thead>
+<tr>
+<th>人口总计</th>
+<th>大专以上</th>
+<th>高中（含中专）</th>
+<th>初中</th>
+<th>小学</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>141178</td>
+<td>21836</td>
+<td>21301</td>
+<td>48716</td>
+<td>34966</td>
+</tr>
+</tbody></table>
+<p><img src="http://cdn.diffday.com/picgo/20211220110043.png"></p>
+<p>15岁以上人口，全国平均受教育年限9.91年，大家没有特别冒尖的，前三名是北上天，分别是12.64年，11.81年，11.29年。接下来竟是广东，10.38。</p>
+<p>16-59岁劳动年龄人口（约为8.94亿，总人口的63.35%）平均受教育年限平均值更高些，10.75年。高中以上文化水平3.85亿（总人口4.31亿），43.79%。大专以上占比达到23.61%。</p>
+<p><u><strong>文盲率</strong></u>（15岁以上）已降至2.67%，64年普查的时候，还有33.58%。</p>
+<p><u>北京大学生最多，10个里面有4.2个，上海第二梯队，3.4个</u></p>
+<h3 id="城镇化率"><a href="#城镇化率" class="headerlink" title="城镇化率"></a>城镇化率</h3><p>全国平均城镇化率63.89%【居住在城镇】，公安部户籍人口城镇化率45.4%，相较于2010年49.68%，2000年36.22%，前进了一大步。</p>
+<p>城镇化率前7名，上海（89.3%）北京（87.55%）天津（84.7%）广东（74.15%）江苏（74.44%）浙江（72.17）辽宁（72.14%），其余都在70%以下，重庆69.66%紧随其后</p>
+<p>人户分离人口4.93亿，总人口35%</p>
+<h3 id="出生人口"><a href="#出生人口" class="headerlink" title="出生人口"></a>出生人口</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/133772314">中国出生人口数据</a></p>
+<p>统计局官网是不会公布每年出生人口数量的，因为具体的数量很难精确统计，但是根据提供的年末总人口可以计算出年平均人口，然后根据出生率计算年度出生人口。</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/94118835">各年度出生人口数</a></p>
+<p>二孩政策的红利于2016、2017年释放完毕后，掉头向下。2020年出生人口1200万，公安部公布为1003万，因为一些不登记，晚登记户口的，所以公安部的数据常规有偏差，且及时率在80%左右。</p>
+<p>原来卫生健康委公布住院分娩活体数，相对比较准，因为住院分娩率已从1996年的58.7%上升至2017年的99.9%。根据卫生计生统计数据，2016年全年住院分娩活产数为1846万人，2017年为1758万。2018年后，机构改革后承担计划生育职能的国家卫生健康委并未再专门向媒体发布全年住院分娩活产数，而是采用国家统计局的数据。不过，在《中国卫生健康统计年鉴》中，2018年全国住院分娩活产数(包括户籍和非户籍)显示为1521万，2019年为1455万，与统计局数据相差不大。</p>
+<blockquote>
+<p>有人诟病统计局常规是抽样调查，所以不准，但现在的年代，合并职能后用住院分娩数就已经差不多。</p>
+</blockquote>
+<p>2020年完成户口登记的新生儿数量较2019年少了175.5万</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="DiffDay 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="DiffDay 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>DiffDay
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://blog.diffday.com/%E5%BE%AE%E5%8D%9A%E5%BE%AE%E4%BF%A1%E5%B7%AE%E5%88%AB%E4%B8%8E%E5%BE%AE%E5%8D%9A%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F.html" title="微博微信差别与微博用户画像">https://blog.diffday.com/微博微信差别与微博用户画像.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F/" rel="tag"><i class="fa fa-tag"></i> 用户画像</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/%E7%BB%8F%E6%B5%8E%E4%B8%8E%E5%80%BA%E5%8A%A1.html" rel="prev" title="经济与债务">
+      <i class="fa fa-chevron-left"></i> 经济与债务
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%AE%BA"><span class="nav-number">1.</span> <span class="nav-text">概论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E8%80%85%E9%87%8D%E5%8F%A0%E5%90%97"><span class="nav-number">1.1.</span> <span class="nav-text">二者重叠吗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A9%E6%9C%9F%E4%BA%A7%E5%93%81%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.2.</span> <span class="nav-text">早期产品模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E5%BF%83%E7%90%86%E9%9C%80%E6%B1%82%E4%B8%8D%E5%90%8C"><span class="nav-number">1.3.</span> <span class="nav-text">用户心理需求不同</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AE%E5%8D%9A%E5%BE%AE%E4%BF%A1%E5%86%85%E5%AE%B9%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">微博微信内容分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%BA%E4%BC%A0%E6%92%AD%E8%80%85%E7%9A%84%E5%B7%AE%E5%BC%82"><span class="nav-number">2.1.</span> <span class="nav-text">强传播者的差异</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA"><span class="nav-number">2.1.1.</span> <span class="nav-text">结论</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AE%B9%E5%BD%A2%E5%BC%8F%E5%8C%BA%E5%88%AB"><span class="nav-number">2.2.</span> <span class="nav-text">内容形式区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%B1%E5%AF%BC%E8%BD%AC%E5%8F%91%E5%8C%BA%E5%88%AB"><span class="nav-number">2.3.</span> <span class="nav-text">诱导转发区别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%B9%E5%9B%A0%E5%88%86%E6%9E%90"><span class="nav-number">2.3.1.</span> <span class="nav-text">根因分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BE%AE%E5%8D%9A%E7%9A%84%E5%86%85%E5%AE%B9%E6%8E%92%E5%BA%8F%E5%B9%B2%E9%A2%84%E5%B7%A5%E5%85%B7"><span class="nav-number">2.3.2.</span> <span class="nav-text">微博的内容排序干预工具</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AE%E5%8D%9A2020%E7%94%A8%E6%88%B7%E5%8F%91%E5%B1%95%E6%8A%A5%E5%91%8A"><span class="nav-number">3.</span> <span class="nav-text">微博2020用户发展报告</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B4%E8%BD%BB%E5%8C%96"><span class="nav-number">3.1.</span> <span class="nav-text">年轻化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AE%B9%E7%89%B9%E5%BE%81%E6%8C%96%E6%8E%98"><span class="nav-number">3.2.</span> <span class="nav-text">内容特征挖掘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A5%E4%B8%8B%E6%9D%A5%E8%BF%9B%E5%85%A5%E4%BB%A3%E9%99%85%E7%89%B9%E5%BE%81%E5%A4%A7%E6%AF%94%E6%8B%BC"><span class="nav-number">3.3.</span> <span class="nav-text">接下来进入代际特征大比拼</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%9D%E9%A2%98%E6%80%BB%E6%A6%9C"><span class="nav-number">3.3.1.</span> <span class="nav-text">话题总榜</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B4%BB%E5%8A%A8%E6%97%B6%E6%AE%B5"><span class="nav-number">3.3.2.</span> <span class="nav-text">活动时段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%B5%E8%A7%86%E5%89%A7"><span class="nav-number">3.3.3.</span> <span class="nav-text">电视剧</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%BC%E8%89%BA"><span class="nav-number">3.3.4.</span> <span class="nav-text">综艺</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BE%8E%E9%A3%9F"><span class="nav-number">3.3.5.</span> <span class="nav-text">美食</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%81%A5%E8%BA%AB"><span class="nav-number">3.3.6.</span> <span class="nav-text">健身</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%A8%E6%BC%AB"><span class="nav-number">3.3.7.</span> <span class="nav-text">动漫</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%89%81%E6%89%8B%E4%B9%8B%E7%8E%8B"><span class="nav-number">3.3.8.</span> <span class="nav-text">剁手之王</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%87%E7%89%A9%E5%BC%80%E7%AE%B1"><span class="nav-number">3.3.9.</span> <span class="nav-text">万物开箱</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%84%E5%BD%95-%E4%B8%83%E6%99%AE%E9%83%A8%E5%88%86%E4%BA%BA%E5%8F%A3%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90"><span class="nav-number">4.</span> <span class="nav-text">附录-七普部分人口数据分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%80%81%E9%BE%84%E5%8C%96"><span class="nav-number">4.1.</span> <span class="nav-text">老龄化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%97%E6%95%99%E8%82%B2%E7%A8%8B%E5%BA%A6"><span class="nav-number">4.2.</span> <span class="nav-text">受教育程度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%8E%E9%95%87%E5%8C%96%E7%8E%87"><span class="nav-number">4.3.</span> <span class="nav-text">城镇化率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BA%E7%94%9F%E4%BA%BA%E5%8F%A3"><span class="nav-number">4.4.</span> <span class="nav-text">出生人口</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="DiffDay"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">DiffDay</p>
+  <div class="site-description" itemprop="description">一个成年人的自我博雅探索，以求不惑</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:creator.chen@foxmail.com" title="E-Mail → mailto:creator.chen@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18103410号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DiffDay</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">308k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">4:40</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2d-widget/autoload.js"></script>
+</body>
+</html>
