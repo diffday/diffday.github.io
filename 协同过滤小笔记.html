@@ -34,7 +34,7 @@
 <meta property="og:image" content="http://cdn.diffday.com/picgo/20220214134420.png">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwgy1g9qmon49egj30if05gt9l.jpg">
 <meta property="article:published_time" content="2019-12-09T10:32:06.000Z">
-<meta property="article:modified_time" content="2022-02-14T05:46:17.000Z">
+<meta property="article:modified_time" content="2022-02-14T11:50:01.000Z">
 <meta property="article:author" content="DiffDay">
 <meta property="article:tag" content="数据挖掘">
 <meta name="twitter:card" content="summary">
@@ -229,7 +229,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-14 13:46:17" itemprop="dateModified" datetime="2022-02-14T13:46:17+08:00">2022-02-14</time>
+                <time title="修改时间：2022-02-14 19:50:01" itemprop="dateModified" datetime="2022-02-14T19:50:01+08:00">2022-02-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -258,14 +258,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
+              <span>2.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -405,6 +405,13 @@
 <p>当你提供的是显性反馈时，相当于直接对你的评级数据进行建模求权重；</p>
 <p>而隐式反馈时将数据集看作代表强度的数字化用户行为观察（如点击次数或某人观看项目的累积时间），这些数字与观察到的用户偏好的置信水平相关，而不是明确与评分评级有关。</p>
 <p>当implicitPrefs=true时，还有一个配套参数alpha（默认值1.0，也就是不干预训练结果），用来与最终模型训练结果输出前相乘。很多地方描述称做控制偏好观察中的 基线置信度，提法直观阅读比较绕，特作前面的实际作用机制说明。</p>
+<h2 id="补记：CTR中流行FM算法的特点"><a href="#补记：CTR中流行FM算法的特点" class="headerlink" title="补记：CTR中流行FM算法的特点"></a>补记：CTR中流行FM算法的特点</h2><p>FM（Factorization Machine）是由Konstanz大学Steffen Rendle于2010年最早提出的，旨在解决稀疏数据下的特征组合问题。经过One-Hot编码之后，大部分样本数据特征是比较稀疏的，特征空间还变得更大。某些特征经过关联之后，与label之间的相关性就会提高，那么引入特征组合就非常具有意义了。</p>
+<p>在FM模型之前，CTR预估最常用的模型是SVM和LR（包括用GBDT给它们提取非线性特征），SVM和LR都是线性模型（SVM理论上可以引入核函数从而引入非线性，但由于非常高维的稀疏特征向量使得它很容易过拟合，故实际运用起来不太顺手），在特征关联领域，怎么建模二阶，三阶甚至更高阶非线性的关系就是预估更加准确的关键点（因为其实际上确有相关性，如吃饭时间食谱类App下载量比平时大–app类别和时间的二阶关系，年轻男性更喜欢设计类游戏—年龄，性别，游戏类别的三阶关系）。</p>
+<p>FM通过给每个特征引入一个低维稠密的隐向量来减少二阶特征交互的参数个数，同时实现信息共享，使得在非常稀疏的特征向量上的学习更加容易泛化。理论上FM可以建模二阶以上的特征交互，但是由于计算量急剧增加，实际一般只用二阶的模型。</p>
+<blockquote>
+<p>直观上看，FM的复杂度是 O(kn^2)。但是，FM的二次项可以化简，其复杂度可以优化到 O(kn)。由此可见，FM可以在线性时间对新样本作出预测</p>
+</blockquote>
+<p>FM可以模拟二阶多项式核的SVM模型，MF模型，SVD++模型等，相比SVM的二阶多项式核而言，FM在样本稀疏的情况下是有优势的。FM的训练/预测 复杂度是线性的，而二阶多项式核SVM需要计算核矩阵，核矩阵复杂度就是N平方。</p>
 
     </div>
 
@@ -526,7 +533,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AF%E8%AF%AD%E8%A1%A8"><span class="nav-number">1.</span> <span class="nav-text">术语表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E6%80%A7%E5%8F%8D%E9%A6%88"><span class="nav-number">1.1.</span> <span class="nav-text">显性反馈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%90%E6%80%A7%E5%8F%8D%E9%A6%88"><span class="nav-number">1.2.</span> <span class="nav-text">隐性反馈</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%A4%E5%A4%A7%E6%96%B9%E5%90%91"><span class="nav-number">2.</span> <span class="nav-text">两大方向</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Memory-based"><span class="nav-number">2.1.</span> <span class="nav-text">Memory-based</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E7%94%A8%E6%88%B7"><span class="nav-number">2.1.1.</span> <span class="nav-text">基于用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E9%A1%B9%E7%9B%AE"><span class="nav-number">2.1.2.</span> <span class="nav-text">基于项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">2.1.3.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%B1%E5%8A%BF"><span class="nav-number">2.1.4.</span> <span class="nav-text">弱势</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Model-based"><span class="nav-number">2.2.</span> <span class="nav-text">Model-based</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A8%80%E7%96%8F%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-number">2.2.1.</span> <span class="nav-text">稀疏数据集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E5%9B%A0%E5%AD%90"><span class="nav-number">2.2.2.</span> <span class="nav-text">用户因子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E5%9B%A0%E5%AD%90"><span class="nav-number">2.2.3.</span> <span class="nav-text">项目因子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B1%82%E6%9D%83%E9%87%8D%E7%9F%A9%E9%98%B5"><span class="nav-number">2.2.4.</span> <span class="nav-text">求权重矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ALS"><span class="nav-number">2.2.4.1.</span> <span class="nav-text">ALS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SVD"><span class="nav-number">2.2.4.2.</span> <span class="nav-text">SVD</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spark%E5%86%85%E7%BD%AE%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%AE%97%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">Spark内置协同过滤算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E9%9A%90%E5%8F%8D%E9%A6%88%E7%9A%84%E7%AD%96%E7%95%A5%E5%8C%BA%E5%88%AB"><span class="nav-number">3.1.</span> <span class="nav-text">显隐反馈的策略区别</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AF%E8%AF%AD%E8%A1%A8"><span class="nav-number">1.</span> <span class="nav-text">术语表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E6%80%A7%E5%8F%8D%E9%A6%88"><span class="nav-number">1.1.</span> <span class="nav-text">显性反馈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%90%E6%80%A7%E5%8F%8D%E9%A6%88"><span class="nav-number">1.2.</span> <span class="nav-text">隐性反馈</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%A4%E5%A4%A7%E6%96%B9%E5%90%91"><span class="nav-number">2.</span> <span class="nav-text">两大方向</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Memory-based"><span class="nav-number">2.1.</span> <span class="nav-text">Memory-based</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E7%94%A8%E6%88%B7"><span class="nav-number">2.1.1.</span> <span class="nav-text">基于用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E9%A1%B9%E7%9B%AE"><span class="nav-number">2.1.2.</span> <span class="nav-text">基于项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">2.1.3.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%B1%E5%8A%BF"><span class="nav-number">2.1.4.</span> <span class="nav-text">弱势</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Model-based"><span class="nav-number">2.2.</span> <span class="nav-text">Model-based</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A8%80%E7%96%8F%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-number">2.2.1.</span> <span class="nav-text">稀疏数据集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E5%9B%A0%E5%AD%90"><span class="nav-number">2.2.2.</span> <span class="nav-text">用户因子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E5%9B%A0%E5%AD%90"><span class="nav-number">2.2.3.</span> <span class="nav-text">项目因子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B1%82%E6%9D%83%E9%87%8D%E7%9F%A9%E9%98%B5"><span class="nav-number">2.2.4.</span> <span class="nav-text">求权重矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ALS"><span class="nav-number">2.2.4.1.</span> <span class="nav-text">ALS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SVD"><span class="nav-number">2.2.4.2.</span> <span class="nav-text">SVD</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spark%E5%86%85%E7%BD%AE%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%AE%97%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">Spark内置协同过滤算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E9%9A%90%E5%8F%8D%E9%A6%88%E7%9A%84%E7%AD%96%E7%95%A5%E5%8C%BA%E5%88%AB"><span class="nav-number">3.1.</span> <span class="nav-text">显隐反馈的策略区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A5%E8%AE%B0%EF%BC%9ACTR%E4%B8%AD%E6%B5%81%E8%A1%8CFM%E7%AE%97%E6%B3%95%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-number">4.</span> <span class="nav-text">补记：CTR中流行FM算法的特点</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -608,7 +615,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:47</span>
+    <span title="站点阅读时长">4:48</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
