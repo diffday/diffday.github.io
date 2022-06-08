@@ -7930,6 +7930,8 @@
 <li>Security</li>
 </ul>
 <p>互联网中架构更喜欢讨论的是结果质量，的确有其挑战，但过程控制是结果控制的非取巧不二法门</p>
+<span id="more"></span>
+
 <h3 id="SQALE度量内在质量"><a href="#SQALE度量内在质量" class="headerlink" title="SQALE度量内在质量"></a>SQALE度量内在质量</h3><p>整合了ISO-25010标准与代码规范，目标是客观，准确，可复制和自动化的方式为评估软件应用程序的源代码提供支持，为管理技术负债提供一种有效的方法</p>
 <blockquote>
 <p>Sonar code quality testing essential,戏称开发人员7宗罪</p>
