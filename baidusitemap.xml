@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.diffday.com/%E8%B5%9A%E4%B8%8D%E5%88%B0%E8%AE%A4%E7%9F%A5%E8%8C%83%E5%9B%B4%E5%A4%96%E7%9A%84%E9%92%B1.html</loc>
+    <lastmod>2022-07-28</lastmod>
+  </url>
+  <url>
     <loc>https://blog.diffday.com/%E9%AB%98%E6%95%88%E5%9B%A2%E9%98%9F.html</loc>
     <lastmod>2022-07-13</lastmod>
   </url>
@@ -267,10 +271,6 @@
   <url>
     <loc>https://blog.diffday.com/%E5%9B%9E%E6%9C%9B2020.html</loc>
     <lastmod>2021-01-06</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.diffday.com/%E8%B5%9A%E4%B8%8D%E5%88%B0%E8%AE%A4%E7%9F%A5%E8%8C%83%E5%9B%B4%E5%A4%96%E7%9A%84%E9%92%B1.html</loc>
-    <lastmod>2021-01-05</lastmod>
   </url>
   <url>
     <loc>https://blog.diffday.com/OKR-VS-KPI.html</loc>
