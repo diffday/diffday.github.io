@@ -123,7 +123,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">34</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">35</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -133,7 +133,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">95</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">96</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -188,6 +188,121 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E6%95%B0%E6%8D%AE%E5%80%BE%E6%96%9C%E6%B5%85%E8%BF%B0.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="DiffDay">
+      <meta itemprop="description" content="一个成年人的自我博雅探索，以求不惑">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Diffday">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E6%95%B0%E6%8D%AE%E5%80%BE%E6%96%9C%E6%B5%85%E8%BF%B0.html" class="post-title-link" itemprop="url">数据倾斜浅述</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-10-10 13:39:34" itemprop="dateCreated datePublished" datetime="2022-10-10T13:39:34+08:00">2022-10-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-11-09 11:24:19" itemprop="dateModified" datetime="2022-11-09T11:24:19+08:00">2022-11-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E6%96%87%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网络文摘</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="http://cdn.diffday.com/picgo/20221109111839.png"></p>
+<h2 id="数据倾斜"><a href="#数据倾斜" class="headerlink" title="数据倾斜"></a>数据倾斜</h2><p>数据倾斜即指在大数据计算任务中某个处理任务的进程（通常是一个JVM进程）被分配到的任务量过多，进程运行时间超长甚至最终失败，进而导致整个计算任务超长时间运行或失败的问题。</p>
+<ul>
+<li>外部表现的话，在MR任务（如跑HiveSQL）里看到map或reduce的进度一直是99%持续数小时没有变化；</li>
+<li>在SparkSQL任务重则是某个stage里，正在运行的任务数量长时间是1或者2不变。</li>
+</ul>
+<p>简而言之，如果任务进度信息一直在输出，但内容长时间没有任何变化的时候，大概率是出现数据倾斜了。</p>
+<blockquote>
+<p>有个特例需要注意，有时大家会看到SparkSQL的任务信息也显示有1到2个任务在运行中，但进度信息不再刷新而表现为假死很久的时候，这通常是进行最后阶段的文件操作，并不是数据倾斜（这通常意味着小文件问题严重）</p>
+</blockquote>
+<h2 id="类型分类"><a href="#类型分类" class="headerlink" title="类型分类"></a>类型分类</h2><h3 id="读倾斜"><a href="#读倾斜" class="headerlink" title="读倾斜"></a>读倾斜</h3><p>在读取数据阶段长期无法完成，这通常是因为文件分块过大或分块数据有异常，这种情况出现频率较小。</p>
+<h3 id="算倾斜"><a href="#算倾斜" class="headerlink" title="算倾斜"></a>算倾斜</h3><p>即在某个需要排序（如开窗函数或非广播关联时）或者聚合操作时候，同一个key（通常是一个或者多个字段或者表达式的组合）的处理耗时过长。这通常是最多的情况，情况也较为复杂。</p>
+<p>大数据中动辄上亿行的数据，如果有排序（order by或sort by）的需求且数据量巨大的话，通常会产生溢写磁盘的操作，非常耗时，且容易造成OOM异常。99.99%的大数据场景下，完全的排序都是不必要的，因为业务通常需要的统计信息而非具体某一条记录的细节信息。</p>
+<h3 id="写倾斜"><a href="#写倾斜" class="headerlink" title="写倾斜"></a>写倾斜</h3><p>即某个操作需要输出大量数据，如超过几亿或者几十亿行。主要出现在关联后数据膨胀或某些只能由一个task来操作（如limit）的情况。</p>
+<p>表关联，举例两张表join可能产生数十亿行记录。问题本质是一个task最多由一个进程来执行，而相同的key也必须在同一个task中处理。因为在无法改变这个机制的前提下，我们只有想办法减少一个task输出的行数</p>
+<h3 id="文件操作倾斜"><a href="#文件操作倾斜" class="headerlink" title="文件操作倾斜"></a>文件操作倾斜</h3><p>即数据生成在临时文件夹后，由于数量巨大，重名民或移动的操作非常耗时，这通常发生在动态分区导致小文件的情况。</p>
+<h2 id="原因剖析与解决出发点"><a href="#原因剖析与解决出发点" class="headerlink" title="原因剖析与解决出发点"></a>原因剖析与解决出发点</h2><p>为什么会有数据倾斜</p>
+<ol>
+<li><p>业务数据分布规律无法预知，比如系统无法不经过计算而提前知道某个表的某个字段的取值分布是否大致均匀</p>
+</li>
+<li><p>计算结果数量无法预知。比如两表关联的结果对于某些key（关联一个字段或多个字段组合）的输出行数无法不经过计算而预知而针对性处理：又比如某个字段的值进行split操作或者explode等操作后产生的结果数量无法预知而进行针对性的应对</p>
+</li>
+<li><p><font color="red">某些操作只能由单一节点进行</font>，一切需要维护一个全局状态的大多数操作，如排序，limit，count，distinct，全局聚合等，一般会安排到一个节点来执行</p>
+<p>有概率导致在单节点上处理巨量的数据，造成所谓的倾斜问题。</p>
+</li>
+</ol>
+<p>当然，这些困难并不是理论上不可避免的，随着时间的推移，越来越多的针对性优化措施已逐渐出现（如spark3已经能自动应对部分数据倾斜的情况了），也许在不久的将来业务同学不会再被倾斜问题烦恼，但现阶段还需数据开发工程师主动关注并应对。</p>
+<h3 id="从业务逻辑审视出发"><a href="#从业务逻辑审视出发" class="headerlink" title="从业务逻辑审视出发"></a>从业务逻辑审视出发</h3><p>如果发生了数据倾斜，有不小的概率是业务逻辑/需求不合理，需要跟业务方反复确认逻辑的合理性，优化业务逻辑一定要高过优化技术方案。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1111,108 +1226,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E9%98%B6%E5%B1%82%E6%80%9D%E7%BB%B4%E5%B7%AE%E5%BC%82.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="DiffDay">
-      <meta itemprop="description" content="一个成年人的自我博雅探索，以求不惑">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Diffday">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E9%98%B6%E5%B1%82%E6%80%9D%E7%BB%B4%E5%B7%AE%E5%BC%82.html" class="post-title-link" itemprop="url">阶层思维差异</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-02-24 17:00:00" itemprop="dateCreated datePublished" datetime="2022-02-24T17:00:00+08:00">2022-02-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-29 15:26:13" itemprop="dateModified" datetime="2022-09-29T15:26:13+08:00">2022-09-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E6%96%87%E7%B2%BE%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网文精摘</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="http://cdn.diffday.com/picgo/20220224165935.png"></p>
-<h2 id="阶层思维方式差异"><a href="#阶层思维方式差异" class="headerlink" title="阶层思维方式差异"></a>阶层思维方式差异</h2><blockquote>
-<p>可以说是一种思维进化吧</p>
-</blockquote>
-<h3 id="底层思维"><a href="#底层思维" class="headerlink" title="底层思维"></a>底层思维</h3><p>叫做“我有一个痛苦”。上班嫌挣钱少，炒股嫌亏钱，做饭嫌麻烦，吃外卖又嫌送得慢。</p>
-<p>眼中满是不幸和痛苦，心中充满憎恨和委屈，只有这种心态一辈子难以爬出底层。</p>
-<h3 id="穷人思维"><a href="#穷人思维" class="headerlink" title="穷人思维"></a>穷人思维</h3><p>开始意识到不幸都是自己造成的，开始进化到”我有一个梦想”，知道怨天尤人没用，自己的生活要靠自己创造，但空有梦想，却不落地执行，总是在等待，等待时机，学习经验，积累人脉，看似很努力，其实都瞎忙。</p>
-<p>他们永远不开始，因为它们没有勇气，他们恐惧失败，他们看起来不安于现状，但潜意识仍然害怕改变。一旦穷人行动起来，他们就变成了第三层，中产思维。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E9%98%B6%E5%B1%82%E6%80%9D%E7%BB%B4%E5%B7%AE%E5%BC%82.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1284,7 +1297,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">95</span>
+          <span class="site-state-item-count">96</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1297,7 +1310,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-count">35</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1344,13 +1357,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">377k</span>
+    <span title="站点总字数">378k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:43</span>
+    <span title="站点阅读时长">5:44</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

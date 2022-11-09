@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/bitbug_favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/bitbug_favicon32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/bitbug_favicon16.ico">
+  <link rel="mask-icon" href="/images/bitbug_favicon.ico" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="UaMvLIOYuNWHgVq42dlN49RoniU73U6SoqoRnEcit9E">
+  <meta name="baidu-site-verification" content="code-DN25SBuR8T">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.diffday.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="数据倾斜数据倾斜即指在大数据计算任务中某个处理任务的进程（通常是一个JVM进程）被分配到的任务量过多，进程运行时间超长甚至最终失败，进而导致整个计算任务超长时间运行或失败的问题。  外部表现的话，在MR任务（如跑HiveSQL）里看到map或reduce的进度一直是99%持续数小时没有变化； 在SparkSQL任务重则是某个stage里，正在运行的任务数量长时间是1或者2不变。  简而言之，如果">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据倾斜浅述">
+<meta property="og:url" content="https://blog.diffday.com/%E6%95%B0%E6%8D%AE%E5%80%BE%E6%96%9C%E6%B5%85%E8%BF%B0.html">
+<meta property="og:site_name" content="Diffday">
+<meta property="og:description" content="数据倾斜数据倾斜即指在大数据计算任务中某个处理任务的进程（通常是一个JVM进程）被分配到的任务量过多，进程运行时间超长甚至最终失败，进而导致整个计算任务超长时间运行或失败的问题。  外部表现的话，在MR任务（如跑HiveSQL）里看到map或reduce的进度一直是99%持续数小时没有变化； 在SparkSQL任务重则是某个stage里，正在运行的任务数量长时间是1或者2不变。  简而言之，如果">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20221109111839.png">
+<meta property="article:published_time" content="2022-10-10T05:39:34.000Z">
+<meta property="article:modified_time" content="2022-11-09T03:24:19.000Z">
+<meta property="article:author" content="DiffDay">
+<meta property="article:tag" content="技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://cdn.diffday.com/picgo/20221109111839.png">
+
+<link rel="canonical" href="https://blog.diffday.com/%E6%95%B0%E6%8D%AE%E5%80%BE%E6%96%9C%E6%B5%85%E8%BF%B0.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>数据倾斜浅述 | Diffday</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Diffday</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">35</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">10</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">96</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E6%95%B0%E6%8D%AE%E5%80%BE%E6%96%9C%E6%B5%85%E8%BF%B0.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="DiffDay">
+      <meta itemprop="description" content="一个成年人的自我博雅探索，以求不惑">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Diffday">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数据倾斜浅述
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-10-10 13:39:34" itemprop="dateCreated datePublished" datetime="2022-10-10T13:39:34+08:00">2022-10-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-11-09 11:24:19" itemprop="dateModified" datetime="2022-11-09T11:24:19+08:00">2022-11-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E6%96%87%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网络文摘</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="http://cdn.diffday.com/picgo/20221109111839.png"></p>
+<h2 id="数据倾斜"><a href="#数据倾斜" class="headerlink" title="数据倾斜"></a>数据倾斜</h2><p>数据倾斜即指在大数据计算任务中某个处理任务的进程（通常是一个JVM进程）被分配到的任务量过多，进程运行时间超长甚至最终失败，进而导致整个计算任务超长时间运行或失败的问题。</p>
+<ul>
+<li>外部表现的话，在MR任务（如跑HiveSQL）里看到map或reduce的进度一直是99%持续数小时没有变化；</li>
+<li>在SparkSQL任务重则是某个stage里，正在运行的任务数量长时间是1或者2不变。</li>
+</ul>
+<p>简而言之，如果任务进度信息一直在输出，但内容长时间没有任何变化的时候，大概率是出现数据倾斜了。</p>
+<blockquote>
+<p>有个特例需要注意，有时大家会看到SparkSQL的任务信息也显示有1到2个任务在运行中，但进度信息不再刷新而表现为假死很久的时候，这通常是进行最后阶段的文件操作，并不是数据倾斜（这通常意味着小文件问题严重）</p>
+</blockquote>
+<h2 id="类型分类"><a href="#类型分类" class="headerlink" title="类型分类"></a>类型分类</h2><h3 id="读倾斜"><a href="#读倾斜" class="headerlink" title="读倾斜"></a>读倾斜</h3><p>在读取数据阶段长期无法完成，这通常是因为文件分块过大或分块数据有异常，这种情况出现频率较小。</p>
+<h3 id="算倾斜"><a href="#算倾斜" class="headerlink" title="算倾斜"></a>算倾斜</h3><p>即在某个需要排序（如开窗函数或非广播关联时）或者聚合操作时候，同一个key（通常是一个或者多个字段或者表达式的组合）的处理耗时过长。这通常是最多的情况，情况也较为复杂。</p>
+<p>大数据中动辄上亿行的数据，如果有排序（order by或sort by）的需求且数据量巨大的话，通常会产生溢写磁盘的操作，非常耗时，且容易造成OOM异常。99.99%的大数据场景下，完全的排序都是不必要的，因为业务通常需要的统计信息而非具体某一条记录的细节信息。</p>
+<h3 id="写倾斜"><a href="#写倾斜" class="headerlink" title="写倾斜"></a>写倾斜</h3><p>即某个操作需要输出大量数据，如超过几亿或者几十亿行。主要出现在关联后数据膨胀或某些只能由一个task来操作（如limit）的情况。</p>
+<p>表关联，举例两张表join可能产生数十亿行记录。问题本质是一个task最多由一个进程来执行，而相同的key也必须在同一个task中处理。因为在无法改变这个机制的前提下，我们只有想办法减少一个task输出的行数</p>
+<h3 id="文件操作倾斜"><a href="#文件操作倾斜" class="headerlink" title="文件操作倾斜"></a>文件操作倾斜</h3><p>即数据生成在临时文件夹后，由于数量巨大，重名民或移动的操作非常耗时，这通常发生在动态分区导致小文件的情况。</p>
+<h2 id="原因剖析与解决出发点"><a href="#原因剖析与解决出发点" class="headerlink" title="原因剖析与解决出发点"></a>原因剖析与解决出发点</h2><p>为什么会有数据倾斜</p>
+<ol>
+<li><p>业务数据分布规律无法预知，比如系统无法不经过计算而提前知道某个表的某个字段的取值分布是否大致均匀</p>
+</li>
+<li><p>计算结果数量无法预知。比如两表关联的结果对于某些key（关联一个字段或多个字段组合）的输出行数无法不经过计算而预知而针对性处理：又比如某个字段的值进行split操作或者explode等操作后产生的结果数量无法预知而进行针对性的应对</p>
+</li>
+<li><p><font color="red">某些操作只能由单一节点进行</font>，一切需要维护一个全局状态的大多数操作，如排序，limit，count，distinct，全局聚合等，一般会安排到一个节点来执行</p>
+<p>有概率导致在单节点上处理巨量的数据，造成所谓的倾斜问题。</p>
+</li>
+</ol>
+<p>当然，这些困难并不是理论上不可避免的，随着时间的推移，越来越多的针对性优化措施已逐渐出现（如spark3已经能自动应对部分数据倾斜的情况了），也许在不久的将来业务同学不会再被倾斜问题烦恼，但现阶段还需数据开发工程师主动关注并应对。</p>
+<h3 id="从业务逻辑审视出发"><a href="#从业务逻辑审视出发" class="headerlink" title="从业务逻辑审视出发"></a>从业务逻辑审视出发</h3><p>如果发生了数据倾斜，有不小的概率是业务逻辑/需求不合理，需要跟业务方反复确认逻辑的合理性，优化业务逻辑一定要高过优化技术方案。</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="DiffDay 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="DiffDay 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>DiffDay
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://blog.diffday.com/%E6%95%B0%E6%8D%AE%E5%80%BE%E6%96%9C%E6%B5%85%E8%BF%B0.html" title="数据倾斜浅述">https://blog.diffday.com/数据倾斜浅述.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 技术</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/%E4%BA%BA%E9%97%B4%E5%80%BC%E5%BE%97.html" rel="prev" title="平凡回望中的不平凡">
+      <i class="fa fa-chevron-left"></i> 平凡回望中的不平凡
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%80%BE%E6%96%9C"><span class="nav-number">1.</span> <span class="nav-text">数据倾斜</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E5%88%86%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text">类型分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%BB%E5%80%BE%E6%96%9C"><span class="nav-number">2.1.</span> <span class="nav-text">读倾斜</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E5%80%BE%E6%96%9C"><span class="nav-number">2.2.</span> <span class="nav-text">算倾斜</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%99%E5%80%BE%E6%96%9C"><span class="nav-number">2.3.</span> <span class="nav-text">写倾斜</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E5%80%BE%E6%96%9C"><span class="nav-number">2.4.</span> <span class="nav-text">文件操作倾斜</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0%E5%89%96%E6%9E%90%E4%B8%8E%E8%A7%A3%E5%86%B3%E5%87%BA%E5%8F%91%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">原因剖析与解决出发点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91%E5%AE%A1%E8%A7%86%E5%87%BA%E5%8F%91"><span class="nav-number">3.1.</span> <span class="nav-text">从业务逻辑审视出发</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="DiffDay"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">DiffDay</p>
+  <div class="site-description" itemprop="description">一个成年人的自我博雅探索，以求不惑</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">96</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:creator.chen@foxmail.com" title="E-Mail → mailto:creator.chen@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18103410号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DiffDay</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">378k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">5:44</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2d-widget/autoload.js"></script>
+</body>
+</html>
