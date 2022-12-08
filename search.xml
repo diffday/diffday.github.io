@@ -8829,7 +8829,9 @@
 <p>理解这个运行时，你可以将其看作SaaS，也可以看作PaaS，BaaS（backend as a service）, 导致现在在往Faas方向在演进</p>
 </blockquote>
 <h3 id="CloudNative"><a href="#CloudNative" class="headerlink" title="CloudNative"></a>CloudNative</h3><p>充分利用云平台各种功能和服务所设计的应用程序（自建自研减少）</p>
-<h2 id="Serverless产品形态早已有之"><a href="#Serverless产品形态早已有之" class="headerlink" title="Serverless产品形态早已有之"></a>Serverless产品形态早已有之</h2><p>Amazon-S3（2006），即为serverless形态的存储服务，只需简单的API就可以实现海量数据可靠存储。用户毋需关心数据如何被分片存储到不同的服务器以实现负载均衡，也毋需考虑如何做到在服务器宕机或交换机故障时保证数据的高可靠和高可用</p>
+<h2 id="Serverless产品形态早已有之"><a href="#Serverless产品形态早已有之" class="headerlink" title="Serverless产品形态早已有之"></a>Serverless产品形态早已有之</h2><span id="more"></span>
+
+<p>Amazon-S3（2006），即为serverless形态的存储服务，只需简单的API就可以实现海量数据可靠存储。用户毋需关心数据如何被分片存储到不同的服务器以实现负载均衡，也毋需考虑如何做到在服务器宕机或交换机故障时保证数据的高可靠和高可用</p>
 <blockquote>
 <p>S3是BaaS的体现</p>
 </blockquote>
