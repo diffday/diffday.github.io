@@ -24,17 +24,22 @@
     var CONFIG = {"hostname":"blog.diffday.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="一个成年人的自我博雅探索，以求不惑">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Diffday">
-<meta property="og:url" content="https://blog.diffday.com/archives/2016/index.html">
+  <meta name="description" content="一句话Fancy概念将云看作一台计算机  IAAS是硬件 容器编排是操作系统 Serverless是应用的运行时   理解这个运行时，你可以将其看作SaaS，也可以看作PaaS，BaaS（backend as a service）, 导致现在在往Faas方向在演进  CloudNative充分利用云平台各种功能和服务所设计的应用程序（自建自研减少） Serverless产品形态早已有之Amazo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Serverless简解">
+<meta property="og:url" content="https://blog.diffday.com/Serverless.html">
 <meta property="og:site_name" content="Diffday">
-<meta property="og:description" content="一个成年人的自我博雅探索，以求不惑">
+<meta property="og:description" content="一句话Fancy概念将云看作一台计算机  IAAS是硬件 容器编排是操作系统 Serverless是应用的运行时   理解这个运行时，你可以将其看作SaaS，也可以看作PaaS，BaaS（backend as a service）, 导致现在在往Faas方向在演进  CloudNative充分利用云平台各种功能和服务所设计的应用程序（自建自研减少） Serverless产品形态早已有之Amazo">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20221208174734.png">
+<meta property="article:published_time" content="2022-12-08T09:30:30.000Z">
+<meta property="article:modified_time" content="2022-12-08T09:47:58.000Z">
 <meta property="article:author" content="DiffDay">
+<meta property="article:tag" content="技术">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://cdn.diffday.com/picgo/20221208174734.png">
 
-<link rel="canonical" href="https://blog.diffday.com/archives/2016/">
+<link rel="canonical" href="https://blog.diffday.com/Serverless.html">
 
 
 <script id="page-configurations">
@@ -42,12 +47,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | Diffday</title>
+  <title>Serverless简解 | Diffday</title>
   
 
 
@@ -186,51 +191,186 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        
-        <span class="collection-header">很好! 目前共计 98 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/Serverless.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="DiffDay">
+      <meta itemprop="description" content="一个成年人的自我博雅探索，以求不惑">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Diffday">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Serverless简解
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-12-08 17:30:30 / 修改时间：17:47:58" itemprop="dateCreated datePublished" datetime="2022-12-08T17:30:30+08:00">2022-12-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/" itemprop="url" rel="index"><span itemprop="name">学而思</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E5%8F%8D%E5%88%8D%E6%95%B4%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">反刍整理</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>915</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2016</span>
+        <p><img src="http://cdn.diffday.com/picgo/20221208174734.png"></p>
+<h2 id="一句话Fancy概念"><a href="#一句话Fancy概念" class="headerlink" title="一句话Fancy概念"></a>一句话Fancy概念</h2><p>将云看作一台计算机</p>
+<ul>
+<li>IAAS是硬件</li>
+<li>容器编排是操作系统</li>
+<li>Serverless是应用的运行时</li>
+</ul>
+<blockquote>
+<p>理解这个运行时，你可以将其看作SaaS，也可以看作PaaS，BaaS（backend as a service）, 导致现在在往Faas方向在演进</p>
+</blockquote>
+<h3 id="CloudNative"><a href="#CloudNative" class="headerlink" title="CloudNative"></a>CloudNative</h3><p>充分利用云平台各种功能和服务所设计的应用程序（自建自研减少）</p>
+<h2 id="Serverless产品形态早已有之"><a href="#Serverless产品形态早已有之" class="headerlink" title="Serverless产品形态早已有之"></a>Serverless产品形态早已有之</h2><p>Amazon-S3（2006），即为serverless形态的存储服务，只需简单的API就可以实现海量数据可靠存储。用户毋需关心数据如何被分片存储到不同的服务器以实现负载均衡，也毋需考虑如何做到在服务器宕机或交换机故障时保证数据的高可靠和高可用</p>
+<blockquote>
+<p>S3是BaaS的体现</p>
+</blockquote>
+<h2 id="2015概念加速"><a href="#2015概念加速" class="headerlink" title="2015概念加速"></a>2015概念加速</h2><p>自2015年Amazon正式商用Lambda后变得流行了，背后原因体现的是云产品体系一直在Serverless化</p>
+<ul>
+<li>对多数用户来说，最重要的是解决业务问题，若全托管的服务能带来更好的性能，更好的稳定性，更少的运维代价，why not？</li>
+<li>技术层面，serverless无特别难解的题，都是可攻克的。最难的还是心智教育，标准化和生态建设（技术严谨并非一蹴而就，如高级语言的市占率，软件工程的发展也是经过长时间的积累）</li>
+<li>与很多新兴技术一样，都经历了开发者幻想破灭的低谷。计算形态的变动对于开发者的习惯挑战较大，在工具链，编程模型，应用架构上，都需要开发者转换思路，不过这些问题都在不断被解决</li>
+</ul>
+<h2 id="Serverless与微服务的异同"><a href="#Serverless与微服务的异同" class="headerlink" title="Serverless与微服务的异同"></a>Serverless与微服务的异同</h2><blockquote>
+<p>任何技术都有优劣，适合和不适合。例如微服务有很多优点，但要想落地好，需要在应用运行基础设施，工具链，可观测上有完善的配套支撑。</p>
+</blockquote>
+<p>微服务是一种架构概念，Serverless可看作是承载应用运行的基础设施</p>
+<ul>
+<li>松耦合，细粒度开发和发布边界，更敏捷的应用发布频度</li>
+<li>企业应用从单体架构到服务化，再到更细粒度的微服务化</li>
+<li>微服务构建应用，可运行在Serverless平台上，也可以运行在VM或容器平台上，二者概念上正交</li>
+</ul>
+<h3 id="ServerLess带来了什么不同"><a href="#ServerLess带来了什么不同" class="headerlink" title="ServerLess带来了什么不同"></a>ServerLess带来了什么不同</h3><ul>
+<li>结合云能力，弹性，轻量，端对端集成，与微服务很合拍</li>
+<li>实践推动微服务往一个更轻量的研发模式发展 – 应用函数化，按需加载 (FaaS)</li>
+<li>引领云原生下一个十年的发展潮流</li>
+</ul>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2016-04-18T14:55:52+08:00"
-              content="2016-04-18">
-          04-18
-        </time>
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="DiffDay 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="DiffDay 支付宝">
+        <p>支付宝</p>
       </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/LVS%E4%B8%89%E7%B1%BB%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F.html" itemprop="url">
-            <span itemprop="name">LVS三类工作模式</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-
-    </div>
   </div>
-  
-  
-  
+</div>
 
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>DiffDay
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://blog.diffday.com/Serverless.html" title="Serverless简解">https://blog.diffday.com/Serverless.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 技术</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/%E4%B8%89%E5%9B%BD%E4%BA%BA%E7%89%A9%E5%B9%B4%E9%BE%84%E4%B8%8E%E6%9D%82%E8%AE%B0.html" rel="prev" title="三国人物年龄与杂记">
+      <i class="fa fa-chevron-left"></i> 三国人物年龄与杂记
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
@@ -283,6 +423,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E5%8F%A5%E8%AF%9DFancy%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">一句话Fancy概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CloudNative"><span class="nav-number">1.1.</span> <span class="nav-text">CloudNative</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Serverless%E4%BA%A7%E5%93%81%E5%BD%A2%E6%80%81%E6%97%A9%E5%B7%B2%E6%9C%89%E4%B9%8B"><span class="nav-number">2.</span> <span class="nav-text">Serverless产品形态早已有之</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2015%E6%A6%82%E5%BF%B5%E5%8A%A0%E9%80%9F"><span class="nav-number">3.</span> <span class="nav-text">2015概念加速</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Serverless%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E5%BC%82%E5%90%8C"><span class="nav-number">4.</span> <span class="nav-text">Serverless与微服务的异同</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ServerLess%E5%B8%A6%E6%9D%A5%E4%BA%86%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C"><span class="nav-number">4.1.</span> <span class="nav-text">ServerLess带来了什么不同</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

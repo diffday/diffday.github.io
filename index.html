@@ -133,7 +133,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">97</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">98</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -188,6 +188,126 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/Serverless.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="DiffDay">
+      <meta itemprop="description" content="一个成年人的自我博雅探索，以求不惑">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Diffday">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Serverless.html" class="post-title-link" itemprop="url">Serverless简解</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-12-08 17:30:30 / 修改时间：17:47:58" itemprop="dateCreated datePublished" datetime="2022-12-08T17:30:30+08:00">2022-12-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/" itemprop="url" rel="index"><span itemprop="name">学而思</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E5%8F%8D%E5%88%8D%E6%95%B4%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">反刍整理</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>915</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="http://cdn.diffday.com/picgo/20221208174734.png"></p>
+<h2 id="一句话Fancy概念"><a href="#一句话Fancy概念" class="headerlink" title="一句话Fancy概念"></a>一句话Fancy概念</h2><p>将云看作一台计算机</p>
+<ul>
+<li>IAAS是硬件</li>
+<li>容器编排是操作系统</li>
+<li>Serverless是应用的运行时</li>
+</ul>
+<blockquote>
+<p>理解这个运行时，你可以将其看作SaaS，也可以看作PaaS，BaaS（backend as a service）, 导致现在在往Faas方向在演进</p>
+</blockquote>
+<h3 id="CloudNative"><a href="#CloudNative" class="headerlink" title="CloudNative"></a>CloudNative</h3><p>充分利用云平台各种功能和服务所设计的应用程序（自建自研减少）</p>
+<h2 id="Serverless产品形态早已有之"><a href="#Serverless产品形态早已有之" class="headerlink" title="Serverless产品形态早已有之"></a>Serverless产品形态早已有之</h2><p>Amazon-S3（2006），即为serverless形态的存储服务，只需简单的API就可以实现海量数据可靠存储。用户毋需关心数据如何被分片存储到不同的服务器以实现负载均衡，也毋需考虑如何做到在服务器宕机或交换机故障时保证数据的高可靠和高可用</p>
+<blockquote>
+<p>S3是BaaS的体现</p>
+</blockquote>
+<h2 id="2015概念加速"><a href="#2015概念加速" class="headerlink" title="2015概念加速"></a>2015概念加速</h2><p>自2015年Amazon正式商用Lambda后变得流行了，背后原因体现的是云产品体系一直在Serverless化</p>
+<ul>
+<li>对多数用户来说，最重要的是解决业务问题，若全托管的服务能带来更好的性能，更好的稳定性，更少的运维代价，why not？</li>
+<li>技术层面，serverless无特别难解的题，都是可攻克的。最难的还是心智教育，标准化和生态建设（技术严谨并非一蹴而就，如高级语言的市占率，软件工程的发展也是经过长时间的积累）</li>
+<li>与很多新兴技术一样，都经历了开发者幻想破灭的低谷。计算形态的变动对于开发者的习惯挑战较大，在工具链，编程模型，应用架构上，都需要开发者转换思路，不过这些问题都在不断被解决</li>
+</ul>
+<h2 id="Serverless与微服务的异同"><a href="#Serverless与微服务的异同" class="headerlink" title="Serverless与微服务的异同"></a>Serverless与微服务的异同</h2><blockquote>
+<p>任何技术都有优劣，适合和不适合。例如微服务有很多优点，但要想落地好，需要在应用运行基础设施，工具链，可观测上有完善的配套支撑。</p>
+</blockquote>
+<p>微服务是一种架构概念，Serverless可看作是承载应用运行的基础设施</p>
+<ul>
+<li>松耦合，细粒度开发和发布边界，更敏捷的应用发布频度</li>
+<li>企业应用从单体架构到服务化，再到更细粒度的微服务化</li>
+<li>微服务构建应用，可运行在Serverless平台上，也可以运行在VM或容器平台上，二者概念上正交</li>
+</ul>
+<h3 id="ServerLess带来了什么不同"><a href="#ServerLess带来了什么不同" class="headerlink" title="ServerLess带来了什么不同"></a>ServerLess带来了什么不同</h3><ul>
+<li>结合云能力，弹性，轻量，端对端集成，与微服务很合拍</li>
+<li>实践推动微服务往一个更轻量的研发模式发展 – 应用函数化，按需加载 (FaaS)</li>
+<li>引领云原生下一个十年的发展潮流</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1108,108 +1228,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E5%B0%8F%E9%95%87%E5%81%9A%E9%A2%98%E5%AE%B6.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="DiffDay">
-      <meta itemprop="description" content="一个成年人的自我博雅探索，以求不惑">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Diffday">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E5%B0%8F%E9%95%87%E5%81%9A%E9%A2%98%E5%AE%B6.html" class="post-title-link" itemprop="url">中产滑落与小镇做题家</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-03-16 23:29:06" itemprop="dateCreated datePublished" datetime="2022-03-16T23:29:06+08:00">2022-03-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-11-19 11:30:32" itemprop="dateModified" datetime="2022-11-19T11:30:32+08:00">2022-11-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E6%96%87%E7%B2%BE%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网文精摘</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>10k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>9 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="http://cdn.diffday.com/picgo/20220316230838.png"></p>
-<h2 id="中产的滑落"><a href="#中产的滑落" class="headerlink" title="中产的滑落"></a>中产的滑落</h2><h3 id="挤公交效应"><a href="#挤公交效应" class="headerlink" title="挤公交效应"></a>挤公交效应</h3><p>举个挤公交的例子，车下的你往上挤，意愿非常强烈，车上的人呢，他们才不管你赶时间或有多急的事，几乎都不希望你上去。你对那些毫无同理心的人厌恶至极，可一旦你上去了，马上翻转。</p>
-<p>这种人性丑陋的心理作用机制与现象，无处不在。在较低精英层与中产层中，往往体现在以团体共进退的模式形成一种一荣俱荣，一损俱损的壮观社会现象。最高层精英似乎更加围绕“血统”达成繁荣，巩固与传承。而平民百姓往往以单打独斗的方式进行，效能很低。</p>
-<p>精英阶层最希望社会场景应通过规则制定与掌控，控制通道流量，也不希望关闭这一通道（关闭对谁都不利）。现在挤公交效应非常严重，精英也早就在考虑和安排规则的事情。奶头乐也是安排的一个环节。</p>
-<h3 id="精英有座城堡，中产只是外城"><a href="#精英有座城堡，中产只是外城" class="headerlink" title="精英有座城堡，中产只是外城"></a>精英有座城堡，中产只是外城</h3><p><strong>精英阶层在历史上名头多变，不管你管他们叫什么豪强，士族，门阀，权贵集团，当他们作为一个整体出现的时候，首先是一座城堡，第一功能是防止别人再进来</strong>，所以先进来的人会不断增加城墙的高度，<u>避免再进人摊薄自己的特权和福利</u>，不过砌墙的行为会被包装下，使普通人很难分辨。</p>
-<p>今天精英阶层一项杀手锏在于会为子女预留很多止损线，其后代人生是被设置了下限的，上不封顶，这就是这群人开挂的地方，何况精英阶层还会以相互之间彼此关照对方子女的方式强化这种机制，这早已是城堡里的潜规则。与这些招数比起来，那些所谓的增长视野，减少摸索的好处都只能算毛毛雨。</p>
-<p>主流意识形态现在开始鼓吹中产阶级的崛起，<font color="red">但中产本质是精英阶级的随从，是经营分配酬劳体系里的一环，若精英是躲在城堡里，那么中产就是拱卫城堡的一圈外城，依附于城堡，但又优越于外层的乡野</font>，中产作为城堡的外城也有自己的城墙，<font color="blue"><strong>中产外城墙是学历，而城堡的内城墙是血缘，这是最核心的区别</strong></font>，越上层的人越爱用血缘来区分人，中产阶级的城墙比起城堡要矮的多，防御薄弱，所以时不时就有人可以翻进来，中产与底层间的流通也相对顺畅的多，通过几十年个人奋斗到中产的人，很容易得出个人奋斗能改变阶层的结论，等下一代接着向上时却发现上面的游戏规则完全不一样。</p>
-<p><strong>中产依旧是靠出卖脑力和劳动时间来吃饭</strong>，从来没有真正掌握过生产资料，中产这个群体内心非常脆弱和焦虑。人最大的痛苦还不是得不到，而是得到以后再失去，中产一方面受到资产阶级的压制，很难真正的实现阶层跨越，一方面又受到底层劳动者的仇视，一不留神就会阶层滑落，所以他们特别舍得在教育上花钱，妄图向上层靠拢，也特别喜欢买一堆性价比极低的奢侈品，妄图和底层劳动者划清界限。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E5%B0%8F%E9%95%87%E5%81%9A%E9%A2%98%E5%AE%B6.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1281,7 +1299,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-count">98</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1341,13 +1359,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">382k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:46</span>
+    <span title="站点阅读时长">5:47</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
