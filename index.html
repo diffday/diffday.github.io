@@ -133,7 +133,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">100</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">101</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -188,6 +188,113 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E5%A0%86%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="DiffDay">
+      <meta itemprop="description" content="一个成年人的自我博雅探索，以求不惑">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Diffday">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E5%A0%86%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.html" class="post-title-link" itemprop="url">堆排序与归并排序</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-01-16 18:50:00 / 修改时间：18:50:14" itemprop="dateCreated datePublished" datetime="2023-01-16T18:50:00+08:00">2023-01-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E6%96%87%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网络文摘</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>大家最常见的就是用数组这一数据结构来记录一系列有序或无序的数据。</p>
+<h1 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h1><h2 id="Heap"><a href="#Heap" class="headerlink" title="Heap"></a>Heap</h2><blockquote>
+<p>此文讲的<u>堆和堆内存不是一个概念</u>。属于大家<u>都形而上的用了这个英文词来描述自己的领域概念</u>。</p>
+</blockquote>
+<h2 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h2><blockquote>
+<p><strong>叶子结点只出现在最下层和次下层（所有分支长度几乎相同，最长分支最短分支差异最多为1），最下层节点都集中在最左边若干位置的二叉树</strong></p>
+</blockquote>
+<p><font color="blue">堆也是一颗完全二叉树</font>，举例如下无序数组：4,5,3,2,6,1。表示为完全二叉树的形式为</p>
+<p><img src="http://cdn.diffday.com/picgo/20221024110942.png"></p>
+<p>基于完全二叉树的基本性质，<u>可从数组索引角度描述数字与数字在二叉树中的位置关系</u>，堆的结构性要求其为完全二叉树，就为了使用此好特性好结论</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- A[i]的左节点为A[2i+1]</span><br><span class="line">- 右节点为A[2i+2]</span><br><span class="line">- 父节点为A[i/2]</span><br></pre></td></tr></table></figure>
+
+<h3 id="Full-vs-Complete-vs-Perfect"><a href="#Full-vs-Complete-vs-Perfect" class="headerlink" title="Full vs Complete vs Perfect"></a>Full vs Complete vs Perfect</h3><p><img src="http://cdn.diffday.com/picgo/20221109135729.png"></p>
+<p>二叉树通常用链表通过指针实现。堆的“(almost)-complete”属性及所有非叶子节点也是数值节点，对于将其实现为数组非常有用。堆为完全二叉树，我们可使用位置来确定哪个节点是哪个节点的子节点，i，2i+1,2i+2。</p>
+<blockquote>
+<p>almost-complete 和 complete是一个意思</p>
+<p>full binary tree 要求只要你有孩子，就必然是有两个孩子，但不要求所有长短分支差异最多为1的约束，也不要求孩子在最左边位置优先集中</p>
+</blockquote>
+<h2 id="堆序性"><a href="#堆序性" class="headerlink" title="堆序性"></a>堆序性</h2><p><font color="blue">堆序性，通俗点也是说，父节点中的元素不小于（不大于）任意子节点的元素</font>。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/%E5%A0%86%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1107,106 +1214,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E5%A6%82%E4%BD%95%E6%8B%A5%E6%9C%89%E7%97%9B%E8%8B%A6%E8%80%8C%E5%8F%88%E6%8A%91%E9%83%81%E7%9A%84%E4%BA%BA%E7%94%9F.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="DiffDay">
-      <meta itemprop="description" content="一个成年人的自我博雅探索，以求不惑">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Diffday">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E5%A6%82%E4%BD%95%E6%8B%A5%E6%9C%89%E7%97%9B%E8%8B%A6%E8%80%8C%E5%8F%88%E6%8A%91%E9%83%81%E7%9A%84%E4%BA%BA%E7%94%9F.html" class="post-title-link" itemprop="url">如何拥有痛苦而又抑郁的人生</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-06-08 17:11:30" itemprop="dateCreated datePublished" datetime="2022-06-08T17:11:30+08:00">2022-06-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-21 15:43:03" itemprop="dateModified" datetime="2022-06-21T15:43:03+08:00">2022-06-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E6%96%87%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网络文摘</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>400</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="http://cdn.diffday.com/picgo/20220608171029.png"></p>
-<p>如果想生活痛苦一些，照着下面做，疗效非常好</p>
-<h2 id="坚持做容易的选择"><a href="#坚持做容易的选择" class="headerlink" title="坚持做容易的选择"></a>坚持做容易的选择</h2><p>容易的选项和从众心理，是危险的。碰到挑战忍不住想退缩，多年后回头看，才发现人生的关键点，都是那些挑战。</p>
-<p>初期入场的难度是最低的，面对便宜的股票和房产，绝大部分人看不上。人生可以的选择会越来越少。</p>
-<p>人类的幸福不相通，痛苦却是一样的，想法千奇百怪，到了落实阶段，绝大多数人选择了容易的选项。第一个保持痛苦的秘诀就是一直做容易的选择。</p>
-<h2 id="保持孤僻"><a href="#保持孤僻" class="headerlink" title="保持孤僻"></a>保持孤僻</h2><p>这个窍门就是保持孤僻，谁也别理，给自己筑一道隐形的墙，效果非常好</p>
-<h2 id="准备好了再开始"><a href="#准备好了再开始" class="headerlink" title="准备好了再开始"></a>准备好了再开始</h2><p>这就是第三个窍门了。黄埔将星璀璨的那几期，并不是学校教的好，其实只上了7个月的课，而且也没教啥，都是在后来的战争中成长了起来；</p>
-<p>这在商界中也非常明显，学习牛逼的去了美丽国，剩下的在中国市场化大浪潮中拼搏，挺过来的都是神人了。</p>
-<p>事情比知识重要，有事先做事，反复思考后充分意识到困难，就拖着一直不开始，停留在思考阶段，初心到头来你都会忘记。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1274,7 +1285,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">100</span>
+          <span class="site-state-item-count">101</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1324,7 +1335,7 @@
 <div class="copyright">
   
   &copy; 2014 – 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1334,13 +1345,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">390k</span>
+    <span title="站点总字数">395k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:55</span>
+    <span title="站点阅读时长">5:59</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
