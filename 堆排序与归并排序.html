@@ -44,7 +44,7 @@
 <meta property="og:image" content="http://cdn.diffday.com/picgo/20221110113441.png">
 <meta property="og:image" content="http://cdn.diffday.com/picgo/20221114144100.png">
 <meta property="article:published_time" content="2023-01-16T10:50:00.000Z">
-<meta property="article:modified_time" content="2023-01-16T10:50:14.000Z">
+<meta property="article:modified_time" content="2023-02-15T02:10:39.000Z">
 <meta property="article:author" content="DiffDay">
 <meta property="article:tag" content="技术">
 <meta name="twitter:card" content="summary">
@@ -232,10 +232,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-01-16 18:50:00 / 修改时间：18:50:14" itemprop="dateCreated datePublished" datetime="2023-01-16T18:50:00+08:00">2023-01-16</time>
+              <time title="创建时间：2023-01-16 18:50:00" itemprop="dateCreated datePublished" datetime="2023-01-16T18:50:00+08:00">2023-01-16</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-02-15 10:10:39" itemprop="dateModified" datetime="2023-02-15T10:10:39+08:00">2023-02-15</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -286,7 +292,8 @@
 <p><strong>叶子结点只出现在最下层和次下层（所有分支长度几乎相同，最长分支最短分支差异最多为1），最下层节点都集中在最左边若干位置的二叉树</strong></p>
 </blockquote>
 <p><font color="blue">堆也是一颗完全二叉树</font>，举例如下无序数组：4,5,3,2,6,1。表示为完全二叉树的形式为</p>
-<p><img src="http://cdn.diffday.com/picgo/20221024110942.png"></p>
+<img src="http://cdn.diffday.com/picgo/20221024110942.png" style="zoom: 67%;" />
+
 <p>基于完全二叉树的基本性质，<u>可从数组索引角度描述数字与数字在二叉树中的位置关系</u>，堆的结构性要求其为完全二叉树，就为了使用此好特性好结论</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- A[i]的左节点为A[2i+1]</span><br><span class="line">- 右节点为A[2i+2]</span><br><span class="line">- 父节点为A[i/2]</span><br></pre></td></tr></table></figure>
 
@@ -324,7 +331,8 @@
 <p>每次堆顶元素与数组尾部元素互换后，我们要处理生成最大堆树的节点数据都会减一</p>
 </blockquote>
 <p><img src="http://cdn.diffday.com/picgo/20221024181705.png"></p>
-<p><img src="http://cdn.diffday.com/picgo/20221109140416.png"></p>
+<img src="http://cdn.diffday.com/picgo/20221109140416.png" style="zoom:67%;" />
+
 <p>通过重复提取最大元素，在O（nlogn)的复杂度下，可轻松使用它生成排序数组（提取的元素放置在数组末尾，不再参与下一轮的堆处理中）。</p>
 <p>这一点上，<font color="blue"><u>大根堆实现数组从小到大排序；小根堆实现数组从大到小排序</u>。</font></p>
 <h3 id="概念Tips"><a href="#概念Tips" class="headerlink" title="概念Tips"></a>概念Tips</h3><h4 id="堆本身不是排序数组"><a href="#堆本身不是排序数组" class="headerlink" title="堆本身不是排序数组"></a>堆本身不是排序数组</h4><p>原始数组</p>
