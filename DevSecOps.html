@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/bitbug_favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/bitbug_favicon32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/bitbug_favicon16.ico">
+  <link rel="mask-icon" href="/images/bitbug_favicon.ico" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="UaMvLIOYuNWHgVq42dlN49RoniU73U6SoqoRnEcit9E">
+  <meta name="baidu-site-verification" content="code-DN25SBuR8T">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.diffday.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="安全风险普遍存在97%被测目标存在某种形式的漏洞 28%的测试目标曾受过跨站脚本(XSS)攻击 76%的被测目标存在OWASP（开放式Web应用程序安全项目) 在2021年所披露的前十大漏洞 应用程序和服务器配置错误占比21%[安全配置错误类别] 19%的漏洞与[访问控制失效]类别有关 18%的系统在使用易受攻击的第三方库，这一漏洞属于[易受攻击和过时的组件类别]（有时甚至没有清单来记录这些内容">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DevSecOps">
+<meta property="og:url" content="https://blog.diffday.com/DevSecOps.html">
+<meta property="og:site_name" content="Diffday">
+<meta property="og:description" content="安全风险普遍存在97%被测目标存在某种形式的漏洞 28%的测试目标曾受过跨站脚本(XSS)攻击 76%的被测目标存在OWASP（开放式Web应用程序安全项目) 在2021年所披露的前十大漏洞 应用程序和服务器配置错误占比21%[安全配置错误类别] 19%的漏洞与[访问控制失效]类别有关 18%的系统在使用易受攻击的第三方库，这一漏洞属于[易受攻击和过时的组件类别]（有时甚至没有清单来记录这些内容">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230315140348.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230103162040.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230103180138.png">
+<meta property="article:published_time" content="2023-03-15T10:53:30.000Z">
+<meta property="article:modified_time" content="2023-03-15T10:57:10.000Z">
+<meta property="article:author" content="DiffDay">
+<meta property="article:tag" content="技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://cdn.diffday.com/picgo/20230315140348.png">
+
+<link rel="canonical" href="https://blog.diffday.com/DevSecOps.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>DevSecOps | Diffday</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Diffday</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">我的学习记录</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">37</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">10</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">105</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/DevSecOps.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="DiffDay">
+      <meta itemprop="description" content="自我博雅探索，以求不惑">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Diffday">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          DevSecOps
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-03-15 18:53:30 / 修改时间：18:57:10" itemprop="dateCreated datePublished" datetime="2023-03-15T18:53:30+08:00">2023-03-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/" itemprop="url" rel="index"><span itemprop="name">学而思</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="http://cdn.diffday.com/picgo/20230315140348.png"></p>
+<h1 id="安全风险普遍存在"><a href="#安全风险普遍存在" class="headerlink" title="安全风险普遍存在"></a>安全风险普遍存在</h1><h2 id="97-被测目标存在某种形式的漏洞"><a href="#97-被测目标存在某种形式的漏洞" class="headerlink" title="97%被测目标存在某种形式的漏洞"></a>97%被测目标存在某种形式的漏洞</h2><ul>
+<li><font color="red">28%的测试目标曾受过跨站脚本(XSS)攻击</font></li>
+<li>76%的被测目标存在OWASP（开放式Web应用程序安全项目) 在2021年所披露的前十大漏洞<ul>
+<li>应用程序和服务器配置错误占比<font color="red">21%[安全配置错误类别]</font></li>
+<li><font color="red">19%的漏洞与[访问控制失效]</font>类别有关</li>
+<li><font color="red">18%的系统在使用易受攻击的第三方库，这一漏洞属于[易受攻击和过时的组件类别]</font>（有时甚至没有清单来记录这些内容，现在很多企业都在同时使用数百个应用程序或软件系统，并拥有数百甚至数千个不同的第三方组件或开源组件，<font color="green">对企业来说，一份准确且实时更新的软件物料清单来有效追踪外部组件是非常有必要的</font>）</li>
+</ul>
+</li>
+</ul>
+<h2 id="移动应用程序安全风险"><a href="#移动应用程序安全风险" class="headerlink" title="移动应用程序安全风险"></a>移动应用程序安全风险</h2><p><font color="red">不安全的数据存储和通信漏洞</font></p>
+<ul>
+<li>在移动设备安全测试中，有80%的漏洞与不安全的数据存储有关，攻击者既可以物理访问移动设备，也可以使用恶意软件进入设备</li>
+<li>还有53%的漏洞与不安全的通信方式有关</li>
+</ul>
+<h1 id="DevSecOps"><a href="#DevSecOps" class="headerlink" title="DevSecOps"></a>DevSecOps</h1><span id="more"></span>
+
+<h2 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h2><p>从开发周期起始就引入安全流程，贯穿整个开发周期，对代码进行评审，审计，扫描和测试。尽早确定和实施防御技术，就可以降低安全问题的成本。</p>
+<blockquote>
+<p><font color="green">安全测试在整个发布和部署过程中持续进行，企业利用自动化工具</font>（如SAST，DAST，IAST，SCA）及手工测试活动（如代码审查和渗透测试），综合达成安全加固的目标</p>
+</blockquote>
+<p><font color="blue">将安全原则集成到开发和操作过程中的实践，创造简化安全性的新机会，换一种简单的概念，叫做安全左移。</font></p>
+<h2 id="措施策略"><a href="#措施策略" class="headerlink" title="措施策略"></a>措施策略</h2><ul>
+<li>尽可能使用日志记录和监视工具，并建立实施事件响应流程，以便快速响应安全警报</li>
+<li>部署自动化测试（如DAST），纵深防御解决方案（如RASP）及传统的的WAF技术以保护生产中的应用程序</li>
+</ul>
+<h2 id="立体问题，立体解决"><a href="#立体问题，立体解决" class="headerlink" title="立体问题，立体解决"></a>立体问题，立体解决</h2><p>从立体化上看，包括三个机制：</p>
+<ul>
+<li>面向开发人员的代码安全指南</li>
+<li>默认安全框架组件（静态代码安全检查解决）</li>
+<li>嵌入基础设施的代码安全检查。</li>
+</ul>
+<p><strong>代码安全指南只是安全左移建设的第一步</strong>，还需解决的挑战有：</p>
+<ul>
+<li>开发人员有一定安全意识，但因为赶进度或疏忽遗漏编写安全机制，或是错误地实现安全校验逻辑</li>
+<li>代码编写是否安全全凭开发人员自觉，缺乏提示、检查和卡点机制</li>
+</ul>
+<h1 id="现代应用安全工具"><a href="#现代应用安全工具" class="headerlink" title="现代应用安全工具"></a>现代应用安全工具</h1><h2 id="静态应用安全测试（SAST）"><a href="#静态应用安全测试（SAST）" class="headerlink" title="静态应用安全测试（SAST）"></a>静态应用安全测试（SAST）</h2><ul>
+<li><p>也称为静态分析，是第一批发现源代码和字节码或二进制文件本身缺陷的AppSec工具之一。</p>
+</li>
+<li><p>能促成在软件研发生命周期的最初阶段收敛漏洞。</p>
+</li>
+</ul>
+<h2 id="动态应用程序安全测试（DAST）"><a href="#动态应用程序安全测试（DAST）" class="headerlink" title="动态应用程序安全测试（DAST）"></a>动态应用程序安全测试（DAST）</h2><p>于运行状态下对应用程序进行爬行和分析。与SAST一样，它只能识别扫描引擎已知的漏洞和配置问题，传统的DAST扫描通常测试公开的HTML接口，更先进的DAST扫描器也可以测试REST API</p>
+<h2 id="SAST（白盒）vs-DAST（黑盒）"><a href="#SAST（白盒）vs-DAST（黑盒）" class="headerlink" title="SAST（白盒）vs DAST（黑盒）"></a>SAST（白盒）vs DAST（黑盒）</h2><blockquote>
+<p>一图胜十言，SAST和DAST联合起来才能彼此完整</p>
+</blockquote>
+<img src="http://cdn.diffday.com/picgo/20230103162040.png" style="zoom: 67%;" />
+
+
+
+<h2 id="软件组合分析（SCA）"><a href="#软件组合分析（SCA）" class="headerlink" title="软件组合分析（SCA）"></a>软件组合分析（SCA）</h2><p>由于<font color="red">开源组件带来的风险增加</font>，SCA工具在过去几年变得越发流行。该工具能识别源代码，容器和注册表中的开源漏洞，大多数SCA工具还能检查开源许可合规性和归属要求。</p>
+<h2 id="交互式应用安全测试（IAST–灰盒）"><a href="#交互式应用安全测试（IAST–灰盒）" class="headerlink" title="交互式应用安全测试（IAST–灰盒）"></a>交互式应用安全测试（IAST–灰盒）</h2><blockquote>
+<p>关键技术：插桩检测模式+流量检测模式+实时web日志</p>
+</blockquote>
+<p>传统黑盒扫描器依赖于页面响应检测漏洞，需要发送大量的请求，还有误报的可能。对于SSRF，文件上传等漏洞，在页面没有回显，主机无外网权限的情况下，还可能漏报。</p>
+<h3 id="机制解释"><a href="#机制解释" class="headerlink" title="机制解释"></a>机制解释</h3><h4 id="交互性"><a href="#交互性" class="headerlink" title="交互性"></a>交互性</h4><p>只会分析“交互”产生时所影响到相关代码的安全风险，而不是扫描所有代码、配置文件或遍历整个站点。</p>
+<h4 id="插桩检测"><a href="#插桩检测" class="headerlink" title="插桩检测"></a>插桩检测</h4><p>是在保证目标程序原有逻辑完整的情况下，在特定位置插入探针，在应用程序运行时，通过探针获取请求，代码数据流，代码控制流等。基于请求，代码，数据流，控制流等综合分析判断漏洞.</p>
+<blockquote>
+<p>你可以说它部署在应用程序运行的代理或传感器上</p>
+</blockquote>
+<p>由于<u>该技术针对不同语言需要研发不同的插桩探针，因此对于厂商而来，其IAST工具每增加对一种语言的支持，即相当于开发一款新产品，也就意味着IAST工具支持的编程语言越多，厂商所需投入的人力成本和经济成本也就越大</u>。</p>
+<p><u>如果语言本身提供了插桩的接口，那么探针开发的难度将会大大降低。例如Java提供了一个instrumentation 接口</u>。通过该接口，可以以一种标准的方式，在启动应用时添加javaagent参数来加载插桩探针，从而实现动态数据流污点追踪。</p>
+<h4 id="SAST-amp-DAST混合"><a href="#SAST-amp-DAST混合" class="headerlink" title="SAST&amp;DAST混合"></a>SAST&amp;DAST混合</h4><ul>
+<li>第一点是如何“理解”代码。根据不同语言来区分，需要关注哪些函数，这些函数里哪些是污点输入？哪些是污点传播、清洗、汇聚？根据不同的漏洞原理来做分析。</li>
+<li>第二点，从各种语言底层做突破，捕获关键函数的调用情况？读取到关键函数何时被调用、传入了什么参数、数据传递给了谁。</li>
+</ul>
+<h3 id="工作模式"><a href="#工作模式" class="headerlink" title="工作模式"></a>工作模式</h3><blockquote>
+<p>现在较先进的IAST是支持两种模式，主动相当于可以发起测试，被动相当于只判定漏洞</p>
+</blockquote>
+<ul>
+<li><p>主动模式：接收到相应流量，在对流量进行初步筛查后，将流量发送到扫描控制端，扫描控制端会结合payload进行数据流重放，重放验证过程中根据请求和响应，及函数代码执行流，判断其中是否存在安全漏洞，主动模式支持漏洞复现。</p>
+</li>
+<li><p>被动模式：引入动态污点技术，当一个请求流量输入后，给变量打上污点标记，在整个函数内部流转时，当变量携带着污点标记在整个函数内部流转时，就可以观察它经历了哪些函数，整个过程就是一个污点传播过程。</p>
+<ul>
+<li>在被动模式下，仅会对触发的流量进行扫描分析，为保证测试效果，触发的流量越全面，扫描越安全。</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://cdn.diffday.com/picgo/20230103180138.png"></p>
+<h3 id="漏洞发现后处理"><a href="#漏洞发现后处理" class="headerlink" title="漏洞发现后处理"></a>漏洞发现后处理</h3><p>经判断存在风险需处理的漏洞，进行漏洞修复并更新至测试环境后，需再次触发漏洞所在的url，此时IAST插桩会自动进行回归测试，如系统判断该漏洞已修复，则会自动关闭该漏洞。</p>
+<h3 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h3><p>IAST通过运行时插桩或流量分析的方法，借助于功能测试或自动化测试的交互式行为，实现透明、高效分析应用漏洞，防止应用带病上线。</p>
+<h3 id="污点追踪漏洞发现举例"><a href="#污点追踪漏洞发现举例" class="headerlink" title="污点追踪漏洞发现举例"></a>污点追踪漏洞发现举例</h3><blockquote>
+<p>以XXE实体注入漏洞为例</p>
+</blockquote>
+<ol>
+<li>通过RequestResponseBodyMethodProcessor.resolveArgument这个方法参数，引入了请求中postData的XML实体，将该实体标记为污点数据</li>
+<li>而后XML实体污点数据进入传播阶段，在传播阶段，探针会hook代码中String类型的方法（如String,StringReader,StringBuilder,subString等），这些String类型的方法称为传播函数，会对污点源进行String处理</li>
+<li>从污点数据可见，XML实体经过处理后，被封装到了一个对象内部（java.io.StringReader@20cca27a），此时java.io.StringReader@20cca27a也会被探针标记为污点数据，加入到污点集中继续进行污点追踪</li>
+<li>经过污点输入，传播两个阶段，污点数据会进入到污点汇聚过程。<font color="red">对于不同的漏洞而言，探针hook的汇聚函数有所不同，如针对SQL注入会hook语句执行的方法，针对XXE漏洞会hook解析XML实体的方法</font></li>
+<li>汇聚阶段被AbstractSAXParser.parse方法执行了解析操作，因为XXE漏洞最后阶段就是解析XML实体，所以污点追踪过程到此就结束了，探针此时会释放所有污点数据，不再继续追踪下去</li>
+<li>纵观整个污点数据流转过程，这个漏洞被上报的原因是：输入源XML实体在污点输入阶段，没有对请求包中的XML实体内容进行校验就进行了引入，在传播阶段，只进行了一次对象转换操作，没有对引入的XML实体做相应的无害化处理，直到对象在污点汇聚阶段被解析方法进行解析。<font color="red">整一个过程，探针没有识别到污点数据在三个阶段有任何的清洁函数</font>，故此漏洞最终被上报。</li>
+</ol>
+<h3 id="OpenRASP-IAST"><a href="#OpenRASP-IAST" class="headerlink" title="OpenRASP-IAST"></a>OpenRASP-IAST</h3><h4 id="目前支持的漏洞检测"><a href="#目前支持的漏洞检测" class="headerlink" title="目前支持的漏洞检测"></a>目前支持的漏洞检测</h4><blockquote>
+<p>触发条件均为用户输入的参数直接拼接产生的漏洞，尚不支持非HTTP参数，参数编解码方式触发的漏洞</p>
+</blockquote>
+<ul>
+<li><p>命令注入</p>
+</li>
+<li><p>目录遍历</p>
+</li>
+<li><p>PHP eval代码执行</p>
+</li>
+<li><p>文件上传</p>
+</li>
+<li><p>文件包含</p>
+</li>
+<li><p>任务文件读取</p>
+</li>
+<li><p>任意文件写入</p>
+</li>
+<li><p>SQL注入</p>
+</li>
+<li><p>SSRF</p>
+<blockquote>
+<p>服务器请求伪造，对于远程url没有进行严格过滤的情况下，攻击者可通过该漏洞控制web网站作为代理服务器远程攻击服务器或该web的本地服务器。一般情况下，其攻击目标是外网无法访问的内部系统。其危害有，利用协议获取本地文件；可对内网、本地进行端口扫描，查看端口开闭状态；发现漏洞后攻击运行在内网或本地的应用程序；通过访问默认文件实现对内网web应用的指纹识别。其触发的场景，可能有转码服务，图片加载与下载，url获取内容收藏等。可通过限制请求端口，禁用不需要的协议，统一错误信息等来进行限制</p>
+</blockquote>
+</li>
+<li><p>Java XXE</p>
+</li>
+</ul>
+<h4 id="被动模式-fuzz测试"><a href="#被动模式-fuzz测试" class="headerlink" title="被动模式+fuzz测试"></a>被动模式+fuzz测试</h4><p>OpenRASP-IAST是被动扫描模式，不会使用爬虫技术去获取URL信息，当iast.js下发成功，Java/PHP内部的探针会自动在请求结束时，将本次请求的参数，hook点信息提交给openrasp-iast服务器进行分析，并选择性的fuzz目标</p>
+<blockquote>
+<p><font color="blue">fuzz -模糊测试的代名词</font>，所谓模糊测试，即为向应用提供非预期输入，从而检测程序逻辑漏洞。例如模拟用户面对输入框犯傻的时候总会出现一些“奇葩”的非预期初入，此外，模仿攻击者向应用、加密内容、操作系统指令或原始代码注入命令行函数，来检视程序会出现什么情况</p>
+</blockquote>
+<p>将IAST部署至测试环境，并长期运行。在QA，RD做单元测试，功能测试时自动的进行漏洞检测。检测目标按照IP：PORT或者HOST进行分组，每个目标可以有不同的配置，若勾选 自动启动扫描 选项，则会在发现新目标时自动启动扫描任务。</p>
+<h2 id="运行时应用程序自我保护（RASP）"><a href="#运行时应用程序自我保护（RASP）" class="headerlink" title="运行时应用程序自我保护（RASP）"></a>运行时应用程序自我保护（RASP）</h2><blockquote>
+<p>Runtime Application Self-Protection</p>
+</blockquote>
+<p>集成到应用程序中分析用户流量和行为模式，以阻止和防止攻击。RASP部署在生产服务器上，工作模式更像传统的web应用程序防火墙（WAF），但<font color="green"><u>RASP技术使用AI和机器学习来代替正则表达式匹配，将保护程序像“免疫血清”一样注入到应用程序中</u></font>，与应用程序融为一体，能实时检测和阻断安全攻击，使应用程序具备自我保护能力。</p>
+<p>RASP是一种基于服务器的技术，应用程序开始运行就会激活，<u>每个RASP系统都有自己的一组安全规则列表</u>，用于交叉检查事件和相关数据，<u>确保只有允许的事情才能执行</u>，每种RASP技术提供的<u>保护级别取决于安全规则的深度及实现类型</u>。</p>
+<ul>
+<li>通过<font color="green"><strong>对请求调用的关键函数进行监听</strong></font>，拦截各种绕过流量检测的威胁攻击</li>
+<li><font color="red">几乎所有的攻击手段最终都可归纳成敏感命令执行，敏感文件读写，敏感数据库操作等异常行为</font></li>
+<li><font color="red">开源软件和第三方漏洞被利用时，执行到代码底层，通常聚焦到一些敏感函数上，如反序列化，数据库执行，命令执行，文件操作，响应返回等相关函数</font></li>
+<li><font color="green"><strong>支持动态下发热补丁修复风险</strong></font>，可在不中断业务同时为系统提供临时保护，争取宝贵时间，紧急上线的项目也可以利用此特性临时加固</li>
+</ul>
+<blockquote>
+<p>除了执行代码检查，RASP还能做应用服务器启动时的安全配置规范检查，如进程启动账号检查，弱口令检查，重要cookie是否开启http-only配置等</p>
+</blockquote>
+<h3 id="成熟RASP三构成"><a href="#成熟RASP三构成" class="headerlink" title="成熟RASP三构成"></a>成熟RASP三构成</h3><h4 id="安全插件"><a href="#安全插件" class="headerlink" title="安全插件"></a>安全插件</h4><p>实现RASP防御能力的执行模块，要求消耗低，能收集应用中间件/开发语言/语言版本/操作系统等信息，并通过与数据调度器的数据联动，实现资产信息传递，入侵防御，漏洞数据分析等功能</p>
+<h4 id="AI攻击检测引擎"><a href="#AI攻击检测引擎" class="headerlink" title="AI攻击检测引擎"></a>AI攻击检测引擎</h4><p>判定攻击行为的决策中心：结合外部安全威胁情报中心，借助上下文情景分析能力，通过纵深流量学习算法，自主学习正常访问模型，防御未知的漏洞风险</p>
+<blockquote>
+<p><font color="blue">不是说其它工具都是基于正则的，哪怕SAST也有不同层级的实现，解决不同难度的问题</font></p>
+</blockquote>
+<h5 id="概念解释：东西向流量"><a href="#概念解释：东西向流量" class="headerlink" title="概念解释：东西向流量"></a>概念解释：东西向流量</h5><ul>
+<li><p>南北向流量：外部发起</p>
+</li>
+<li><p>东西向流量：内部产生</p>
+</li>
+</ul>
+<blockquote>
+<p>探针平等对这些进入应用程序的数据进行分析</p>
+</blockquote>
+<h4 id="管理平台"><a href="#管理平台" class="headerlink" title="管理平台"></a>管理平台</h4><ul>
+<li>展示应用资产，安全检测，分析，防御结果</li>
+<li>提供集中管控工具，统一下发配置和指令</li>
+<li>可视化展示应用的状态，安全态势，为安全事件处理和能力优化提供数据决策支撑</li>
+</ul>
+<h3 id="工作流程简介"><a href="#工作流程简介" class="headerlink" title="工作流程简介"></a>工作流程简介</h3><ul>
+<li><p>大部分安全检测逻辑都在插件中实现，当引擎检测到敏感行为时，会依次调用插件进行检测，支持对数据库，文件，网络行为等进行检测<font color="green">（插件以js语法写成）</font></p>
+</li>
+<li><p>Java版在服务程序启动时，动态修改Java字节码，对敏感操作的函数进行挂钩，如数据库操作，文件读取写入操作，命令执行….当攻击发生，就会触发这些Hook点，此时RASP agent就可以获取到函数的参数，如要读取的文件名，要执行的命令等</p>
+</li>
+<li><p>基于启动时的插桩操作，当有类被ClassLoader加载时，该类的字节码先交给自定义的Transformer处理，判断是否为要Hook的类，如是则交给javassist字节码处理框架进行处理，类的字节码被按事件驱动模型逐步解析每个方法，当触发了需hook的方法，会在方法开头或结尾插入进行检测函数的字节码，然后把hook好的字节码返回给Transformer从而载入虚拟机</p>
+<blockquote>
+<p>字节码存储在.class文件中，每个.class文件包含一个java类或接口。</p>
+<p>javassist就是一个用来处理java字节码的类库，可在一个已编译好的类中添加新的方法，或修改已有方法，不要求你对字节码方面有深入的了解。它也可以去生成一个新的类对象，这点相较于反射方式不同，反射只能编辑一个对象，不能动态生成一个类</p>
+</blockquote>
+</li>
+<li><p>实际过程细节，比如上的介绍复杂一丢丢，进此<a target="_blank" rel="noopener" href="https://rasp.baidu.com/beta-doc">传送门</a>去搜索</p>
+</li>
+<li><p><font color="blue">OpenRasp的agent端和IAST agent端在探针端有近似的任务</font>，可IAST还要配一个扫描器，接收agent报上来的请求数据，识别要关注验证的活，开始自动做渗透测试任务</p>
+<ul>
+<li>换种说法，你可以说RASP agent再加一个扫描器（fuzz测试发起的服务端），即可实现一个完整的IAST扫描工具</li>
+</ul>
+</li>
+</ul>
+<h3 id="SQL检测举例"><a href="#SQL检测举例" class="headerlink" title="SQL检测举例"></a>SQL检测举例</h3><blockquote>
+<p>数据库操作的例子</p>
+</blockquote>
+<ol>
+<li><p>收到请求，进入服务器请求的hook点，开启当前线程的检测开关，并把请求对象和响应对象进行缓存，以便后面使用</p>
+</li>
+<li><p>SQL查询被发起</p>
+</li>
+<li><p>进入SQLStatementHook点，RASP挂钩了execute,executeUpdate,executeQuery等方法，从这些方法进入的检测流程如下</p>
+<ol>
+<li>受限来自标记线程的调用，才会激活检测</li>
+<li>采集connection_id（仅JDBC支持），SQL语句和数据库类型等信息</li>
+<li>在插件的执行安全检测，决定是拦截请求还是放行仅打印日志</li>
+</ol>
+</li>
+<li><p>进入SQLResultSetHook点，RASP挂钩了resultSet.next方法</p>
+<ul>
+<li><font color="red">调用插件检查是否发生拖库行为，默认策略为一次查询结果超过500条就告警</font></li>
+</ul>
+</li>
+<li><p>若决定拦截攻击</p>
+<ol>
+<li>输出告警日志到logs/alarm.log</li>
+<li>如果header还没发出，默认用302跳转到拦截页面</li>
+<li>如body还没发出，则重置未发送的body</li>
+<li>输出自定义拦截页面跳转js脚本</li>
+</ol>
+</li>
+</ol>
+<h1 id="补充参考"><a href="#补充参考" class="headerlink" title="补充参考"></a>补充参考</h1><h2 id="Java版本工作原理介绍"><a href="#Java版本工作原理介绍" class="headerlink" title="Java版本工作原理介绍"></a>Java版本工作原理介绍</h2><p><a target="_blank" rel="noopener" href="https://rasp.baidu.com/beta-doc/hacking/architect/java.html">https://rasp.baidu.com/beta-doc/hacking/architect/java.html</a></p>
+<h2 id="php版本"><a href="#php版本" class="headerlink" title="php版本"></a>php版本</h2><p>OpenRasp核心原理为：在MINIT阶段，替换全局compiler_globals的funciton_table与class_table中特定的PHP_FUNCTION对应的函数指针（封装原有的handler，增加前置，后置处理），由此实现对敏感函数的挂钩。通过敏感函数参数结合请求信息判断是否存在攻击行为，进而采取拦截或者放行操作。</p>
+<p><a target="_blank" rel="noopener" href="https://rasp.baidu.com/beta-doc/hacking/architect/php.html">https://rasp.baidu.com/beta-doc/hacking/architect/php.html</a></p>
+<p>OpenRASP项目已经实现相当于IAST agent端的OpenRASP agent，在此基础上引入一个扫描端，即可实现一个完整的IAST扫描工具</p>
+<h2 id="系统架构"><a href="#系统架构" class="headerlink" title="系统架构"></a>系统架构</h2><p>灰盒扫描工具采用python3实现，数据库采用mysql，通讯采用http+json的方式</p>
+<p><a target="_blank" rel="noopener" href="https://rasp.baidu.com/beta-doc/hacking/architect/iast.html">https://rasp.baidu.com/beta-doc/hacking/architect/iast.html</a></p>
+<h2 id="Hook函数列表"><a href="#Hook函数列表" class="headerlink" title="Hook函数列表"></a>Hook函数列表</h2><p><a target="_blank" rel="noopener" href="https://rasp.baidu.com/beta-doc/hacking/architect/hook.html">https://rasp.baidu.com/beta-doc/hacking/architect/hook.html</a></p>
+<h2 id="添加新的hook点"><a href="#添加新的hook点" class="headerlink" title="添加新的hook点"></a>添加新的hook点</h2><p>支持自定义hook函数，开放的体系</p>
+<p><a target="_blank" rel="noopener" href="https://rasp.baidu.com/beta-doc/hacking/hook.html">https://rasp.baidu.com/beta-doc/hacking/hook.html</a></p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="DiffDay 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="DiffDay 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>DiffDay
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://blog.diffday.com/DevSecOps.html" title="DevSecOps">https://blog.diffday.com/DevSecOps.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 技术</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF%E5%8A%A0%E5%AF%86.html" rel="prev" title="敏感信息加密">
+      <i class="fa fa-chevron-left"></i> 敏感信息加密
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E9%A3%8E%E9%99%A9%E6%99%AE%E9%81%8D%E5%AD%98%E5%9C%A8"><span class="nav-number">1.</span> <span class="nav-text">安全风险普遍存在</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#97-%E8%A2%AB%E6%B5%8B%E7%9B%AE%E6%A0%87%E5%AD%98%E5%9C%A8%E6%9F%90%E7%A7%8D%E5%BD%A2%E5%BC%8F%E7%9A%84%E6%BC%8F%E6%B4%9E"><span class="nav-number">1.1.</span> <span class="nav-text">97%被测目标存在某种形式的漏洞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%AE%89%E5%85%A8%E9%A3%8E%E9%99%A9"><span class="nav-number">1.2.</span> <span class="nav-text">移动应用程序安全风险</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DevSecOps"><span class="nav-number">2.</span> <span class="nav-text">DevSecOps</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%87%8A"><span class="nav-number">2.1.</span> <span class="nav-text">解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%AA%E6%96%BD%E7%AD%96%E7%95%A5"><span class="nav-number">2.2.</span> <span class="nav-text">措施策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AB%8B%E4%BD%93%E9%97%AE%E9%A2%98%EF%BC%8C%E7%AB%8B%E4%BD%93%E8%A7%A3%E5%86%B3"><span class="nav-number">2.3.</span> <span class="nav-text">立体问题，立体解决</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%B0%E4%BB%A3%E5%BA%94%E7%94%A8%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7"><span class="nav-number">3.</span> <span class="nav-text">现代应用安全工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E5%BA%94%E7%94%A8%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95%EF%BC%88SAST%EF%BC%89"><span class="nav-number">3.1.</span> <span class="nav-text">静态应用安全测试（SAST）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95%EF%BC%88DAST%EF%BC%89"><span class="nav-number">3.2.</span> <span class="nav-text">动态应用程序安全测试（DAST）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SAST%EF%BC%88%E7%99%BD%E7%9B%92%EF%BC%89vs-DAST%EF%BC%88%E9%BB%91%E7%9B%92%EF%BC%89"><span class="nav-number">3.3.</span> <span class="nav-text">SAST（白盒）vs DAST（黑盒）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E7%BB%84%E5%90%88%E5%88%86%E6%9E%90%EF%BC%88SCA%EF%BC%89"><span class="nav-number">3.4.</span> <span class="nav-text">软件组合分析（SCA）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%A4%E4%BA%92%E5%BC%8F%E5%BA%94%E7%94%A8%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95%EF%BC%88IAST%E2%80%93%E7%81%B0%E7%9B%92%EF%BC%89"><span class="nav-number">3.5.</span> <span class="nav-text">交互式应用安全测试（IAST–灰盒）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%BA%E5%88%B6%E8%A7%A3%E9%87%8A"><span class="nav-number">3.5.1.</span> <span class="nav-text">机制解释</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%A4%E4%BA%92%E6%80%A7"><span class="nav-number">3.5.1.1.</span> <span class="nav-text">交互性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%92%E6%A1%A9%E6%A3%80%E6%B5%8B"><span class="nav-number">3.5.1.2.</span> <span class="nav-text">插桩检测</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SAST-amp-DAST%E6%B7%B7%E5%90%88"><span class="nav-number">3.5.1.3.</span> <span class="nav-text">SAST&amp;DAST混合</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.5.2.</span> <span class="nav-text">工作模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0%E5%90%8E%E5%A4%84%E7%90%86"><span class="nav-number">3.5.3.</span> <span class="nav-text">漏洞发现后处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%80%BB%E7%BB%93"><span class="nav-number">3.5.4.</span> <span class="nav-text">一句话总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%A1%E7%82%B9%E8%BF%BD%E8%B8%AA%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0%E4%B8%BE%E4%BE%8B"><span class="nav-number">3.5.5.</span> <span class="nav-text">污点追踪漏洞发现举例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OpenRASP-IAST"><span class="nav-number">3.5.6.</span> <span class="nav-text">OpenRASP-IAST</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E5%89%8D%E6%94%AF%E6%8C%81%E7%9A%84%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B"><span class="nav-number">3.5.6.1.</span> <span class="nav-text">目前支持的漏洞检测</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A2%AB%E5%8A%A8%E6%A8%A1%E5%BC%8F-fuzz%E6%B5%8B%E8%AF%95"><span class="nav-number">3.5.6.2.</span> <span class="nav-text">被动模式+fuzz测试</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E8%87%AA%E6%88%91%E4%BF%9D%E6%8A%A4%EF%BC%88RASP%EF%BC%89"><span class="nav-number">3.6.</span> <span class="nav-text">运行时应用程序自我保护（RASP）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%90%E7%86%9FRASP%E4%B8%89%E6%9E%84%E6%88%90"><span class="nav-number">3.6.1.</span> <span class="nav-text">成熟RASP三构成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E6%8F%92%E4%BB%B6"><span class="nav-number">3.6.1.1.</span> <span class="nav-text">安全插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AI%E6%94%BB%E5%87%BB%E6%A3%80%E6%B5%8B%E5%BC%95%E6%93%8E"><span class="nav-number">3.6.1.2.</span> <span class="nav-text">AI攻击检测引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5%E8%A7%A3%E9%87%8A%EF%BC%9A%E4%B8%9C%E8%A5%BF%E5%90%91%E6%B5%81%E9%87%8F"><span class="nav-number">3.6.1.2.1.</span> <span class="nav-text">概念解释：东西向流量</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0"><span class="nav-number">3.6.1.3.</span> <span class="nav-text">管理平台</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E7%AE%80%E4%BB%8B"><span class="nav-number">3.6.2.</span> <span class="nav-text">工作流程简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL%E6%A3%80%E6%B5%8B%E4%B8%BE%E4%BE%8B"><span class="nav-number">3.6.3.</span> <span class="nav-text">SQL检测举例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">补充参考</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E7%89%88%E6%9C%AC%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E4%BB%8B%E7%BB%8D"><span class="nav-number">4.1.</span> <span class="nav-text">Java版本工作原理介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#php%E7%89%88%E6%9C%AC"><span class="nav-number">4.2.</span> <span class="nav-text">php版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84"><span class="nav-number">4.3.</span> <span class="nav-text">系统架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hook%E5%87%BD%E6%95%B0%E5%88%97%E8%A1%A8"><span class="nav-number">4.4.</span> <span class="nav-text">Hook函数列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%96%B0%E7%9A%84hook%E7%82%B9"><span class="nav-number">4.5.</span> <span class="nav-text">添加新的hook点</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="DiffDay"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">DiffDay</p>
+  <div class="site-description" itemprop="description">自我博雅探索，以求不惑</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">105</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:creator.chen@foxmail.com" title="E-Mail → mailto:creator.chen@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18103410号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DiffDay</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">410k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">6:12</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2d-widget/autoload.js"></script>
+</body>
+</html>
