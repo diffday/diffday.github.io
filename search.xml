@@ -8861,7 +8861,7 @@
 <blockquote>
 <p>S3是BaaS的体现</p>
 </blockquote>
-<h2 id="2015概念加速"><a href="#2015概念加速" class="headerlink" title="2015概念加速"></a>2015概念加速</h2><p>自2015年Amazon正式商用Lambda后变得流行了，背后原因体现的是云产品体系一直在Serverless化</p>
+<h2 id="2015概念加速"><a href="#2015概念加速" class="headerlink" title="2015概念加速"></a>2015概念加速</h2><p>自2015年Amazon正式<font color="blue"><u>商用Lambda后变得流行</u>了</font>，背后原因体现的是云产品体系一直在Serverless化</p>
 <ul>
 <li>对多数用户来说，最重要的是解决业务问题，若全托管的服务能带来更好的性能，更好的稳定性，更少的运维代价，why not？</li>
 <li>技术层面，serverless无特别难解的题，都是可攻克的。最难的还是心智教育，标准化和生态建设（技术严谨并非一蹴而就，如高级语言的市占率，软件工程的发展也是经过长时间的积累）</li>
@@ -8880,6 +8880,12 @@
 <li>结合云能力，弹性，轻量，端对端集成，与微服务很合拍</li>
 <li>实践推动微服务往一个更轻量的研发模式发展 – 应用函数化，按需加载 (FaaS)</li>
 <li>引领云原生下一个十年的发展潮流</li>
+</ul>
+<h2 id="Serverless四大特性"><a href="#Serverless四大特性" class="headerlink" title="Serverless四大特性"></a>Serverless四大特性</h2><ul>
+<li>No Server Management（无需管理服务器）</li>
+<li>Pay-for-value Service（按价值付费）</li>
+<li>Continuous Scaling（能自动伸缩）</li>
+<li>Built-in Fault Tolerance（内置高可用和容错能力）</li>
 </ul>
 ]]></content>
       <categories>
