@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/bitbug_favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/bitbug_favicon32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/bitbug_favicon16.ico">
+  <link rel="mask-icon" href="/images/bitbug_favicon.ico" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="UaMvLIOYuNWHgVq42dlN49RoniU73U6SoqoRnEcit9E">
+  <meta name="baidu-site-verification" content="code-DN25SBuR8T">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.diffday.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="ChatGPT  GPT:Generative Pre-trained Transformer 科技部长的金句：踢足球都是盘点，射门，但是要做到梅西那么好也不容易  惊喜与惊醒大语言模型的效果好到令人咋舌，我们距离LLM的认知和发展理念，距离世界最先进的想法，差得有点远  Bert出现后1~2年间，国内追赶技术很快，也提出了一些改进模型 分水岭在GPT-3，即为2020年中，体现了LLM应往何">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大语言模型LLM">
+<meta property="og:url" content="https://blog.diffday.com/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B.html">
+<meta property="og:site_name" content="Diffday">
+<meta property="og:description" content="ChatGPT  GPT:Generative Pre-trained Transformer 科技部长的金句：踢足球都是盘点，射门，但是要做到梅西那么好也不容易  惊喜与惊醒大语言模型的效果好到令人咋舌，我们距离LLM的认知和发展理念，距离世界最先进的想法，差得有点远  Bert出现后1~2年间，国内追赶技术很快，也提出了一些改进模型 分水岭在GPT-3，即为2020年中，体现了LLM应往何">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230322190152.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230321184942.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230322170650.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230322170801.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230322171145.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230322172430.png">
+<meta property="article:published_time" content="2022-03-23T09:36:00.000Z">
+<meta property="article:modified_time" content="2023-03-23T09:36:49.000Z">
+<meta property="article:author" content="DiffDay">
+<meta property="article:tag" content="技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://cdn.diffday.com/picgo/20230322190152.png">
+
+<link rel="canonical" href="https://blog.diffday.com/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>大语言模型LLM | Diffday</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Diffday</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">我的学习记录</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">37</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">10</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">106</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="DiffDay">
+      <meta itemprop="description" content="自我博雅探索，以求不惑">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Diffday">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          大语言模型LLM
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-03-23 17:36:00" itemprop="dateCreated datePublished" datetime="2022-03-23T17:36:00+08:00">2022-03-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-23 17:36:49" itemprop="dateModified" datetime="2023-03-23T17:36:49+08:00">2023-03-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E6%96%87%E7%B2%BE%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网文精摘</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>9.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>8 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <img src="http://cdn.diffday.com/picgo/20230322190152.png" style="zoom: 33%;" />
+
+<p>ChatGPT</p>
+<blockquote>
+<p>GPT:Generative Pre-trained Transformer</p>
+<p><font color="blue">科技部长的金句：踢足球都是盘点，射门，但是要做到梅西那么好也不容易</font></p>
+</blockquote>
+<h1 id="惊喜与惊醒"><a href="#惊喜与惊醒" class="headerlink" title="惊喜与惊醒"></a>惊喜与惊醒</h1><p>大语言模型的效果好到令人咋舌，我们距离LLM的认知和发展理念，距离世界最先进的想法，差得有点远</p>
+<ul>
+<li>Bert出现后1~2年间，国内追赶技术很快，也提出了一些改进模型</li>
+<li>分水岭在GPT-3，即为2020年中，体现了LLM应往何处去的发展理念，全球看中的人很少，梯队明显<ul>
+<li><font color="red"><u>包括Google在内，对于LLM发展理念的理解，都落后OpenAI一个身位</u></font>（半年到一年的时间）</li>
+<li>国内可能落后2年左右</li>
+</ul>
+</li>
+</ul>
+<p><font color="blue"><strong>最难的事情是方向可行性</strong></font>，这点上已经被蹚出来了</p>
+<blockquote>
+<p>这正是技术最难的一点</p>
+<p>鹰酱的风格是进化论模式，各个方向上各个公司都搞低成本试探进攻，让企业家去承担试错成本。进化是允许犯错的，甚至是进化不可少的前提</p>
+</blockquote>
+<ul>
+<li><p>堆资源，集中力量办大事的好处可以发挥</p>
+</li>
+<li><p>商业的竞争，开源的平替也在出现（甚至可能是故意的泄露）</p>
+</li>
+<li><p>老美限制我们，<font color="red">软件上挡不住，那就硬件上挡</font></p>
+<span id="more"></span></li>
+</ul>
+<p><img src="http://cdn.diffday.com/picgo/20230321184942.png"></p>
+<blockquote>
+<p>A800是A100阉割特供版，计算性能相似，数据传输速度降低30%，影响AI集群训练速度和效果，还缺货，一次只能采购数百片</p>
+</blockquote>
+<h1 id="NLP研究范式转变"><a href="#NLP研究范式转变" class="headerlink" title="NLP研究范式转变"></a>NLP研究范式转变</h1><h2 id="从深度学习到两阶段训练模型"><a href="#从深度学习到两阶段训练模型" class="headerlink" title="从深度学习到两阶段训练模型"></a>从深度学习到两阶段训练模型</h2><h3 id="深度学习期"><a href="#深度学习期" class="headerlink" title="深度学习期"></a>深度学习期</h3><ul>
+<li><p>由大量改进LSTM模型及少量改进的CNN模型作为典型的特征抽取器</p>
+</li>
+<li><p>以<font color="blue">Sequence to Sequence（或叫encoder-decoder亦可）+Attention</font>作为各种具体任务典型的总体技术框架</p>
+</li>
+</ul>
+<p>在这些技术下，研究目标归纳为<u>如何有效增加模型层深或模型参数容量</u>。就是往encoder-decoder里不断叠加更深的LSTM或CNN层。</p>
+<p>但<font color="blue">受限于有限的训练数据总量（不够匹配模型容量增加）</font>和特征抽取器有限的表达能力（不能吸收数据里蕴含的知识），最终这条路径相较于飞深度学习方法并没有出现碾压式的优势</p>
+<blockquote>
+<p>三元或四元甚至更高阶的模型是不是能覆盖所有语言现象。答案是不行</p>
+<p>上下文之间相关性可能跨度非常大，甚至可以从一个段落到另一个段落</p>
+</blockquote>
+<h3 id="两阶段训练大模型"><a href="#两阶段训练大模型" class="headerlink" title="两阶段训练大模型"></a>两阶段训练大模型</h3><p>Bert和GPT模型出现后，在学术研究和工业应用角度看，都带来了一个技术飞跃，子领域的技术方法和框架日趋统一</p>
+<blockquote>
+<p>Bert出现一年左右，技术栈就基本全线收敛到此二位上。</p>
+<p>图像领域预训练模型（vision transformer）应用到下游任务，带来的效果收益，远不如Bert/GPT应用在NLP下游任务那么显著，要是蹚通了，图像处理的各个子研究领域可能也会逐步消失，直接完成终端任务</p>
+</blockquote>
+<h3 id="带来的影响"><a href="#带来的影响" class="headerlink" title="带来的影响"></a>带来的影响</h3><h4 id="中间任务消亡"><a href="#中间任务消亡" class="headerlink" title="中间任务消亡"></a>中间任务消亡</h4><p>中文分词，词性标注，命名实体识别（NER），句法分析，指代消解，语义Parser等，这类任务不是解决任务的实际需求，但作为解决任务的中间阶段或辅助阶段存在。而用户其实只关心最终具体任务有没有干好。</p>
+<p>通过大量的预训练，Bert/GPT已经把这些中间任务作为语言学特征，吸收到了Transformer参数里，无需对中间过程专门建模，可端到端直接解决最终任务。</p>
+<blockquote>
+<p>在技术发展的早期阶段，很难一步做好有难度的最终任务，科研人员就把难题分而治之</p>
+</blockquote>
+<h4 id="技术路线统一"><a href="#技术路线统一" class="headerlink" title="技术路线统一"></a>技术路线统一</h4><p>最终任务分类：NLU+NLG</p>
+<p>NLU：文本分类，句子相似性计算，情感倾向判断，意图识别等，都是分类任务。</p>
+<blockquote>
+<p>统一到了Bert为代表的“双向语言模型预训练”+应用fine-tuning的模式</p>
+</blockquote>
+<p>NLG：聊天机器人，翻译，文本摘要，问答系统等</p>
+<blockquote>
+<p>统一到了GPT-2为代表的“自回归语言模型（从左到右单向语言模型）+zero/few shot prompt”的模式</p>
+</blockquote>
+<p>绝大多数人当时都低估了GPT这条路线的潜力，视线中心都聚焦到了Bert模式上。</p>
+<h2 id="预训练到通用人工智能"><a href="#预训练到通用人工智能" class="headerlink" title="预训练到通用人工智能"></a>预训练到通用人工智能</h2><blockquote>
+<p>从GPT-3以后，尚在加速演进</p>
+</blockquote>
+<h3 id="ChatGPT"><a href="#ChatGPT" class="headerlink" title="ChatGPT"></a>ChatGPT</h3><p>ChatGPT是触发这次范型转换的关键点，在InstructGPT出现前，LLM其实出于过渡期。</p>
+<blockquote>
+<p>ChatGPT最惊艳和最大的贡献是基本<font color="blue">实现了让LLM适配人的命令表达方式，给出了很好的解决方案，增加了易用性和用户体验</font></p>
+<p><font color="blue">证明了可以去直接追求理想的LLM模型，未来的技术趋势应是越来越大的LLM模型，增加预训练数据的多样性</font></p>
+</blockquote>
+<ul>
+<li><p>预训练模型早期，人们普遍更看好Bert一些</p>
+<ul>
+<li>fine-tuning方式解决下游任务，Bert&gt;GPT</li>
+<li><font color="red"><u>Fine-tuning效果占优的领域是因为领域训练数据量大，从数据安全角度，fine-tuning还没那么快消失，但已经不是潮流了</u></font></li>
+</ul>
+</li>
+<li><p>随着技术发展，目前规模最大的LLM模型，几乎清一色类似GPT-3的模式，背后有一定的必然性</p>
+<ul>
+<li><p><font color="blue">NLG表现形式可兼容NLU</font>，反之则不行。分类问题可转换成让LLM生成对应类别字符串，Google的T5模型，形式上就统一了NLU+NLG的外在表现形式。</p>
+<img src="http://cdn.diffday.com/picgo/20230322170650.png" style="zoom:50%;" /></li>
+<li><p>Zero/few shot promot方式做好任务，采取GPT模式</p>
+<ul>
+<li>数据是海量的，要吸收知识，需非常多的参数来存储只是，必是巨无霸模型</li>
+<li>模型规模巨大，有能力做出及改动这个模型参数的机构必然少</li>
+<li><font color="red">就算把模型开源出来，中小机构和个人也无力部署，更不用说用fine-tuning这种模式去修改模型参数了</font></li>
+<li><font color="blue">LLM as Service的模式运行</font>，超大模型一定会走向AGI（人造通用智能）</li>
+<li>ChatGPT用Instruct取代了prompting，由此带来新的技术范式转换</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="ChatGPT改变了GPT-3-5什么？"><a href="#ChatGPT改变了GPT-3-5什么？" class="headerlink" title="ChatGPT改变了GPT-3.5什么？"></a>ChatGPT改变了GPT-3.5什么？</h4><blockquote>
+<p>GPT-1学习资料5G，参数1.17亿</p>
+<p>GPT-2学习资料40G，参数15亿</p>
+<p>GPT-3学习资料45T，参数1750亿</p>
+</blockquote>
+<p>GPT有了海量知识，但回答形式和内容却不受约束，因为它知道的太多了。见到了一个人几辈子都读不完的资料，会随意联想，像一只脑容量超级大的鹦鹉，如何指挥它成了一个目标。</p>
+<p>ChatGPT注入了人类偏好知识，什么是好的回答，什么是不好的。如详细回答是好的，带有歧视内容的回答是不好的，人类对回答质量好坏的偏好，用对话模板去矫正其开卷有益时学到的不规范习惯（跟教鹦鹉说话一个道理），通过reward-model反馈给LLM数据，得到一个懂得人话，比较礼貌的LLM。</p>
+<blockquote>
+<p>用人工专门写好的优质对话范例让GPT去接龙</p>
+</blockquote>
+<h3 id="LLM的知识构成"><a href="#LLM的知识构成" class="headerlink" title="LLM的知识构成"></a>LLM的知识构成</h3><blockquote>
+<p>Transformer是足够强大的特征抽取器，尚不需做特别的改进，那它学到了什么？</p>
+</blockquote>
+<p>语言类知识和世界知识</p>
+<ul>
+<li>语言类知识是指语法，词性，句法，语言等有助于人类或机器理解的自然语言知识</li>
+<li>世界知识指发生在这个世界上的一些真实事件和常识性知识</li>
+</ul>
+<p>对于Bert类型的语言模型来说，只<u>用1000w到1亿单词的语料，就能学好句法语义等语言学知识</u>；<font color="blue">事实类知识要更多的训练数据</font>。</p>
+<p>随着Transformer模型层深的增加，能学到的知识数据以指数级增加，把<font color="red">模型看作是以模式参数体现的隐式知识图谱</font>，一点也不违和。</p>
+<h4 id="如何存取知识"><a href="#如何存取知识" class="headerlink" title="如何存取知识"></a>如何存取知识</h4><ul>
+<li>多头注意力（MHA）占了参数总量的1/3，用于计算单词或知识间的相关强度，对全局信息进行集成，建立知识间的联系，大概率不会存储具体的知识点</li>
+<li>FFN（Feed Forward Network）结构占了剩余2/3，承担主体知识的存储。FFN的输入层其实是某个单词对应的MHA的输出结果Embedding，将整个句子有关的输入上下文集成到一起的Embedding，代表整个输入句子的整体信息</li>
+<li>Transformer低层对句子表层模式做出反应，高层对语义模式做出反应。也就是<font color="blue">低层FFN存储语法，句法等表层知识；中层和高层存储语义及事实概念知识</font></li>
+</ul>
+<p><img src="http://cdn.diffday.com/picgo/20230322170801.png"></p>
+<h3 id="LLM的规模效应"><a href="#LLM的规模效应" class="headerlink" title="LLM的规模效应"></a>LLM的规模效应</h3><p>目前效果最好的LLM模型，参数规模大都超过了千亿（100B），如OpenAI的GPT-3规模175B，Google的LaMDA规模540B，华为盘古模型200B，百度文心260B，随着模型不断增长，会发生什么？</p>
+<ul>
+<li><p>研究证明，越大的LLM模型学习效率越高，学到了更多知识，任务效果更好。多数NLU任务，都是知识密集型任务，近两年都在模型规模增长下获得了极大的效果提升。</p>
+</li>
+<li><p>模型规模是解锁LLM新能力的关键，出现某种涌现能力带来意想不到的精彩，如chatGPT的推理能力。</p>
+<blockquote>
+<p>思维链是典型的增强LLM推理能力的技术，流利性也是在规模上得以解决的。</p>
+<p><font color="red">上下文学习里出现的涌现效应，等价于隐式的微调</font>，但如何有效尚未搞明白</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="Transformer的稀疏化"><a href="#Transformer的稀疏化" class="headerlink" title="Transformer的稀疏化"></a>Transformer的稀疏化</h3><p>目前规模最大的LLM中，相当比例的模型采取了稀疏结构，如GPT-3，PaLM，好处是它可以极大减少LLM的训练时间和在线推理时间</p>
+<p>有研究表明，标准的Dense Transformer在训练和推理时，它本身也是稀疏激活的，既然如此，不如直接迁移到稀疏模型</p>
+<p>随着模型越大，稀疏模型带来的收益越明显</p>
+<h3 id="人机交互"><a href="#人机交互" class="headerlink" title="人机交互"></a>人机交互</h3><blockquote>
+<p>从In Context Learning到Instruct理解</p>
+</blockquote>
+<p>Zero shot prompt是Instruct的早期叫法，内涵一致，具体做法不同</p>
+<ul>
+<li>早期Zero shot prompt实际上就是不知道怎么表达一个任务才对，就换不同的单词或句子，反复尝试好的任务表达方式。这种方式已经被证明是在拟合训练数据的分布</li>
+<li>Instruct做法则是给定命令表达语句，试图让LLM理解它，尽管表面都是任务的表述，但思路是不同的</li>
+</ul>
+<p>In Context Learning和Few shot prompt意思类似，就是<font color="red">给LLM几个示例做范本，然后让LLM解决新问题</font></p>
+<ul>
+<li>In Context Learning也可以理解为某项任务的描述（用例子来具象表达任务命令），<font color="blue">只是Instruct是一种更抽象的描述形式</font></li>
+</ul>
+<blockquote>
+<p>LLM用来生成Instruct效果很不错，在一些任务上超过人类的表现，所以Prompt engineer也是一个不长久的职位</p>
+</blockquote>
+<ul>
+<li><font color="blue">Fine-tuning和In Context Learning表面看似都提供了一些例子给LLM，但两者有质上的差别</font><ul>
+<li>Fine-tuning拿这些例子当训练数据，用反向传播去修正LLM的模型参数</li>
+<li>但In Context Learning只是拿出例子让LLM看了一眼，并没有根据例子去修正参数，就要求它去预测新例子（正是In Context Learning的神奇之处，尚无清晰的原理解释）</li>
+</ul>
+</li>
+</ul>
+<h3 id="如何增强LLM的推理能力"><a href="#如何增强LLM的推理能力" class="headerlink" title="如何增强LLM的推理能力"></a>如何增强LLM的推理能力</h3><p>咱们通常不会因为一个人单靠记忆力强，就说这个人很聪明，还要看他是否有强的推理能力，推理能力是智力水平更佳的标准。强大推理能力也是让用户认可LLM的心理基础。</p>
+<blockquote>
+<p>推理能力的本质是综合运用很多知识，去推导出新的知识或新结论</p>
+</blockquote>
+<p>在LLM推理方面相关的工作和研究，可归为4大类</p>
+<ul>
+<li><p>基于Prompt的方法，通过合适的提示语或文本，更好地激发LLM本身就具有的推理能力，google在这个方面做了大量很有成效的工作</p>
+<ul>
+<li>更好的展示出能力的技术方法，直接在问题上追加辅助推理Prompt，在众多领域都很有效<ul>
+<li>第一阶段在提问的问题上追加“Let’s think step by step”这句提示语，LLM会输出具体的推理过程；第二阶段，在第一阶段的问题后，拼接LLM输出的具体推理过程，并再追加Prompt。如此简单的操作，却可以大幅增加LLM在各项推理任务中的效果，比如在数学推理测试集GSM8K上，加上提示语后，推理准确率直接从原先的10.4%提升到了40.4%，可谓神奇。（猜测预训练数据里面存在大量的此种数据，提示语激发LLM模糊得“回忆”起某些例子的推导步骤）</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://cdn.diffday.com/picgo/20230322171145.png"></p>
+</li>
+<li><p>COT</p>
+<p>标准的COT由人工来写推理步骤，而Zero-shot COT大概是通过提示语，激活了记忆中某些包含推理步骤的示例。人工给出的示例，准确性是有保障的，所以自然标准CoT效果会更好。</p>
+<blockquote>
+<p>最早的COT概念文章发表于22年1月，虽然做法简单，但应用COT后模型推理能力得到了巨大的提升</p>
+</blockquote>
+<p>意思是<font color="blue">让LLM明白一个道理：在推理过程中，步子不要迈的太大，化大问题为小问题，积小胜为大胜</font></p>
+<p>COT提出不久，很快在22年3月，一种被称为“Self-Consistency”的改进技术继续助力提升准确率，它要求LLM输出多个不同的推理过程和答案，然后用投票的方式选出最佳答案，将GSM8K测试集准确率提高到83%左右。简答的方法往往蕴含着深刻的道理。虽然COT起效仍有黑盒的味道。</p>
+<p><img src="http://cdn.diffday.com/picgo/20230322172430.png"></p>
+</li>
+<li><p>Least-to-most prompting，应用分治的思想，将一个复杂的推理问题，分解成若干更易解决的子问题，应证了COT的工作模式。<font color="blue">要解决Final Q问题，先把原始问题和Prompt交给LLM，让LLM给出最终问题的前置子问题sub Q，然后用原始问题拼接子问题sub Q及答案，再去问LLM最终问题Final Q</font></p>
+</li>
+<li><p>在预训练过程中<u><strong>引入程序代码，和文本一起参与训练</strong></u>，这应是OpenAI实践出来的思路</p>
+<ul>
+<li>体现出一种通过增强多样性的训练数据，来直接增强推理能力的思路</li>
+<li>为何预训练模型可以从代码中获得额外的推理能力，确切原因未知。<font color="red">可能开始只是尝试从文本生成代码，而代码中往往包含很多文本注释，本质上类似于预训练模型做了两种数据的多模态对齐工作</font></li>
+<li>支持越来越多的任务类型，主要是通过增加LLM预训练数据的多样性来达成</li>
+</ul>
+</li>
+</ul>
+<h1 id="算力约束下的最优培养策略"><a href="#算力约束下的最优培养策略" class="headerlink" title="算力约束下的最优培养策略"></a>算力约束下的最优培养策略</h1><p>假设用于训练LLM的算力总预算（如多少GPU天）给定，是应多增加数据量，减少模型参数呢，还是说数据量和模型规模同时增加，减少训练步数呢？</p>
+<p><font color="blue"> OpenAI选择了同时增加训练数据量和模型参数，但采用早停策略来减少训练步数的方案</font></p>
+<ul>
+<li><font color="red">且优先增加模型参数，然后才是模型数据量</font></li>
+<li>假如算力预算增加了10倍，那么应增加5.5倍的模型参数量，1.8倍的训练数据量，此时模型效果最佳</li>
+<li>单调增加模型参数，固定住训练数据量，这个做法也是不对的，限制了模型的潜力</li>
+</ul>
+<h1 id="为何是OpenAI"><a href="#为何是OpenAI" class="headerlink" title="为何是OpenAI"></a>为何是OpenAI</h1><p>胜在一开始就自我定位比较高，要做出人物无关超大型LLM，以生成一切的方式解决各种实际问题，且应能听懂人类的命令。不受外界干扰态度坚定不移。</p>
+<ul>
+<li>GPT-1比Bert出来更早，Bert证明了双向语言模型对于很多NLU任务，效果比GPT这种单向语言模型更好，尽管如此，GPT-2也没有切换技术路线，且开始尝试zero/few shot prompt。因效果比Bert+fine-tuning差的比较远，所以大家都没太当回事，甚至不理解它为什么要始终坚持走单向语言模型的路线。</li>
+<li>GPT-3展示出不错的zero/few shot prompt能力，后面技术差距从这里拉开，再往后是InstructGPT和ChatGPT</li>
+</ul>
+<h1 id="成本与挑战"><a href="#成本与挑战" class="headerlink" title="成本与挑战"></a>成本与挑战</h1><p>当前能做ChatGPT这类事的机构，国外不超过5家，国内不超过3家</p>
+<ul>
+<li>Azure云服务为ChatGPT构建超过1w枚A100/H100的计算集群，大型商业化后续投入还需更多</li>
+<li>国内超过w枚GPU的企业不超过5家（高低配合起来）只有1家，有w枚A100的最多只有一家，短期内布局的选手十分有限。需要长期高成本投入，高性能GPU芯片短缺，采购成本和运营成本都很高昂，挑战的就是资金储备，战略意志和实际技术能力（含工程能力）。</li>
+<li>考虑到成本问题，未来或许会出现股份制大模型，机构合作共建</li>
+</ul>
+<h2 id="智算集群成本"><a href="#智算集群成本" class="headerlink" title="智算集群成本"></a>智算集群成本</h2><ul>
+<li>建设成本<ul>
+<li>以A800 10w/枚价格基准下，万枚采购成本10亿</li>
+<li>一台服务器4-8枚GPU才经济，那就以40w一台GPU服务器来核算</li>
+<li><font color="red">服务器采购成本通常是数据中心建设成本的30%</font>，那么这个智算集群建设成本通常超过30亿</li>
+</ul>
+</li>
+<li>训练成本<ul>
+<li>ChatGPT一次完整训练成本超过$1200w，差不多￥8000w，迭代10次完整训练，就有8亿支出</li>
+<li>数据采集，人工标注等这些软性成本还难以简单计算</li>
+</ul>
+</li>
+<li>运营成本<ul>
+<li>网络带宽，电力资源，人员薪资，成本可能也是以亿计的</li>
+</ul>
+</li>
+</ul>
+<p>中短期无法盈利，用户规模越大，亏损可能也会越大，得输血支持。在22年财报上看，BAT中云指出56亿，266亿，311亿。百度可能财力上就无法支撑，战略意愿上因为与主营收模式冲突也会有持久性的问题。</p>
+<blockquote>
+<p>假设大厂50%的资本支出用于投资云基础设施（参照Amazon）</p>
+</blockquote>
+<h1 id="冲击"><a href="#冲击" class="headerlink" title="冲击"></a>冲击</h1><h2 id="奇点临近"><a href="#奇点临近" class="headerlink" title="奇点临近"></a>奇点临近</h2><ul>
+<li><p>同一个模型完成各种开放任务，变成了通用任务助理，颠覆人类基本认知</p>
+<ul>
+<li>高质量对话让人误以为AI有意识和人格觉醒，产生数字生命的感觉<ul>
+<li>模型和数据飞轮转的非常快，在很多考试领域已经超越大多数人类</li>
+<li>人与AI共存的未来人类一直在畅想，机器人三定律1953年就提出来了</li>
+</ul>
+</li>
+<li><font color="blue">人人都配有一个熟读人类知识的王语嫣</font>，当前你也可以说她不是真正学会了知识，学的是传载知识的语言搭配模式，但上下文理解能力和推理能力强，要是再配上人形机器人，那就不仅仅是个武功军师了。</li>
+<li>以培养学习能力和创造能力为主，今后才好在竞争中更显突出。</li>
+</ul>
+</li>
+<li><p>越大的机构，消耗在语言处理上的成本越高（信息协作），所以市场非常嗨</p>
+<ul>
+<li>从cv，音频这种感知智能上升到NLP到认知智能，再到更强大的AIGC。PGC -&gt; PGC+UGC -&gt; AIGC，内容生产门槛进一步降低，2025年AI生产内容可能站到所有的10%</li>
+<li>白领工作在一轮生产力变革的前夜，知识密集型岗位的生产力变了，势必创造新的生产关系。<ul>
+<li>关注/反应最大的是知识生产/知识密集型岗位，知识和技能平权进一步前进，影响稀缺性，互联网民工也有被替代的可能</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="失业，预言还是谎言"><a href="#失业，预言还是谎言" class="headerlink" title="失业，预言还是谎言"></a>失业，预言还是谎言</h2><p>机器人开始抢白领的工作，一般来说<u>贩卖焦虑的老套路都是用失业这个绝对痛点</u>，戳痛大家脆弱的神经，<font color="red">一焦虑你就得乖乖付费</font>。总之哪里有焦虑，哪里就有生意。</p>
+<p>通过调查显示，从教育背景，工作经验，职业年限和工资数据来看，高薪水从业者更容易接触LLM，面临影响的风险更大。按行业来看，信息处理行业受到的影响较大，而制造业，农业和采矿业则表现出较低的影响风险。</p>
+<p>现在ChatGPT引发的轰动，早期的搜索引擎也有过，你想想一个搜索框能告诉你所有问题的结果，这是一件多么可怕的事情，可后来的事情也很清楚。</p>
+<blockquote>
+<p><u><strong>论文库，各种教程，都是大杀器，放在封建社会都是要被统治阶级重兵把守的国家机密</strong></u>，如今无差别放在大家面前，<u><strong>问题是绝大部分人视而不见</strong></u>，如果之前那些东西并没有影响大家，一个chatgpt又有什么影响呢？</p>
+</blockquote>
+<ul>
+<li>大概率一段喧闹后恢复平静，就像当初谷歌一样，<font color="blue">对绝大多数人只是提供了一点方便，小部分人觉得捡到了一把机枪 (变成少数人天天在用的工具，绝大多数人非必要不会去碰它)，社会差距会进一步拉大</font>，冲击的也是一小部分人</li>
+<li>Excel出现的时候，很多人惊呼这玩意将改变整个职场江湖，谁能想到，它只是让大家的工作变得更琐碎了。</li>
+<li>好处是工具的赋能，使人站的位置越来越高</li>
+</ul>
+<p>如果你面对的东西主观性很强，客户自己都不知道想要什么，或需要大量的想法，这种工作短期内AI还不太行，恰好这类工具不但不会取代你，且会成为你的帮手。</p>
+<h3 id="正视人性"><a href="#正视人性" class="headerlink" title="正视人性"></a>正视人性</h3><blockquote>
+<p>如历史的教训一书中提到的，人生来不自由不平等</p>
+</blockquote>
+<p>一些随手可通过搜索引擎查到的东西，绝大部分人却在那里疯狂传谣。同一个搜索框，不同的人查到的东西，差距都很大。现实世界里，80%的人是没有阅读长文的能力的，你再要求他们会使用复杂工具简直是为难大家了，太多人在强大工具面前就不知道该如何描述自己想要什么。</p>
+<p><font color="purple">生活就像一个竞技场，每个人走到里面惊讶的发现里面摆着一堆武器，让大家自己选。这些武器从木棍到机枪应有尽有，令人不解的是，绝大部分人选的是操作简单容易上手的菜刀，而不是有一定学习成本的机枪。看似公平的竞争，最后因为工具的差别，变成了单方面的屠杀</font>。</p>
+<blockquote>
+<p>现实比较复杂一点，因为人不止一个工具，比如孩子比较蠢，选了木棍，而他爹有个高达。</p>
+</blockquote>
+<p>人类社会的大发展，回头看也不过百年，百年之间，人类文明早已经天翻地覆，但人类的天性和欲望并没有因此得到任何的进化和改变。</p>
+<h2 id="拥抱未来"><a href="#拥抱未来" class="headerlink" title="拥抱未来"></a>拥抱未来</h2><p>过去学个知识，干一辈子的时代已经渐渐远去了，<font color="blue">经历了多次科技革命的我们，正处在一个加速时期</font>，新工具出现越来越快，取代效应也越来越快。</p>
+<blockquote>
+<p>大量受规训的人毕业了被告知还要再学习就情绪上抵触，好在社会教做人，因为很快意识到市场和工具变化究竟有多快。当然也有从事简单重复工作的岗位，与再学习逐渐分离，但多数也随之甩去了改变生活境遇层次的机会。</p>
+</blockquote>
+<p>电出来的时候被认为是会带来灾难的巫术，无论你是欣喜还是焦虑，它终究会在未来的某一天不期而遇。市场不会因为禁用而整体不用。</p>
+<p>靠人口和房子的粗旷式发展的大周期已经结束，人口下滑也是不可逆的趋势，中国正在经历劳动密集向效率提升的转型。时代需要新科技，新动能来救场。</p>
+<p><font color="blue">人类历史从来不是人和工具之间的搏斗，而是人+工具替代人的演变。</font>当人类整体内大幅增加时，个人优势被抹平，苦痛会随之重新增加，立于潮头，意味着更少的竞争与更多的机会。保持竞争优势，亦不要被欲望收割，才能获得轻松幸福的生活。</p>
+<h3 id="教育适配"><a href="#教育适配" class="headerlink" title="教育适配"></a>教育适配</h3><p>我们小初中训练最多的死记硬背，心算，重复难度的刷题能力，这种反人性的规训是要进行反思的，不要成为一个按一定工序墨守成规的执行机器，这种能力20年后被人工智能淹没是大概率的事情。如何思考事物之间的关联，而不是只想快点看到老师的总结，面向未来学习。</p>
+<p>在人工智能时代，能准确描述你要的东西，也变得非常有价值，美学的认知和表达能力成为一大要素，说到底我们是商品社会，未来大众会越来越为美的东西买单，如果制作过程不再那么重要，那么懂美学的孩子就能做出更出色的产品。</p>
+<p>个性和特长的培养也会显得比以往更为重要（一直重要，但更为重要了）。新时代的动手能力，就是配合基础学科及美学素养，从小锻炼使用现代工具辅助学习的能力。</p>
+<h1 id="中美AI研究差异"><a href="#中美AI研究差异" class="headerlink" title="中美AI研究差异"></a>中美AI研究差异</h1><blockquote>
+<p>美国侧重基础研究，中国侧重解决方案。其实不仅AI，本世纪所有的科技发展，都在太平洋两岸衍生出不同的路径。</p>
+</blockquote>
+<ul>
+<li>互联网浪潮美国对电商不热衷，线上消费渗透率一直上不去。中国几乎所有互联网公司都做过电商，渗透率冠绝全球，规模一度比2到11加总都高</li>
+<li>移动互联网，中国凭借更好的网络环境，更鼓励创新的监管制度，直接跳过信用卡时代，进入数字支付时代</li>
+<li>无人驾驶，美国侧重车的智能化，中国有更好的基建，路况，网络和交通规划，于是选了车路协同的路线</li>
+<li>产业互联网，美国经济产业特点处于微笑曲线的两头，科技，互联网，金融占比高，加上人力昂贵，企业付费意愿强。中国集中在微笑曲线中段，作为世界工厂，场景丰富，产业链完整，政策支持，高效集中，产学研对接十分方便，技术验证更好落地。这样的大背景导致美国重攻基础研究，多是从技术起步，<font color="blue">中国优势在于场景多，需求多，往往是场景倒逼技术落地</font>。</li>
+</ul>
+<p><font color="blue"><u>中国民营企业才刚从艰苦奋斗的路上走出来，精打细算的习惯改变不了</u>，往往从市场需求产品需求开始，再慢慢投入科学家和基础研究，带动落地</font>。<font color="red">美国巨头钱不是问题，钱太多才是问题，砸钱做基础科学，既可以抢占科技高地，也需要冲淡垄断者的坏形象。</font></p>
+<p>美国AI行业上一个爆款DeepMind的Alpha系列，就是先把技术做出来，赢围棋冠军，但商业落地慢慢探索，好几年后这项技术被用于破解蛋白质折叠结构难题，参与新药研发，才算英雄有用武之地。</p>
+<p>中国用户早期很多用个人电脑自拍QQ头像，QQ团队就想，做个技术实现头像居中，解决这个问题后，逐步孵化出人脸检测，人像表情，智能P图等技术。用回产品，孵化出天天P图；人像美容技术再用到全民K歌，这个图像团队就是腾讯优图。还有美团的无人机，京东的智能供应链，都市跟主业投入有关。</p>
+<h1 id="重要参考"><a href="#重要参考" class="headerlink" title="重要参考"></a>重要参考</h1><p>[1] 张俊林.<a target="_blank" rel="noopener" href="http://k.sina.com.cn/article_2674405451_9f68304b01901346f.html">由ChatGPT反思大语言模型（LLM）的技术精要</a></p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="DiffDay 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="DiffDay 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>DiffDay
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://blog.diffday.com/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B.html" title="大语言模型LLM">https://blog.diffday.com/大语言模型.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 技术</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/%E5%B0%8F%E9%95%87%E5%81%9A%E9%A2%98%E5%AE%B6.html" rel="prev" title="中产滑落与小镇做题家">
+      <i class="fa fa-chevron-left"></i> 中产滑落与小镇做题家
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/%E6%9E%B6%E6%9E%84%E5%B8%88%E4%B8%8ESQALE.html" rel="next" title="架构师与SQALE">
+      架构师与SQALE <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%83%8A%E5%96%9C%E4%B8%8E%E6%83%8A%E9%86%92"><span class="nav-number">1.</span> <span class="nav-text">惊喜与惊醒</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NLP%E7%A0%94%E7%A9%B6%E8%8C%83%E5%BC%8F%E8%BD%AC%E5%8F%98"><span class="nav-number">2.</span> <span class="nav-text">NLP研究范式转变</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%88%B0%E4%B8%A4%E9%98%B6%E6%AE%B5%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.1.</span> <span class="nav-text">从深度学习到两阶段训练模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9C%9F"><span class="nav-number">2.1.1.</span> <span class="nav-text">深度学习期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%A4%E9%98%B6%E6%AE%B5%E8%AE%AD%E7%BB%83%E5%A4%A7%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.1.2.</span> <span class="nav-text">两阶段训练大模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="nav-number">2.1.3.</span> <span class="nav-text">带来的影响</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%AD%E9%97%B4%E4%BB%BB%E5%8A%A1%E6%B6%88%E4%BA%A1"><span class="nav-number">2.1.3.1.</span> <span class="nav-text">中间任务消亡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E8%B7%AF%E7%BA%BF%E7%BB%9F%E4%B8%80"><span class="nav-number">2.1.3.2.</span> <span class="nav-text">技术路线统一</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83%E5%88%B0%E9%80%9A%E7%94%A8%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD"><span class="nav-number">2.2.</span> <span class="nav-text">预训练到通用人工智能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ChatGPT"><span class="nav-number">2.2.1.</span> <span class="nav-text">ChatGPT</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ChatGPT%E6%94%B9%E5%8F%98%E4%BA%86GPT-3-5%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">ChatGPT改变了GPT-3.5什么？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LLM%E7%9A%84%E7%9F%A5%E8%AF%86%E6%9E%84%E6%88%90"><span class="nav-number">2.2.2.</span> <span class="nav-text">LLM的知识构成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AD%98%E5%8F%96%E7%9F%A5%E8%AF%86"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">如何存取知识</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LLM%E7%9A%84%E8%A7%84%E6%A8%A1%E6%95%88%E5%BA%94"><span class="nav-number">2.2.3.</span> <span class="nav-text">LLM的规模效应</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transformer%E7%9A%84%E7%A8%80%E7%96%8F%E5%8C%96"><span class="nav-number">2.2.4.</span> <span class="nav-text">Transformer的稀疏化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92"><span class="nav-number">2.2.5.</span> <span class="nav-text">人机交互</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%A2%9E%E5%BC%BALLM%E7%9A%84%E6%8E%A8%E7%90%86%E8%83%BD%E5%8A%9B"><span class="nav-number">2.2.6.</span> <span class="nav-text">如何增强LLM的推理能力</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%97%E5%8A%9B%E7%BA%A6%E6%9D%9F%E4%B8%8B%E7%9A%84%E6%9C%80%E4%BC%98%E5%9F%B9%E5%85%BB%E7%AD%96%E7%95%A5"><span class="nav-number">3.</span> <span class="nav-text">算力约束下的最优培养策略</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BA%E4%BD%95%E6%98%AFOpenAI"><span class="nav-number">4.</span> <span class="nav-text">为何是OpenAI</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%88%90%E6%9C%AC%E4%B8%8E%E6%8C%91%E6%88%98"><span class="nav-number">5.</span> <span class="nav-text">成本与挑战</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%99%BA%E7%AE%97%E9%9B%86%E7%BE%A4%E6%88%90%E6%9C%AC"><span class="nav-number">5.1.</span> <span class="nav-text">智算集群成本</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%B2%E5%87%BB"><span class="nav-number">6.</span> <span class="nav-text">冲击</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A5%87%E7%82%B9%E4%B8%B4%E8%BF%91"><span class="nav-number">6.1.</span> <span class="nav-text">奇点临近</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%B1%E4%B8%9A%EF%BC%8C%E9%A2%84%E8%A8%80%E8%BF%98%E6%98%AF%E8%B0%8E%E8%A8%80"><span class="nav-number">6.2.</span> <span class="nav-text">失业，预言还是谎言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E8%A7%86%E4%BA%BA%E6%80%A7"><span class="nav-number">6.2.1.</span> <span class="nav-text">正视人性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%A5%E6%8A%B1%E6%9C%AA%E6%9D%A5"><span class="nav-number">6.3.</span> <span class="nav-text">拥抱未来</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%99%E8%82%B2%E9%80%82%E9%85%8D"><span class="nav-number">6.3.1.</span> <span class="nav-text">教育适配</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%AD%E7%BE%8EAI%E7%A0%94%E7%A9%B6%E5%B7%AE%E5%BC%82"><span class="nav-number">7.</span> <span class="nav-text">中美AI研究差异</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%8D%E8%A6%81%E5%8F%82%E8%80%83"><span class="nav-number">8.</span> <span class="nav-text">重要参考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="DiffDay"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">DiffDay</p>
+  <div class="site-description" itemprop="description">自我博雅探索，以求不惑</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">106</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:creator.chen@foxmail.com" title="E-Mail → mailto:creator.chen@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18103410号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DiffDay</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">419k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">6:21</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2d-widget/autoload.js"></script>
+</body>
+</html>
