@@ -35,7 +35,7 @@
 <meta property="og:image" content="http://cdn.diffday.com/picgo/20230103162040.png">
 <meta property="og:image" content="http://cdn.diffday.com/picgo/20230103180138.png">
 <meta property="article:published_time" content="2023-03-15T10:53:30.000Z">
-<meta property="article:modified_time" content="2023-03-15T10:59:56.000Z">
+<meta property="article:modified_time" content="2023-03-31T15:21:44.000Z">
 <meta property="article:author" content="DiffDay">
 <meta property="article:tag" content="技术">
 <meta name="twitter:card" content="summary">
@@ -241,10 +241,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-03-15 18:53:30 / 修改时间：18:59:56" itemprop="dateCreated datePublished" datetime="2023-03-15T18:53:30+08:00">2023-03-15</time>
+              <time title="创建时间：2023-03-15 18:53:30" itemprop="dateCreated datePublished" datetime="2023-03-15T18:53:30+08:00">2023-03-15</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-31 23:21:44" itemprop="dateModified" datetime="2023-03-31T23:21:44+08:00">2023-03-31</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -268,14 +274,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>6.4k</span>
+              <span>8.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
+              <span>7 分钟</span>
             </span>
 
         </div>
@@ -302,9 +308,15 @@
 <li>在移动设备安全测试中，有80%的漏洞与不安全的数据存储有关，攻击者既可以物理访问移动设备，也可以使用恶意软件进入设备</li>
 <li>还有53%的漏洞与不安全的通信方式有关</li>
 </ul>
-<h1 id="DevSecOps"><a href="#DevSecOps" class="headerlink" title="DevSecOps"></a>DevSecOps</h1><span id="more"></span>
+<span id="more"></span>
 
-<h2 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h2><p>从开发周期起始就引入安全流程，贯穿整个开发周期，对代码进行评审，审计，扫描和测试。尽早确定和实施防御技术，就可以降低安全问题的成本。</p>
+<h2 id="漏洞复盘"><a href="#漏洞复盘" class="headerlink" title="漏洞复盘"></a>漏洞复盘</h2><p>复盘历史漏洞，按成因粗略可归为两类：</p>
+<ol>
+<li>代码漏洞，因不安全的API使用和逻辑编写产生的安全风险</li>
+<li>运维漏洞，指运行环境，配置和依赖等系统运维的安全风险，如软件供应链攻击，如公司内员工使用包管理软件拉取时，未配置公司镜像源，可能会拉取到攻击者抢注的恶意包</li>
+</ol>
+<p>数据校验是几乎每份安全规范类文档会囊括的要点，<font color="blue">可通过数据校验规避的漏洞约占历史web漏洞安全工单数量的70%~80%</font>，但要落实好，<u>最有效的解决办法还是自动生成代码</u>来做此类事情。</p>
+<h1 id="DevSecOps"><a href="#DevSecOps" class="headerlink" title="DevSecOps"></a>DevSecOps</h1><h2 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h2><p>从开发周期起始就引入安全流程，贯穿整个开发周期，对代码进行评审，审计，扫描和测试。尽早确定和实施防御技术，就可以降低安全问题的成本。</p>
 <blockquote>
 <p><font color="green">安全测试在整个发布和部署过程中持续进行，企业利用自动化工具</font>（如SAST，DAST，IAST，SCA）及手工测试活动（如代码审查和渗透测试），综合达成安全加固的目标</p>
 </blockquote>
@@ -315,15 +327,52 @@
 </ul>
 <h2 id="立体问题，立体解决"><a href="#立体问题，立体解决" class="headerlink" title="立体问题，立体解决"></a>立体问题，立体解决</h2><p>从立体化上看，包括三个机制：</p>
 <ul>
-<li>面向开发人员的代码安全指南</li>
-<li>默认安全框架组件（静态代码安全检查解决）</li>
+<li>面向开发人员的代码安全指南+静态代码安全检查</li>
+<li>默认安全框架组件</li>
 <li>嵌入基础设施的代码安全检查。</li>
 </ul>
+<h3 id="来自谷歌的实践建议"><a href="#来自谷歌的实践建议" class="headerlink" title="来自谷歌的实践建议"></a>来自谷歌的实践建议</h3><p>Google在内部安全左移的实践中，提出</p>
+<ol>
+<li>越早越好，软件设计初期就应考量安全，稳定性问题，否则越往后代价越高，过程会很痛苦</li>
+<li><u>安全意识教育很重要，但也不是银弹，安全工程师甚至都会犯错</u>。在业务开发阶段，关注点往往是功能实现，要兼顾安全和稳定性设计方面的权衡，会很难。因此，应关注安全机制和工具的建设</li>
+<li>安全能力嵌入框架大有裨益，复用最佳实践，提供规范性与一致性，减少由业务各自实现产生的风险，还能提升研效，降低修复成本和时间，<u>框架虽不能保证预防解决所有问题，但出现问题时，只需要在一个点解决</u><ol>
+<li>不同业务重复在写安全校验逻辑，浪费人力还易出错</li>
+<li>重检查，轻提供解决方案。聚焦于发现问题，但开发人员在解决问题时，如没有可操作的解决方案，修复工作往往难以推动</li>
+</ol>
+</li>
+</ol>
 <p><strong>代码安全指南只是安全左移建设的第一步</strong>，还需解决的挑战有：</p>
 <ul>
-<li>开发人员有一定安全意识，但因为赶进度或疏忽遗漏编写安全机制，或是错误地实现安全校验逻辑</li>
-<li>代码编写是否安全全凭开发人员自觉，缺乏提示、检查和卡点机制</li>
+<li>开发人员有一定安全意识，但因为赶进度或疏忽遗漏安全措施落实，或是错误地实现安全校验逻辑</li>
+<li>代码编写是否安全全凭开发人员自觉，缺乏提示、检查和卡点机制<ul>
+<li><font color="blue">解决方式是：静态代码安全检查解决</font></li>
+<li>常规的源码表示方式以AST（抽象语法树）和IR（中间表达）为主。一般而言，IR是从AST经过层层转换而来，所以会比AST拥有更多信息。但相对的，每种语言一般会有自己不同的IR，处理起来会相对比较困难。而AST的形式则简单直观，操作起来也比较容易。<ul>
+<li>第一种是在AST上做检查，既然源码被表示成了树的形式，我们就可以遍历AST，使用一些pattern去检查代码规范中的问题，如方法调用参数变量的检查。</li>
+<li>第二种就是污点分析，污点分析是更为常用的检查安全漏洞的方法，通过标记外部输入点，基于数据流观察能否达到危险函数（如SQL查询，命令执行函数）来检查安全漏洞。</li>
 </ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="安全指南的难点"><a href="#安全指南的难点" class="headerlink" title="安全指南的难点"></a>安全指南的难点</h3><h4 id="语言差异"><a href="#语言差异" class="headerlink" title="语言差异"></a>语言差异</h4><p>每种语言面临的安全风险不同，如go和js相比，go就不存在原型链污染的风险。</p>
+<p>同一门编程语言，用在不同的终端应用开发，面临的风险类型和数量有着天壤之别。</p>
+<ul>
+<li>如JS应用于前端页面开发时，主要风险是DOM XSS</li>
+<li>依托于Node.js进行后端接口开发，编码不当则存在命令注入，SQL注入风险。</li>
+</ul>
+<h4 id="场景关联"><a href="#场景关联" class="headerlink" title="场景关联"></a>场景关联</h4><p>风险通常与业务场景高度相关，如</p>
+<ul>
+<li>SQL注入，一般发生在SQL查询场景，因为允许拼接SQL查询语句，且未做参数绑定和参数值校验，造成风险敞口</li>
+<li>SSRF漏洞，则发生在资源请求场景，未判断网络资源请求目标是否属于内网</li>
+<li>命令注入，发生在命令执行场景，风险成因和SQL注入类似</li>
+</ul>
+<p>代码安全指南，与场景关联，有利于受众人员降低认知学习成本，更容易想起注意事项，且要配套结合在线学习课程和考试，如此更能弱化开发人员不了解如何安全地开发的问题。</p>
+<h4 id="枚举的挑战"><a href="#枚举的挑战" class="headerlink" title="枚举的挑战"></a>枚举的挑战</h4><p>在代码安全指引中，要枚举API/Sink点。通常安全漏洞可归因为API的错误使用，<u>sink点是编写安全策略组件重要的一部分，直接决定了SAST系统的扫描能力</u>。</p>
+<blockquote>
+<p>以google前端加固组件为例，通过对.innerHTML等容易被误用产生安全问题的API做了加固，封装为前端组件中心的函数对象，并设计了对应的编译时检查工具，<u>使得DOM XSS由原来的20%降低到2%</u></p>
+<p>这个例子中，最重要的是XSS Sink点的提取，也就是易误用产生安全漏洞的API，故Sink的提取是开展API加固极为重要的一步</p>
+</blockquote>
+<p>确保所枚举的API的完善性是一个非常大的挑战，补充完善Sink点的工作长尾且任务量大，需随着内外部发现的漏洞，编程语言和框架的迭代而不断迭代。通过与社区携手一道维护是一条路。</p>
 <h1 id="现代应用安全工具"><a href="#现代应用安全工具" class="headerlink" title="现代应用安全工具"></a>现代应用安全工具</h1><h2 id="静态应用安全测试（SAST）"><a href="#静态应用安全测试（SAST）" class="headerlink" title="静态应用安全测试（SAST）"></a>静态应用安全测试（SAST）</h2><ul>
 <li><p>也称为静态分析，是第一批发现源代码和字节码或二进制文件本身缺陷的AppSec工具之一。</p>
 </li>
@@ -334,7 +383,7 @@
 <h2 id="SAST（白盒）vs-DAST（黑盒）"><a href="#SAST（白盒）vs-DAST（黑盒）" class="headerlink" title="SAST（白盒）vs DAST（黑盒）"></a>SAST（白盒）vs DAST（黑盒）</h2><blockquote>
 <p>一图胜十言，SAST和DAST联合起来才能彼此完整</p>
 </blockquote>
-<img src="http://cdn.diffday.com/picgo/20230103162040.png" style="zoom: 67%;" />
+<img src="http://cdn.diffday.com/picgo/20230103162040.png" style="zoom: 68%;" />
 
 
 
@@ -369,6 +418,15 @@
 <p><img src="http://cdn.diffday.com/picgo/20230103180138.png"></p>
 <h3 id="漏洞发现后处理"><a href="#漏洞发现后处理" class="headerlink" title="漏洞发现后处理"></a>漏洞发现后处理</h3><p>经判断存在风险需处理的漏洞，进行漏洞修复并更新至测试环境后，需再次触发漏洞所在的url，此时IAST插桩会自动进行回归测试，如系统判断该漏洞已修复，则会自动关闭该漏洞。</p>
 <h3 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h3><p>IAST通过运行时插桩或流量分析的方法，借助于功能测试或自动化测试的交互式行为，实现透明、高效分析应用漏洞，防止应用带病上线。</p>
+<h3 id="污点分析实现三关键"><a href="#污点分析实现三关键" class="headerlink" title="污点分析实现三关键"></a>污点分析实现三关键</h3><p>实现污点分析，有三个核心关键点</p>
+<ol>
+<li>source点：表示外部输入，如web输入，文件输入等</li>
+<li>sink点：表示危险的函数调用或者变量赋值，如system等函数</li>
+<li>sanitizer：表示过滤点，经过过滤点的数据将被取消标记</li>
+</ol>
+<blockquote>
+<p>污点分析从user_input一路进行数据流追踪</p>
+</blockquote>
 <h3 id="污点追踪漏洞发现举例"><a href="#污点追踪漏洞发现举例" class="headerlink" title="污点追踪漏洞发现举例"></a>污点追踪漏洞发现举例</h3><blockquote>
 <p>以XXE实体注入漏洞为例</p>
 </blockquote>
@@ -631,7 +689,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E9%A3%8E%E9%99%A9%E6%99%AE%E9%81%8D%E5%AD%98%E5%9C%A8"><span class="nav-number">1.</span> <span class="nav-text">安全风险普遍存在</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#97-%E8%A2%AB%E6%B5%8B%E7%9B%AE%E6%A0%87%E5%AD%98%E5%9C%A8%E6%9F%90%E7%A7%8D%E5%BD%A2%E5%BC%8F%E7%9A%84%E6%BC%8F%E6%B4%9E"><span class="nav-number">1.1.</span> <span class="nav-text">97%被测目标存在某种形式的漏洞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%AE%89%E5%85%A8%E9%A3%8E%E9%99%A9"><span class="nav-number">1.2.</span> <span class="nav-text">移动应用程序安全风险</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DevSecOps"><span class="nav-number">2.</span> <span class="nav-text">DevSecOps</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%87%8A"><span class="nav-number">2.1.</span> <span class="nav-text">解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%AA%E6%96%BD%E7%AD%96%E7%95%A5"><span class="nav-number">2.2.</span> <span class="nav-text">措施策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AB%8B%E4%BD%93%E9%97%AE%E9%A2%98%EF%BC%8C%E7%AB%8B%E4%BD%93%E8%A7%A3%E5%86%B3"><span class="nav-number">2.3.</span> <span class="nav-text">立体问题，立体解决</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%B0%E4%BB%A3%E5%BA%94%E7%94%A8%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7"><span class="nav-number">3.</span> <span class="nav-text">现代应用安全工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E5%BA%94%E7%94%A8%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95%EF%BC%88SAST%EF%BC%89"><span class="nav-number">3.1.</span> <span class="nav-text">静态应用安全测试（SAST）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95%EF%BC%88DAST%EF%BC%89"><span class="nav-number">3.2.</span> <span class="nav-text">动态应用程序安全测试（DAST）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SAST%EF%BC%88%E7%99%BD%E7%9B%92%EF%BC%89vs-DAST%EF%BC%88%E9%BB%91%E7%9B%92%EF%BC%89"><span class="nav-number">3.3.</span> <span class="nav-text">SAST（白盒）vs DAST（黑盒）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E7%BB%84%E5%90%88%E5%88%86%E6%9E%90%EF%BC%88SCA%EF%BC%89"><span class="nav-number">3.4.</span> <span class="nav-text">软件组合分析（SCA）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%A4%E4%BA%92%E5%BC%8F%E5%BA%94%E7%94%A8%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95%EF%BC%88IAST%E2%80%93%E7%81%B0%E7%9B%92%EF%BC%89"><span class="nav-number">3.5.</span> <span class="nav-text">交互式应用安全测试（IAST–灰盒）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%BA%E5%88%B6%E8%A7%A3%E9%87%8A"><span class="nav-number">3.5.1.</span> <span class="nav-text">机制解释</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%A4%E4%BA%92%E6%80%A7"><span class="nav-number">3.5.1.1.</span> <span class="nav-text">交互性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%92%E6%A1%A9%E6%A3%80%E6%B5%8B"><span class="nav-number">3.5.1.2.</span> <span class="nav-text">插桩检测</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SAST-amp-DAST%E6%B7%B7%E5%90%88"><span class="nav-number">3.5.1.3.</span> <span class="nav-text">SAST&amp;DAST混合</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.5.2.</span> <span class="nav-text">工作模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0%E5%90%8E%E5%A4%84%E7%90%86"><span class="nav-number">3.5.3.</span> <span class="nav-text">漏洞发现后处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%80%BB%E7%BB%93"><span class="nav-number">3.5.4.</span> <span class="nav-text">一句话总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%A1%E7%82%B9%E8%BF%BD%E8%B8%AA%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0%E4%B8%BE%E4%BE%8B"><span class="nav-number">3.5.5.</span> <span class="nav-text">污点追踪漏洞发现举例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OpenRASP-IAST"><span class="nav-number">3.5.6.</span> <span class="nav-text">OpenRASP-IAST</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E5%89%8D%E6%94%AF%E6%8C%81%E7%9A%84%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B"><span class="nav-number">3.5.6.1.</span> <span class="nav-text">目前支持的漏洞检测</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A2%AB%E5%8A%A8%E6%A8%A1%E5%BC%8F-fuzz%E6%B5%8B%E8%AF%95"><span class="nav-number">3.5.6.2.</span> <span class="nav-text">被动模式+fuzz测试</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E8%87%AA%E6%88%91%E4%BF%9D%E6%8A%A4%EF%BC%88RASP%EF%BC%89"><span class="nav-number">3.6.</span> <span class="nav-text">运行时应用程序自我保护（RASP）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%90%E7%86%9FRASP%E4%B8%89%E6%9E%84%E6%88%90"><span class="nav-number">3.6.1.</span> <span class="nav-text">成熟RASP三构成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E6%8F%92%E4%BB%B6"><span class="nav-number">3.6.1.1.</span> <span class="nav-text">安全插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AI%E6%94%BB%E5%87%BB%E6%A3%80%E6%B5%8B%E5%BC%95%E6%93%8E"><span class="nav-number">3.6.1.2.</span> <span class="nav-text">AI攻击检测引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5%E8%A7%A3%E9%87%8A%EF%BC%9A%E4%B8%9C%E8%A5%BF%E5%90%91%E6%B5%81%E9%87%8F"><span class="nav-number">3.6.1.2.1.</span> <span class="nav-text">概念解释：东西向流量</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0"><span class="nav-number">3.6.1.3.</span> <span class="nav-text">管理平台</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E7%AE%80%E4%BB%8B"><span class="nav-number">3.6.2.</span> <span class="nav-text">工作流程简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL%E6%A3%80%E6%B5%8B%E4%B8%BE%E4%BE%8B"><span class="nav-number">3.6.3.</span> <span class="nav-text">SQL检测举例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">补充参考</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E7%89%88%E6%9C%AC%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E4%BB%8B%E7%BB%8D"><span class="nav-number">4.1.</span> <span class="nav-text">Java版本工作原理介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#php%E7%89%88%E6%9C%AC"><span class="nav-number">4.2.</span> <span class="nav-text">php版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84"><span class="nav-number">4.3.</span> <span class="nav-text">系统架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hook%E5%87%BD%E6%95%B0%E5%88%97%E8%A1%A8"><span class="nav-number">4.4.</span> <span class="nav-text">Hook函数列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%96%B0%E7%9A%84hook%E7%82%B9"><span class="nav-number">4.5.</span> <span class="nav-text">添加新的hook点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%82%AC%E9%95%9C%E4%BA%A7%E5%93%81"><span class="nav-number">4.6.</span> <span class="nav-text">悬镜产品</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E9%A3%8E%E9%99%A9%E6%99%AE%E9%81%8D%E5%AD%98%E5%9C%A8"><span class="nav-number">1.</span> <span class="nav-text">安全风险普遍存在</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#97-%E8%A2%AB%E6%B5%8B%E7%9B%AE%E6%A0%87%E5%AD%98%E5%9C%A8%E6%9F%90%E7%A7%8D%E5%BD%A2%E5%BC%8F%E7%9A%84%E6%BC%8F%E6%B4%9E"><span class="nav-number">1.1.</span> <span class="nav-text">97%被测目标存在某种形式的漏洞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%AE%89%E5%85%A8%E9%A3%8E%E9%99%A9"><span class="nav-number">1.2.</span> <span class="nav-text">移动应用程序安全风险</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%9B%98"><span class="nav-number">1.3.</span> <span class="nav-text">漏洞复盘</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DevSecOps"><span class="nav-number">2.</span> <span class="nav-text">DevSecOps</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%87%8A"><span class="nav-number">2.1.</span> <span class="nav-text">解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%AA%E6%96%BD%E7%AD%96%E7%95%A5"><span class="nav-number">2.2.</span> <span class="nav-text">措施策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AB%8B%E4%BD%93%E9%97%AE%E9%A2%98%EF%BC%8C%E7%AB%8B%E4%BD%93%E8%A7%A3%E5%86%B3"><span class="nav-number">2.3.</span> <span class="nav-text">立体问题，立体解决</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%A5%E8%87%AA%E8%B0%B7%E6%AD%8C%E7%9A%84%E5%AE%9E%E8%B7%B5%E5%BB%BA%E8%AE%AE"><span class="nav-number">2.3.1.</span> <span class="nav-text">来自谷歌的实践建议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E6%8C%87%E5%8D%97%E7%9A%84%E9%9A%BE%E7%82%B9"><span class="nav-number">2.3.2.</span> <span class="nav-text">安全指南的难点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E8%A8%80%E5%B7%AE%E5%BC%82"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">语言差异</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%BA%E6%99%AF%E5%85%B3%E8%81%94"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">场景关联</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%9A%E4%B8%BE%E7%9A%84%E6%8C%91%E6%88%98"><span class="nav-number">2.3.2.3.</span> <span class="nav-text">枚举的挑战</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%B0%E4%BB%A3%E5%BA%94%E7%94%A8%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7"><span class="nav-number">3.</span> <span class="nav-text">现代应用安全工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E5%BA%94%E7%94%A8%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95%EF%BC%88SAST%EF%BC%89"><span class="nav-number">3.1.</span> <span class="nav-text">静态应用安全测试（SAST）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95%EF%BC%88DAST%EF%BC%89"><span class="nav-number">3.2.</span> <span class="nav-text">动态应用程序安全测试（DAST）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SAST%EF%BC%88%E7%99%BD%E7%9B%92%EF%BC%89vs-DAST%EF%BC%88%E9%BB%91%E7%9B%92%EF%BC%89"><span class="nav-number">3.3.</span> <span class="nav-text">SAST（白盒）vs DAST（黑盒）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E7%BB%84%E5%90%88%E5%88%86%E6%9E%90%EF%BC%88SCA%EF%BC%89"><span class="nav-number">3.4.</span> <span class="nav-text">软件组合分析（SCA）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%A4%E4%BA%92%E5%BC%8F%E5%BA%94%E7%94%A8%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95%EF%BC%88IAST%E2%80%93%E7%81%B0%E7%9B%92%EF%BC%89"><span class="nav-number">3.5.</span> <span class="nav-text">交互式应用安全测试（IAST–灰盒）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%BA%E5%88%B6%E8%A7%A3%E9%87%8A"><span class="nav-number">3.5.1.</span> <span class="nav-text">机制解释</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%A4%E4%BA%92%E6%80%A7"><span class="nav-number">3.5.1.1.</span> <span class="nav-text">交互性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%92%E6%A1%A9%E6%A3%80%E6%B5%8B"><span class="nav-number">3.5.1.2.</span> <span class="nav-text">插桩检测</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SAST-amp-DAST%E6%B7%B7%E5%90%88"><span class="nav-number">3.5.1.3.</span> <span class="nav-text">SAST&amp;DAST混合</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.5.2.</span> <span class="nav-text">工作模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0%E5%90%8E%E5%A4%84%E7%90%86"><span class="nav-number">3.5.3.</span> <span class="nav-text">漏洞发现后处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%80%BB%E7%BB%93"><span class="nav-number">3.5.4.</span> <span class="nav-text">一句话总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%A1%E7%82%B9%E5%88%86%E6%9E%90%E5%AE%9E%E7%8E%B0%E4%B8%89%E5%85%B3%E9%94%AE"><span class="nav-number">3.5.5.</span> <span class="nav-text">污点分析实现三关键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%A1%E7%82%B9%E8%BF%BD%E8%B8%AA%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0%E4%B8%BE%E4%BE%8B"><span class="nav-number">3.5.6.</span> <span class="nav-text">污点追踪漏洞发现举例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OpenRASP-IAST"><span class="nav-number">3.5.7.</span> <span class="nav-text">OpenRASP-IAST</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E5%89%8D%E6%94%AF%E6%8C%81%E7%9A%84%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B"><span class="nav-number">3.5.7.1.</span> <span class="nav-text">目前支持的漏洞检测</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A2%AB%E5%8A%A8%E6%A8%A1%E5%BC%8F-fuzz%E6%B5%8B%E8%AF%95"><span class="nav-number">3.5.7.2.</span> <span class="nav-text">被动模式+fuzz测试</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E8%87%AA%E6%88%91%E4%BF%9D%E6%8A%A4%EF%BC%88RASP%EF%BC%89"><span class="nav-number">3.6.</span> <span class="nav-text">运行时应用程序自我保护（RASP）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%90%E7%86%9FRASP%E4%B8%89%E6%9E%84%E6%88%90"><span class="nav-number">3.6.1.</span> <span class="nav-text">成熟RASP三构成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E6%8F%92%E4%BB%B6"><span class="nav-number">3.6.1.1.</span> <span class="nav-text">安全插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AI%E6%94%BB%E5%87%BB%E6%A3%80%E6%B5%8B%E5%BC%95%E6%93%8E"><span class="nav-number">3.6.1.2.</span> <span class="nav-text">AI攻击检测引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5%E8%A7%A3%E9%87%8A%EF%BC%9A%E4%B8%9C%E8%A5%BF%E5%90%91%E6%B5%81%E9%87%8F"><span class="nav-number">3.6.1.2.1.</span> <span class="nav-text">概念解释：东西向流量</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0"><span class="nav-number">3.6.1.3.</span> <span class="nav-text">管理平台</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E7%AE%80%E4%BB%8B"><span class="nav-number">3.6.2.</span> <span class="nav-text">工作流程简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL%E6%A3%80%E6%B5%8B%E4%B8%BE%E4%BE%8B"><span class="nav-number">3.6.3.</span> <span class="nav-text">SQL检测举例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">补充参考</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E7%89%88%E6%9C%AC%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E4%BB%8B%E7%BB%8D"><span class="nav-number">4.1.</span> <span class="nav-text">Java版本工作原理介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#php%E7%89%88%E6%9C%AC"><span class="nav-number">4.2.</span> <span class="nav-text">php版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84"><span class="nav-number">4.3.</span> <span class="nav-text">系统架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hook%E5%87%BD%E6%95%B0%E5%88%97%E8%A1%A8"><span class="nav-number">4.4.</span> <span class="nav-text">Hook函数列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%96%B0%E7%9A%84hook%E7%82%B9"><span class="nav-number">4.5.</span> <span class="nav-text">添加新的hook点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%82%AC%E9%95%9C%E4%BA%A7%E5%93%81"><span class="nav-number">4.6.</span> <span class="nav-text">悬镜产品</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -704,13 +762,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">423k</span>
+    <span title="站点总字数">425k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">6:25</span>
+    <span title="站点阅读时长">6:26</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
