@@ -211,7 +211,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E5%B0%8F%E9%95%87%E5%81%9A%E9%A2%98%E5%AE%B6.html">
+    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/Serverless.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -225,7 +225,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/%E5%B0%8F%E9%95%87%E5%81%9A%E9%A2%98%E5%AE%B6.html" class="post-title-link" itemprop="url">中产滑落与小镇做题家</a>
+            <a href="/Serverless.html" class="post-title-link" itemprop="url">Serverless简解</a>
         </h2>
 
         <div class="post-meta">
@@ -235,14 +235,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2022-03-16 23:29:06" itemprop="dateCreated datePublished" datetime="2022-03-16T23:29:06+08:00">2022-03-16</time>
+              <time title="创建时间：2022-12-08 17:30:30" itemprop="dateCreated datePublished" datetime="2022-12-08T17:30:30+08:00">2022-12-08</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-03-30 14:40:57" itemprop="dateModified" datetime="2023-03-30T14:40:57+08:00">2023-03-30</time>
+                <time title="修改时间：2023-03-21 18:02:48" itemprop="dateModified" datetime="2023-03-21T18:02:48+08:00">2023-03-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -250,7 +250,11 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E6%96%87%E7%B2%BE%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网文精摘</span></a>
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/" itemprop="url" rel="index"><span itemprop="name">学而思</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E5%8F%8D%E5%88%8D%E6%95%B4%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">反刍整理</span></a>
                 </span>
             </span>
 
@@ -260,14 +264,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>13k</span>
+              <span>1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>11 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -279,23 +283,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><img src="http://cdn.diffday.com/picgo/20220316230838.png"></p>
-<h2 id="中产的滑落"><a href="#中产的滑落" class="headerlink" title="中产的滑落"></a>中产的滑落</h2><h3 id="挤公交效应"><a href="#挤公交效应" class="headerlink" title="挤公交效应"></a>挤公交效应</h3><p>举个挤公交的例子，车下的你往上挤，意愿非常强烈，车上的人呢，他们才不管你赶时间或有多急的事，几乎都不希望你上去。你对那些毫无同理心的人厌恶至极，可一旦你上去了，马上翻转。</p>
-<p>这种人性丑陋的心理作用机制与现象，无处不在。在较低精英层与中产层中，往往体现在以团体共进退的模式形成一种一荣俱荣，一损俱损的壮观社会现象。最高层精英似乎更加围绕“血统”达成繁荣，巩固与传承。而平民百姓往往以单打独斗的方式进行，效能很低。</p>
-<p>精英阶层最希望社会场景应通过规则制定与掌控，控制通道流量，也不希望关闭这一通道（关闭对谁都不利）。现在挤公交效应非常严重，精英也早就在考虑和安排规则的事情。奶头乐也是安排的一个环节。</p>
+          <p><img src="http://cdn.diffday.com/picgo/20221208174734.png"></p>
+<h2 id="一句话Fancy概念"><a href="#一句话Fancy概念" class="headerlink" title="一句话Fancy概念"></a>一句话Fancy概念</h2><p>将云看作一台计算机</p>
+<ul>
+<li>IAAS是硬件</li>
+<li>容器编排是操作系统</li>
+<li>Serverless是应用的运行时</li>
+</ul>
 <blockquote>
-<p>至于规则，所有人一视同仁的那叫规则；只约束一帮人不约束另一帮的，那叫剥削。比如要求私德高尚，私德就像螃蟹的钳子一样，是让螃蟹们相互制约和监督的，捕蟹人人就在旁边看着，这个阶层的缺德在那个阶层叫能力。</p>
+<p>理解这个运行时，你可以将其看作SaaS，也可以看作PaaS，BaaS（backend as a service）, 导致现在在往Faas方向在演进</p>
 </blockquote>
-<h3 id="精英有座城堡，中产只是外城"><a href="#精英有座城堡，中产只是外城" class="headerlink" title="精英有座城堡，中产只是外城"></a>精英有座城堡，中产只是外城</h3><blockquote>
-<p>管钱管天下门派最重要，拿到现在就是家庭和圈子。</p>
-</blockquote>
-<p><strong>精英阶层在历史上名头多变，不管你管他们叫什么豪强，士族，门阀，权贵集团，当他们作为一个整体出现的时候，首先是一座城堡，第一功能是防止别人再进来</strong>，所以先进来的人会不断增加城墙的高度，<u>避免再进人摊薄自己的特权和福利</u>，不过砌墙的行为会被包装下，使普通人很难分辨。</p>
-<p>今天精英阶层一项杀手锏在于会为子女预留很多止损线，其后代人生是被设置了下限的，上不封顶，这就是这群人开挂的地方，何况精英阶层还会以相互之间彼此关照对方子女的方式强化这种机制，这早已是城堡里的潜规则。与这些招数比起来，那些所谓的增长视野，减少摸索的好处都只能算毛毛雨。</p>
-<p>主流意识形态现在开始鼓吹中产阶级的崛起，<font color="red">但中产本质是精英阶级的随从，是经营分配酬劳体系里的一环，若精英是躲在城堡里，那么中产就是拱卫城堡的一圈外城，依附于城堡，但又优越于外层的乡野</font>，中产作为城堡的外城也有自己的城墙，<font color="blue"><strong>中产外城墙是学历，而城堡的内城墙是血缘，这是最核心的区别</strong></font>，越上层的人越爱用血缘来区分人，中产阶级的城墙比起城堡要矮的多，防御薄弱，所以时不时就有人可以翻进来，中产与底层间的流通也相对顺畅的多，通过几十年个人奋斗到中产的人，很容易得出个人奋斗能改变阶层的结论，等下一代接着向上时却发现上面的游戏规则完全不一样。</p>
-<p><strong>中产依旧是靠出卖脑力和劳动时间来吃饭</strong>，从来没有真正掌握过生产资料，中产这个群体内心非常脆弱和焦虑。人最大的痛苦还不是得不到，而是得到以后再失去，中产一方面受到资产阶级的压制，很难真正的实现阶层跨越，一方面又受到底层劳动者的仇视，一不留神就会阶层滑落，所以他们特别舍得在教育上花钱，妄图向上层靠拢，也特别喜欢买一堆性价比极低的奢侈品，妄图和底层劳动者划清界限。</p>
+<h3 id="CloudNative"><a href="#CloudNative" class="headerlink" title="CloudNative"></a>CloudNative</h3><p>充分利用云平台各种功能和服务所设计的应用程序（自建自研减少）</p>
+<h2 id="Serverless产品形态早已有之"><a href="#Serverless产品形态早已有之" class="headerlink" title="Serverless产品形态早已有之"></a>Serverless产品形态早已有之</h2>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/%E5%B0%8F%E9%95%87%E5%81%9A%E9%A2%98%E5%AE%B6.html#more" rel="contents">
+              <a class="btn" href="/Serverless.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -319,7 +321,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E6%8F%90%E6%A1%B6%E8%B7%91%E8%B7%AFCivil-Engineering.html">
+    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E4%B8%89%E5%9B%BD%E4%BA%BA%E7%89%A9%E5%B9%B4%E9%BE%84%E4%B8%8E%E6%9D%82%E8%AE%B0.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -333,315 +335,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/%E6%8F%90%E6%A1%B6%E8%B7%91%E8%B7%AFCivil-Engineering.html" class="post-title-link" itemprop="url">提桶跑路Civil Engineering</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-03-12 21:04:00" itemprop="dateCreated datePublished" datetime="2022-03-12T21:04:00+08:00">2022-03-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-08 16:04:46" itemprop="dateModified" datetime="2022-06-08T16:04:46+08:00">2022-06-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E6%96%87%E7%B2%BE%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网文精摘</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="http://cdn.diffday.com/picgo/20220312204308.png"></p>
-<h2 id="土木不远离工地是真的苦"><a href="#土木不远离工地是真的苦" class="headerlink" title="土木不远离工地是真的苦"></a>土木不远离工地是真的苦</h2><p>提到工地的苦，大多都口出粗鄙之语，一些早已离开工地多年的人，都会发生过半夜被噩梦惊醒的事情，有的是梦见用的钢筋标号搞错了，有的梦见自己掉进了深基坑，有的梦见陷在水泥里四周一个人都没有，有人做梦自己建的铁路桥塌了，事故责任调查判了自己几年，和同事关一个牢房，醒来特意开车去了那个桥一次。</p>
-<p>工地是全方位的辛苦，第一就是环境太差，铁皮工程房就是工程人员办公休息二合一的地方，保证你冬冷夏热，晴天一身灰，雨天一身泥，出来都掉渣。吃得也差，他们的厨子是没考上新东方烹饪学校出来报复社会的。一个提桶跑路的回来给工友卖盒饭，发现比干工地挣得多。</p>
-<img src="http://cdn.diffday.com/picgo/20220312204017.png" style="zoom:33%;" />
-
-<p>工地的偏远就不用说了，除了少量拆迁改造，地铁，大部分工地肯定都不在市区，例如修路修桥肯定是在没路没桥的地方，加上工作忙，工地上人出门也少，很多时候变得比山里农民还闭塞。地理位置偏僻，很多时候无处可去，所以工作时间非常的长，<u>工地人对抱怨996持轻蔑态度，606算不了什么大事</u>。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E6%8F%90%E6%A1%B6%E8%B7%91%E8%B7%AFCivil-Engineering.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E9%98%B6%E5%B1%82%E6%80%9D%E7%BB%B4%E5%B7%AE%E5%BC%82.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="DiffDay">
-      <meta itemprop="description" content="自我博雅探索，以求不惑">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Diffday">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E9%98%B6%E5%B1%82%E6%80%9D%E7%BB%B4%E5%B7%AE%E5%BC%82.html" class="post-title-link" itemprop="url">阶层思维差异</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-02-24 17:00:00" itemprop="dateCreated datePublished" datetime="2022-02-24T17:00:00+08:00">2022-02-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-06 18:44:07" itemprop="dateModified" datetime="2023-04-06T18:44:07+08:00">2023-04-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E6%96%87%E7%B2%BE%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网文精摘</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>4.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="http://cdn.diffday.com/picgo/20220224165935.png"></p>
-<h2 id="阶层思维方式差异"><a href="#阶层思维方式差异" class="headerlink" title="阶层思维方式差异"></a>阶层思维方式差异</h2><blockquote>
-<p>可以说是一种思维进化吧</p>
-</blockquote>
-<h3 id="底层思维"><a href="#底层思维" class="headerlink" title="底层思维"></a>底层思维</h3><p>叫做“我有一个痛苦”。上班嫌挣钱少，炒股嫌亏钱，做饭嫌麻烦，吃外卖又嫌送得慢。</p>
-<p>眼中满是不幸和痛苦，心中充满憎恨和委屈，只有这种心态一辈子难以爬出底层。</p>
-<h3 id="穷人思维"><a href="#穷人思维" class="headerlink" title="穷人思维"></a>穷人思维</h3><p>开始意识到不幸都是自己造成的，开始进化到”我有一个梦想”，知道怨天尤人没用，自己的生活要靠自己创造，但空有梦想，却不落地执行，总是在等待，等待时机，学习经验，积累人脉，看似很努力，其实都瞎忙。</p>
-<p>他们永远不开始，因为它们没有勇气，他们恐惧失败，他们看起来不安于现状，但潜意识仍然害怕改变。一旦穷人行动起来，他们就变成了第三层，中产思维。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E9%98%B6%E5%B1%82%E6%80%9D%E7%BB%B4%E5%B7%AE%E5%BC%82.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E5%B0%91%E4%B8%8D%E8%AF%BB%E6%B0%B4%E6%B5%92.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="DiffDay">
-      <meta itemprop="description" content="自我博雅探索，以求不惑">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Diffday">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E5%B0%91%E4%B8%8D%E8%AF%BB%E6%B0%B4%E6%B5%92.html" class="post-title-link" itemprop="url">少不读水浒</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-02-21 17:20:00" itemprop="dateCreated datePublished" datetime="2022-02-21T17:20:00+08:00">2022-02-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-01 10:42:44" itemprop="dateModified" datetime="2022-03-01T10:42:44+08:00">2022-03-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E6%96%87%E7%B2%BE%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网文精摘</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>7k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <img src="http://cdn.diffday.com/picgo/20220221171815.png" style="zoom: 50%;" />
-
-<h2 id="招安的必然性"><a href="#招安的必然性" class="headerlink" title="招安的必然性"></a>招安的必然性</h2><p>昨天短视频里推荐了武松过飞云浦的一段，评论中又如常的争论起来，谈马下武松，论这种场景只有天伤星武松能逃脱，卢员外和豹子头都将歇菜，说鲁提辖有低血糖毛病也挣不脱，争武松是不是滥杀无辜，提擒方腊死伤梁山众将都怪宋押司这个投降派，梁山的悲剧都怪这黑厮。相信这最后一个论调是男性观众都会有的第一感受，但这个事情真的这么简单吗？有爱好者对梁山的处境做过一番分析，个人觉得非常在理，跳脱常规情绪，招安实在是最好的一条归宿。</p>
-<h3 id="招安到底对不对？"><a href="#招安到底对不对？" class="headerlink" title="招安到底对不对？"></a>招安到底对不对？</h3><h4 id="看看水浒的人员结局"><a href="#看看水浒的人员结局" class="headerlink" title="看看水浒的人员结局"></a>看看水浒的人员结局</h4><p>朝廷毒死二人，宋押司和卢员外，被宋押司毒死一人，李逵。</p>
-<p>自杀殉了二人，吴用花荣（在宋押司坟前，很多人在评论里说在忠义堂，不知道是不是受影视剧影响没看原著）</p>
-<p>做官+退隐共33人，征方腊途中意外死亡5人（淹死4人+毒蛇1人），战死54人，病死11人（算上鲁提辖圆寂）。<font color="red">意外和生命随时可能发生，真正因为征方腊战死就54人，刚好一半</font>。</p>
-<p><font color="blue"><strong>梁山造反就不死人，不生病，不发生意外了吗</strong>？当然不是，招安不招安梁山都是要死人的，区别就是战死多少的问题，是坚持造反死的多还是招安死的多呢？</font></p>
-<h3 id="造反的结局"><a href="#造反的结局" class="headerlink" title="造反的结局"></a>造反的结局</h3><ol>
-<li>造反失败死光光</li>
-<li><font color="red">造反成功，但死一半就想做皇帝，就有点太天真了</font>。至少得牺牲一大半，招安死一半算是个不错的结果了。</li>
-</ol>
-<h3 id="招安是定数"><a href="#招安是定数" class="headerlink" title="招安是定数"></a>招安是定数</h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E5%B0%91%E4%B8%8D%E8%AF%BB%E6%B0%B4%E6%B5%92.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E9%A2%88%E9%83%A8%E8%A7%82%E6%84%9F%E5%B7%AE%E5%BC%82%E8%A7%A3%E8%AF%BB.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="DiffDay">
-      <meta itemprop="description" content="自我博雅探索，以求不惑">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Diffday">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E9%A2%88%E9%83%A8%E8%A7%82%E6%84%9F%E5%B7%AE%E5%BC%82%E8%A7%A3%E8%AF%BB.html" class="post-title-link" itemprop="url">颈部观感差异解读</a>
+            <a href="/%E4%B8%89%E5%9B%BD%E4%BA%BA%E7%89%A9%E5%B9%B4%E9%BE%84%E4%B8%8E%E6%9D%82%E8%AE%B0.html" class="post-title-link" itemprop="url">三国人物年龄与杂记</a>
         </h2>
 
         <div class="post-meta">
@@ -652,7 +346,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-02-17 16:43:00 / 修改时间：16:44:49" itemprop="dateCreated datePublished" datetime="2022-02-17T16:43:00+08:00">2022-02-17</time>
+              <time title="创建时间：2022-11-24 20:52:30 / 修改时间：21:00:35" itemprop="dateCreated datePublished" datetime="2022-11-24T20:52:30+08:00">2022-11-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -660,7 +354,111 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E6%96%87%E7%B2%BE%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网文精摘</span></a>
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E6%96%87%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网络文摘</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="http://cdn.diffday.com/picgo/20221124205802.png"></p>
+<h2 id="三国人物出场"><a href="#三国人物出场" class="headerlink" title="三国人物出场"></a>三国人物出场</h2><h3 id="30后"><a href="#30后" class="headerlink" title="30后"></a>30后</h3><p>陶谦(132)大刘备29岁，属于献帝爷爷同一年出生的人，跟董卓(139年)，刘焉(刘彰)他们是一代人</p>
+<h3 id="40后"><a href="#40后" class="headerlink" title="40后"></a>40后</h3><p>刘表(142)都要更小十岁，但也比曹操大13岁，袁绍大曹操9岁。这些都属于上一茬的</p>
+<h3 id="50后"><a href="#50后" class="headerlink" title="50后"></a>50后</h3><p>主角多是15x年后登场，吕布(151)比曹操大4岁，十八路诸侯讨董卓时吕布已经39岁了，去世时也48了。</p>
+<p>袁术大曹操5岁（150）；曹操(155)与孙坚同岁；</p>
+<h3 id="60后"><a href="#60后" class="headerlink" title="60后"></a>60后</h3><p>曹操大关羽5岁（160），大刘备(161) 6岁。</p>
+<blockquote>
+<p>关羽实际大刘备1岁，这点估计触犯了大家的常识</p>
+</blockquote>
+<p>张飞小刘备6岁（167），推测赵云小张飞1岁（168）岁</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/%E4%B8%89%E5%9B%BD%E4%BA%BA%E7%89%A9%E5%B9%B4%E9%BE%84%E4%B8%8E%E6%9D%82%E8%AE%B0.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E6%95%B0%E6%8D%AE%E5%80%BE%E6%96%9C%E6%B5%85%E8%BF%B0.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="DiffDay">
+      <meta itemprop="description" content="自我博雅探索，以求不惑">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Diffday">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E6%95%B0%E6%8D%AE%E5%80%BE%E6%96%9C%E6%B5%85%E8%BF%B0.html" class="post-title-link" itemprop="url">数据倾斜浅述</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-10-10 13:39:34" itemprop="dateCreated datePublished" datetime="2022-10-10T13:39:34+08:00">2022-10-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-11-09 11:34:02" itemprop="dateModified" datetime="2022-11-09T11:34:02+08:00">2022-11-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E6%96%87%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网络文摘</span></a>
                 </span>
             </span>
 
@@ -689,13 +487,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><img src="http://cdn.diffday.com/picgo/20220216193337.png"></p>
-<p>抛开长相和说话的语言谈吐不说，只是站在那里，就让人觉得有气质和贵气，有个部位必须好看，那就是脖子。</p>
-<h2 id="好看的脖子有何特点"><a href="#好看的脖子有何特点" class="headerlink" title="好看的脖子有何特点"></a>好看的脖子有何特点</h2><p>脸型可方可圆，可稍大或娇小，但脖子一定是细长的。尤其是对传统服装的驾驭，只有脖子够细长的人，才能真正穿出贵气感。脖子修长的男生不仅会有挺拔感，还会显高，也更能驾驭霸道总裁，都市精英或富二代角色。</p>
-<h3 id="符合比例"><a href="#符合比例" class="headerlink" title="符合比例"></a>符合比例</h3><img src="http://cdn.diffday.com/picgo/20220215132346.png" style="zoom: 45%;" />
+          <p><img src="http://cdn.diffday.com/picgo/20221109111839.png"></p>
+<h2 id="数据倾斜"><a href="#数据倾斜" class="headerlink" title="数据倾斜"></a>数据倾斜</h2><p>数据倾斜即指在大数据计算任务中某个处理任务的进程（通常是一个JVM进程）被分配到的任务量过多，进程运行时间超长甚至最终失败，进而导致整个计算任务超长时间运行或失败的问题。</p>
+<ul>
+<li>外部表现的话，在MR任务（如跑HiveSQL）里看到map或reduce的进度一直是99%持续数小时没有变化；</li>
+<li>在SparkSQL任务重则是某个stage里，正在运行的任务数量长时间是1或者2不变。</li>
+</ul>
+<p>简而言之，如果任务进度信息一直在输出，但内容长时间没有任何变化的时候，大概率是出现数据倾斜了。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/%E9%A2%88%E9%83%A8%E8%A7%82%E6%84%9F%E5%B7%AE%E5%BC%82%E8%A7%A3%E8%AF%BB.html#more" rel="contents">
+              <a class="btn" href="/%E6%95%B0%E6%8D%AE%E5%80%BE%E6%96%9C%E6%B5%85%E8%BF%B0.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -719,7 +520,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E4%BF%9D%E9%99%A9%E4%B8%9A%E7%9A%84%E7%9B%91%E7%AE%A1%E4%B8%8E%E6%94%B9%E9%9D%A9.html">
+    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E4%BA%BA%E9%97%B4%E5%80%BC%E5%BE%97.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -733,106 +534,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/%E4%BF%9D%E9%99%A9%E4%B8%9A%E7%9A%84%E7%9B%91%E7%AE%A1%E4%B8%8E%E6%94%B9%E9%9D%A9.html" class="post-title-link" itemprop="url">保险业的监管与改革</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-01-06 17:03:00" itemprop="dateCreated datePublished" datetime="2022-01-06T17:03:00+08:00">2022-01-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-01-29 14:43:37" itemprop="dateModified" datetime="2022-01-29T14:43:37+08:00">2022-01-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E6%96%87%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网络文摘</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="http://cdn.diffday.com/picgo/20220106170319.png"></p>
-<h1 id="保险业的监管"><a href="#保险业的监管" class="headerlink" title="保险业的监管"></a>保险业的监管</h1><h2 id="代理人模式怎么玩？"><a href="#代理人模式怎么玩？" class="headerlink" title="代理人模式怎么玩？"></a>代理人模式怎么玩？</h2><p>新代理头两个月，可通过自保和近保完成考核目标，然后后续的业务开展仍然很艰难，<u>无论是短期获取陌生客户的信任，还是熟练掌握销售的心理和技巧，都非一日之功</u>。</p>
-<h2 id="怪圈：增员即销售"><a href="#怪圈：增员即销售" class="headerlink" title="怪圈：增员即销售"></a>怪圈：增员即销售</h2><p>相较于保险业务的难开展，增员似乎变成更简单更稳定的赚钱方式。</p>
-<p>新代理人被吸引入职是看中保险未来发展空间大，前端业务容易开展，但实际入职后发现前端业务开展并不容易，因此多数代理人都将增员并入自己的工作范畴，甚至有的代理人不做保险经纪业务而专门做增员工作。</p>
-<h2 id="困顿"><a href="#困顿" class="headerlink" title="困顿"></a>困顿</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E4%BF%9D%E9%99%A9%E4%B8%9A%E7%9A%84%E7%9B%91%E7%AE%A1%E4%B8%8E%E6%94%B9%E9%9D%A9.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E5%88%AB2021%EF%BC%8C%E8%BF%8E2022.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="DiffDay">
-      <meta itemprop="description" content="自我博雅探索，以求不惑">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Diffday">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E5%88%AB2021%EF%BC%8C%E8%BF%8E2022.html" class="post-title-link" itemprop="url">别2021，迎2022</a>
+            <a href="/%E4%BA%BA%E9%97%B4%E5%80%BC%E5%BE%97.html" class="post-title-link" itemprop="url">平凡回望中的不平凡</a>
         </h2>
 
         <div class="post-meta">
@@ -843,95 +545,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-01-04 19:10:00 / 修改时间：19:10:20" itemprop="dateCreated datePublished" datetime="2022-01-04T19:10:00+08:00">2022-01-04</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E6%96%87%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网络文摘</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>695</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <img src="http://cdn.diffday.com/picgo/F50F5E7B-06E9-4DF9-AB4C-1EA8AF8522E3_1_105_c.jpeg" style="zoom: 50%;" />
-
-<h2 id="环境变革与内省调整"><a href="#环境变革与内省调整" class="headerlink" title="环境变革与内省调整"></a>环境变革与内省调整</h2><p>2021年是一个肃杀之年，听到最多的词就是内卷和动荡。广纳贤才的大厂也开始只出不进了，年轻人创业卷，连楼底下的奶茶店，都开出了奈雪的茶和蜜雪冰城。卷，这个词，似乎成了这两年经济的主旋律，但这不代表你能躺平，逃避，而相反这时候最适合你悄悄努力。人这一生，读书和赚钱是最好的修行。读书不仅可让人不惑，更可让人心有尊严（虽然尊严也需要护法神）。</p>
-<p>可惜成长总是会伴随着告别和失去，走着走着你发现身边的人都换了，你的同窗，你的旧友联系越来越少了，你的父母早已两鬓斑白半身入土了。但你似乎什么都没来得及做，时间就把这些悄悄剥夺，猜人生到头来就是不断的放下，只是永远最令人痛心的就是没来得及好好道别。</p>
-<p>人生的本质就是一个人去活着，不要对别人心存太多期待，我们总是想要找到能为自己分担痛苦和悲伤的人，可大多数时候，你以为的惊天动地生无可恋的伤痛，在别人眼里不过是随手拂过的尘埃。人生不易，只有经历过黑暗和无助，你才能感恩生活中的一切习以为常。</p>
-<p>你胸怀大志，去大城市去创业去追梦，我生而俗常，选择简单平凡的守候也是一种人生。人活一世，草木一秋，活着本身就是人生的意义。我们要学会认清现实，接受自己的失败甚至平庸，到头来无非还是柴米油盐酱醋茶，琴棋书画诗酒花。而这些物质和精神世界的核心组成，真的用不到太多财富，更用不到每个人都去追求财富自由。</p>
-<p>人生最大的自由就是懂得与自己的过去和缺陷和解，学会悲喜自渡，星海横流，岁月成碑，生如逆旅，一苇以航。就这样让我们与2021道别吧，与过去的自己道别，与失去的人和遗憾的事道别。站在新的起点上一起拥抱2022，期待新的开始，也愿每个人都能平安喜乐，得偿所愿。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E5%B8%A6%E8%9B%A4%E8%9F%86%E5%85%88%E7%94%9F%E7%9C%8B%E5%BF%83%E7%90%86%E5%8C%BB%E7%94%9F.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="DiffDay">
-      <meta itemprop="description" content="自我博雅探索，以求不惑">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Diffday">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E5%B8%A6%E8%9B%A4%E8%9F%86%E5%85%88%E7%94%9F%E7%9C%8B%E5%BF%83%E7%90%86%E5%8C%BB%E7%94%9F.html" class="post-title-link" itemprop="url">带蛤蟆先生看心理医生</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-12-20 22:02:00 / 修改时间：22:02:55" itemprop="dateCreated datePublished" datetime="2021-12-20T22:02:00+08:00">2021-12-20</time>
+              <time title="创建时间：2022-09-10 18:53:00 / 修改时间：19:07:02" itemprop="dateCreated datePublished" datetime="2022-09-10T18:53:00+08:00">2022-09-10</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -953,14 +567,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.5k</span>
+              <span>1.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -972,22 +586,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><img src="http://cdn.diffday.com/picgo/20211220220224.png"></p>
-<p><font color="blue">必须完成的事情，唯有靠自己才能完成，这是长大成人的蜕变</font>!</p>
+          <img src="http://cdn.diffday.com/picgo/20220910190553.png" style="zoom:67%;" />
+
 <blockquote>
-<p>标题党简述：蛤蟆先生原本是大家眼中的开心果，如今变得郁郁寡欢，点解？看看这本智慧温暖的小书</p>
+<p>素材源头是一位从业心理医生近70年的普通1.48米小老太太，90岁时仍在朝九晚五地工作，老太太不是什么巨擘，没发表过什么文章，一生无惊天动地的成绩。就其 <em>平凡世俗但却丰满</em> 的人生，娓娓而来的一本小书。摘取部分文字成文。</p>
 </blockquote>
-<h3 id="儿童自我状态"><a href="#儿童自我状态" class="headerlink" title="儿童自我状态"></a>儿童自我状态</h3><blockquote>
-<p>行为和感受都像一个孩子，这不同于幼稚，而是像孩子一样。</p>
-</blockquote>
-<p>在心理咨询过程中最打动蛤蟆的一点是：他能得到全身心的关注，这辈子还没有人对他全神贯注过。以前他老说：你明白我说的吗？或者 我说清楚了吗？ 这些习惯用语，其实是他为自己表达不清的胡扯道歉用的。</p>
-<h4 id="萌生"><a href="#萌生" class="headerlink" title="萌生"></a>萌生</h4><p>儿童自我状态是由我们童年残留的遗迹搭建而成。<u>刚出生时，我们只具备几种最基本的情感。幼年时，这些基本情感演变成更微妙复杂的行为模式，这些行为模式成为自我的核心，定义了我们一生的行为</u>。</p>
-<p>某些特定的情形和场景会激发我们的基本行为模式，让我们自动做出反应，所以我们会和小时候一样去行动和感受。</p>
-<p>打个比喻，某些基本情感是与生俱来的，就好像红黄蓝三原色，所有婴儿都类似，当我们作为个体发展时，情绪和反应都变得越来越个人化，就好像几种原色混合在一起就变出各种微妙的色调和色差来。</p>
-<p><u>如果我们看到有人非常深情，或者发怒，悲伤和害怕，就能说这人正处在自然型儿童的状态里</u>，与实际年龄并没有关系，<font color="blue">只是愤怒更加复杂。</font></p>
+<p><strong>家人健康，精力充沛，有几个知己可以交谈，就不错，其它都是过眼云烟</strong></p>
+<h2 id="将事做好的习惯与内心"><a href="#将事做好的习惯与内心" class="headerlink" title="将事做好的习惯与内心"></a>将事做好的习惯与内心</h2>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/%E5%B8%A6%E8%9B%A4%E8%9F%86%E5%85%88%E7%94%9F%E7%9C%8B%E5%BF%83%E7%90%86%E5%8C%BB%E7%94%9F.html#more" rel="contents">
+              <a class="btn" href="/%E4%BA%BA%E9%97%B4%E5%80%BC%E5%BE%97.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1011,7 +619,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E5%BE%AE%E5%8D%9A%E5%BE%AE%E4%BF%A1%E5%B7%AE%E5%88%AB%E4%B8%8E%E5%BE%AE%E5%8D%9A%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F.html">
+    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E4%BA%94%E9%98%B6%E6%AE%B5%E8%81%8C%E4%B8%9A%E6%A8%A1%E5%9E%8B.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -1025,110 +633,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/%E5%BE%AE%E5%8D%9A%E5%BE%AE%E4%BF%A1%E5%B7%AE%E5%88%AB%E4%B8%8E%E5%BE%AE%E5%8D%9A%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F.html" class="post-title-link" itemprop="url">微博微信差别与微博用户画像</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-12-20 21:10:00 / 修改时间：21:44:55" itemprop="dateCreated datePublished" datetime="2021-12-20T21:10:00+08:00">2021-12-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E6%96%87%E7%B2%BE%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网文精摘</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="http://cdn.diffday.com/picgo/20211220214439.png"></p>
-<h2 id="概论"><a href="#概论" class="headerlink" title="概论"></a>概论</h2><p>每个公司都有自己的企业基因，新浪的基因是网络媒体，腾讯的基因是社交和聊天工具，决定了两家的产品及走向。</p>
-<p>微博和微信最核心的区别在于媒体Media和社交Social的侧重。</p>
-<ul>
-<li>微博本质是一个媒体工具，同时有社交的功能；</li>
-<li>微信的本质是社交工具，同时有一些媒体的功能</li>
-</ul>
-<p>微博作为媒体工具，关系主要在兴趣上，关系质量较弱，单向传播多，注重是传播速度和内容公开。弱关系更有利于知识和信息的传播</p>
-<p>微信是社交工具，关系建立在社会关系上，注重私人内容交流和互动，消息消化率高，评论回复率是肯定高过微博。强关系更倾向于沟通和和分享。</p>
-<h3 id="二者重叠吗"><a href="#二者重叠吗" class="headerlink" title="二者重叠吗"></a>二者重叠吗</h3><p>互联网时代以前，你还是要看电视（媒体），也还要打电话（社交）。</p>
-<p>微博做的是媒体，主要是卖广告，微信做的是社交，卖的是增值服务和平台。</p>
-<h3 id="早期产品模型"><a href="#早期产品模型" class="headerlink" title="早期产品模型"></a>早期产品模型</h3><ul>
-<li>微博：让所有人看到你发的短信</li>
-<li>微信：用流量打电话；公众号针对粉丝订阅模式，很类似邮件营销的进化版本</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E5%BE%AE%E5%8D%9A%E5%BE%AE%E4%BF%A1%E5%B7%AE%E5%88%AB%E4%B8%8E%E5%BE%AE%E5%8D%9A%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E7%BB%8F%E6%B5%8E%E4%B8%8E%E5%80%BA%E5%8A%A1.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="DiffDay">
-      <meta itemprop="description" content="自我博雅探索，以求不惑">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Diffday">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E7%BB%8F%E6%B5%8E%E4%B8%8E%E5%80%BA%E5%8A%A1.html" class="post-title-link" itemprop="url">经济与债务</a>
+            <a href="/%E4%BA%94%E9%98%B6%E6%AE%B5%E8%81%8C%E4%B8%9A%E6%A8%A1%E5%9E%8B.html" class="post-title-link" itemprop="url">五阶段职业模型</a>
         </h2>
 
         <div class="post-meta">
@@ -1138,14 +643,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-11-18 20:38:00" itemprop="dateCreated datePublished" datetime="2021-11-18T20:38:00+08:00">2021-11-18</time>
+              <time title="创建时间：2022-09-09 18:23:00" itemprop="dateCreated datePublished" datetime="2022-09-09T18:23:00+08:00">2022-09-09</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-03-30 14:39:46" itemprop="dateModified" datetime="2023-03-30T14:39:46+08:00">2023-03-30</time>
+                <time title="修改时间：2022-09-19 14:42:59" itemprop="dateModified" datetime="2022-09-19T14:42:59+08:00">2022-09-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1153,7 +658,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E6%96%87%E7%B2%BE%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网文精摘</span></a>
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/" itemprop="url" rel="index"><span itemprop="name">学而思</span></a>
                 </span>
             </span>
 
@@ -1163,14 +668,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>22k</span>
+              <span>1.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>20 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -1182,25 +687,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="如何看待经济"><a href="#如何看待经济" class="headerlink" title="如何看待经济"></a>如何看待经济</h1><p>这点上可以借鉴桥水基金创始人瑞达利欧的视频–经济机器是如何运行的</p>
-<blockquote>
-<p>关键词：信贷，交易，人性。这三个元素相互作用使得经济具有了周期性。当现代信用经济没出现之前，经济并未表现出那么明显的周期性。在生产率不变的情况下，供给侧因素劳动力起了巨大的作用。现代经济要复杂的多了，波动也更加剧烈。</p>
-</blockquote>
-<ol>
-<li>支出是经济的驱动力</li>
-<li>一个人的支出是另一个人的收入</li>
-<li>生产率长期最关键（生产率能上升，也跟我们的知识随着时间会增多有关系），<strong>但短期信贷最关键</strong>，生产率短期不会剧烈波动。</li>
-</ol>
-<p>还有很笨拙（本质）的一条公式：支出总额【货币+信用（贷）】/产销总量（商品+服务+金融产品）= 价格</p>
-<blockquote>
-<p><strong>什么是债务？什么是货币？其实就是一种信用，你要生产更多东西你肯定信用就要扩张。</strong></p>
-</blockquote>
-<p>金本位时代结束后，经济增长是靠信贷扩张维系的。经济增长的契约是就是债务和债权，人类显性的奴隶制社会已经结束，但隐形的债务奴隶制却存在，一个人的债务是另一个人的资产，人类通过创造债务购买他人的未来。经济的周期也可以看做是债务的周期。</p>
-<h2 id="周期"><a href="#周期" class="headerlink" title="周期"></a>周期</h2><p>在现今的社会，为了拉动消费（经济的驱动力），人们的可支出总额，是包含现金+信贷（未来的现金）两部分。在借债时消费多过产出，在还债时消费就低于产出。这是周期的基本原因，长期周期除去债务，还跟供给侧和财富分配双重作用的不可割裂（这点达利欧是没提的）。干预债务是有很多手段的。</p>
-<p><img src="http://cdn.diffday.com/picgo/20211026172632.png"></p>
+          <img src="http://cdn.diffday.com/picgo/723C0F5D-3AC9-4F53-B353-4E3F4C059B9A_1_105_c.jpeg" style="zoom:88%;" />
+
+<p><font color="blue">一定是少数人经历全部5个阶段，更少的人经历过一次以上的周期循环</font>。我们也会听到或看到有这样的人，在达到五个阶段中的某一个时刻，选择回到上一个阶段重新开始。</p>
+<h2 id="五阶段职业模型"><a href="#五阶段职业模型" class="headerlink" title="五阶段职业模型"></a>五阶段职业模型</h2><p>搭建一个共同的语境，使得大家建设性的探讨职业进步，收获职业生活的洞察力。</p>
+<p>阶段并无职业路径的对错，因为它跟个人的欲望关联，且上山下山皆有流动。</p>
+<p>洞察可建立对自身的理解与对话，在碰到职业困惑时，能跳到更高的维度来看见自己，看到来时路与指引未来路。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/%E7%BB%8F%E6%B5%8E%E4%B8%8E%E5%80%BA%E5%8A%A1.html#more" rel="contents">
+              <a class="btn" href="/%E4%BA%94%E9%98%B6%E6%AE%B5%E8%81%8C%E4%B8%9A%E6%A8%A1%E5%9E%8B.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1223,7 +718,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 

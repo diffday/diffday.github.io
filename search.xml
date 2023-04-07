@@ -9228,14 +9228,14 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">- A[i]的左节点为A[2i+1]</span><br><span class="line">- 右节点为A[2i+2]</span><br><span class="line">- 父节点为A[i/2]</span><br></pre></td></tr></table></figure>
 
 <h3 id="Full-vs-Complete-vs-Perfect"><a href="#Full-vs-Complete-vs-Perfect" class="headerlink" title="Full vs Complete vs Perfect"></a>Full vs Complete vs Perfect</h3><p><img src="http://cdn.diffday.com/picgo/20221109135729.png"></p>
+<span id="more"></span>
+
 <p>二叉树通常用链表通过指针实现。堆的“(almost)-complete”属性及所有非叶子节点也是数值节点，对于将其实现为数组非常有用。堆为完全二叉树，我们可使用位置来确定哪个节点是哪个节点的子节点，i，2i+1,2i+2。</p>
 <blockquote>
 <p>almost-complete 和 complete是一个意思</p>
 <p>full binary tree 要求只要你有孩子，就必然是有两个孩子，但不要求所有长短分支差异最多为1的约束，也不要求孩子在最左边位置优先集中</p>
 </blockquote>
 <h2 id="堆序性"><a href="#堆序性" class="headerlink" title="堆序性"></a>堆序性</h2><p><font color="blue">堆序性，通俗点也是说，父节点中的元素不小于（不大于）任意子节点的元素</font>。</p>
-<span id="more"></span>
-
 <p>我们举例大根堆，一个节点元素在其子树所有元素组成的集合中必定是最大值。</p>
 <blockquote>
 <p>如下3个，都是符合定义的大根堆</p>
