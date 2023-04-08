@@ -9512,7 +9512,7 @@
   <entry>
     <title>敏感信息加密</title>
     <url>/%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF%E5%8A%A0%E5%AF%86.html</url>
-    <content><![CDATA[<p><img src="http://cdn.diffday.com/picgo/20230314172247.png"></p>
+    <content><![CDATA[<p><img data-src="http://cdn.diffday.com/picgo/20230314172247.png" alt="敏感信息加密"></p>
 <p>敏感数据的加密存储无论从国家，行业及监管合规层面，亦或是单纯提高自身信息安全水平的层面看均是势在必行的一则工作。</p>
 <blockquote>
 <p>业界实践中大批量数据的加解密一般选择对称加密算法，其计算效率远高于非对称算法。主流商用对称算法包括美国FIPS标准定义的AES算法，中国国标定义的SM4算法，国内肯定是用国密算法</p>
@@ -9641,7 +9641,7 @@
   <entry>
     <title>DevSecOps</title>
     <url>/DevSecOps.html</url>
-    <content><![CDATA[<p><img src="http://cdn.diffday.com/picgo/20230315140348.png"></p>
+    <content><![CDATA[<p><img data-src="http://cdn.diffday.com/picgo/20230315140348.png" alt="云原生下应用安全风险"></p>
 <h1 id="安全风险普遍存在"><a href="#安全风险普遍存在" class="headerlink" title="安全风险普遍存在"></a>安全风险普遍存在</h1><h2 id="97-被测目标存在某种形式的漏洞"><a href="#97-被测目标存在某种形式的漏洞" class="headerlink" title="97%被测目标存在某种形式的漏洞"></a>97%被测目标存在某种形式的漏洞</h2><ul>
 <li><font color="red">28%的测试目标曾受过跨站脚本(XSS)攻击</font></li>
 <li>76%的被测目标存在OWASP（开放式Web应用程序安全项目) 在2021年所披露的前十大漏洞<ul>
@@ -9702,7 +9702,12 @@
 </ul>
 </li>
 </ul>
-<h3 id="安全指南的难点"><a href="#安全指南的难点" class="headerlink" title="安全指南的难点"></a>安全指南的难点</h3><h4 id="语言差异"><a href="#语言差异" class="headerlink" title="语言差异"></a>语言差异</h4><p>每种语言面临的安全风险不同，如go和js相比，go就不存在原型链污染的风险。</p>
+<h3 id="源码、AST、IR"><a href="#源码、AST、IR" class="headerlink" title="源码、AST、IR"></a>源码、AST、IR</h3><p><img data-src="http://cdn.diffday.com/picgo/20230401091931.png" alt="源码"></p>
+<p><img data-src="http://cdn.diffday.com/picgo/20230401092046.png" alt="Clang AST"></p>
+<p><img data-src="http://cdn.diffday.com/picgo/20230401092116.png" alt="LLVM IR"></p>
+<h3 id="安全指南的难点"><a href="#安全指南的难点" class="headerlink" title="安全指南的难点"></a>安全指南的难点</h3><h4 id="语言差异"><a href="#语言差异" class="headerlink" title="语言差异"></a>语言差异</h4><img data-src="http://cdn.diffday.com/picgo/20230331232346.png" style="zoom:50%;" />
+
+<p>每种语言面临的安全风险不同，如go和js相比，go就不存在原型链污染的风险。</p>
 <p>同一门编程语言，用在不同的终端应用开发，面临的风险类型和数量有着天壤之别。</p>
 <ul>
 <li>如JS应用于前端页面开发时，主要风险是DOM XSS</li>
@@ -9715,11 +9720,16 @@
 <li>命令注入，发生在命令执行场景，风险成因和SQL注入类似</li>
 </ul>
 <p>代码安全指南，与场景关联，有利于受众人员降低认知学习成本，更容易想起注意事项，且要配套结合在线学习课程和考试，如此更能弱化开发人员不了解如何安全地开发的问题。</p>
-<h4 id="枚举的挑战"><a href="#枚举的挑战" class="headerlink" title="枚举的挑战"></a>枚举的挑战</h4><p>在代码安全指引中，要枚举API/Sink点。通常安全漏洞可归因为API的错误使用，<u>sink点是编写安全策略组件重要的一部分，直接决定了SAST系统的扫描能力</u>。</p>
+<p><img data-src="http://cdn.diffday.com/picgo/20230401091825.png"></p>
+<h4 id="枚举的挑战"><a href="#枚举的挑战" class="headerlink" title="枚举的挑战"></a>枚举的挑战</h4><img data-src="http://cdn.diffday.com/picgo/20230401091106.png" style="zoom: 67%;" />
+
+<p>在代码安全指引中，要枚举API/Sink点。通常安全漏洞可归因为API的错误使用，<u>sink点是编写安全策略组件重要的一部分，直接决定了SAST系统的扫描能力</u>。</p>
 <blockquote>
 <p>以google前端加固组件为例，通过对.innerHTML等容易被误用产生安全问题的API做了加固，封装为前端组件中心的函数对象，并设计了对应的编译时检查工具，<u>使得DOM XSS由原来的20%降低到2%</u></p>
 <p>这个例子中，最重要的是XSS Sink点的提取，也就是易误用产生安全漏洞的API，故Sink的提取是开展API加固极为重要的一步</p>
 </blockquote>
+<img data-src="http://cdn.diffday.com/picgo/20230331232655.png"  />
+
 <p>确保所枚举的API的完善性是一个非常大的挑战，补充完善Sink点的工作长尾且任务量大，需随着内外部发现的漏洞，编程语言和框架的迭代而不断迭代。通过与社区携手一道维护是一条路。</p>
 <h1 id="现代应用安全工具"><a href="#现代应用安全工具" class="headerlink" title="现代应用安全工具"></a>现代应用安全工具</h1><h2 id="静态应用安全测试（SAST）"><a href="#静态应用安全测试（SAST）" class="headerlink" title="静态应用安全测试（SAST）"></a>静态应用安全测试（SAST）</h2><ul>
 <li><p>也称为静态分析，是第一批发现源代码和字节码或二进制文件本身缺陷的AppSec工具之一。</p>
@@ -9731,7 +9741,7 @@
 <h2 id="SAST（白盒）vs-DAST（黑盒）"><a href="#SAST（白盒）vs-DAST（黑盒）" class="headerlink" title="SAST（白盒）vs DAST（黑盒）"></a>SAST（白盒）vs DAST（黑盒）</h2><blockquote>
 <p>一图胜十言，SAST和DAST联合起来才能彼此完整</p>
 </blockquote>
-<img src="http://cdn.diffday.com/picgo/20230103162040.png" style="zoom: 68%;" />
+<img data-src="http://cdn.diffday.com/picgo/20230103162040.png" style="zoom: 68%;" />
 
 
 
@@ -9763,7 +9773,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="http://cdn.diffday.com/picgo/20230103180138.png"></p>
+<p><img data-src="http://cdn.diffday.com/picgo/20230103180138.png"></p>
 <h3 id="漏洞发现后处理"><a href="#漏洞发现后处理" class="headerlink" title="漏洞发现后处理"></a>漏洞发现后处理</h3><p>经判断存在风险需处理的漏洞，进行漏洞修复并更新至测试环境后，需再次触发漏洞所在的url，此时IAST插桩会自动进行回归测试，如系统判断该漏洞已修复，则会自动关闭该漏洞。</p>
 <h3 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h3><p>IAST通过运行时插桩或流量分析的方法，借助于功能测试或自动化测试的交互式行为，实现透明、高效分析应用漏洞，防止应用带病上线。</p>
 <h3 id="污点分析实现三关键"><a href="#污点分析实现三关键" class="headerlink" title="污点分析实现三关键"></a>污点分析实现三关键</h3><p>实现污点分析，有三个核心关键点</p>
@@ -9921,7 +9931,7 @@
   <entry>
     <title>大语言模型LLM</title>
     <url>/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B.html</url>
-    <content><![CDATA[<p><img src="http://cdn.diffday.com/picgo/20230408222056.png"></p>
+    <content><![CDATA[<p><img data-src="http://cdn.diffday.com/picgo/20230408222056.png" alt="ChatGPT催生AI再一春"></p>
 <p>ChatGPT</p>
 <blockquote>
 <p>GPT:Generative Pre-trained Transformer</p>
@@ -9949,7 +9959,7 @@
 <li><p>老美限制我们，<font color="red">软件上挡不住，那就硬件上挡</font></p>
 <span id="more"></span></li>
 </ul>
-<p><img src="http://cdn.diffday.com/picgo/20230321184942.png"></p>
+<p><img data-src="http://cdn.diffday.com/picgo/20230321184942.png"></p>
 <blockquote>
 <p>A800是A100阉割特供版，计算性能相似，数据传输速度降低30%，影响AI集群训练速度和效果，还缺货，一次只能采购数百片</p>
 </blockquote>
@@ -10003,7 +10013,7 @@
 <li><p>随着技术发展，目前规模最大的LLM模型，几乎清一色类似GPT-3的模式，背后有一定的必然性</p>
 <ul>
 <li><p><font color="blue">NLG表现形式可兼容NLU</font>，反之则不行。分类问题可转换成让LLM生成对应类别字符串，Google的T5模型，形式上就统一了NLU+NLG的外在表现形式。</p>
-<img src="http://cdn.diffday.com/picgo/20230322170650.png" style="zoom:50%;" /></li>
+<img data-src="http://cdn.diffday.com/picgo/20230322170650.png" style="zoom:50%;" /></li>
 <li><p>Zero/few shot promot方式做好任务，采取GPT模式</p>
 <ul>
 <li>数据是海量的，要吸收知识，需非常多的参数来存储只是，必是巨无霸模型</li>
@@ -10041,7 +10051,7 @@
 <li>FFN（Feed Forward Network）结构占了剩余2/3，承担主体知识的存储。FFN的输入层其实是某个单词对应的MHA的输出结果Embedding，将整个句子有关的输入上下文集成到一起的Embedding，代表整个输入句子的整体信息</li>
 <li>Transformer低层对句子表层模式做出反应，高层对语义模式做出反应。也就是<font color="blue">低层FFN存储语法，句法等表层知识；中层和高层存储语义及事实概念知识</font></li>
 </ul>
-<p><img src="http://cdn.diffday.com/picgo/20230322170801.png"></p>
+<p><img data-src="http://cdn.diffday.com/picgo/20230322170801.png"></p>
 <h3 id="LLM的规模效应"><a href="#LLM的规模效应" class="headerlink" title="LLM的规模效应"></a>LLM的规模效应</h3><p>目前效果最好的LLM模型，参数规模大都超过了千亿（100B），如OpenAI的GPT-3规模175B，Google的LaMDA规模540B，华为盘古模型200B，百度文心260B，随着模型不断增长，会发生什么？</p>
 <ul>
 <li><p>研究证明，越大的LLM模型学习效率越高，学到了更多知识，任务效果更好。多数NLU任务，都是知识密集型任务，近两年都在模型规模增长下获得了极大的效果提升。</p>
@@ -10091,7 +10101,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="http://cdn.diffday.com/picgo/20230322171145.png"></p>
+<p><img data-src="http://cdn.diffday.com/picgo/20230322171145.png"></p>
 </li>
 <li><p>COT</p>
 <p>标准的COT由人工来写推理步骤，而Zero-shot COT大概是通过提示语，激活了记忆中某些包含推理步骤的示例。人工给出的示例，准确性是有保障的，所以自然标准CoT效果会更好。</p>
@@ -10100,7 +10110,7 @@
 </blockquote>
 <p>意思是<font color="blue">让LLM明白一个道理：在推理过程中，步子不要迈的太大，化大问题为小问题，积小胜为大胜</font></p>
 <p>COT提出不久，很快在22年3月，一种被称为“Self-Consistency”的改进技术继续助力提升准确率，它要求LLM输出多个不同的推理过程和答案，然后用投票的方式选出最佳答案，将GSM8K测试集准确率提高到83%左右。简答的方法往往蕴含着深刻的道理。虽然COT起效仍有黑盒的味道。</p>
-<p><img src="http://cdn.diffday.com/picgo/20230322172430.png"></p>
+<p><img data-src="http://cdn.diffday.com/picgo/20230322172430.png"></p>
 </li>
 <li><p>Least-to-most prompting，应用分治的思想，将一个复杂的推理问题，分解成若干更易解决的子问题，应证了COT的工作模式。<font color="blue">要解决Final Q问题，先把原始问题和Prompt交给LLM，让LLM给出最终问题的前置子问题sub Q，然后用原始问题拼接子问题sub Q及答案，再去问LLM最终问题Final Q</font></p>
 </li>
@@ -10234,7 +10244,7 @@
   <entry>
     <title>自律是一种阶级属性</title>
     <url>/%E8%87%AA%E5%BE%8Bvs%E8%87%AA%E7%94%B1.html</url>
-    <content><![CDATA[<p><img src="http://cdn.diffday.com/picgo/20230330165007.png"></p>
+    <content><![CDATA[<p><img data-src="http://cdn.diffday.com/picgo/20230330165007.png" alt="自律是阶级属性"></p>
 <blockquote>
 <p>尊重原创，文章内容摘自 红豆不迷茫 的<a href="https://www.bilibili.com/video/BV1mx4y137sW/">短视频作品</a></p>
 </blockquote>
@@ -10262,7 +10272,7 @@
   <entry>
     <title>理财的底牌</title>
     <url>/%E7%90%86%E8%B4%A2%E7%9A%84%E5%BA%95%E4%BB%93.html</url>
-    <content><![CDATA[<img src="http://cdn.diffday.com/picgo/20230328180626.png" style="zoom:50%;" />
+    <content><![CDATA[<img data-src="http://cdn.diffday.com/picgo/20230328180626.png" alt="22年R2理财净值暴跌" style="zoom:50%;" />
 
 <h2 id="资产证券化"><a href="#资产证券化" class="headerlink" title="资产证券化"></a>资产证券化</h2><blockquote>
 <p>你的贷款是大家的资产+收益，企业债亦同理吧</p>
@@ -10283,12 +10293,12 @@
 <p>2018年资产新规后，去刚兑，要求银行理财净值化。债券是标准化产品每天都可以交易，二级市场上的定价能及时反映债券的风险。例如3年期票息5%的公司债，假设是5年前的恒大，那如日中天大而不倒，债券都能卖到101元，但是现在恒大未到期的债券在市场上20块都不到，市值法是可以立刻反映债券风险。</p>
 <p>摊余成本法是一路向上固收思路，净值法的波动是比较大的。如<font color="red">债券发行主体信用发生波动</font>，也会受到流动性和利率影响的波动。债券熊是资金面比较紧张的时候，债券价格下跌。<font color="red">赎回踩踏也会加剧波动，加大亏损</font>。</p>
 <h2 id="估值大幅回撤"><a href="#估值大幅回撤" class="headerlink" title="估值大幅回撤"></a>估值大幅回撤</h2><p><font color="red">你信22年是资金面紧张的原因吗？</font>我不太信各路传媒说的，我更信大额赎回为首发导火索（之于大额赎回来自哪里，就没人说了。要么知晓信用波动内情想从窟窿提前爬出来，要么杠杆耍起来受不了各类风吹草动）。</p>
-<img src="http://cdn.diffday.com/picgo/20230328180714.png" style="zoom:50%;" />
+<img data-src="http://cdn.diffday.com/picgo/20230328180714.png" alt="22年中国十年期国债收益率波动" style="zoom:50%;" />
 
 <blockquote>
 <p>10年期国债收益率，这个是债券市场的锚定标的。债券收益率和债券价格是反向关系，收益率飙涨，就意味着整个债券市场的价格出现大跌</p>
 </blockquote>
-<p><img src="http://cdn.diffday.com/picgo/20230330112324.png"></p>
+<p><img data-src="http://cdn.diffday.com/picgo/20230330112324.png" alt="周视角22年中国十年期国债收益率波动"></p>
 <blockquote>
 <p>十年期国债收益率从上涨后，波动不大，理财净值又开始慢慢爬坡</p>
 </blockquote>
