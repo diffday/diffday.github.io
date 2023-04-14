@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/bitbug_favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/bitbug_favicon32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/bitbug_favicon16.ico">
+  <link rel="mask-icon" href="/images/bitbug_favicon.ico" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="UaMvLIOYuNWHgVq42dlN49RoniU73U6SoqoRnEcit9E">
+  <meta name="baidu-site-verification" content="code-DN25SBuR8T">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.diffday.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="内容是22年1月27号整理完的，提及v1.0~8.0的历史脉络，搬上来更易阅读。借鉴了他人的网络文章的图和内容，也融合了梁宁得到课程里的一些内容。 国民应用微信这一路走来，拳打米聊，脚踢微博，用春晚红包逼阿里高层过年开会，健康码普及又打开父母的手机，它俨然已是大而不能倒的基础设施，虽然天下也苦微信久矣，我最近还吐槽其支付特性中霸王设定，不可否认此一款创造了诸多第一的产品能给我们不小的启发。 产品">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信版本的历史地图">
+<meta property="og:url" content="https://blog.diffday.com/2022-1-27-%E5%BE%AE%E4%BF%A1%E7%89%88%E6%9C%AC%E7%9A%84%E5%8E%86%E5%8F%B2%E5%9C%B0%E5%9B%BE.html">
+<meta property="og:site_name" content="Diffday">
+<meta property="og:description" content="内容是22年1月27号整理完的，提及v1.0~8.0的历史脉络，搬上来更易阅读。借鉴了他人的网络文章的图和内容，也融合了梁宁得到课程里的一些内容。 国民应用微信这一路走来，拳打米聊，脚踢微博，用春晚红包逼阿里高层过年开会，健康码普及又打开父母的手机，它俨然已是大而不能倒的基础设施，虽然天下也苦微信久矣，我最近还吐槽其支付特性中霸王设定，不可否认此一款创造了诸多第一的产品能给我们不小的启发。 产品">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230412190127.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230411190840.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230411190241.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230412191151.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230412191045.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230412191354.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230414171646.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230412191638.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230414171808.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230412191748.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230414171050.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230412192048.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230412192006.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230414172212.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230414172349.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230412192440.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230412192521.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230412192633.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230412192336.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230414161937.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230414162059.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230414162226.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230414162448.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230414162838.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230414163858.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230414165136.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/20230414165328.png">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/IMG_1359.jpg">
+<meta property="article:published_time" content="2022-01-27T03:18:21.000Z">
+<meta property="article:modified_time" content="2023-04-14T09:27:28.000Z">
+<meta property="article:author" content="DiffDay">
+<meta property="article:tag" content="历史">
+<meta property="article:tag" content="互联网思维">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://cdn.diffday.com/picgo/20230412190127.png">
+
+<link rel="canonical" href="https://blog.diffday.com/2022-1-27-%E5%BE%AE%E4%BF%A1%E7%89%88%E6%9C%AC%E7%9A%84%E5%8E%86%E5%8F%B2%E5%9C%B0%E5%9B%BE.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>微信版本的历史地图 | Diffday</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b5c9889dd454fff053fb5b93fc1b2ac7";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Diffday</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">我的学习记录</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">38</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">11</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">109</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/2022-1-27-%E5%BE%AE%E4%BF%A1%E7%89%88%E6%9C%AC%E7%9A%84%E5%8E%86%E5%8F%B2%E5%9C%B0%E5%9B%BE.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="DiffDay">
+      <meta itemprop="description" content="自我博雅探索，以求不惑">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Diffday">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          微信版本的历史地图
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-01-27 11:18:21" itemprop="dateCreated datePublished" datetime="2022-01-27T11:18:21+08:00">2022-01-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-14 17:27:28" itemprop="dateModified" datetime="2023-04-14T17:27:28+08:00">2023-04-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/" itemprop="url" rel="index"><span itemprop="name">学而思</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img data-src="http://cdn.diffday.com/picgo/20230412190127.png" alt="微信版本日志"></p>
+<p>内容是22年1月27号整理完的，提及v1.0~8.0的历史脉络，搬上来更易阅读。借鉴了他人的网络文章的图和内容，也融合了梁宁得到课程里的一些内容。</p>
+<p>国民应用微信这一路走来，拳打米聊，脚踢微博，用春晚红包逼阿里高层过年开会，健康码普及又打开父母的手机，它俨然已是大而不能倒的基础设施，虽然天下也苦微信久矣，我最近还吐槽其支付特性中霸王设定，不可否认此一款创造了诸多第一的产品能给我们不小的启发。</p>
+<h1 id="产品直指人心最重要"><a href="#产品直指人心最重要" class="headerlink" title="产品直指人心最重要"></a>产品直指人心最重要</h1><p>很多产品为什么第一版本设计的那么复杂？因为不自信</p>
+<ul>
+<li>对于”只要做强哪个点，就是对的”没把握，希望通过一些附加功能点上找心理依靠</li>
+<li>奥卡姆剃刀也在这里检验你的认知水平能力</li>
+</ul>
+<p>要的是什么？</p>
+<ul>
+<li>简单</li>
+<li>直接</li>
+<li>切中要害，直指人心</li>
+</ul>
+<span id="more"></span>
+
+<h1 id="1-0：熟人间的通讯工具"><a href="#1-0：熟人间的通讯工具" class="headerlink" title="1.0：熟人间的通讯工具"></a>1.0：熟人间的通讯工具</h1><h2 id="V1-0"><a href="#V1-0" class="headerlink" title="V1.0"></a>V1.0</h2><p>2011.1.21 微信1.0，iphone版首发，只有4个功能，三天后的1月24日，微信又发布了第一个Android版本</p>
+<ul>
+<li>设置头像和微信名</li>
+<li>发送信息</li>
+<li>发送图片</li>
+<li>导入通讯录</li>
+</ul>
+<p><img data-src="http://cdn.diffday.com/picgo/20230411190840.png" alt="v1.0 for iphone"></p>
+<p>当时主要通过QQ号和邮箱注册，添加好友的方式是邀请QQ好友和添加微信号</p>
+<h2 id="V1-2"><a href="#V1-2" class="headerlink" title="V1.2"></a>V1.2</h2><p>v1.2添加了多人会话，通讯录分组和会话搜索，腾讯微博私信互通，接着支持表情包，好友备注和黑名单</p>
+<img data-src="http://cdn.diffday.com/picgo/20230411190241.png" alt="v1.2的特性迭代" style="zoom:67%;" />
+
+<blockquote>
+<p>每隔一个多月更新一个版本，它在社交上的基本功能继续增加，并不断通过腾讯其它产品拉新。微信1.x版本共有400w用户</p>
+</blockquote>
+<h2 id="拳打米聊"><a href="#拳打米聊" class="headerlink" title="拳打米聊"></a>拳打米聊</h2><p>米聊起步在先，微信的确先是抄袭，早期大家都定义为熟人间通信工具（用免费的发短信照片，替代收费的短信和彩信），对比只能发文字的飞信，显得更有意思。</p>
+<p>但系统能力让微信赢了米聊。直到2.0版之前，微信vs米聊用户数 400w vs 1000w</p>
+<blockquote>
+<p>系统能力上，微信团队已经做了快10年的QQ邮箱，全国最大的邮箱服务平台，有个很强的功能是超大附件。超大数据定点传输负载均衡，系统不崩溃。这点系统能力建设是米聊团队望尘莫及的。</p>
+<p>初创期的小米，根本不可能囤积那么多设备去提升米聊的性能，这就是你永远觉得微信很快，米聊有时会慢，会卡，偶尔系统崩溃。这就像ATM机，前端那个铁盒子没你想象的那么重要，一个ATM机要放20多万现金，一个银行若要提供100台ATM机时，就意味着把2000w现金放到外面去，一毛钱增值收益都没有。分流了企业的核心资源，它的价值不是界面红的蓝的，先出卡还是先出钞那么表面，这个男女老幼通吃没有用户区隔的产品，提供完整系统能力需要多个岗位配合，战略规划和运营，现金，硬件维护，客服，技术等</p>
+</blockquote>
+<p><u>微信的1.0、1.1版本的时候，加好友不需要备注，因为不会加陌生人</u>，这里只有特别熟的朋友。</p>
+<p>当2.x版本查看附近的人上线后，微信用户突击到了2000w，已和米聊拉开差距。随后的迭代里，3.0退出摇一摇功能，微信用户上亿。米聊峰值永远停留在3000w。在2020年1月19日晚7点40分，张小龙用视频号开启微信下一个十年，而数小时前，米聊宣布将于2.19日停服，同样10年，一个坐拥12亿用户，一个黯然退场</p>
+<h1 id="2-0：陌生人社交上场"><a href="#2-0：陌生人社交上场" class="headerlink" title="2.0：陌生人社交上场"></a>2.0：陌生人社交上场</h1><blockquote>
+<p>初版4个月后2011年5月10日</p>
+</blockquote>
+<p>新增功能：语音通讯（发语音）功能，支持QQ邮箱提醒</p>
+<img data-src="http://cdn.diffday.com/picgo/20230412191151.png" alt="发语音功能" style="zoom: 67%;" />
+
+<h2 id="V2-2"><a href="#V2-2" class="headerlink" title="V2.2"></a>V2.2</h2><p>V2.2 加了查看附近的人（距离V1.0不到半年）</p>
+<blockquote>
+<p>查看附近的人一上线，在没有动用任何QQ资源的前提下，日增用户一跃达到10w</p>
+</blockquote>
+<img data-src="http://cdn.diffday.com/picgo/20230412191045.png" alt="查看附近的人" style="zoom: 67%;" />
+
+<h2 id="陌陌同天登场"><a href="#陌陌同天登场" class="headerlink" title="陌陌同天登场"></a>陌陌同天登场</h2><p>当微信V2.2版本上线的当天，陌陌也同一天上线，同是基于位置的陌生人社交。</p>
+<p>米聊止步于熟人社交，直到很久之后才打破，但那时大势已去。张小龙和陌陌的唐岩体验过孤独与弱势，有与陌生人建立连接的需求。且和陌生人交往过程中，压力点的体验非常清楚。雷军少年得志，他的世界一直非常拥挤，时间宝贵，个人需求就是提升与熟人间的沟通效率，没有认识陌生人的需求。</p>
+<h2 id="V2-5"><a href="#V2-5" class="headerlink" title="V2.5"></a>V2.5</h2><p>V2.5增加聊天支持发送视频，以及加了一些细节特性功能，执着于引流</p>
+<ul>
+<li>支持手机通讯录匹配找到微信好友，支持向我推荐QQ好友和通讯录好友（将熟人间的社交与微信相联系）</li>
+<li>接收QQ离线消息</li>
+<li>语音记事本；设置个性签名</li>
+<li>支持手机号注册微信</li>
+<li>好友验证，QQ号查找到我，将我推荐给QQ好友等隐私设置</li>
+<li>QQ邮箱中，还会经常受到微信好友的微信下载邀请，持续骚扰，相当于转介绍</li>
+</ul>
+<h2 id="增长神话"><a href="#增长神话" class="headerlink" title="增长神话"></a>增长神话</h2><p>微信上线433天，用户突破一亿。QQ这个数字用了近10年，FB用了5年半，twitter用了4年，微博用了20个月，微信用时14个月，这得益于无线互联网时代的到来。这个时代，诸多好手你上我下。</p>
+<h2 id="移动互联网元年"><a href="#移动互联网元年" class="headerlink" title="移动互联网元年"></a>移动互联网元年</h2><p>2012，算是中国移动物联网时代的元年，这一年小米2发布，但与此同时，360搜索也发布，跟百度大打搜索战争。无线互联网时代降临的趋势节点，连大佬们也不是全部观察得到。</p>
+<h1 id="3-0：扫一扫连接物理世界，服务号伏笔内容生态"><a href="#3-0：扫一扫连接物理世界，服务号伏笔内容生态" class="headerlink" title="3.0：扫一扫连接物理世界，服务号伏笔内容生态"></a>3.0：扫一扫连接物理世界，服务号伏笔内容生态</h1><p>2011年10月1日，V3.0上线，更像是一个蛰伏过度期，仍在谋用户增长，没生态化反</p>
+<ul>
+<li><p>摇一摇，漂流瓶</p>
+<blockquote>
+<p>漂流瓶功能现已下线，始于寂寞，止于色情。这个非即时通讯功能满足了用户对倾诉和匿名社交的需求。最早是在2010QQ邮箱上帝一个小功能</p>
+<img data-src="http://cdn.diffday.com/picgo/20230412191354.png" alt="摇一摇与漂流瓶" style="zoom:60%;" />
+</blockquote>
+</li>
+<li><p>群组可保存至通讯录</p>
+</li>
+<li><p>还有一些不那么重要的功能</p>
+<ul>
+<li>支持繁体中文语言界面，支持插件卸载安装，免打扰</li>
+<li>港澳台，美国，日本五个地区的用户绑定手机号</li>
+</ul>
+</li>
+</ul>
+<h2 id="V3-5"><a href="#V3-5" class="headerlink" title="V3.5"></a>V3.5</h2><p>在V3.5这个版本中，新增了扫描二维码，二维码名片的功能，与此同时，还有支持更多表情，自定义聊天背景，石头剪子布和扔骰子游戏</p>
+<img data-src="http://cdn.diffday.com/picgo/20230414171646.png" alt="V3.5新增功能" style="zoom:70%;" />
+
+<img data-src="http://cdn.diffday.com/picgo/20230412191638.png" alt="更多表情" style="zoom:67%;" />
+
+<h2 id="V3-6"><a href="#V3-6" class="headerlink" title="V3.6"></a>V3.6</h2><p>V3.6版本中，腾讯新闻插件，腾讯微博插件，支持写邮件，服务号上线</p>
+<blockquote>
+<p>从这个版本开始，微信和陌陌开始走向不同的道路，陌陌继续连接陌生人，但微信生态更高一个档次，但此时服务号还不火，且待在沉默中爆发</p>
+</blockquote>
+<p>核心的聊天功能还在优化，新增了</p>
+<ul>
+<li>群发助手</li>
+<li>发祝福有彩蛋</li>
+<li>支持语音取消</li>
+</ul>
+<img data-src="http://cdn.diffday.com/picgo/20230414171808.png" alt="V3.6新增功能" style="zoom:67%;" />
+
+<h1 id="4-0–朋友圈转身社交平台"><a href="#4-0–朋友圈转身社交平台" class="headerlink" title="4.0–朋友圈转身社交平台"></a>4.0–朋友圈转身社交平台</h1><p>2012年4月19日，V4.0发布</p>
+<blockquote>
+<p>这一版的打开介绍有这样一段话：如你所知，微信不只是一个聊天工具。一切从照片开始，你拍了一张照片，你就拥有了自己的相册，在[朋友圈]你可以了解朋友们的生活。如你所见，微信，是一个生活方式。</p>
+<img data-src="http://cdn.diffday.com/picgo/20230412191748.png" alt="微信是一个生活方式" style="zoom: 80%;" />
+</blockquote>
+<ul>
+<li>相册功能和朋友圈功能，照片可分享到微信内的朋友圈</li>
+</ul>
+<blockquote>
+<p>在推出朋友圈工作之前，做了两个前置工作，V3.5增加了扫描二维码，V3.6增加了微信公众号。这两个动作的价值在于，一个普通人的生活没有那么多可供朋友消费的内容，如果没有这两个前置功能，我们就直接打开朋友圈，会非常难看</p>
+</blockquote>
+<ul>
+<li>微信消息可向好友群发，照片和视频可转发给好友</li>
+<li>转发当下所在位置给好友</li>
+<li>微信开放接口，支持从第三方应用向好友分享音乐，新闻等内容</li>
+<li>给好友加星标，可用facebook账号登录，英文版本改名WeChat，界面支持7种语言，支持用海外手机号码接收验证码进行注册</li>
+</ul>
+<img data-src="http://cdn.diffday.com/picgo/20230414171050.png" alt="V4新增功能" style="zoom: 80%;" />
+
+<h2 id="V4-2"><a href="#V4-2" class="headerlink" title="V4.2"></a>V4.2</h2><p>V4.2版本中，可以与朋友<font color="blue">视频聊天</font>[视频聊天才是国民福利]，朋友圈可以设置权限，也终于可恢复朋友圈照片的评论了</p>
+<blockquote>
+<p>此前的版本朋友评论你是无法回复的，直到4.2才做出来，这说明没必要憋大招，没有必要所有功能全做好再出来。因为如果你非常想回复他，大可以点对点跟他说。基于核心功能附加的其它功能点没有那么重要，可以一步步来</p>
+<img data-src="http://cdn.diffday.com/picgo/20230412192048.png" alt="评论可回复" style="zoom:60%;" />
+
+<img data-src="http://cdn.diffday.com/picgo/20230412192006.png" alt="视频通话才是国民福利" style="zoom:60%;" />
+</blockquote>
+<h2 id="V4-3-amp-V4-5"><a href="#V4-3-amp-V4-5" class="headerlink" title="V4.3 &amp; V4.5"></a>V4.3 &amp; V4.5</h2><p>V4.3版本中，支持解绑QQ号和手机号，聊天置顶，语音搜索也出现了，此时的扫一扫可以扫描任何二维码了</p>
+<img data-src="http://cdn.diffday.com/picgo/20230414172212.png" alt="v4.3功能" style="zoom:90%;" />
+
+<p><font color="blue">V4.5版本推出了内容公众号</font>，同时还支持实时对讲和多人实时语音聊天，进化了摇一摇和新增群二维码，还有位置导航功能</p>
+<img data-src="http://cdn.diffday.com/picgo/20230414172349.png" alt="V4.5功能" style="zoom:70%;" />
+
+<h2 id="公众号的突破"><a href="#公众号的突破" class="headerlink" title="公众号的突破"></a>公众号的突破</h2><p>微博是喧嚣的广场，那么公众号就是小圈子的沙龙会客厅。在微博形成围观改变中国超大公共空间之外，微信公众号另起炉灶，成功创造出了一个内容输出平台，开凿出一条内容护城河</p>
+<p>公众号推动了一大批媒体人创业，孕育了一大波网红</p>
+<p>公众号上线15个月后，达到200w个，每天新增8000个。到2015年10月，总量突破1000w，这使得它有信心成为一个新的桌面系统，构建一个内生闭环的社交和商业生态链</p>
+<h1 id="5-0–开始成为移动互联网枢纽"><a href="#5-0–开始成为移动互联网枢纽" class="headerlink" title="5.0–开始成为移动互联网枢纽"></a>5.0–开始成为移动互联网枢纽</h1><p>2013年8月，V5.0发布，重磅功能有：微信支付，公众号&#x2F;服务号，进化的扫一扫</p>
+<p>为了让好几亿用户尽可能更新到V5.0，当时微信把更新开机界面变成了一个“飞机大战”小游戏</p>
+<img data-src="http://cdn.diffday.com/picgo/20230412192440.png" alt="飞机大战启动画面" style="zoom:50%;" />
+
+<h2 id="订阅号与服务号"><a href="#订阅号与服务号" class="headerlink" title="订阅号与服务号"></a>订阅号与服务号</h2><p>为了抑制公众账号信息泛滥，V5.0分为了两类账号：订阅号和服务号</p>
+<blockquote>
+<p>订阅号可以个人为主体注册，服务号需要提供企业信息</p>
+<img data-src="http://cdn.diffday.com/picgo/20230412192521.png" alt="订阅号与服务号" style="zoom:67%;" />
+</blockquote>
+<h2 id="扫一扫升级"><a href="#扫一扫升级" class="headerlink" title="扫一扫升级"></a>扫一扫升级</h2><p>扫一扫的内容除了之前的二维码之外，还增加了扫描条形码，扫封面，扫街景，扫描翻译。这个功能由最初的社交（加好友）进化为各种商业交易的入口</p>
+<img data-src="http://cdn.diffday.com/picgo/20230412192633.png" alt="扫封面" style="zoom:67%;" />
+
+<h2 id="微信支付"><a href="#微信支付" class="headerlink" title="微信支付"></a>微信支付</h2><p>4.7亿用户，社交功能已经够用，如何从移动版的QQ空间（晒照，聊天，点赞）升级为移动商业帝国，绑定银行卡就是这个预动作</p>
+<blockquote>
+<p>微信支付功能，打通线上线下，可把微信号和银行账号绑定</p>
+</blockquote>
+<img data-src="http://cdn.diffday.com/picgo/20230412192336.png" alt="微信支付" style="zoom:50%;" />
+
+<h2 id="宕机失联"><a href="#宕机失联" class="headerlink" title="宕机失联"></a>宕机失联</h2><p>2013年7月22日，微信遭遇宕机，花了6个小时才修复，人们在社交网络上失联，让人们意识到它的大而不能倒</p>
+<h1 id="6-0–钱的流通，微信红包"><a href="#6-0–钱的流通，微信红包" class="headerlink" title="6.0–钱的流通，微信红包"></a>6.0–钱的流通，微信红包</h1><p>2014年9月30日，微信6.0 for ios版本上线，同一天还有一个新闻是国行iphone获得入网许可，即将开放预定（彼时iphone6刚刚面世）</p>
+<p>最初6.0版本没有太多大招，新增的主要功能有</p>
+<ul>
+<li><p>微信小视频，可分享到朋友圈或聊天界面</p>
+<img data-src="http://cdn.diffday.com/picgo/20230414161937.png" alt="微信小视频" style="zoom:50%;" />
+</li>
+<li><p>微信卡包，可聚合优惠券，会员卡，机票，电影票等（后证实也是鸡肋功能，我还是卡包的首发对接方）</p>
+<img data-src="http://cdn.diffday.com/picgo/20230414162059.png" alt="卡包" style="zoom:50%;" />
+</li>
+<li><p>可谓微信钱包设置手势密码，游戏中心改版</p>
+</li>
+</ul>
+<h2 id="V6-1-红包降临"><a href="#V6-1-红包降临" class="headerlink" title="V6.1-红包降临"></a>V6.1-红包降临</h2><p>2015年新年发布的V6.1版本中，微信红包来了，羊年春晚借势爆发，400w到一亿一天完成，当然不是任何一个小公司在这种情况下能接得住</p>
+<img data-src="http://cdn.diffday.com/picgo/20230414162226.png" alt="微信红包" style="zoom: 67%;" />
+
+<p>6.0-7.0之间相隔了52个月，也就是超过了4年，斗转星移</p>
+<ul>
+<li><p>6.2 版本：二维码收款，长按翻译朋友圈文字</p>
+</li>
+<li><p>比政治讳，没有6.4版本</p>
+</li>
+<li><p>6.5.1，朋友圈中分享10s小视频</p>
+</li>
+<li><p>6.6.1版本for ios(2017-12-28)，小程序可以下拉访问到</p>
+<blockquote>
+<p>2017年1月9日，张小龙在2017微信公开课Pro上发布的小程序正式上线</p>
+<img data-src="http://cdn.diffday.com/picgo/20230414162448.png" alt="小程序下拉访问" style="zoom:50%;" /></blockquote>
+</li>
+</ul>
+<h2 id="微信红包的历史"><a href="#微信红包的历史" class="headerlink" title="微信红包的历史"></a>微信红包的历史</h2><blockquote>
+<p>2013年的移动支付市场，支付宝市占率76%，财付通3.3%，这20多倍的差距，差不多是3层楼和76层楼的差别。</p>
+</blockquote>
+<p>微信红包其实于2013年偶然诞生（团队业余时间小项目，用公司资源未做申报就做了），当时是微信里的一个插件（点对点红包，拼手气红包均有）。自诞生来只是在小圈层中传播发展，并未有多大能量。</p>
+<p>2014年春节达到了一个峰值，458w人，几个月后就没再突破这个数字，且是掉下来的。<font color="blue">这个458w可能是2014年时全国互联网圈的核心活跃人数（尝鲜爱好者），是自然能量达到的极限值。在不借助任何外部势力的情况下，近7个月的时间，困在400w用户里无法突破</font>。</p>
+<h2 id="阿里集五福的失败"><a href="#阿里集五福的失败" class="headerlink" title="阿里集五福的失败"></a>阿里集五福的失败</h2><p>2015年支付宝集5福，分2亿，参加活动不少于2000w人，但集齐5福的人只有79w（82w张敬业福），不爽的人有96%，如果以4亿用户为基数，不爽率99.8%，这可是消耗了2.7亿的广告费</p>
+<h1 id="7-0–天下初定，小修小补"><a href="#7-0–天下初定，小修小补" class="headerlink" title="7.0–天下初定，小修小补"></a>7.0–天下初定，小修小补</h1><blockquote>
+<p>7.0的大版本维持了2年多，从2018年出现，到2021年上线8.0版本，期间一直在7.0.xx修修补补，一个ios深色模式也是拖拖拉拉，好像整体团队放价或颓了一样</p>
+</blockquote>
+<ul>
+<li><p>主界面全新改版，更扁平化和清晰直观</p>
+</li>
+<li><p>新增时刻视频，也可给朋友的视频冒个泡，告诉他你来过； — <font color="red">强如微信也要失败，小龙也开始慢慢下山去打高尔夫</font></p>
+</li>
+</ul>
+<img data-src="http://cdn.diffday.com/picgo/20230414162838.png" alt="屡战屡败" style="zoom:65%;" />
+
+<ul>
+<li><p>点赞变好看，可在看一看中浏览朋友认为好看的文章— 在用户隐私上动心思，结果使得活跃度受到抑制</p>
+<img data-src="http://cdn.diffday.com/picgo/20230414163858.png" alt="点赞变好看" style="zoom:50%;" />
+</li>
+<li><p>可在单聊中设置强提醒（全屏提醒并震动）– 我从来没用过，在8.0版本上已经不见了</p>
+</li>
+</ul>
+<h1 id="8-0–继续短视频攻伐"><a href="#8-0–继续短视频攻伐" class="headerlink" title="8.0–继续短视频攻伐"></a>8.0–继续短视频攻伐</h1><p>2021年1月21日发布，老一辈全歇菜，新生代登场</p>
+<ul>
+<li>动画表情</li>
+</ul>
+<img data-src="http://cdn.diffday.com/picgo/20230414165136.png" alt="微信动画表情" style="zoom:50%;" />
+
+<ul>
+<li>浮窗改版，破除最多5个的限制</li>
+<li>自定义状态</li>
+</ul>
+<img data-src="http://cdn.diffday.com/picgo/20230414165328.png" alt="自定义签名状态" style="zoom:60%;" />
+
+<ul>
+<li>视频有关<ul>
+<li>视频号点击可隐藏，为了短视频，也是拼了，其实国内非监管类的各家对于用户隐私，应该都是说一套做一套</li>
+<li>视频号原声提取</li>
+</ul>
+</li>
+<li>公众号末尾新增收藏按钮</li>
+</ul>
+<img data-src="http://cdn.diffday.com/picgo/IMG_1359.jpg" alt="分享收藏点赞再看，恢复点赞也是一种知错能改" style="zoom:50%;" />
+
+<ul>
+<li>下拉菜单变更，用过的小程序被收到顶层，只展示最近用过的5个，空白区域则会显示最近看过的直播，未看完的视频，文章等</li>
+<li>红包可以加视频</li>
+</ul>
+<h2 id="数字化看产品"><a href="#数字化看产品" class="headerlink" title="数字化看产品"></a>数字化看产品</h2><ul>
+<li><p>每天有10.9亿用户打开微信，3.3亿用户进行了视频通话</p>
+</li>
+<li><p>7.8亿用户进入朋友圈，1.2亿发表朋友圈，其中照片6.7亿张，短视频1亿条</p>
+</li>
+<li><p>3.6亿用户读公众号文章，4亿用户使用小程序</p>
+</li>
+<li><p><font color="red">2亿人朋友圈设置仅3天可见，2019年时还是1亿人</font></p>
+</li>
+</ul>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><ul>
+<li><p>微信是一个无线互联网时代明星产品的缩影，凝结了认知战略和系统能力</p>
+<ul>
+<li>从最早一个通讯工具，到社交平台，到移动生活场景，甚至是移动商业帝国</li>
+<li>从一个点，走向了一个面，最后形成了一个巨大的经济体，就像一个生命体一样，会有意识和进化</li>
+<li>从生物学启示来说，巨无霸生命体自然寿命比较长</li>
+</ul>
+</li>
+<li><p>不要憋大招，新世代敏捷是王道</p>
+<ul>
+<li>从一个最好的内核开始</li>
+<li>迭代中，重要的是次序，前一个动作是后一个动作的预动作</li>
+<li>基于核心功能附加的其它功能点没有那么重要，可以一步步来</li>
+</ul>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://www.ifanr.com/1155523">微信八年：从 1.0 到 7.0 版本，一个通讯工具的进化史</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.ifanr.com/1155523">从微信版本历史，学产品功能迭代和用户体验（下）</a></p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="DiffDay 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay-n.jpeg" alt="DiffDay 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+<!--
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>DiffDay
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://blog.diffday.com/2022-1-27-%E5%BE%AE%E4%BF%A1%E7%89%88%E6%9C%AC%E7%9A%84%E5%8E%86%E5%8F%B2%E5%9C%B0%E5%9B%BE.html" title="微信版本的历史地图">https://blog.diffday.com/2022-1-27-微信版本的历史地图.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本文章采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议。非商业转载请注明出处！商业转载请联系作者获得授权！
+  </li>
+</ul>
+</div>
+
+-->
+
+      
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>DiffDay
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://blog.diffday.com/2022-1-27-%E5%BE%AE%E4%BF%A1%E7%89%88%E6%9C%AC%E7%9A%84%E5%8E%86%E5%8F%B2%E5%9C%B0%E5%9B%BE.html" title="微信版本的历史地图">https://blog.diffday.com/2022-1-27-微信版本的历史地图.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本文章采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议。非商业转载请注明出处！商业转载请联系作者获得授权！
+  </li>
+</ul>
+</div>
+
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E5%8E%86%E5%8F%B2/" rel="tag"><i class="fa fa-tag"></i> 历史</a>
+              <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E6%80%9D%E7%BB%B4/" rel="tag"><i class="fa fa-tag"></i> 互联网思维</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/%E4%BF%9D%E9%99%A9%E4%B8%9A%E7%9A%84%E7%9B%91%E7%AE%A1%E4%B8%8E%E6%94%B9%E9%9D%A9.html" rel="prev" title="保险业的监管与改革">
+      <i class="fa fa-chevron-left"></i> 保险业的监管与改革
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/%E9%A2%88%E9%83%A8%E8%A7%82%E6%84%9F%E5%B7%AE%E5%BC%82%E8%A7%A3%E8%AF%BB.html" rel="next" title="颈部观感差异解读">
+      颈部观感差异解读 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%A7%E5%93%81%E7%9B%B4%E6%8C%87%E4%BA%BA%E5%BF%83%E6%9C%80%E9%87%8D%E8%A6%81"><span class="nav-number">1.</span> <span class="nav-text">产品直指人心最重要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-0%EF%BC%9A%E7%86%9F%E4%BA%BA%E9%97%B4%E7%9A%84%E9%80%9A%E8%AE%AF%E5%B7%A5%E5%85%B7"><span class="nav-number">2.</span> <span class="nav-text">1.0：熟人间的通讯工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#V1-0"><span class="nav-number">2.1.</span> <span class="nav-text">V1.0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#V1-2"><span class="nav-number">2.2.</span> <span class="nav-text">V1.2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%B3%E6%89%93%E7%B1%B3%E8%81%8A"><span class="nav-number">2.3.</span> <span class="nav-text">拳打米聊</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-0%EF%BC%9A%E9%99%8C%E7%94%9F%E4%BA%BA%E7%A4%BE%E4%BA%A4%E4%B8%8A%E5%9C%BA"><span class="nav-number">3.</span> <span class="nav-text">2.0：陌生人社交上场</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#V2-2"><span class="nav-number">3.1.</span> <span class="nav-text">V2.2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%8C%E9%99%8C%E5%90%8C%E5%A4%A9%E7%99%BB%E5%9C%BA"><span class="nav-number">3.2.</span> <span class="nav-text">陌陌同天登场</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#V2-5"><span class="nav-number">3.3.</span> <span class="nav-text">V2.5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A2%9E%E9%95%BF%E7%A5%9E%E8%AF%9D"><span class="nav-number">3.4.</span> <span class="nav-text">增长神话</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91%E5%85%83%E5%B9%B4"><span class="nav-number">3.5.</span> <span class="nav-text">移动互联网元年</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-0%EF%BC%9A%E6%89%AB%E4%B8%80%E6%89%AB%E8%BF%9E%E6%8E%A5%E7%89%A9%E7%90%86%E4%B8%96%E7%95%8C%EF%BC%8C%E6%9C%8D%E5%8A%A1%E5%8F%B7%E4%BC%8F%E7%AC%94%E5%86%85%E5%AE%B9%E7%94%9F%E6%80%81"><span class="nav-number">4.</span> <span class="nav-text">3.0：扫一扫连接物理世界，服务号伏笔内容生态</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#V3-5"><span class="nav-number">4.1.</span> <span class="nav-text">V3.5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#V3-6"><span class="nav-number">4.2.</span> <span class="nav-text">V3.6</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-0%E2%80%93%E6%9C%8B%E5%8F%8B%E5%9C%88%E8%BD%AC%E8%BA%AB%E7%A4%BE%E4%BA%A4%E5%B9%B3%E5%8F%B0"><span class="nav-number">5.</span> <span class="nav-text">4.0–朋友圈转身社交平台</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#V4-2"><span class="nav-number">5.1.</span> <span class="nav-text">V4.2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#V4-3-amp-V4-5"><span class="nav-number">5.2.</span> <span class="nav-text">V4.3 &amp; V4.5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E4%BC%97%E5%8F%B7%E7%9A%84%E7%AA%81%E7%A0%B4"><span class="nav-number">5.3.</span> <span class="nav-text">公众号的突破</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-0%E2%80%93%E5%BC%80%E5%A7%8B%E6%88%90%E4%B8%BA%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91%E6%9E%A2%E7%BA%BD"><span class="nav-number">6.</span> <span class="nav-text">5.0–开始成为移动互联网枢纽</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A2%E9%98%85%E5%8F%B7%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%8F%B7"><span class="nav-number">6.1.</span> <span class="nav-text">订阅号与服务号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%AB%E4%B8%80%E6%89%AB%E5%8D%87%E7%BA%A7"><span class="nav-number">6.2.</span> <span class="nav-text">扫一扫升级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98"><span class="nav-number">6.3.</span> <span class="nav-text">微信支付</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%95%E6%9C%BA%E5%A4%B1%E8%81%94"><span class="nav-number">6.4.</span> <span class="nav-text">宕机失联</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-0%E2%80%93%E9%92%B1%E7%9A%84%E6%B5%81%E9%80%9A%EF%BC%8C%E5%BE%AE%E4%BF%A1%E7%BA%A2%E5%8C%85"><span class="nav-number">7.</span> <span class="nav-text">6.0–钱的流通，微信红包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#V6-1-%E7%BA%A2%E5%8C%85%E9%99%8D%E4%B8%B4"><span class="nav-number">7.1.</span> <span class="nav-text">V6.1-红包降临</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AE%E4%BF%A1%E7%BA%A2%E5%8C%85%E7%9A%84%E5%8E%86%E5%8F%B2"><span class="nav-number">7.2.</span> <span class="nav-text">微信红包的历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%BF%E9%87%8C%E9%9B%86%E4%BA%94%E7%A6%8F%E7%9A%84%E5%A4%B1%E8%B4%A5"><span class="nav-number">7.3.</span> <span class="nav-text">阿里集五福的失败</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-0%E2%80%93%E5%A4%A9%E4%B8%8B%E5%88%9D%E5%AE%9A%EF%BC%8C%E5%B0%8F%E4%BF%AE%E5%B0%8F%E8%A1%A5"><span class="nav-number">8.</span> <span class="nav-text">7.0–天下初定，小修小补</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-0%E2%80%93%E7%BB%A7%E7%BB%AD%E7%9F%AD%E8%A7%86%E9%A2%91%E6%94%BB%E4%BC%90"><span class="nav-number">9.</span> <span class="nav-text">8.0–继续短视频攻伐</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E5%8C%96%E7%9C%8B%E4%BA%A7%E5%93%81"><span class="nav-number">9.1.</span> <span class="nav-text">数字化看产品</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">10.</span> <span class="nav-text">结语</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">11.</span> <span class="nav-text">参考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="DiffDay"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">DiffDay</p>
+  <div class="site-description" itemprop="description">自我博雅探索，以求不惑</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">109</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:creator.chen@foxmail.com" title="E-Mail → mailto:creator.chen@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18103410号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DiffDay</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">432k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">6:33</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+<script src="/live2d-widget/autoload.js"></script>
+</body>
+</html>
