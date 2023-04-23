@@ -21,7 +21,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.diffday.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"remove","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.diffday.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
   <meta name="description" content="Collaborative filtering    10年之前就接触了协同过滤的概念内容，但常学常新。最近因为要在Spark MLlib中浅显应用一把，发现整体的工业界做法已经进步了很多。脑中知识的框架又有更新，记录下来，利于随机存取与向外概念贩售。 术语表显性反馈  用户明确表示对物品喜好的行为  隐性反馈 不能明确反应用户喜好的行为。在许多的现实生活中的很多场景中，我们常常只能接触到隐性的">
@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">12</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">11</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
@@ -268,7 +268,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.9k</span>
+              <span>3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -290,7 +290,7 @@
         <blockquote>
 <p>Collaborative filtering</p>
 </blockquote>
-<img src="http://cdn.diffday.com/picgo/20220214134420.png" alt="物以类聚，人以群分" style="zoom: 150%;" />
+<img data-src="http://cdn.diffday.com/picgo/20220214134420.png" alt="物以类聚，人以群分" style="zoom: 150%;" />
 
 <p>10年之前就接触了协同过滤的概念内容，但常学常新。最近因为要在Spark MLlib中浅显应用一把，发现整体的工业界做法已经进步了很多。脑中知识的框架又有更新，记录下来，利于随机存取与向外概念贩售。</p>
 <h2 id="术语表"><a href="#术语表" class="headerlink" title="术语表"></a>术语表</h2><h3 id="显性反馈"><a href="#显性反馈" class="headerlink" title="显性反馈"></a>显性反馈</h3><blockquote>
@@ -310,7 +310,7 @@
 <p>通过用户集体对商品集的评价，在物品的角度上去寻找相似度高的物品，达到推荐物品的效果</p>
 </blockquote>
 <p>物品相似度的计算用上协同过滤，是基于用户的一种变体。通过查看哪些人喜欢某一特定物品，再看这些人喜欢哪些其它物品来决定物品距离（用相似度概念不贴切）。这种变体仅相当于数据结构的反转。</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> <span class="attr">&quot;jim&quot;</span>:&#123;<span class="attr">&quot;a&quot;</span>:<span class="number">2.5</span>,<span class="attr">&quot;b&quot;</span>:<span class="number">3.5</span>&#125;,</span><br><span class="line"> <span class="attr">&quot;kate&quot;</span>:&#123;<span class="attr">&quot;a&quot;</span>:<span class="number">3.0</span>,<span class="attr">&quot;b&quot;</span>:<span class="number">3.5</span>&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">转变成</span><br><span class="line">&#123;</span><br><span class="line"> <span class="attr">&quot;a&quot;</span>:&#123;<span class="attr">&quot;jim&quot;</span>:<span class="number">2.5</span>,<span class="attr">&quot;kate&quot;</span>:<span class="number">3.0</span>&#125;,</span><br><span class="line"> <span class="attr">&quot;b&quot;</span>:&#123;<span class="attr">&quot;jim&quot;</span>:<span class="number">3.5</span>,<span class="attr">&quot;kate&quot;</span>:<span class="number">3.5</span>&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">最终计算一个物品与物品之间距离的矩阵表格</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line"> <span class="attr">&quot;jim&quot;</span><span class="punctuation">:</span><span class="punctuation">&#123;</span><span class="attr">&quot;a&quot;</span><span class="punctuation">:</span><span class="number">2.5</span><span class="punctuation">,</span><span class="attr">&quot;b&quot;</span><span class="punctuation">:</span><span class="number">3.5</span><span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line"> <span class="attr">&quot;kate&quot;</span><span class="punctuation">:</span><span class="punctuation">&#123;</span><span class="attr">&quot;a&quot;</span><span class="punctuation">:</span><span class="number">3.0</span><span class="punctuation">,</span><span class="attr">&quot;b&quot;</span><span class="punctuation">:</span><span class="number">3.5</span><span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line">转变成</span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line"> <span class="attr">&quot;a&quot;</span><span class="punctuation">:</span><span class="punctuation">&#123;</span><span class="attr">&quot;jim&quot;</span><span class="punctuation">:</span><span class="number">2.5</span><span class="punctuation">,</span><span class="attr">&quot;kate&quot;</span><span class="punctuation">:</span><span class="number">3.0</span><span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line"> <span class="attr">&quot;b&quot;</span><span class="punctuation">:</span><span class="punctuation">&#123;</span><span class="attr">&quot;jim&quot;</span><span class="punctuation">:</span><span class="number">3.5</span><span class="punctuation">,</span><span class="attr">&quot;kate&quot;</span><span class="punctuation">:</span><span class="number">3.5</span><span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line">最终计算一个物品与物品之间距离的矩阵表格</span><br></pre></td></tr></table></figure>
 
 <p>映射现实-此反转运用在帮零售商找到清仓物品的潜在客户方面，很直观。</p>
 <h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>且一般来说，用户行为有更加明显的冷启动问题，且绝大部份用户都只生产过稀疏的显性反馈记录（评价评分），对数据集的使用利用度来说，尚不及基于项目的方式（起码热门物品集，有显性反馈的可能性较大），基于物品的计算，就更加聚焦高效。数据积累到一定量，物品的特征定义就更加稳定，物品间的比较不会像用户间的比较那么频繁变化，无需不停计算与每样物品最相近的其它物品，也可以削峰平谷的更高效利用计算资源。</p>
@@ -320,9 +320,9 @@
 </ul>
 <h3 id="Model-based"><a href="#Model-based" class="headerlink" title="Model-based"></a>Model-based</h3><p>回应如上弱势，大家就想到更线性更通用的解法来做这个事情，这样模型就出场了。模型里常见的是矩阵分解。</p>
 <p>将用户和物品的矩阵，分解为用户因子矩阵和项目因子矩阵两个矩阵的乘集（两个矩阵乘回去，期望得到一个饱满的用户评分矩阵）。什么是项目因子乘积，咱们来举几个例子图就比较容易理解了。</p>
-<h4 id="稀疏数据集"><a href="#稀疏数据集" class="headerlink" title="稀疏数据集"></a>稀疏数据集</h4><p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1g9qmon49egj30if05gt9l.jpg"></p>
+<h4 id="稀疏数据集"><a href="#稀疏数据集" class="headerlink" title="稀疏数据集"></a>稀疏数据集</h4><p><img data-src="https://tva1.sinaimg.cn/large/006tNbRwgy1g9qmon49egj30if05gt9l.jpg"></p>
 <p>如上，原始用户数据集稀疏，很难相互推荐（用户本身听过的歌就不够多），现在目标就是要让数据饱满起来。</p>
-<p>矩阵分解的数学基础是行列式变换：行变换相当于A左乘一个矩阵，矩阵A进行列变换等价于矩阵A右乘一个矩阵，因此矩阵A可以表示为A=PEQ=PQ（E是标准阵）</p>
+<p>矩阵分解的数学基础是行列式变换：行变换相当于A左乘一个矩阵，矩阵A进行列变换等价于矩阵A右乘一个矩阵，因此矩阵A可以表示为A&#x3D;PEQ&#x3D;PQ（E是标准阵）</p>
 <blockquote>
 <p>n * m约等(n x k) * (k x m)</p>
 </blockquote>
@@ -408,20 +408,20 @@
 <p>Singular Value Decomposition - 奇异值分解</p>
 </blockquote>
 <p>略</p>
-<h2 id="Spark内置协同过滤算法"><a href="#Spark内置协同过滤算法" class="headerlink" title="Spark内置协同过滤算法"></a>Spark内置协同过滤算法</h2><p><a target="_blank" rel="noopener" href="http://dblab.xmu.edu.cn/blog/1461-2/">MLlib的ALS Demo例子</a>，这个例子排版清晰，步骤细致，做初步试验学习是最好的参照。Spark的MLlib，实现的ALS算法，已经提供了显性和隐性反馈的版本，可通过implicitPrefs=true|false(默认)来指定。</p>
+<h2 id="Spark内置协同过滤算法"><a href="#Spark内置协同过滤算法" class="headerlink" title="Spark内置协同过滤算法"></a>Spark内置协同过滤算法</h2><p><a target="_blank" rel="noopener" href="http://dblab.xmu.edu.cn/blog/1461-2/">MLlib的ALS Demo例子</a>，这个例子排版清晰，步骤细致，做初步试验学习是最好的参照。Spark的MLlib，实现的ALS算法，已经提供了显性和隐性反馈的版本，可通过implicitPrefs&#x3D;true|false(默认)来指定。</p>
 <p>内置ALS数据集包含的行格式：电影编号，用户编号，用户电影评分，uinxtime时间戳</p>
 <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/dbcf1bcd7edb">还有一个Java版本的实现文章</a></p>
-<h3 id="显隐反馈的策略区别"><a href="#显隐反馈的策略区别" class="headerlink" title="显隐反馈的策略区别"></a>显隐反馈的策略区别</h3><p>数据处理/看待的策略角度不同。</p>
+<h3 id="显隐反馈的策略区别"><a href="#显隐反馈的策略区别" class="headerlink" title="显隐反馈的策略区别"></a>显隐反馈的策略区别</h3><p>数据处理&#x2F;看待的策略角度不同。</p>
 <p>当你提供的是显性反馈时，相当于直接对你的评级数据进行建模求权重；</p>
 <p>而隐式反馈时将数据集看作代表强度的数字化用户行为观察（如点击次数或某人观看项目的累积时间），这些数字与观察到的用户偏好的置信水平相关，而不是明确与评分评级有关。</p>
-<p>当implicitPrefs=true时，还有一个配套参数alpha（默认值1.0，也就是不干预训练结果），用来与最终模型训练结果输出前相乘。很多地方描述称做控制偏好观察中的 基线置信度，提法直观阅读比较绕，特作前面的实际作用机制说明。</p>
+<p>当implicitPrefs&#x3D;true时，还有一个配套参数alpha（默认值1.0，也就是不干预训练结果），用来与最终模型训练结果输出前相乘。很多地方描述称做控制偏好观察中的 基线置信度，提法直观阅读比较绕，特作前面的实际作用机制说明。</p>
 <h2 id="补记：CTR中流行FM算法的特点"><a href="#补记：CTR中流行FM算法的特点" class="headerlink" title="补记：CTR中流行FM算法的特点"></a>补记：CTR中流行FM算法的特点</h2><p>FM（Factorization Machine）是由Konstanz大学Steffen Rendle于2010年最早提出的，旨在解决稀疏数据下的特征组合问题。经过One-Hot编码之后，大部分样本数据特征是比较稀疏的，特征空间还变得更大。某些特征经过关联之后，与label之间的相关性就会提高，那么引入特征组合就非常具有意义了。</p>
 <p>在FM模型之前，CTR预估最常用的模型是SVM和LR（包括用GBDT给它们提取非线性特征），SVM和LR都是线性模型（SVM理论上可以引入核函数从而引入非线性，但由于非常高维的稀疏特征向量使得它很容易过拟合，故实际运用起来不太顺手），在特征关联领域，怎么建模二阶，三阶甚至更高阶非线性的关系就是预估更加准确的关键点（因为其实际上确有相关性，如吃饭时间食谱类App下载量比平时大–app类别和时间的二阶关系，年轻男性更喜欢设计类游戏—年龄，性别，游戏类别的三阶关系）。</p>
 <p>FM通过给每个特征引入一个低维稠密的隐向量来减少二阶特征交互的参数个数，同时实现信息共享，使得在非常稀疏的特征向量上的学习更加容易泛化。理论上FM可以建模二阶以上的特征交互，但是由于计算量急剧增加，实际一般只用二阶的模型。</p>
 <blockquote>
 <p>直观上看，FM的复杂度是 O(kn^2)。但是，FM的二次项可以化简，其复杂度可以优化到 O(kn)。由此可见，FM可以在线性时间对新样本作出预测</p>
 </blockquote>
-<p>FM可以模拟二阶多项式核的SVM模型，MF模型，SVD++模型等，相比SVM的二阶多项式核而言，FM在样本稀疏的情况下是有优势的。FM的训练/预测 复杂度是线性的，而二阶多项式核SVM需要计算核矩阵，核矩阵复杂度就是N平方。</p>
+<p>FM可以模拟二阶多项式核的SVM模型，MF模型，SVD++模型等，相比SVM的二阶多项式核而言，FM在样本稀疏的情况下是有优势的。FM的训练&#x2F;预测 复杂度是线性的，而二阶多项式核SVM需要计算核矩阵，核矩阵复杂度就是N平方。</p>
 
     </div>
 
@@ -527,6 +527,77 @@
 </script>
 
         </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AF%E8%AF%AD%E8%A1%A8"><span class="nav-number">1.</span> <span class="nav-text">术语表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E6%80%A7%E5%8F%8D%E9%A6%88"><span class="nav-number">1.1.</span> <span class="nav-text">显性反馈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%90%E6%80%A7%E5%8F%8D%E9%A6%88"><span class="nav-number">1.2.</span> <span class="nav-text">隐性反馈</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%A4%E5%A4%A7%E6%96%B9%E5%90%91"><span class="nav-number">2.</span> <span class="nav-text">两大方向</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Memory-based"><span class="nav-number">2.1.</span> <span class="nav-text">Memory-based</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E7%94%A8%E6%88%B7"><span class="nav-number">2.1.1.</span> <span class="nav-text">基于用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E9%A1%B9%E7%9B%AE"><span class="nav-number">2.1.2.</span> <span class="nav-text">基于项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">2.1.3.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%B1%E5%8A%BF"><span class="nav-number">2.1.4.</span> <span class="nav-text">弱势</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Model-based"><span class="nav-number">2.2.</span> <span class="nav-text">Model-based</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A8%80%E7%96%8F%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-number">2.2.1.</span> <span class="nav-text">稀疏数据集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E5%9B%A0%E5%AD%90"><span class="nav-number">2.2.2.</span> <span class="nav-text">用户因子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E5%9B%A0%E5%AD%90"><span class="nav-number">2.2.3.</span> <span class="nav-text">项目因子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B1%82%E6%9D%83%E9%87%8D%E7%9F%A9%E9%98%B5"><span class="nav-number">2.2.4.</span> <span class="nav-text">求权重矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ALS"><span class="nav-number">2.2.4.1.</span> <span class="nav-text">ALS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SVD"><span class="nav-number">2.2.4.2.</span> <span class="nav-text">SVD</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spark%E5%86%85%E7%BD%AE%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%AE%97%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">Spark内置协同过滤算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E9%9A%90%E5%8F%8D%E9%A6%88%E7%9A%84%E7%AD%96%E7%95%A5%E5%8C%BA%E5%88%AB"><span class="nav-number">3.1.</span> <span class="nav-text">显隐反馈的策略区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A5%E8%AE%B0%EF%BC%9ACTR%E4%B8%AD%E6%B5%81%E8%A1%8CFM%E7%AE%97%E6%B3%95%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-number">4.</span> <span class="nav-text">补记：CTR中流行FM算法的特点</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="DiffDay"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">DiffDay</p>
+  <div class="site-description" itemprop="description">自我博雅探索，以求不惑</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">109</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:creator.chen@foxmail.com" title="E-Mail → mailto:creator.chen@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
       </div>
     </main>
 
@@ -551,13 +622,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">435k</span>
+    <span title="站点总字数">436k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">6:35</span>
+    <span title="站点阅读时长">6:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

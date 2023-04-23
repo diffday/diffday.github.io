@@ -21,15 +21,15 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.diffday.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"remove","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.diffday.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="开门见山   对比项 文件存储NAS 对象存储 块存储    共享访问 多台ECS（千级别上限）同时挂载，并发访问同一个文件系统 客户端（百万级别上限）向同一个存储空间并发上传下载文件 单台ECS通过POSIX接口访问   操作对象 文件和文件夹 依软件系统而定，常见亦是文件 磁盘   协议接口 POSIX&#x2F;NFS&#x2F;SMB&#x2F;MPI 注重接口灵活及访问权控制（Lookup&#x2F;Access&#x2F;Read&#x2F;">
+  <meta name="description" content="开门见山   对比项 文件存储NAS 对象存储 块存储    共享访问 多台ECS（千级别上限）同时挂载，并发访问同一个文件系统 客户端（百万级别上限）向同一个存储空间并发上传下载文件 单台ECS通过POSIX接口访问   操作对象 文件和文件夹 依软件系统而定，常见亦是文件 磁盘   协议接口 POSIX&#x2F;NFS&#x2F;SMB&#x2F;MPI 注重接口灵活及访问权控制（Look">
 <meta property="og:type" content="article">
 <meta property="og:title" content="文件&#x2F;块&#x2F;对象存储的区别">
 <meta property="og:url" content="https://blog.diffday.com/%E5%9D%97:%E6%96%87%E4%BB%B6:%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8.html">
 <meta property="og:site_name" content="Diffday">
-<meta property="og:description" content="开门见山   对比项 文件存储NAS 对象存储 块存储    共享访问 多台ECS（千级别上限）同时挂载，并发访问同一个文件系统 客户端（百万级别上限）向同一个存储空间并发上传下载文件 单台ECS通过POSIX接口访问   操作对象 文件和文件夹 依软件系统而定，常见亦是文件 磁盘   协议接口 POSIX&#x2F;NFS&#x2F;SMB&#x2F;MPI 注重接口灵活及访问权控制（Lookup&#x2F;Access&#x2F;Read&#x2F;">
+<meta property="og:description" content="开门见山   对比项 文件存储NAS 对象存储 块存储    共享访问 多台ECS（千级别上限）同时挂载，并发访问同一个文件系统 客户端（百万级别上限）向同一个存储空间并发上传下载文件 单台ECS通过POSIX接口访问   操作对象 文件和文件夹 依软件系统而定，常见亦是文件 磁盘   协议接口 POSIX&#x2F;NFS&#x2F;SMB&#x2F;MPI 注重接口灵活及访问权控制（Look">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://cdn.diffday.com/picgo/20210922112329.png">
 <meta property="article:published_time" content="2021-09-22T06:36:00.000Z">
@@ -143,7 +143,7 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">12</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">11</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
@@ -261,7 +261,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.7k</span>
+              <span>1.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -280,7 +280,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><img src="http://cdn.diffday.com/picgo/20210922112329.png"></p>
+        <p><img data-src="http://cdn.diffday.com/picgo/20210922112329.png"></p>
 <h2 id="开门见山"><a href="#开门见山" class="headerlink" title="开门见山"></a>开门见山</h2><table>
 <thead>
 <tr>
@@ -304,9 +304,9 @@
 </tr>
 <tr>
 <td>协议接口</td>
-<td>POSIX/NFS/SMB/MPI 注重接口灵活及访问权控制<br/>（Lookup/Access/Read/Write/Create/Remove/Rename<br/>/MkDir/RmDir/ReadDir等等）</td>
-<td>RESTful/SDK/客户端<br />PUT/GET/DELETE，更注重简洁</td>
-<td>格式化后支持POSIX协议<br />Read/Write/Read Capacity/Inquiry，更注重传输控制</td>
+<td>POSIX&#x2F;NFS&#x2F;SMB&#x2F;MPI 注重接口灵活及访问权控制<br/>（Lookup&#x2F;Access&#x2F;Read&#x2F;Write&#x2F;Create&#x2F;Remove&#x2F;Rename<br/>&#x2F;MkDir&#x2F;RmDir&#x2F;ReadDir等等）</td>
+<td>RESTful&#x2F;SDK&#x2F;客户端<br />PUT&#x2F;GET&#x2F;DELETE，更注重简洁</td>
+<td>格式化后支持POSIX协议<br />Read&#x2F;Write&#x2F;Read Capacity&#x2F;Inquiry，更注重传输控制</td>
 </tr>
 <tr>
 <td>读写模式</td>
@@ -347,10 +347,10 @@
 </tbody></table>
 <span id="more"></span>
 
-<h2 id="NAS"><a href="#NAS" class="headerlink" title="NAS"></a>NAS</h2><p>将存储作为网络文件系统公开，当设备附加到NAS系统时，将显示一个挂载文件系统，用户可使用适当的访问权限访问其文件。对NAS的访问通过NFS和SMB/CIFS协议进行处理。与任何服务器和存储解决方案一样，文件系统负责在NAS中定位文件，这对于数十万甚至数百万文件非常有效，但对于数十亿的文件就不行了。</p>
+<h2 id="NAS"><a href="#NAS" class="headerlink" title="NAS"></a>NAS</h2><p>将存储作为网络文件系统公开，当设备附加到NAS系统时，将显示一个挂载文件系统，用户可使用适当的访问权限访问其文件。对NAS的访问通过NFS和SMB&#x2F;CIFS协议进行处理。与任何服务器和存储解决方案一样，文件系统负责在NAS中定位文件，这对于数十万甚至数百万文件非常有效，但对于数十亿的文件就不行了。</p>
 <h2 id="块存储"><a href="#块存储" class="headerlink" title="块存储"></a>块存储</h2><blockquote>
 <p>这些玩意-磁带，光盘，软盘 都是块存储</p>
-<p>哪些块组成一个文件，哪些块记录的是目录/子目录信息，这是文件系统的事情</p>
+<p>哪些块组成一个文件，哪些块记录的是目录&#x2F;子目录信息，这是文件系统的事情</p>
 </blockquote>
 <p>弹性块存储采用三副本分布机制可靠性高；本地存储即本地盘，是指云服务器ECS所在宿主机上的本地硬盘。无论是弹性块存储还是本地块存储，一般用于服务器系统盘或数据盘使用。</p>
 <p>块存储EBS是裸磁盘，挂载到ECS后不能被操作系统应用直接访问，需要格式化成文件系统（ext3、ext4、NTFS等）后才能被访问。块存储EBS的优势是性能高、时延低，适合于OLTP数据库、NoSQL数据库等IO密集型的高性能、低时延应用工作负载。但是块存储EBS无法容量弹性扩展，单盘最大只能32TB，并且对共享访问的支持有限，需要配合类Oracle RAC、WSFC Windows故障转移集群等集群管理软件才能进行共享访问。因此，块存储EBS主要还是针对单ECS的高性能，低时延的存储产品</p>
@@ -468,6 +468,77 @@
 </script>
 
         </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E9%97%A8%E8%A7%81%E5%B1%B1"><span class="nav-number">1.</span> <span class="nav-text">开门见山</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NAS"><span class="nav-number">2.</span> <span class="nav-text">NAS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9D%97%E5%AD%98%E5%82%A8"><span class="nav-number">3.</span> <span class="nav-text">块存储</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8"><span class="nav-number">4.</span> <span class="nav-text">对象存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%B4%E7%9A%84%E8%BF%99%E4%B9%88%E7%89%9B%EF%BC%8C%E5%92%8B%E4%B8%8D%E4%B8%8A%E5%A4%A9%E4%B8%80%E7%BB%9F%E6%B1%9F%E6%B9%96"><span class="nav-number">4.1.</span> <span class="nav-text">说的这么牛，咋不上天一统江湖</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="DiffDay"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">DiffDay</p>
+  <div class="site-description" itemprop="description">自我博雅探索，以求不惑</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">109</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:creator.chen@foxmail.com" title="E-Mail → mailto:creator.chen@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
       </div>
     </main>
 
@@ -492,13 +563,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">435k</span>
+    <span title="站点总字数">436k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">6:35</span>
+    <span title="站点阅读时长">6:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

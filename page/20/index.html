@@ -21,7 +21,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.diffday.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"remove","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.diffday.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
   <meta name="description" content="自我博雅探索，以求不惑">
@@ -138,7 +138,7 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">12</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">11</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
@@ -270,7 +270,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><img src="http://cdn.diffday.com/picgo/20201020083838.png"></p>
+          <p><img data-src="http://cdn.diffday.com/picgo/20201020083838.png"></p>
 <h2 id="业界明星"><a href="#业界明星" class="headerlink" title="业界明星"></a>业界明星</h2><p>LVS是国内程序员界为行业付出的最响当当产品了，在互联网界更是采用的多。</p>
 <h3 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h3><p>个人认为LVS出现的基础有三点：</p>
 <ol>
@@ -278,7 +278,7 @@
 <li><strong>加之DNS更新调整的麻烦度</strong></li>
 <li><strong>服务器之间需要负载均衡，硬件负载均衡还是贵，原来国外大厂的闭源软件同样也贵</strong></li>
 </ol>
-<p>在TCP/IP协议簇上，能做到的方案肯定最低工作在IP层做路由转发和负载均衡。</p>
+<p>在TCP&#x2F;IP协议簇上，能做到的方案肯定最低工作在IP层做路由转发和负载均衡。</p>
 <p>大家都用过交换机和路由器，家用的都是路由器，因为有公网IP，一台路由器代理几台设备，家用路由器NAT转换协议也是为上面1,2点而来。</p>
 <h3 id="作者语述"><a href="#作者语述" class="headerlink" title="作者语述"></a>作者语述</h3><p>真正有用的软件来源于实际应用，不同于闭门造车想象出来的功能，且看LVS作者章文嵩博士的回忆：</p>
 <blockquote>
@@ -382,9 +382,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><img src="http://cdn.diffday.com/picgo/20201126174951.png"></p>
+          <p><img data-src="http://cdn.diffday.com/picgo/20201126174951.png"></p>
 <h2 id="造神前言"><a href="#造神前言" class="headerlink" title="造神前言"></a>造神前言</h2><p>在互联网圈里混，多少要培养一些个人的产品意识。用最直白的话来说，什么是产品意识，其实就是对人性的洞察。所有的大而玄的东西谈产品，如果不说人话，你就可以把它们踢到垃圾堆里。有一段时间，在鹅厂狂吹张小龙，造神一样，其实也是广研团队下层自身需要的宣传，虽说造神，但不得不说张小龙确是人才，杰出程序员，到了不惑年纪，看透纷繁复杂的羁绊，了解各种行业迷障，搞产品懂用户也是一等一的厉害。特摘录改写部分分享内容，提醒自己没有一身研发功夫的产品经理不是好运营。我们这里不看营销，不看技术，只看产品。</p>
-<p>后来梁宁的产品经理30讲和增长30讲也讲的很好，讲到产品经理的能力其实是建立信息秩序的能力，干这行也需天分，天分的一点是敏感度高。这一点是后期培养难以及时的，就像个性特征+动机+价值观=天赋一样，这些都是在其过往的经历中基本已经定型了，瓜若强扭大概率不甜。</p>
+<p>后来梁宁的产品经理30讲和增长30讲也讲的很好，讲到产品经理的能力其实是建立信息秩序的能力，干这行也需天分，天分的一点是敏感度高。这一点是后期培养难以及时的，就像个性特征+动机+价值观&#x3D;天赋一样，这些都是在其过往的经历中基本已经定型了，瓜若强扭大概率不甜。</p>
 <h2 id="用户定位"><a href="#用户定位" class="headerlink" title="用户定位"></a>用户定位</h2>
           <!--noindex-->
             <div class="post-button">
@@ -484,11 +484,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><img src="http://cdn.diffday.com/picgo/%E4%BA%A4%E5%8F%8B%E5%B0%81%E9%9D%A2.png"></p>
+          <p><img data-src="http://cdn.diffday.com/picgo/%E4%BA%A4%E5%8F%8B%E5%B0%81%E9%9D%A2.png"></p>
 <p>交友，跟人类所有活动一样，都是有动机的。三类诉求应该能涵盖</p>
 <ul>
 <li>要么某种同好聊得来，士为知己者死</li>
-<li>要么有所求(利益/信息流动)</li>
+<li>要么有所求(利益&#x2F;信息流动)</li>
 <li>要么男女之爱</li>
 </ul>
 <h3 id="数字不说谎"><a href="#数字不说谎" class="headerlink" title="数字不说谎"></a>数字不说谎</h3><p>人人都从陌生人开启，转入熟识，有些再继续转入陌生，走着这样的轮回，有些就真成了要好的朋友，但这个比例不会大。经数据调查证实，一个人真正的朋友多在10人以下，且一个人能保持联系的友人在150以下。这个数字在Facebook上也能得到印证，平均每人130个好友，但常联系的只有4-6个（放宽点在7-15个之间），通过分析用户的交际圈分组，85%的组是不属于朋友概念的，且多数是维持4-6组不超过10个人的关系人组。在北美的其它调查中，平均每个人有10个左右关系较近的朋友（每周交流或见面），同样佐证着数据范围。</p>
@@ -593,7 +593,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><img src="http://cdn.diffday.com/picgo/20210816153515.png"></p>
+          <p><img data-src="http://cdn.diffday.com/picgo/20210816153515.png"></p>
 <p><strong>没有人为的持续努力，所有的心灵奇迹都不会发生。认识自己本就是一件需要勇气和毅力的工作。</strong></p>
 <p>不仅要承担面对自己性格黑暗面时的难堪，同时还要想办法放下既有的性格惯性，发展出新的态度与行为模式。通过学习，你可以更清楚自己的内在运作和外显特质。</p>
           <!--noindex-->
@@ -653,7 +653,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-20 16:53:19" itemprop="dateModified" datetime="2023-04-20T16:53:19+08:00">2023-04-20</time>
+                <time title="修改时间：2023-04-23 14:26:00" itemprop="dateModified" datetime="2023-04-23T14:26:00+08:00">2023-04-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -692,10 +692,10 @@
       
           <p><img data-src="http://cdn.diffday.com/picgo/20210814212638.png" alt="16型人格的自我修炼"><img data-src="http://cdn.diffday.com/picgo/20210814212432.png" alt="16型人格的分类维度"></p>
 <p>近日读了一本关于性格（MBTI）的书，不知道是书的原因，直觉的原因，还是耐性不足（字多）的原因，个人对于九型人格更为看好一点。<u>个人看法九型人格讨论的更为深邃</u>，但9分类做的不易区分，因为对立象限不那么直接。迎合了自己MBTI里直觉型的特点。从职场上来说，MBTI更为流行，实用度也更好，总结为4个维度比9个维度，是要更简单实用些。所以它有它的可取之处。书的名字是 《16型人格的自我修炼》</p>
-<h2 id="渊源"><a href="#渊源" class="headerlink" title="渊源"></a>渊源</h2><p> MBTI，脱自于荣格的理论，荣格是弗洛伊德的学生，但脱离于弗洛伊德发展出自己的流派（弗洛伊德的体系总结于精神病治疗，推广于各个正常场景确实过于偏执，但无法否认开创了一篇天地）</p>
+<h1 id="渊源"><a href="#渊源" class="headerlink" title="渊源"></a>渊源</h1><p> MBTI，脱自于荣格的理论，荣格是弗洛伊德的学生，但脱离于弗洛伊德发展出自己的流派（弗洛伊德的体系总结于精神病治疗，推广于各个正常场景确实过于偏执，但无法否认开创了一篇天地）</p>
 <p> 在荣格的理论中，认为人们有着不同的“原型”本能，这些不同的本能从自身内部驾驭着每一个不同的人，没有哪一个是更重要的，<u>重要的是<strong>我们的自然倾向—内在或外在</strong></u>。这两种倾向和他提出的“四个基本心理学功能”—“思想、体验、感觉、直觉”相联系，形成了人的“功能类型”。荣格认为，我们可以把人根据他们的倾向性来进行分类，因为不同的倾向正是不同性格最深层最自然特质的外在表现，这些倾向体现了“你是怎么样的一个人”。</p>
 <p>MBTI最初就用于职场分析。二战期间，男人被送上战场，工厂车间的位置不得不由女人来顶替，<u>MBTI的发明者是一对母女，就希望找到一个性格类型的测试方法，让从未进入工厂的女人们能从事和自己性格相匹配的工作，从而感到舒适而高效</u>。</p>
-<h2 id="简解"><a href="#简解" class="headerlink" title="简解"></a>简解</h2><ul>
+<h1 id="简解"><a href="#简解" class="headerlink" title="简解"></a>简解</h1><ul>
 <li>内向（Introversion）&#x2F;外向(Extraversion)，这个最简单，判断人多还是独处时精力最旺盛。</li>
 <li>感觉(Sensing) &#x2F; 直觉(iNtuition)， <u>感觉的人关注身边真实存在的细节，看得到摸得着，描述也喜例子。直觉的人更喜欢形而上，类比，喜欢抽象的问题</u>。</li>
 <li>思考(Thinking) &#x2F; 情感（Feeling）， 原则第一还是周围人的感受第一，这要看不得不做选择时。</li>
@@ -757,6 +757,76 @@
 </script>
 
         </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="DiffDay"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">DiffDay</p>
+  <div class="site-description" itemprop="description">自我博雅探索，以求不惑</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">109</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:creator.chen@foxmail.com" title="E-Mail → mailto:creator.chen@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
       </div>
     </main>
 
@@ -781,13 +851,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">435k</span>
+    <span title="站点总字数">436k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">6:35</span>
+    <span title="站点阅读时长">6:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

@@ -21,15 +21,15 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.diffday.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"remove","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.diffday.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="业界明星LVS是国内程序员界为行业付出的最响当当产品了，在互联网界更是采用的多。 背景介绍个人认为LVS出现的基础有三点：  IPV4 公网ip不够用的现状 加之DNS更新调整的麻烦度 服务器之间需要负载均衡，硬件负载均衡还是贵，原来国外大厂的闭源软件同样也贵  在TCP&#x2F;IP协议簇上，能做到的方案肯定最低工作在IP层做路由转发和负载均衡。 大家都用过交换机和路由器，家用的都是路由器，因为有公网">
+  <meta name="description" content="业界明星LVS是国内程序员界为行业付出的最响当当产品了，在互联网界更是采用的多。 背景介绍个人认为LVS出现的基础有三点：  IPV4 公网ip不够用的现状 加之DNS更新调整的麻烦度 服务器之间需要负载均衡，硬件负载均衡还是贵，原来国外大厂的闭源软件同样也贵  在TCP&#x2F;IP协议簇上，能做到的方案肯定最低工作在IP层做路由转发和负载均衡。 大家都用过交换机和路由器，家用的都是路由器，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LVS三类工作模式">
 <meta property="og:url" content="https://blog.diffday.com/LVS%E4%B8%89%E7%B1%BB%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F.html">
 <meta property="og:site_name" content="Diffday">
-<meta property="og:description" content="业界明星LVS是国内程序员界为行业付出的最响当当产品了，在互联网界更是采用的多。 背景介绍个人认为LVS出现的基础有三点：  IPV4 公网ip不够用的现状 加之DNS更新调整的麻烦度 服务器之间需要负载均衡，硬件负载均衡还是贵，原来国外大厂的闭源软件同样也贵  在TCP&#x2F;IP协议簇上，能做到的方案肯定最低工作在IP层做路由转发和负载均衡。 大家都用过交换机和路由器，家用的都是路由器，因为有公网">
+<meta property="og:description" content="业界明星LVS是国内程序员界为行业付出的最响当当产品了，在互联网界更是采用的多。 背景介绍个人认为LVS出现的基础有三点：  IPV4 公网ip不够用的现状 加之DNS更新调整的麻烦度 服务器之间需要负载均衡，硬件负载均衡还是贵，原来国外大厂的闭源软件同样也贵  在TCP&#x2F;IP协议簇上，能做到的方案肯定最低工作在IP层做路由转发和负载均衡。 大家都用过交换机和路由器，家用的都是路由器，">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://cdn.diffday.com/picgo/20201020083838.png">
 <meta property="article:published_time" content="2016-04-18T06:55:52.000Z">
@@ -143,7 +143,7 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">12</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">11</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
@@ -282,7 +282,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><img src="http://cdn.diffday.com/picgo/20201020083838.png"></p>
+        <p><img data-src="http://cdn.diffday.com/picgo/20201020083838.png"></p>
 <h2 id="业界明星"><a href="#业界明星" class="headerlink" title="业界明星"></a>业界明星</h2><p>LVS是国内程序员界为行业付出的最响当当产品了，在互联网界更是采用的多。</p>
 <h3 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h3><p>个人认为LVS出现的基础有三点：</p>
 <ol>
@@ -290,7 +290,7 @@
 <li><strong>加之DNS更新调整的麻烦度</strong></li>
 <li><strong>服务器之间需要负载均衡，硬件负载均衡还是贵，原来国外大厂的闭源软件同样也贵</strong></li>
 </ol>
-<p>在TCP/IP协议簇上，能做到的方案肯定最低工作在IP层做路由转发和负载均衡。</p>
+<p>在TCP&#x2F;IP协议簇上，能做到的方案肯定最低工作在IP层做路由转发和负载均衡。</p>
 <p>大家都用过交换机和路由器，家用的都是路由器，因为有公网IP，一台路由器代理几台设备，家用路由器NAT转换协议也是为上面1,2点而来。</p>
 <h3 id="作者语述"><a href="#作者语述" class="headerlink" title="作者语述"></a>作者语述</h3><p>真正有用的软件来源于实际应用，不同于闭门造车想象出来的功能，且看LVS作者章文嵩博士的回忆：</p>
 <blockquote>
@@ -310,7 +310,7 @@
 <p><strong>1.DR（direct routing直接路由）</strong></p>
 <p><strong>2.NAT（Network Address Translation网络地址转换）</strong></p>
 <p><strong>3.Tune（IP Tunneling隧道）</strong></p>
-<h3 id="NAT模式"><a href="#NAT模式" class="headerlink" title="NAT模式"></a>NAT模式</h3><p>所有real server可分配保留私有地址，只有LB分配一个公网IP，但所有的请求包和应答包都经过LB，且不说网卡流量问题。包因为要修改再生，需要消耗CPU时间。举个例子，如果TCP包平均长度536字节，平均再生延迟60纳秒，那么这个延迟，导致LB的最大允许吞吐能力是8.93M/s（1/60*536）。做负载均衡，real server多了，就满足不了要求（如果单台real server允许400K/s，22台就达到极限）。这种模式下LB很容易成为整个系统的瓶颈。NAT通常的负担量也就在20台real server左右。</p>
+<h3 id="NAT模式"><a href="#NAT模式" class="headerlink" title="NAT模式"></a>NAT模式</h3><p>所有real server可分配保留私有地址，只有LB分配一个公网IP，但所有的请求包和应答包都经过LB，且不说网卡流量问题。包因为要修改再生，需要消耗CPU时间。举个例子，如果TCP包平均长度536字节，平均再生延迟60纳秒，那么这个延迟，导致LB的最大允许吞吐能力是8.93M&#x2F;s（1&#x2F;60*536）。做负载均衡，real server多了，就满足不了要求（如果单台real server允许400K&#x2F;s，22台就达到极限）。这种模式下LB很容易成为整个系统的瓶颈。NAT通常的负担量也就在20台real server左右。</p>
 <h3 id="DR模式"><a href="#DR模式" class="headerlink" title="DR模式"></a>DR模式</h3><p>与NAT模式一样，同样要求real server与LB在同一物理网段，这样对组网布线是有要求的。且realserver上须有一块网卡不接受arp广播（同样配上VIP）。</p>
 <p>涉及网络细节，且性能在三种模式下最好，详细讲下DR过程【模式出现 动机之一，在于现实发现许多Internet服务（例如WEB服务器）的请求包很短小，而应答包通常很大。如果只让LB处理入包，定可以提升吞吐能力】。</p>
 <ol>
@@ -431,6 +431,77 @@
 </script>
 
         </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%9A%E7%95%8C%E6%98%8E%E6%98%9F"><span class="nav-number">1.</span> <span class="nav-text">业界明星</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.1.</span> <span class="nav-text">背景介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E8%80%85%E8%AF%AD%E8%BF%B0"><span class="nav-number">1.2.</span> <span class="nav-text">作者语述</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AC%E6%A0%B8%E6%AD%A3%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">硬核正题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NAT%E6%A8%A1%E5%BC%8F"><span class="nav-number">2.1.</span> <span class="nav-text">NAT模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DR%E6%A8%A1%E5%BC%8F"><span class="nav-number">2.2.</span> <span class="nav-text">DR模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TUN%E6%A8%A1%E5%BC%8F"><span class="nav-number">2.3.</span> <span class="nav-text">TUN模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E8%AE%B0"><span class="nav-number">3.</span> <span class="nav-text">后记</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="DiffDay"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">DiffDay</p>
+  <div class="site-description" itemprop="description">自我博雅探索，以求不惑</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">109</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:creator.chen@foxmail.com" title="E-Mail → mailto:creator.chen@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
       </div>
     </main>
 
@@ -455,13 +526,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">435k</span>
+    <span title="站点总字数">436k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">6:35</span>
+    <span title="站点阅读时长">6:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

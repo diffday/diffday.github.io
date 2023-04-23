@@ -21,7 +21,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.diffday.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"remove","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.diffday.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
   <meta name="description" content="由QQ浏览器的背锅遭遇说开去看到鹅厂一篇文章反馈用户抱怨QQ浏览器耗费流量，经查其实是其它软件在背后偷跑流量，正巧用户此刻正在使用QQ浏览器。冤~~，某种情况下用户会下意识的把流量消耗归罪于自己常用的东东，特别是历史上有过劣迹（初始版本省流优化并不好），小白用户常有直观思维，包括手机卫士之类的软件其实也不太会用，你的产品对其印象不好，被其直观投诉，背黑锅，惨。。。。从塞班过来的用户亲爱UC，尽管">
@@ -143,7 +143,7 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">12</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">11</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
@@ -282,7 +282,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><img src="http://cdn.diffday.com/picgo/20220608160902.png"></p>
+        <p><img data-src="http://cdn.diffday.com/picgo/20220608160902.png"></p>
 <h2 id="由QQ浏览器的背锅遭遇说开去"><a href="#由QQ浏览器的背锅遭遇说开去" class="headerlink" title="由QQ浏览器的背锅遭遇说开去"></a>由QQ浏览器的背锅遭遇说开去</h2><p>看到鹅厂一篇文章反馈用户抱怨QQ浏览器耗费流量，经查其实是其它软件在背后偷跑流量，正巧用户此刻正在使用QQ浏览器。冤~~，某种情况下用户会下意识的把流量消耗归罪于自己常用的东东，特别是历史上有过劣迹（初始版本省流优化并不好），小白用户常有直观思维，包括手机卫士之类的软件其实也不太会用，你的产品对其印象不好，被其直观投诉，背黑锅，惨。。。。从塞班过来的用户亲爱UC，尽管QQ浏览器现在已经明显比UC省流，但用户习惯还是非常难扭转（浏览器成也无用户粘性，败也无用户粘性）。</p>
 <p>针对用户抱怨QQ浏览器的流量消耗问题，为了自证（流量消耗时不在场）加说明自己的特性，QQ浏览器在后续版本中特意突出明显化（<em>通过图表而不是简单数字的形式</em>）了流量消耗统计和节省的流量统计。让用户能更明白，其实你可以看出来对于误解，能采取的手段确实很有限。有更好的用户引导或特性宣传，是产品设计里非常重要的因素。</p>
 <h2 id="精品年代的竞争"><a href="#精品年代的竞争" class="headerlink" title="精品年代的竞争"></a>精品年代的竞争</h2><p>当前已经是精品生存时代，用户见识广，口味挑，远不是几年前的用户寂寞苦楚，插扁担都开花的年代了。</p>
@@ -417,6 +417,77 @@
 </script>
 
         </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%B1QQ%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E8%83%8C%E9%94%85%E9%81%AD%E9%81%87%E8%AF%B4%E5%BC%80%E5%8E%BB"><span class="nav-number">1.</span> <span class="nav-text">由QQ浏览器的背锅遭遇说开去</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B2%BE%E5%93%81%E5%B9%B4%E4%BB%A3%E7%9A%84%E7%AB%9E%E4%BA%89"><span class="nav-number">2.</span> <span class="nav-text">精品年代的竞争</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%87%E5%A6%82%E4%BD%A0%E5%81%9A%E6%B6%88%E8%B4%B9%E5%93%81%E8%A1%8C%E4%B8%9A"><span class="nav-number">3.</span> <span class="nav-text">假如你做消费品行业</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E8%89%BA%E5%A4%8D%E5%85%B4"><span class="nav-number">3.1.</span> <span class="nav-text">文艺复兴</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E6%97%B6%E4%BB%A3"><span class="nav-number">3.2.</span> <span class="nav-text">小时代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%9B%E7%BB%99%E8%BF%87%E5%89%A9"><span class="nav-number">3.3.</span> <span class="nav-text">供给过剩</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E8%AE%B0-%E4%B8%AD%E5%BF%83%E7%94%9F%E6%B4%BB%E6%98%AF%E5%95%A5"><span class="nav-number">4.</span> <span class="nav-text">后记-中心生活是啥</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="DiffDay"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">DiffDay</p>
+  <div class="site-description" itemprop="description">自我博雅探索，以求不惑</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">109</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:creator.chen@foxmail.com" title="E-Mail → mailto:creator.chen@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
       </div>
     </main>
 
@@ -441,13 +512,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">435k</span>
+    <span title="站点总字数">436k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">6:35</span>
+    <span title="站点阅读时长">6:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

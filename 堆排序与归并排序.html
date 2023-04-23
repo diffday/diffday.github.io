@@ -21,7 +21,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.diffday.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"remove","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.diffday.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
   <meta name="description" content="大家最常见的就是用数组这一数据结构来记录一系列有序或无序的数据。 堆排序Heap 此文讲的堆和堆内存不是一个概念。属于大家都形而上的用了这个英文词来描述自己的领域概念。  完全二叉树 叶子结点只出现在最下层和次下层（所有分支长度几乎相同，最长分支最短分支差异最多为1），最下层节点都集中在最左边若干位置的二叉树  堆也是一颗完全二叉树，举例如下无序数组：4,5,3,2,6,1。表示为完全二叉树的形式">
@@ -154,7 +154,7 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">12</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">11</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
@@ -301,12 +301,12 @@
 <p><strong>叶子结点只出现在最下层和次下层（所有分支长度几乎相同，最长分支最短分支差异最多为1），最下层节点都集中在最左边若干位置的二叉树</strong></p>
 </blockquote>
 <p><font color="blue">堆也是一颗完全二叉树</font>，举例如下无序数组：4,5,3,2,6,1。表示为完全二叉树的形式为</p>
-<img src="http://cdn.diffday.com/picgo/20221024110942.png" style="zoom: 67%;" />
+<img data-src="http://cdn.diffday.com/picgo/20221024110942.png" style="zoom: 67%;" />
 
 <p>基于完全二叉树的基本性质，<u>可从数组索引角度描述数字与数字在二叉树中的位置关系</u>，堆的结构性要求其为完全二叉树，就为了使用此好特性好结论</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- A[i]的左节点为A[2i+1]</span><br><span class="line">- 右节点为A[2i+2]</span><br><span class="line">- 父节点为A[i/2]</span><br></pre></td></tr></table></figure>
 
-<h3 id="Full-vs-Complete-vs-Perfect"><a href="#Full-vs-Complete-vs-Perfect" class="headerlink" title="Full vs Complete vs Perfect"></a>Full vs Complete vs Perfect</h3><p><img src="http://cdn.diffday.com/picgo/20221109135729.png"></p>
+<h3 id="Full-vs-Complete-vs-Perfect"><a href="#Full-vs-Complete-vs-Perfect" class="headerlink" title="Full vs Complete vs Perfect"></a>Full vs Complete vs Perfect</h3><p><img data-src="http://cdn.diffday.com/picgo/20221109135729.png"></p>
 <span id="more"></span>
 
 <p>二叉树通常用链表通过指针实现。堆的“(almost)-complete”属性及所有非叶子节点也是数值节点，对于将其实现为数组非常有用。堆为完全二叉树，我们可使用位置来确定哪个节点是哪个节点的子节点，i，2i+1,2i+2。</p>
@@ -319,7 +319,7 @@
 <blockquote>
 <p>如下3个，都是符合定义的大根堆</p>
 </blockquote>
-<p><img src="http://cdn.diffday.com/picgo/20221024181144.png"></p>
+<p><img data-src="http://cdn.diffday.com/picgo/20221024181144.png"></p>
 <h3 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h3><blockquote>
 <p>根据无序数组创建一个大根堆，不断调整大根堆，使其达到有序。</p>
 </blockquote>
@@ -339,8 +339,8 @@
 <blockquote>
 <p>每次堆顶元素与数组尾部元素互换后，我们要处理生成最大堆树的节点数据都会减一</p>
 </blockquote>
-<p><img src="http://cdn.diffday.com/picgo/20221024181705.png"></p>
-<img src="http://cdn.diffday.com/picgo/20221109140416.png" style="zoom:67%;" />
+<p><img data-src="http://cdn.diffday.com/picgo/20221024181705.png"></p>
+<img data-src="http://cdn.diffday.com/picgo/20221109140416.png" style="zoom:67%;" />
 
 <p>通过重复提取最大元素，在O（nlogn)的复杂度下，可轻松使用它生成排序数组（提取的元素放置在数组末尾，不再参与下一轮的堆处理中）。</p>
 <p>这一点上，<font color="blue"><u>大根堆实现数组从小到大排序；小根堆实现数组从大到小排序</u>。</font></p>
@@ -388,7 +388,7 @@
 <blockquote>
 <p>实际归并过程中，由于内存容量限制不能满足同时将2个归并段全部完整的读入内存进行归并，只能不断取2个归并段中的每一小部分进行归并，通过不断读取数据和向外写数据，直至2个归并段完成归并成1个大的有序文件。</p>
 </blockquote>
-<p><img src="http://cdn.diffday.com/picgo/20221109141202.png"></p>
+<p><img data-src="http://cdn.diffday.com/picgo/20221109141202.png"></p>
 <h3 id="多路归并"><a href="#多路归并" class="headerlink" title="多路归并"></a>多路归并</h3><p>堆外部排序算法来说，影响整体排序效率的因素主要为读写外存的次数，即访问外存越多，花的时间也越多。</p>
 <p>简单来看，访问外存的次数同归并次数成正比（每次归并都要在外存中暂存结果），两个角度可助力提高算法效率</p>
 <ul>
@@ -401,11 +401,11 @@
 <h4 id="多路举例"><a href="#多路举例" class="headerlink" title="多路举例"></a>多路举例</h4><blockquote>
 <p>2路归并</p>
 </blockquote>
-<p><img src="http://cdn.diffday.com/picgo/20221109143220.png" alt="2路归并"></p>
+<p><img data-src="http://cdn.diffday.com/picgo/20221109143220.png" alt="2路归并"></p>
 <blockquote>
 <p>5路归并</p>
 </blockquote>
-<p><img src="http://cdn.diffday.com/picgo/20221109142344.png"></p>
+<p><img data-src="http://cdn.diffday.com/picgo/20221109142344.png"></p>
 <h4 id="归并路数扩大的弊端"><a href="#归并路数扩大的弊端" class="headerlink" title="归并路数扩大的弊端"></a>归并路数扩大的弊端</h4><p>无限度增加K值，虽会减少读写外存数据的次数，但会增加内部归并的时间。</p>
 <blockquote>
 <p>2路归并，每次从2个文件中得到一个最小值只需比一次，5路归并时要比4次。</p>
@@ -431,16 +431,16 @@
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 完全二叉树 </span><br><span class="line">2. 每个叶子节点表示一个选手，记录选手的标号</span><br><span class="line">3. 每个非叶子节点表示一场比赛，记录胜者（数值小的）的标号，每层表示一轮比赛</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://cdn.diffday.com/picgo/20230116163623.png" alt="胜者树"></p>
+<p><img data-src="http://cdn.diffday.com/picgo/20230116163623.png" alt="胜者树"></p>
 <blockquote>
 <p>新插入选手（红色–来自另一个归并段的胜者），胜者树重构</p>
 </blockquote>
-<p><img src="http://cdn.diffday.com/picgo/20230116163915.png" alt="胜者树重构"></p>
+<p><img data-src="http://cdn.diffday.com/picgo/20230116163915.png" alt="胜者树重构"></p>
 <h5 id="胜者树与堆的异同"><a href="#胜者树与堆的异同" class="headerlink" title="胜者树与堆的异同"></a>胜者树与堆的异同</h5><p>都是完全树，时间复杂度量级也一样，最大的区别就是堆的非叶子节点有包含元素，而胜者树只有叶子节点有元素，<u>非叶子节点用来存放两个节点的胜者。由于此结构上的差异，在每次调整的时候堆分别要跟两个孩子进行两次比较，而胜者树只需要跟兄弟进行一次比较即可</u>，效率上会高一点（路径保存了额外的信息）。</p>
 <h5 id="树深度的疑问"><a href="#树深度的疑问" class="headerlink" title="树深度的疑问"></a>树深度的疑问</h5><p>但大家可能有疑问，你比较次数虽然少了，但堆非叶子节点也含有原始数据，所以堆的树高度会比胜者树低，那么要调整的次数少了，综合起来是否差不多？</p>
 <p><u>请注意，大家都是完全二叉树，每增加一层，节点数目可容纳就多了一倍，因此堆的高度一般也之比胜者树矮一层，这样定性来分析，堆在高度上也只有很小的优势。</u></p>
 <h4 id="胜者树vs败者树"><a href="#胜者树vs败者树" class="headerlink" title="胜者树vs败者树"></a>胜者树vs败者树</h4><blockquote>
-<p>胜者树在内部排序有用，而败者树在外部排序的多路平衡归并中有用武之地，怎么讲？<font color="red">其实现在程序的主要瓶颈在于访存了，计算倒几乎可以忽略不计了</font>，<font color="blue">谁能在减少比较/更新次数上更胜一筹，谁将拔得头筹！这必然要重新调整数据结构设计</font></p>
+<p>胜者树在内部排序有用，而败者树在外部排序的多路平衡归并中有用武之地，怎么讲？<font color="red">其实现在程序的主要瓶颈在于访存了，计算倒几乎可以忽略不计了</font>，<font color="blue">谁能在减少比较&#x2F;更新次数上更胜一筹，谁将拔得头筹！这必然要重新调整数据结构设计</font></p>
 </blockquote>
 <p>比较胜者树与败者树的代码，非常相似，都像是一根根不断将数组中的水（数组元素）吸取上来然后吐出来，也都是完全二叉树，是树形选择排序的一种变形。</p>
 <p>胜者树，新元素上升时，首先需获得父节点值（内容是下标），然后再获得兄弟节点的值进行比较，相较于堆减少了一半的比较量。且因为新插入的值取代了原先的最优胜者，新值向上调整的过程中，<u>必然要更新父节点</u>，能不能再优化呢？</p>
@@ -450,10 +450,10 @@
 </blockquote>
 <p><font color="blue">败者树解决了胜者树存在的弊端，只需和父节点比较一次，新插入的值向上调整中，不一定要更新【总得来说，减少了访存时间】。</font></p>
 <p>胜者树和败者树在每输出和补充一个值之后都需要自底向上调整，每上升一层都需要一次比较，败者树是和父节点的一次比较，胜者树适合兄弟的一次比较，在比较的内存次数上二者没有太大的差别。不同的是胜者树每次必然需要更新胜者（这条路径就是以原来的最终胜者为外部节点的路径，而原来的最终胜者已经被输出了），但败者树每次不一定需要更新，这代表它在每次上升时可能会少一次向内存的写入，因此更优。</p>
-<h5 id="败者树工作过程"><a href="#败者树工作过程" class="headerlink" title="败者树工作过程"></a>败者树工作过程</h5><p><img src="http://cdn.diffday.com/picgo/20221110113441.png" alt="5路归并败者树"></p>
+<h5 id="败者树工作过程"><a href="#败者树工作过程" class="headerlink" title="败者树工作过程"></a>败者树工作过程</h5><p><img data-src="http://cdn.diffday.com/picgo/20221110113441.png" alt="5路归并败者树"></p>
 <p>如上图为一个5路归并的败者树，其中b0~b4为叶子节点，分别为5个归并段中存储的记录的关键字。ls位一维数组，表示<u>非叶子节点，存储的数值表示第几归并段（如b0就为第0归并段），ls[0]中存储的为最终胜利者</u>，如图表示第3归并段中的值最小。</p>
 <p>当胜利者筛选出来后，只需要更新叶子结点b3的值，即导入15，然后让该节点不断与其父亲节点表示的值进行比较，败者留在父亲节点，胜利者继续向上比较</p>
-<p><img src="http://cdn.diffday.com/picgo/20221114144100.png" alt="败者树的工作过程"></p>
+<p><img data-src="http://cdn.diffday.com/picgo/20221114144100.png" alt="败者树的工作过程"></p>
 <blockquote>
 <p>为防止归并过程中某个归并段变空，处理办法通常是在每个归并段最后附件一个关键字为最大值的记录，这样当某一时刻选出冠军位为最大值时，表明所有归并段已全部归并完成。</p>
 </blockquote>
@@ -566,6 +566,77 @@
 </script>
 
         </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A0%86%E6%8E%92%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">堆排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Heap"><span class="nav-number">1.1.</span> <span class="nav-text">Heap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">1.2.</span> <span class="nav-text">完全二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Full-vs-Complete-vs-Perfect"><span class="nav-number">1.2.1.</span> <span class="nav-text">Full vs Complete vs Perfect</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A0%86%E5%BA%8F%E6%80%A7"><span class="nav-number">1.3.</span> <span class="nav-text">堆序性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.3.1.</span> <span class="nav-text">具体实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%A4%E6%8D%A2-%E4%B8%8B%E6%B2%89"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">交换-下沉</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5Tips"><span class="nav-number">1.3.2.</span> <span class="nav-text">概念Tips</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A0%86%E6%9C%AC%E8%BA%AB%E4%B8%8D%E6%98%AF%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">堆本身不是排序数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A0%86%E5%BD%A2%E5%BC%8F%E5%B9%B6%E4%B8%8D%E6%98%AF%E5%94%AF%E4%B8%80%E7%9A%84"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">堆形式并不是唯一的</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><span class="nav-number">2.</span> <span class="nav-text">归并排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%84%E5%BC%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">兄弟排序算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%96%E9%83%A8%E6%8E%92%E5%BA%8F%E7%9A%84%E9%80%89%E6%8B%A9"><span class="nav-number">2.2.</span> <span class="nav-text">外部排序的选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E8%B7%AF%E5%BD%92%E5%B9%B6"><span class="nav-number">2.2.1.</span> <span class="nav-text">多路归并</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E8%B7%AF%E4%B8%BE%E4%BE%8B"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">多路举例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BD%92%E5%B9%B6%E8%B7%AF%E6%95%B0%E6%89%A9%E5%A4%A7%E7%9A%84%E5%BC%8A%E7%AB%AF"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">归并路数扩大的弊端</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E4%BC%98%E5%8C%96%E7%99%BB%E5%9C%BA"><span class="nav-number">2.2.2.</span> <span class="nav-text">算法优化登场</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA%E5%85%88%E8%A1%8C"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">结论先行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%91%E6%8E%92%E4%B8%8E%E5%A0%86%E6%8E%92"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">树排与堆排</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E5%A0%86"><span class="nav-number">2.2.2.2.1.</span> <span class="nav-text">二叉堆</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%83%9C%E8%80%85%E6%A0%91"><span class="nav-number">2.2.2.2.2.</span> <span class="nav-text">胜者树</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%83%9C%E8%80%85%E6%A0%91%E4%B8%8E%E5%A0%86%E7%9A%84%E5%BC%82%E5%90%8C"><span class="nav-number">2.2.2.2.3.</span> <span class="nav-text">胜者树与堆的异同</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A0%91%E6%B7%B1%E5%BA%A6%E7%9A%84%E7%96%91%E9%97%AE"><span class="nav-number">2.2.2.2.4.</span> <span class="nav-text">树深度的疑问</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%83%9C%E8%80%85%E6%A0%91vs%E8%B4%A5%E8%80%85%E6%A0%91"><span class="nav-number">2.2.2.3.</span> <span class="nav-text">胜者树vs败者树</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%B4%A5%E8%80%85%E6%A0%91%E5%B7%A5%E4%BD%9C%E8%BF%87%E7%A8%8B"><span class="nav-number">2.2.2.3.1.</span> <span class="nav-text">败者树工作过程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%87%8F%E5%8C%96%E5%AF%B9%E6%AF%94"><span class="nav-number">2.2.2.3.2.</span> <span class="nav-text">量化对比</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8E%E8%AE%B0"><span class="nav-number">3.</span> <span class="nav-text">后记</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="DiffDay"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">DiffDay</p>
+  <div class="site-description" itemprop="description">自我博雅探索，以求不惑</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">109</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:creator.chen@foxmail.com" title="E-Mail → mailto:creator.chen@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
       </div>
     </main>
 
@@ -590,13 +661,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">435k</span>
+    <span title="站点总字数">436k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">6:35</span>
+    <span title="站点阅读时长">6:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

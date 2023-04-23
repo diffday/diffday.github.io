@@ -21,7 +21,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.diffday.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"remove","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.diffday.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
   <meta name="description" content="敏感数据的加密存储无论从国家，行业及监管合规层面，亦或是单纯提高自身信息安全水平的层面看均是势在必行的一则工作。  业界实践中大批量数据的加解密一般选择对称加密算法，其计算效率远高于非对称算法。主流商用对称算法包括美国FIPS标准定义的AES算法，中国国标定义的SM4算法，国内肯定是用国密算法  敏感信息表改造一列字段换两列密文针对一个敏感字段，需新增两列密文字段  摘要索引：存储原始值+盐（不">
@@ -143,7 +143,7 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">12</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">11</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
@@ -312,7 +312,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="密钥过期-泄漏如何更换"><a href="#密钥过期-泄漏如何更换" class="headerlink" title="密钥过期/泄漏如何更换"></a>密钥过期/泄漏如何更换</h3><p>依赖我们在加密数据前增加的标识位信息</p>
+<h3 id="密钥过期-x2F-泄漏如何更换"><a href="#密钥过期-x2F-泄漏如何更换" class="headerlink" title="密钥过期&#x2F;泄漏如何更换"></a>密钥过期&#x2F;泄漏如何更换</h3><p>依赖我们在加密数据前增加的标识位信息</p>
 <ul>
 <li>记录密钥版本，在切换密钥时知道如何解密</li>
 <li>记录算法信息，让SDK可判断算法无需向服务端询问</li>
@@ -321,7 +321,7 @@
 <p>看到待弃用密钥加密的数据，那么就<font color="green"><u>在解密提取明文信息后</u></font>使用新密钥更新加密</p>
 <h2 id="密文改造的挑战"><a href="#密文改造的挑战" class="headerlink" title="密文改造的挑战"></a>密文改造的挑战</h2><ul>
 <li>模糊字段查询<ul>
-<li>密文索引有诸多方案，主要解决思路是将信息分片，如将11位手机号分成3/4/4三段，允许各自按约定规则达成模糊查询</li>
+<li>密文索引有诸多方案，主要解决思路是将信息分片，如将11位手机号分成3&#x2F;4&#x2F;4三段，允许各自按约定规则达成模糊查询</li>
 </ul>
 </li>
 <li>手写SQL<ul>
@@ -505,6 +505,77 @@
 </script>
 
         </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF%E8%A1%A8%E6%94%B9%E9%80%A0"><span class="nav-number">1.</span> <span class="nav-text">敏感信息表改造</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E5%88%97%E5%AD%97%E6%AE%B5%E6%8D%A2%E4%B8%A4%E5%88%97%E5%AF%86%E6%96%87"><span class="nav-number">1.1.</span> <span class="nav-text">一列字段换两列密文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%86%E9%92%A5%E7%AD%96%E7%95%A5"><span class="nav-number">1.2.</span> <span class="nav-text">密钥策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%86%E9%92%A5%E8%BF%87%E6%9C%9F-x2F-%E6%B3%84%E6%BC%8F%E5%A6%82%E4%BD%95%E6%9B%B4%E6%8D%A2"><span class="nav-number">1.3.</span> <span class="nav-text">密钥过期&#x2F;泄漏如何更换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%86%E6%96%87%E6%94%B9%E9%80%A0%E7%9A%84%E6%8C%91%E6%88%98"><span class="nav-number">2.</span> <span class="nav-text">密文改造的挑战</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%82%AC%E7%94%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%8F%98%E9%9D%A9"><span class="nav-number">3.</span> <span class="nav-text">催生的设计变革</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%B9%E9%80%A0%E6%AD%A5%E9%AA%A4"><span class="nav-number">4.</span> <span class="nav-text">改造步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%8E%AF%E5%A2%83%E6%80%8E%E4%B9%88%E7%8E%A9"><span class="nav-number">5.</span> <span class="nav-text">大数据环境怎么玩</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E7%89%B9%E5%88%AB%E7%82%B9"><span class="nav-number">5.1.</span> <span class="nav-text">大数据的特别点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E5%AF%86%E6%B2%A1%E5%95%86%E9%87%8F"><span class="nav-number">5.2.</span> <span class="nav-text">加密没商量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B3%85%E5%90%88%E9%82%A3%E4%B9%88%E5%A4%9A%E6%95%B0%E6%8D%AE%E5%AF%86%E9%92%A5%E6%80%8E%E4%B9%88%E7%8E%A9%E6%9C%80%E5%A6%A5%E5%BD%93"><span class="nav-number">5.3.</span> <span class="nav-text">糅合那么多数据密钥怎么玩最妥当</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E8%AF%B4%E5%87%A0%E5%8F%A5"><span class="nav-number">6.</span> <span class="nav-text">多说几句</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="DiffDay"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">DiffDay</p>
+  <div class="site-description" itemprop="description">自我博雅探索，以求不惑</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">109</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:creator.chen@foxmail.com" title="E-Mail → mailto:creator.chen@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
       </div>
     </main>
 
@@ -529,13 +600,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">435k</span>
+    <span title="站点总字数">436k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">6:35</span>
+    <span title="站点阅读时长">6:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
