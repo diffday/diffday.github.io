@@ -1,8 +1,8 @@
-User-agent: *
+User-agent: SemrushBot
 Disallow: /
-
-User-agent: Baiduspider
-User-agent: Googlebot
+User-agent: SemrushBot-SA
+Disallow: /
+User-agent: *
 Allow: /
 Allow: /archives/
 Allow: /categories/
