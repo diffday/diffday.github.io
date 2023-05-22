@@ -1,6 +1,7 @@
 User-agent: SemrushBot
-Disallow: /
 User-agent: SemrushBot-SA
+User-agent: PetalBot
+User-agent: YisouSpider
 Disallow: /
 User-agent: *
 Allow: /
