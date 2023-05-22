@@ -1,1533 +1,393 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.3.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/bitbug_favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/bitbug_favicon32.ico">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/bitbug_favicon16.ico">
-  <link rel="mask-icon" href="/images/bitbug_favicon.ico" color="#222">
-  <meta http-equiv="Cache-Control" content="no-transform">
-  <meta http-equiv="Cache-Control" content="no-siteapp">
-  <meta name="google-site-verification" content="UaMvLIOYuNWHgVq42dlN49RoniU73U6SoqoRnEcit9E">
-  <meta name="baidu-site-verification" content="code-DN25SBuR8T">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.diffday.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
-  </script>
-
-  <meta name="description" content="自我博雅探索，以求不惑">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Diffday - We are here to be creators!</title><meta name="author" content="DiffDay"><meta name="copyright" content="DiffDay"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="自我博雅探索，以求不惑">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Diffday">
 <meta property="og:url" content="https://blog.diffday.com/index.html">
 <meta property="og:site_name" content="Diffday">
 <meta property="og:description" content="自我博雅探索，以求不惑">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://cdn.diffday.com/picgo/avatar.png">
 <meta property="article:author" content="DiffDay">
 <meta name="twitter:card" content="summary">
-
-<link rel="canonical" href="https://blog.diffday.com/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-CN'
-  };
-</script>
-
-  <title>Diffday</title>
-  
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X0MW6B53JB"></script>
-    <script>
-      if (CONFIG.hostname === location.hostname) {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-X0MW6B53JB');
-      }
-    </script>
-
-
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?b5c9889dd454fff053fb5b93fc1b2ac7";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
+<meta name="twitter:image" content="http://cdn.diffday.com/picgo/avatar.png"><link rel="shortcut icon" href="https://cdn.diffday.com/picgo/bitbug_favicon16.ico"><link rel="canonical" href="https://blog.diffday.com/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="UaMvLIOYuNWHgVq42dlN49RoniU73U6SoqoRnEcit9E"/><meta name="baidu-site-verification" content="code-DN25SBuR8T"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b5c9889dd454fff053fb5b93fc1b2ac7";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X0MW6B53JB"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-X0MW6B53JB');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: DiffDay","link":"链接: ","source":"来源: Diffday","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Diffday',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-05-22 09:11:27'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Diffday</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-      <p class="site-subtitle" itemprop="description">We are here to be creators!</p>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
-    </div>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">41</span></a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">10</span></a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">110</span></a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
-  </ul>
-</nav>
-
-
-
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
-</div>
-
-    </div>
-  </div>
-
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
-  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content index posts-expand">
-            
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E4%BA%BA%E7%A7%8D%E8%BF%81%E5%BE%99%E4%B8%8E%E8%AF%AD%E8%A8%80%E5%88%86%E5%B8%83.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="DiffDay">
-      <meta itemprop="description" content="自我博雅探索，以求不惑">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Diffday">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-              <span class="post-sticky-flag" title="置顶">
-                <i class="fa fa-thumbtack"></i>
-              </span>
-            <a href="/%E4%BA%BA%E7%A7%8D%E8%BF%81%E5%BE%99%E4%B8%8E%E8%AF%AD%E8%A8%80%E5%88%86%E5%B8%83.html" class="post-title-link" itemprop="url">人种迁徙与语言分布</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-27 00:05:06" itemprop="dateCreated datePublished" datetime="2021-03-27T00:05:06+08:00">2021-03-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-28 11:20:32" itemprop="dateModified" datetime="2023-04-28T11:20:32+08:00">2023-04-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E6%96%87%E7%B2%BE%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网文精摘</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>35k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>32 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="https://cdn.diffday.com/picgo/20210324192851.png" alt="各地的代表基因容貌差异"></p>
-<p>当初看《人类基因的历史地图》这本书，实在有些啃不下去，配图太少，不善用符号，文字没有情感，导致基本只能记住线粒体夏娃，中国的黄种人由东南亚进入中国版图这样的印象。是近几年中读书没有读完丢在一边的特例，但仍埋下了种子。无意间网络间见一老兄推荐天涯的一篇帖子讲<a target="_blank" rel="noopener" href="http://bbs.tianya.cn/post-no05-309858-1.shtml">世界中国史(此链接已失效)</a>，过去一观，开篇的问题就能勾住我的眼球，没想到接着往下翻，前面古人类的篇章，写的非常好，遂摘录整理，非常感谢原作者。作者的帖子火了，后来也出了书（在参考资料章节），是对知识和实力的肯定。</p>
-<h1 id="地理与气候"><a href="#地理与气候" class="headerlink" title="地理与气候"></a>地理与气候</h1><p><font color="blue">地区盛兴的气候，植被，风向本文并不细讲，其实地理联合气候决定了很多大历史</font>，是探讨大周期历史必须要关注的，正所谓地理是最大的历史，不过本文摘录的重心不在这里，就简要记录几个有名的地点解释，放在文尾。</p>
-<h1 id="人类登场"><a href="#人类登场" class="headerlink" title="人类登场"></a>人类登场</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E4%BA%BA%E7%A7%8D%E8%BF%81%E5%BE%99%E4%B8%8E%E8%AF%AD%E8%A8%80%E5%88%86%E5%B8%83.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E9%A3%8E%E6%B5%AA%E8%B6%8A%E5%A4%A7%E9%B1%BC%E8%B6%8A%E8%B4%B5.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="DiffDay">
-      <meta itemprop="description" content="自我博雅探索，以求不惑">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Diffday">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E9%A3%8E%E6%B5%AA%E8%B6%8A%E5%A4%A7%E9%B1%BC%E8%B6%8A%E8%B4%B5.html" class="post-title-link" itemprop="url">风浪越大鱼越贵</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-04-24 16:40:00" itemprop="dateCreated datePublished" datetime="2023-04-24T16:40:00+08:00">2023-04-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-25 15:32:05" itemprop="dateModified" datetime="2023-04-25T15:32:05+08:00">2023-04-25</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E6%96%87%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网络文摘</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <img src="http://cdn.diffday.com/picgo/20230424153917.png" style="zoom:67%;" alt="草根逆袭不避风浪"/>
-
-<p>有人生在罗马，有人一生牛马。人生升舱虽不是一代都能完成，但努力攀爬好过躺平打转。与天斗，与地斗，与人斗，其乐无穷。与己斗，最大的坑是你根本不知道自己在坑里。</p>
-<h1 id="财富是勇敢者的游戏"><a href="#财富是勇敢者的游戏" class="headerlink" title="财富是勇敢者的游戏"></a>财富是勇敢者的游戏</h1><p>弱者总以为别人在欺负他，总以为他错过了最好的时代，总以为富人年轻的时候遍地是黄金。乱世的时候他说饭都吃不饱，怎么能变富呢？盛世的时候他说钱都被抢光了，怎么能变富呢？</p>
-<p>第一批富人乌鸡变凤凰从哪来的，原来可都是抹鼻涕吃土豆。总有一些穷人更爱思考，更能冒险，在找一条别人没走过的路，可能家破人亡粉身碎骨的路，而后他咬咬牙，真的上路了。<font color="blur">扣动扳机能胜出的是动脑筋，在这个国度，能吃苦的人真的不缺</font>。</p>
-<blockquote>
-<p>之前下海的人，都是边缘化的人，待业在家活不下去的人。没到这个地步的人，全在好单位全在挤破脑袋分房子、搞编制、抢铁饭碗，但凡有点身份，都不至于去路边卖茶叶蛋。那个年代做生意不容易贷到款，可能都是要卖房子筹钱。创业永远都是勇敢者的游戏，装备从来不是免费的，不敢拼命换，就不要抱怨不公平。</p>
-</blockquote>
-<p>穷人赚钱难，常因从头到尾都在追求一个确定的东西：到底做什么能赚钱？就像在追求一个按钮，按一下马上能变富。如果你总问别人今年干啥能赚钱，抱歉你干什么都赚不到钱，世界上能赚到钱的事，抛开坑蒙拐骗抢，都是供需和稀缺决定的，稀缺伴随着投入结果的不确定性。能赚到大钱的事，一定是极度不确定的。只有不确定性才能帮你把对手拦在门外，只有不确定能不能赚钱才能帮你淘汰掉最多的同行，使你独享那一份红利。</p>
-<h1 id="无用知识提携命运"><a href="#无用知识提携命运" class="headerlink" title="无用知识提携命运"></a>无用知识提携命运</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E9%A3%8E%E6%B5%AA%E8%B6%8A%E5%A4%A7%E9%B1%BC%E8%B6%8A%E8%B4%B5.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E7%90%86%E8%B4%A2%E7%9A%84%E5%BA%95%E4%BB%93.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="DiffDay">
-      <meta itemprop="description" content="自我博雅探索，以求不惑">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Diffday">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E7%90%86%E8%B4%A2%E7%9A%84%E5%BA%95%E4%BB%93.html" class="post-title-link" itemprop="url">理财的底牌</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-04-03 19:17:00" itemprop="dateCreated datePublished" datetime="2023-04-03T19:17:00+08:00">2023-04-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-25 19:31:55" itemprop="dateModified" datetime="2023-04-25T19:31:55+08:00">2023-04-25</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/" itemprop="url" rel="index"><span itemprop="name">学而思</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.7k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <img src="http://cdn.diffday.com/picgo/20230328180626.png" alt="22年R2理财净值暴跌" style="zoom:50%;" />
-
-<h2 id="资产证券化"><a href="#资产证券化" class="headerlink" title="资产证券化"></a>资产证券化</h2><blockquote>
-<p>你的贷款是大家的资产+收益，企业债亦同理吧</p>
-</blockquote>
-<p>银行不满足于你缓慢还款赚点利息，实际操作是把你的借条打折卖出去，买到这张借条的公司相当于赚了，只是需要30年才到手，它们显然也<font color="red">等不了30年，它们把买到的这一堆借条作为一个整体打包投放在金融市场上</font>，如100亿，比如民生发展基金AE，谁都可以来买，标注为低风险，年利率2.75%，然后很快手里有闲钱的客户就买光了这100亿，除去付给这些客户的利息，净赚10亿到手，但支付给这些用户的钱，也不是一下付清的，所以实际收益远超10亿。</p>
-<p>这种模式下，它们肯定会滚动执行，例如先留下5亿缓慢支付客户利息，然后拿剩余的钱，继续去银行那里买借条，借条卖出去银行又可以放贷了，买回来后又可以发基金债权了。雪球越买越大，直到每个人都背负到债务为止。</p>
-<p>如果这时有人说我要提前还贷，100w（30年共220w到总还款额），加上违约金一共还120万，可银行已经150w把这笔借条卖出去了，买到借条的人把它220w的价值卖给市场了，相当于100w的收益不存在了，人少银行可以闷声吃这个亏，因为利润兜得住，已卖的也没事，但要从银行这个窗口处控制已卖出的借条的风险爆发太快。</p>
-<blockquote>
-<p>有人本来能赚到的钱没赚到，是会发不出工资的</p>
-</blockquote>
-<h2 id="净值法银行理财"><a href="#净值法银行理财" class="headerlink" title="净值法银行理财"></a>净值法银行理财</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E7%90%86%E8%B4%A2%E7%9A%84%E5%BA%95%E4%BB%93.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E8%87%AA%E5%BE%8Bvs%E8%87%AA%E7%94%B1.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="DiffDay">
-      <meta itemprop="description" content="自我博雅探索，以求不惑">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Diffday">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E8%87%AA%E5%BE%8Bvs%E8%87%AA%E7%94%B1.html" class="post-title-link" itemprop="url">自律是一种阶级属性</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-03-30 16:51:00" itemprop="dateCreated datePublished" datetime="2023-03-30T16:51:00+08:00">2023-03-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-25 20:05:56" itemprop="dateModified" datetime="2023-04-25T20:05:56+08:00">2023-04-25</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E6%96%87%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网络文摘</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>648</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="http://cdn.diffday.com/picgo/20230330165007.png" alt="自律是阶级属性"></p>
-<blockquote>
-<p>尊重原创，文章内容摘自 红豆不迷茫 的<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1mx4y137sW/">短视频作品</a></p>
-</blockquote>
-<h2 id="自律其实是一种阶级属性"><a href="#自律其实是一种阶级属性" class="headerlink" title="自律其实是一种阶级属性"></a>自律其实是一种阶级属性</h2><p>自律是一种阶级属性，不是个人属性，底层人忙于生计和限于认知，是无法长期依靠意志力来自律的。<font color="red">人的意志力有限，这里用了那里就没了，意志力的再生一定要看到正反馈。（克制牺牲收获了实际的好处）</font>。</p>
-<p>控制身材、保持家里整洁、对孩子温柔和坚定，其实都是钱，<u>普通人做不到才正常</u>。<font color="blue">现在铺天盖地的自律人设，更对普通人造成了极大焦虑</font>：不自律约等于无能，让你内疚自责，然后<em>再用快速多巴胺比如零食奶茶爽剧综艺收割你，短暂的快乐后再加倍的内疚自责，就是这么拿捏你</em>。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E8%87%AA%E5%BE%8Bvs%E8%87%AA%E7%94%B1.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="DiffDay">
-      <meta itemprop="description" content="自我博雅探索，以求不惑">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Diffday">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B.html" class="post-title-link" itemprop="url">大语言模型LLM</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-03-23 17:36:00" itemprop="dateCreated datePublished" datetime="2023-03-23T17:36:00+08:00">2023-03-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-05-16 17:48:00" itemprop="dateModified" datetime="2023-05-16T17:48:00+08:00">2023-05-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E6%96%87%E7%B2%BE%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网文精摘</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>11k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>10 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="http://cdn.diffday.com/picgo/20230408222056.png" alt="ChatGPT催生AI再一春"></p>
-<p>ChatGPT</p>
-<blockquote>
-<p>GPT:Generative Pre-trained Transformer</p>
-<p><font color="blue">科技部长的金句：踢足球都是盘点，射门，但是要做到梅西那么好也不容易</font></p>
-</blockquote>
-<h1 id="惊喜与惊醒"><a href="#惊喜与惊醒" class="headerlink" title="惊喜与惊醒"></a>惊喜与惊醒</h1><p>大语言模型的效果好到令人咋舌，我们距离LLM的认知和发展理念，距离世界最先进的想法，差得有点远</p>
-<ul>
-<li>Bert出现后1~2年间，国内追赶技术很快，也提出了一些改进模型</li>
-<li>分水岭在GPT-3，即为2020年中，体现了LLM应往何处去的发展理念，全球看中的人很少，梯队明显<ul>
-<li><font color="red"><u>包括Google在内，对于LLM发展理念的理解，都落后OpenAI一个身位</u></font>（半年到一年的时间）</li>
-<li>国内可能落后2年左右</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>鹰酱的风格是进化论模式，各个方向上各个公司都搞低成本试探进攻，让企业家去承担试错成本。进化是允许犯错的，甚至是进化不可少的前提</p>
-</blockquote>
-<p><font color="blue"><strong>最难的事情 : 方向可行性</strong>，已经被蹚出来了</font>（此正是技术最难的一点）</p>
-<ul>
-<li><p>我方堆资源，集中力量办大事的优势可以发挥</p>
-</li>
-<li><p>商业的竞争，开源的平替也在出现（甚至可能是故意的泄露）</p>
-</li>
-<li><p>老美限制我们，<font color="red">软件上挡不住，那就硬件上挡</font></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/DevSecOps.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="DiffDay">
-      <meta itemprop="description" content="自我博雅探索，以求不惑">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Diffday">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/DevSecOps.html" class="post-title-link" itemprop="url">DevSecOps</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-03-15 18:53:30" itemprop="dateCreated datePublished" datetime="2023-03-15T18:53:30+08:00">2023-03-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-25 20:20:30" itemprop="dateModified" datetime="2023-04-25T20:20:30+08:00">2023-04-25</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/" itemprop="url" rel="index"><span itemprop="name">学而思</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>8.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>7 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="http://cdn.diffday.com/picgo/20230315140348.png" alt="云原生下应用安全风险"></p>
-<h1 id="安全风险普遍存在"><a href="#安全风险普遍存在" class="headerlink" title="安全风险普遍存在"></a>安全风险普遍存在</h1><h2 id="97-被测目标存在某种形式的漏洞"><a href="#97-被测目标存在某种形式的漏洞" class="headerlink" title="97%被测目标存在某种形式的漏洞"></a>97%被测目标存在某种形式的漏洞</h2><ul>
-<li><font color="red">28%的测试目标曾受过跨站脚本(XSS)攻击</font></li>
-<li>76%的被测目标存在OWASP（开放式Web应用程序安全项目) 在2021年所披露的前十大漏洞<ul>
-<li>应用程序和服务器配置错误占比<font color="red">21%[安全配置错误类别]</font></li>
-<li><font color="red">19%的漏洞与[访问控制失效]</font>类别有关</li>
-<li><font color="red">18%的系统在使用易受攻击的第三方库，这一漏洞属于[易受攻击和过时的组件类别]</font>（有时甚至没有清单来记录这些内容，现在很多企业都在同时使用数百个应用程序或软件系统，并拥有数百甚至数千个不同的第三方组件或开源组件，<font color="green">对企业来说，一份准确且实时更新的软件物料清单来有效追踪外部组件是非常有必要的</font>）</li>
-</ul>
-</li>
-</ul>
-<h2 id="移动应用程序安全风险"><a href="#移动应用程序安全风险" class="headerlink" title="移动应用程序安全风险"></a>移动应用程序安全风险</h2><p><font color="red">不安全的数据存储和通信漏洞</font></p>
-<ul>
-<li>在移动设备安全测试中，有80%的漏洞与不安全的数据存储有关，攻击者既可以物理访问移动设备，也可以使用恶意软件进入设备</li>
-<li>还有53%的漏洞与不安全的通信方式有关</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/DevSecOps.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF%E5%8A%A0%E5%AF%86.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="DiffDay">
-      <meta itemprop="description" content="自我博雅探索，以求不惑">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Diffday">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF%E5%8A%A0%E5%AF%86.html" class="post-title-link" itemprop="url">敏感信息加密</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-03-14 17:25:30" itemprop="dateCreated datePublished" datetime="2023-03-14T17:25:30+08:00">2023-03-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-25 20:17:51" itemprop="dateModified" datetime="2023-04-25T20:17:51+08:00">2023-04-25</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/" itemprop="url" rel="index"><span itemprop="name">学而思</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="http://cdn.diffday.com/picgo/20230314172247.png" alt="敏感信息加密"></p>
-<p>敏感数据的加密存储无论从国家，行业及监管合规层面，亦或是单纯提高自身信息安全水平的层面看均是势在必行的一则工作。</p>
-<blockquote>
-<p>业界实践中大批量数据的加解密一般选择对称加密算法，其计算效率远高于非对称算法。主流商用对称算法包括美国FIPS标准定义的AES算法，中国国标定义的SM4算法，国内肯定是用国密算法</p>
-</blockquote>
-<h2 id="敏感信息表改造"><a href="#敏感信息表改造" class="headerlink" title="敏感信息表改造"></a>敏感信息表改造</h2><h3 id="一列字段换两列密文"><a href="#一列字段换两列密文" class="headerlink" title="一列字段换两列密文"></a>一列字段换两列密文</h3><p>针对一个敏感字段，需新增两列密文字段</p>
-<ul>
-<li>摘要索引：存储原始值+盐（不可逆哈希）计算后的密文字段</li>
-<li>密文：存储密钥对称加密后的密文，密钥最好最小粒度到列级<ul>
-<li>业务需要明文时，可用封装提供的解密SDK提取明文</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>存储和计算资源估计要增加（每个明文字段要加上2个密文字段），密文是变长的（国密SM4算法分组对齐加密，二进制结果再转base64编码），摘要字段长度固定</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF%E5%8A%A0%E5%AF%86.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E6%B1%89%E5%AD%97%E9%80%A0%E5%AD%97%E7%9A%84%E7%B2%BE%E7%BB%86.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="DiffDay">
-      <meta itemprop="description" content="自我博雅探索，以求不惑">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Diffday">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E6%B1%89%E5%AD%97%E9%80%A0%E5%AD%97%E7%9A%84%E7%B2%BE%E7%BB%86.html" class="post-title-link" itemprop="url">汉字造字的精细</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-03-10 12:00:00" itemprop="dateCreated datePublished" datetime="2023-03-10T12:00:00+08:00">2023-03-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-25 19:22:43" itemprop="dateModified" datetime="2023-04-25T19:22:43+08:00">2023-04-25</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E6%96%87%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网络文摘</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>757</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="http://cdn.diffday.com/picgo/20230310134115.png" alt="碧波荡漾"></p>
-<h3 id="关于水的字"><a href="#关于水的字" class="headerlink" title="关于水的字"></a>关于水的字</h3><p>大水坑：<font color="blue">池</font><strong>；小而深：</strong><font color="blue">潭</font>；大而深：<font color="blue">渊</font>；广而浅：<font color="blue">淀</font>；广而深：<font color="blue">湖</font></p>
-<p>湖连湖：<font color="blue">泊</font>；泊连泊：<font color="blue">泽</font></p>
-<p>水面涌动：<font color="blue">荡</font>；水面微动：<font color="blue">漾</font>；水流很急：<font color="blue">湍</font>；水流很缓：<font color="blue">滞</font>；掀起小浪：<font color="blue">波</font>；掀起大浪：<font color="blue">澜</font></p>
-<p>山水分界：<font color="blue">涯</font>；两山夹水：<font color="blue">涧</font></p>
-<p>一面临水：<font color="blue">滩</font>；两面临水：<font color="blue">湾</font>；三面临水：<font color="blue">渚（zhu）</font>；四面临水：<font color="blue">洲</font></p>
-<p>人工开凿：<font color="blue">渠</font>；自然形成：<font color="blue">溪</font>；溪水汇聚：<font color="blue">河</font>；大河相连：<font color="blue">江</font></p>
-<h3 id="关于山-x2F-地的字"><a href="#关于山-x2F-地的字" class="headerlink" title="关于山&#x2F;地的字"></a>关于山&#x2F;地的字</h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E6%B1%89%E5%AD%97%E9%80%A0%E5%AD%97%E7%9A%84%E7%B2%BE%E7%BB%86.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E7%AE%80%E8%AF%BB%E4%B8%AD%E5%9B%BD%E5%8F%B2.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="DiffDay">
-      <meta itemprop="description" content="自我博雅探索，以求不惑">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Diffday">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E7%AE%80%E8%AF%BB%E4%B8%AD%E5%9B%BD%E5%8F%B2.html" class="post-title-link" itemprop="url">简读中国史摘记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-02-20 17:11:30" itemprop="dateCreated datePublished" datetime="2023-02-20T17:11:30+08:00">2023-02-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-25 19:26:17" itemprop="dateModified" datetime="2023-04-25T19:26:17+08:00">2023-04-25</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <img src="http://cdn.diffday.com/picgo/20230221152116.png" style="zoom: 67%;" alt="简读中国史"/>
-
-<blockquote>
-<p>摘记最晚于2019年12月2日，那是一个在地铁上还不用戴口罩的日子</p>
-</blockquote>
-<h2 id="地理文化论"><a href="#地理文化论" class="headerlink" title="地理文化论"></a>地理文化论</h2><p>祖先崇拜是中国特有的，也是地理决定论，能<u>安心发展农业，老年人的经验就非常有用</u>。不像希腊要航海靠年轻人，中东战争冲突厉害，也要靠年轻人。<font color="blue">自给自足的小农经济，是这种关系的保障。中国自西向东的河流也进一步强化此种情况（纬度相似资源出产也相似）</font>。</p>
-<p>像中东文明中。资源必须靠互换和社会分工的地理环境，血缘纽带断裂就被神庙关系所取代。</p>
-<blockquote>
-<p>世界上大部分民族关于亲属的称谓25个，中国的有350个，分的很细。</p>
-</blockquote>
-<p>青铜器战车等都是从中东传入中国，因为地理的优势，战争压力较小，青铜器的发展方向朝向了礼器。不像中东朝向战争和耕种。中国民间仍然用石器耕种。</p>
-<h2 id="西周的开创性"><a href="#西周的开创性" class="headerlink" title="西周的开创性"></a>西周的开创性</h2><p>商代的上天是只属于商族的上天。周代的上台创造了一项新统治宣言，上天是所有人的上天，改朝换代是因为前朝德行不足了，天命被替代。<font color="green">改信鬼神为信天命。在更广泛的宗族分封下，在一套套理法</font>、仪式下，周代持续的够久。使得这条规则被后代普遍采用。这其实是创造性的，因为世界其它地方到今后很长的时间都在围绕侍奉鬼神干事，<font color="green">周代直接摆脱了宗教束缚，成为致力于现世幸福的世俗文化国家</font>。</p>
-<p>嫡长子继承制也是周代订立，解决商代混乱的弊病。甚至这也是中国政治远凌驾于经济的根源（配合不能僭越的各种级别规定）。所谓周礼就是<u>规定不同辈分的人、关系远近不同的人，见面该怎么行礼，平时该怎么交往</u>。因为他就是<font color="green">一个家天下的封建朝代</font>。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E7%AE%80%E8%AF%BB%E4%B8%AD%E5%9B%BD%E5%8F%B2.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.diffday.com/%E5%A0%86%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="DiffDay">
-      <meta itemprop="description" content="自我博雅探索，以求不惑">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Diffday">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E5%A0%86%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.html" class="post-title-link" itemprop="url">堆排序与归并排序</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-01-16 18:50:00" itemprop="dateCreated datePublished" datetime="2023-01-16T18:50:00+08:00">2023-01-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-25 19:19:59" itemprop="dateModified" datetime="2023-04-25T19:19:59+08:00">2023-04-25</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E6%96%87%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网络文摘</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>4.7k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>大家最常见的就是用数组这一数据结构来记录一系列有序或无序的数据。</p>
-<h1 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h1><h2 id="Heap"><a href="#Heap" class="headerlink" title="Heap"></a>Heap</h2><blockquote>
-<p>此文讲的<u>堆和堆内存不是一个概念</u>。属于大家<u>都形而上的用了这个英文词来描述自己的领域概念</u>。</p>
-</blockquote>
-<h2 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h2><blockquote>
-<p><strong>叶子结点只出现在最下层和次下层（所有分支长度几乎相同，最长分支最短分支差异最多为1），最下层节点都集中在最左边若干位置的二叉树</strong></p>
-</blockquote>
-<p><font color="blue">堆也是一颗完全二叉树</font>，举例如下无序数组：4,5,3,2,6,1。表示为完全二叉树的形式为</p>
-<img src="http://cdn.diffday.com/picgo/20221024110942.png" style="zoom: 67%;" alt="堆示例"/>
-
-<p>基于完全二叉树的基本性质，<u>可从数组索引角度描述数字与数字在二叉树中的位置关系</u>，堆的结构性要求其为完全二叉树，就为了使用此好特性好结论</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- A[i]的左节点为A[2i+1]</span><br><span class="line">- 右节点为A[2i+2]</span><br><span class="line">- 父节点为A[i/2]</span><br></pre></td></tr></table></figure>
-
-<h3 id="Full-vs-Complete-vs-Perfect"><a href="#Full-vs-Complete-vs-Perfect" class="headerlink" title="Full vs Complete vs Perfect"></a>Full vs Complete vs Perfect</h3><p><img src="http://cdn.diffday.com/picgo/20221109135729.png"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E5%A0%86%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
       }
     }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
   
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
 
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="DiffDay"
-      src="/images/avatar.png">
-  <p class="site-author-name" itemprop="name">DiffDay</p>
-  <div class="site-description" itemprop="description">自我博雅探索，以求不惑</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
         
-          <span class="site-state-item-count">110</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">41</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="mailto:creator.chen@foxmail.com" title="E-Mail → mailto:creator.chen@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
-      </span>
-  </div>
-
-
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18103410号 </a>
-  </div>
-
-<div class="copyright">
-  
-  &copy; 2014 – 
-  <span itemprop="copyrightYear">2023</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">DiffDay</span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-chart-area"></i>
-    </span>
-      <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">441k</span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-coffee"></i>
-    </span>
-      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">6:41</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
-  </div>
-
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-<script src="/js/bookmark.js"></script>
-
-
-
-
-  
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
-
-
-
-
-  
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-<script>
-if (document.querySelectorAll('pre.mermaid').length) {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
-    mermaid.initialize({
-      theme    : 'forest',
-      logLevel : 3,
-      flowchart: { curve     : 'linear' },
-      gantt    : { axisFormat: '%m/%d/%Y' },
-      sequence : { actorMargin: 50 }
-    });
-  }, window.mermaid);
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><script>window.paceOptions = {
+  restartOnPushState: false
 }
-</script>
+
+document.addEventListener('pjax:send', () => {
+  Pace.restart()
+})
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js/themes/blue/pace-theme-minimal.min.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="http://cdn.diffday.com/picgo/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">110</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img fixed" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Diffday"><img class="site-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="http://cdn.diffday.com/picgo/avatar.png"/><span class="site-name">Diffday</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/%E4%BA%BA%E7%A7%8D%E8%BF%81%E5%BE%99%E4%B8%8E%E8%AF%AD%E8%A8%80%E5%88%86%E5%B8%83.html" title="人种迁徙与语言分布"><div class="post-bg" style="background: https://cdn.diffday.com/picgo/20210324192851.png"></div></a></div><div class="recent-post-info"><a class="article-title" href="/%E4%BA%BA%E7%A7%8D%E8%BF%81%E5%BE%99%E4%B8%8E%E8%AF%AD%E8%A8%80%E5%88%86%E5%B8%83.html" title="人种迁徙与语言分布">人种迁徙与语言分布</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-thumbtack sticky"></i><span class="sticky">置顶</span><span class="article-meta-separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-26T16:05:06.000Z" title="发表于 2021-03-27 00:05:06">2021-03-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E6%96%87%E7%B2%BE%E6%91%98/">网文精摘</a></span></div><div class="content">
+当初看《人类基因的历史地图》这本书，实在有些啃不下去，配图太少，不善用符号，文字没有情感，导致基本只能记住线粒体夏娃，中国的黄种人由东南亚进入中国版图这样的印象。是近几年中读书没有读完丢在一边的特例，但仍埋下了种子。无意间网络间见一老兄推荐天涯的一篇帖子讲世界中国史(此链接已失效)，过去一观，开篇的问题就能勾住我的眼球，没想到接着往下翻，前面古人类的篇章，写的非常好，遂摘录整理，非常感谢原作者。作者的帖子火了，后来也出了书（在参考资料章节），是对知识和实力的肯定。
+地理与气候地区盛兴的气候，植被，风向本文并不细讲，其实地理联合气候决定了很多大历史，是探讨大周期历史必须要关注的，正所谓地理是最大的历史，不过本文摘录的重心不在这里，就简要记录几个有名的地点解释，放在文尾。
+人类登场
+
+在登场之前的年代，最有名的就是恐龙时代了，距今过于久远，人类并不是最佳运动员，不是体力身形最大者，但现在是地球实际的霸主，我们来一张动物身形对比图, 看看我们地球上曾经出现过的恐龙猛兽们。
 
 
-  
 
-  
+蓝鲸没有恐龙大，但可能借助海洋的浮力，有着更多肉更重的身体。
+翼龙不是恐龙，而是一种会飞的爬行动物，翼龙和恐龙、 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/%E9%A3%8E%E6%B5%AA%E8%B6%8A%E5%A4%A7%E9%B1%BC%E8%B6%8A%E8%B4%B5.html" title="风浪越大鱼越贵"><div class="post-bg" style="background: http://cdn.diffday.com/picgo/20230424153917.png"></div></a></div><div class="recent-post-info"><a class="article-title" href="/%E9%A3%8E%E6%B5%AA%E8%B6%8A%E5%A4%A7%E9%B1%BC%E8%B6%8A%E8%B4%B5.html" title="风浪越大鱼越贵">风浪越大鱼越贵</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-04-24T08:40:00.000Z" title="发表于 2023-04-24 16:40:00">2023-04-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C%E6%96%87%E6%91%98/">网络文摘</a></span></div><div class="content">
 
-<script src="/live2d-widget/autoload.js"></script>
-</body>
-</html>
+有人生在罗马，有人一生牛马。人生升舱虽不是一代都能完成，但努力攀爬好过躺平打转。与天斗，与地斗，与人斗，其乐无穷。与己斗，最大的坑是你根本不知道自己在坑里。
+财富是勇敢者的游戏弱者总以为别人在欺负他，总以为他错过了最好的时代，总以为富人年轻的时候遍地是黄金。乱世的时候他说饭都吃不饱，怎么能变富呢？盛世的时候他说钱都被抢光了，怎么能变富呢？
+第一批富人乌鸡变凤凰从哪来的，原来可都是抹鼻涕吃土豆。总有一些穷人更爱思考，更能冒险，在找一条别人没走过的路，可能家破人亡粉身碎骨的路，而后他咬咬牙，真的上路了。扣动扳机能胜出的是动脑筋，在这个国度，能吃苦的人真的不缺。
+
+之前下海的人，都是边缘化的人，待业在家活不下去的人。没到这个地步的人，全在好单位全在挤破脑袋分房子、搞编制、抢铁饭碗，但凡有点身份，都不至于去路边卖茶叶蛋。那个年代做生意不容易贷到款，可能都是要卖房子筹钱。创业永远都是勇敢者的游戏，装备从来不是免费的，不敢拼命换，就不要抱怨不公平。
+
+穷人赚钱难，常因从头到尾都在追求一个确定的东西：到底做什么能赚钱？就像在追求一个按钮，按一下马上能变富。如果你总问别人今年干啥能赚钱，抱歉你干什 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/%E7%90%86%E8%B4%A2%E7%9A%84%E5%BA%95%E4%BB%93.html" title="理财的底牌"><div class="post-bg" style="background: http://cdn.diffday.com/picgo/20230328180626.png"></div></a></div><div class="recent-post-info"><a class="article-title" href="/%E7%90%86%E8%B4%A2%E7%9A%84%E5%BA%95%E4%BB%93.html" title="理财的底牌">理财的底牌</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-04-03T11:17:00.000Z" title="发表于 2023-04-03 19:17:00">2023-04-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/">学而思</a></span></div><div class="content">
+
+资产证券化
+你的贷款是大家的资产+收益，企业债亦同理吧
+
+银行不满足于你缓慢还款赚点利息，实际操作是把你的借条打折卖出去，买到这张借条的公司相当于赚了，只是需要30年才到手，它们显然也等不了30年，它们把买到的这一堆借条作为一个整体打包投放在金融市场上，如100亿，比如民生发展基金AE，谁都可以来买，标注为低风险，年利率2.75%，然后很快手里有闲钱的客户就买光了这100亿，除去付给这些客户的利息，净赚10亿到手，但支付给这些用户的钱，也不是一下付清的，所以实际收益远超10亿。
+这种模式下，它们肯定会滚动执行，例如先留下5亿缓慢支付客户利息，然后拿剩余的钱，继续去银行那里买借条，借条卖出去银行又可以放贷了，买回来后又可以发基金债权了。雪球越买越大，直到每个人都背负到债务为止。
+如果这时有人说我要提前还贷，100w（30年共220w到总还款额），加上违约金一共还120万，可银行已经150w把这笔借条卖出去了，买到借条的人把它220w的价值卖给市场了，相当于100w的收益不存在了，人少银行可以闷声吃这个亏，因为利润兜得住，已卖的也没事，但要从银行这个窗口处控制已卖出的借条的风险爆发太快 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/%E8%87%AA%E5%BE%8Bvs%E8%87%AA%E7%94%B1.html" title="自律是一种阶级属性"><div class="post-bg" style="background: http://cdn.diffday.com/picgo/20230330165007.png"></div></a></div><div class="recent-post-info"><a class="article-title" href="/%E8%87%AA%E5%BE%8Bvs%E8%87%AA%E7%94%B1.html" title="自律是一种阶级属性">自律是一种阶级属性</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-03-30T08:51:00.000Z" title="发表于 2023-03-30 16:51:00">2023-03-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C%E6%96%87%E6%91%98/">网络文摘</a></span></div><div class="content">
+
+尊重原创，文章内容摘自 红豆不迷茫 的短视频作品
+
+自律其实是一种阶级属性自律是一种阶级属性，不是个人属性，底层人忙于生计和限于认知，是无法长期依靠意志力来自律的。人的意志力有限，这里用了那里就没了，意志力的再生一定要看到正反馈。（克制牺牲收获了实际的好处）。
+控制身材、保持家里整洁、对孩子温柔和坚定，其实都是钱，普通人做不到才正常。现在铺天盖地的自律人设，更对普通人造成了极大焦虑：不自律约等于无能，让你内疚自责，然后再用快速多巴胺比如零食奶茶爽剧综艺收割你，短暂的快乐后再加倍的内疚自责，就是这么拿捏你。
+
+
+不是自律使你自由，而是清醒使你自由，只要你足够不在乎，资本就不能拿你怎样。
+美丽国社会分层特别明显，有钱人吃死贵的有机，穷人吃海克斯科技。在穿上体现也同样明显，美国普通人穿的衣服连腰线都没有。巨大的生活压力和闭塞的信息及认知不允许一个底层人长期靠意志力去自律的，饮食习惯和居住环境上都能反映出来。
+暴饮暴食重口味和乱七八糟囤积癖都无法纯靠意志力去解决。资本先把你剥削穷，然后让你发现你好穷，再剥削一波你的焦虑和失控呀。
+全世界的韭菜都一样，有需求有欲望。资本就是要把你割的干干净净 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B.html" title="大语言模型LLM"><div class="post-bg" style="background: http://cdn.diffday.com/picgo/20230408222056.png"></div></a></div><div class="recent-post-info"><a class="article-title" href="/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B.html" title="大语言模型LLM">大语言模型LLM</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-03-23T09:36:00.000Z" title="发表于 2023-03-23 17:36:00">2023-03-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E6%96%87%E7%B2%BE%E6%91%98/">网文精摘</a></span></div><div class="content">
+ChatGPT
+
+GPT:Generative Pre-trained Transformer
+科技部长的金句：踢足球都是盘点，射门，但是要做到梅西那么好也不容易
+
+惊喜与惊醒大语言模型的效果好到令人咋舌，我们距离LLM的认知和发展理念，距离世界最先进的想法，差得有点远
+
+Bert出现后1~2年间，国内追赶技术很快，也提出了一些改进模型
+分水岭在GPT-3，即为2020年中，体现了LLM应往何处去的发展理念，全球看中的人很少，梯队明显
+包括Google在内，对于LLM发展理念的理解，都落后OpenAI一个身位（半年到一年的时间）
+国内可能落后2年左右
+
+
+
+
+鹰酱的风格是进化论模式，各个方向上各个公司都搞低成本试探进攻，让企业家去承担试错成本。进化是允许犯错的，甚至是进化不可少的前提
+
+最难的事情 : 方向可行性，已经被蹚出来了（此正是技术最难的一点）
+
+我方堆资源，集中力量办大事的优势可以发挥
+
+商业的竞争，开源的平替也在出现（甚至可能是故意的泄露）
+
+老美限制我们，软件上挡不住，那就硬件上挡
+
+
+
+
+A800是A100阉割特供版，计算性能相似，数据传输速度降低30%，影响AI集群 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/DevSecOps.html" title="DevSecOps"><div class="post-bg" style="background: http://cdn.diffday.com/picgo/20230315140348.png"></div></a></div><div class="recent-post-info"><a class="article-title" href="/DevSecOps.html" title="DevSecOps">DevSecOps</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-03-15T10:53:30.000Z" title="发表于 2023-03-15 18:53:30">2023-03-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/">学而思</a></span></div><div class="content">
+安全风险普遍存在97%被测目标存在某种形式的漏洞
+28%的测试目标曾受过跨站脚本(XSS)攻击
+76%的被测目标存在OWASP（开放式Web应用程序安全项目) 在2021年所披露的前十大漏洞
+应用程序和服务器配置错误占比21%[安全配置错误类别]
+19%的漏洞与[访问控制失效]类别有关
+18%的系统在使用易受攻击的第三方库，这一漏洞属于[易受攻击和过时的组件类别]（有时甚至没有清单来记录这些内容，现在很多企业都在同时使用数百个应用程序或软件系统，并拥有数百甚至数千个不同的第三方组件或开源组件，对企业来说，一份准确且实时更新的软件物料清单来有效追踪外部组件是非常有必要的）
+
+
+
+移动应用程序安全风险不安全的数据存储和通信漏洞
+
+在移动设备安全测试中，有80%的漏洞与不安全的数据存储有关，攻击者既可以物理访问移动设备，也可以使用恶意软件进入设备
+还有53%的漏洞与不安全的通信方式有关
+
+
+
+漏洞复盘复盘历史漏洞，按成因粗略可归为两类：
+
+代码漏洞，因不安全的API使用和逻辑编写产生的安全风险
+运维漏洞，指运行环境，配置和依赖等系统运维的安全风险，如软件供应链攻击，如公司内员工使用包管理软 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF%E5%8A%A0%E5%AF%86.html" title="敏感信息加密"><div class="post-bg" style="background: http://cdn.diffday.com/picgo/20230314172247.png"></div></a></div><div class="recent-post-info"><a class="article-title" href="/%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF%E5%8A%A0%E5%AF%86.html" title="敏感信息加密">敏感信息加密</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-03-14T09:25:30.000Z" title="发表于 2023-03-14 17:25:30">2023-03-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/">学而思</a></span></div><div class="content">
+敏感数据的加密存储无论从国家，行业及监管合规层面，亦或是单纯提高自身信息安全水平的层面看均是势在必行的一则工作。
+
+业界实践中大批量数据的加解密一般选择对称加密算法，其计算效率远高于非对称算法。主流商用对称算法包括美国FIPS标准定义的AES算法，中国国标定义的SM4算法，国内肯定是用国密算法
+
+敏感信息表改造一列字段换两列密文针对一个敏感字段，需新增两列密文字段
+
+摘要索引：存储原始值+盐（不可逆哈希）计算后的密文字段
+密文：存储密钥对称加密后的密文，密钥最好最小粒度到列级
+业务需要明文时，可用封装提供的解密SDK提取明文
+
+
+
+
+存储和计算资源估计要增加（每个明文字段要加上2个密文字段），密文是变长的（国密SM4算法分组对齐加密，二进制结果再转base64编码），摘要字段长度固定
+
+
+
+密钥策略
+摘要索引盐值整个公司统一
+不可逆，窃取到数据也要通过数据碰撞的方式来对明文进行猜测
+减少对称加密后数据无法关联的弊端（故需在可接受更广范围内使用相同颜值），关联计算比对值是否相等时直接使用
+
+
+密钥每个应用都不一样，甚至每一列密钥都不同
+考虑到密钥泄漏风险，更新密钥的代价，综合得出的策略 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/%E6%B1%89%E5%AD%97%E9%80%A0%E5%AD%97%E7%9A%84%E7%B2%BE%E7%BB%86.html" title="汉字造字的精细"><div class="post-bg" style="background: http://cdn.diffday.com/picgo/20230310134115.png"></div></a></div><div class="recent-post-info"><a class="article-title" href="/%E6%B1%89%E5%AD%97%E9%80%A0%E5%AD%97%E7%9A%84%E7%B2%BE%E7%BB%86.html" title="汉字造字的精细">汉字造字的精细</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-03-10T04:00:00.000Z" title="发表于 2023-03-10 12:00:00">2023-03-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C%E6%96%87%E6%91%98/">网络文摘</a></span></div><div class="content">
+关于水的字大水坑：池；小而深：潭；大而深：渊；广而浅：淀；广而深：湖
+湖连湖：泊；泊连泊：泽
+水面涌动：荡；水面微动：漾；水流很急：湍；水流很缓：滞；掀起小浪：波；掀起大浪：澜
+山水分界：涯；两山夹水：涧
+一面临水：滩；两面临水：湾；三面临水：渚（zhu）；四面临水：洲
+人工开凿：渠；自然形成：溪；溪水汇聚：河；大河相连：江
+关于山&#x2F;地的字 
+
+小土山：丘；大土山：陵；土山统称：阜；更大的土堆：山
+高而尖的山：峰；高而大的山：岳；高而险的山：嶂；高而陡的山：峭；小而尖的山：峦；小而险的山：岘（xian）；多草木的山：岵（hu）；不长草的山：屺（qi）；四周陡顶端平的山：崮
+水中小块陆地：渚；水中大块陆地：洲；水中更大陆地：岛；水边平地：汀
+沿河道修的：堤；拦河修筑：坝；控制水流：堰
+山与山相连：岭；山陡立的侧面：崖
+山梁山脊：冈；山脚：麓；山腰小道：阪（ban）；山岗高地：陇
+两山之间：谷；山脉中断处：陉（xing）
+两山相对有水：峡；两山相对无水：岬
+关于鬼的字
+魑魅魍魉分别是什么妖怪：
+
+魑：类似野兽的怪物，在山林里害人，可理解为山间猛兽变化的妖怪
+魅：老物精，上了年纪 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/%E7%AE%80%E8%AF%BB%E4%B8%AD%E5%9B%BD%E5%8F%B2.html" title="简读中国史摘记"><div class="post-bg" style="background: http://cdn.diffday.com/picgo/20230221152116.png"></div></a></div><div class="recent-post-info"><a class="article-title" href="/%E7%AE%80%E8%AF%BB%E4%B8%AD%E5%9B%BD%E5%8F%B2.html" title="简读中国史摘记">简读中国史摘记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-02-20T09:11:30.000Z" title="发表于 2023-02-20 17:11:30">2023-02-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span></div><div class="content">
+
+
+摘记最晚于2019年12月2日，那是一个在地铁上还不用戴口罩的日子
+
+地理文化论祖先崇拜是中国特有的，也是地理决定论，能安心发展农业，老年人的经验就非常有用。不像希腊要航海靠年轻人，中东战争冲突厉害，也要靠年轻人。自给自足的小农经济，是这种关系的保障。中国自西向东的河流也进一步强化此种情况（纬度相似资源出产也相似）。
+像中东文明中。资源必须靠互换和社会分工的地理环境，血缘纽带断裂就被神庙关系所取代。
+
+世界上大部分民族关于亲属的称谓25个，中国的有350个，分的很细。
+
+青铜器战车等都是从中东传入中国，因为地理的优势，战争压力较小，青铜器的发展方向朝向了礼器。不像中东朝向战争和耕种。中国民间仍然用石器耕种。
+西周的开创性商代的上天是只属于商族的上天。周代的上台创造了一项新统治宣言，上天是所有人的上天，改朝换代是因为前朝德行不足了，天命被替代。改信鬼神为信天命。在更广泛的宗族分封下，在一套套理法、仪式下，周代持续的够久。使得这条规则被后代普遍采用。这其实是创造性的，因为世界其它地方到今后很长的时间都在围绕侍奉鬼神干事，周代直接摆脱了宗教束缚，成为致力于现世幸福的世俗文化国家。
+嫡长 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/%E5%A0%86%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.html" title="堆排序与归并排序"><div class="post-bg" style="background: http://cdn.diffday.com/picgo/20221024110942.png"></div></a></div><div class="recent-post-info"><a class="article-title" href="/%E5%A0%86%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.html" title="堆排序与归并排序">堆排序与归并排序</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-01-16T10:50:00.000Z" title="发表于 2023-01-16 18:50:00">2023-01-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C%E6%96%87%E6%91%98/">网络文摘</a></span></div><div class="content">大家最常见的就是用数组这一数据结构来记录一系列有序或无序的数据。
+堆排序Heap
+此文讲的堆和堆内存不是一个概念。属于大家都形而上的用了这个英文词来描述自己的领域概念。
+
+完全二叉树
+叶子结点只出现在最下层和次下层（所有分支长度几乎相同，最长分支最短分支差异最多为1），最下层节点都集中在最左边若干位置的二叉树
+
+堆也是一颗完全二叉树，举例如下无序数组：4,5,3,2,6,1。表示为完全二叉树的形式为
+
+
+基于完全二叉树的基本性质，可从数组索引角度描述数字与数字在二叉树中的位置关系，堆的结构性要求其为完全二叉树，就为了使用此好特性好结论
+123- A[i]的左节点为A[2i+1]- 右节点为A[2i+2]- 父节点为A[i/2]
+
+Full vs Complete vs Perfect
+
+
+二叉树通常用链表通过指针实现。堆的“(almost)-complete”属性及所有非叶子节点也是数值节点，对于将其实现为数组非常有用。堆为完全二叉树，我们可使用位置来确定哪个节点是哪个节点的子节点，i，2i+1,2i+2。
+
+almost-complete 和 complete是一个意思
+full b ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/#content-inner">11</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="http://cdn.diffday.com/picgo/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">DiffDay</div><div class="author-info__description">自我博雅探索，以求不惑</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">110</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:creator.chen@foxmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/"><span class="card-category-list-name">学而思</span><span class="card-category-list-count">38</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E5%8F%8D%E5%88%8D%E6%95%B4%E7%90%86/"><span class="card-category-list-name">反刍整理</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"><span class="card-category-list-name">数据挖掘</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E7%BB%8F%E8%90%A5%E7%AE%A1%E7%90%86/"><span class="card-category-list-name">经营管理</span><span class="card-category-list-count">7</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"><span class="card-category-list-name">软件工程</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E8%80%8C%E6%80%9D/%E8%BF%87%E5%88%86%E5%A5%BD%E5%A5%87/"><span class="card-category-list-name">过分好奇</span><span class="card-category-list-count">6</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/"><span class="card-category-list-name">生活随笔</span><span class="card-category-list-count">7</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%BD%91%E6%96%87%E7%B2%BE%E6%91%98/"><span class="card-category-list-name">网文精摘</span><span class="card-category-list-count">33</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E5%BF%83%E7%90%86%E4%B8%AA%E6%80%A7/" style="font-size: 1.22em; color: rgb(133, 102, 194)">心理个性</a><a href="/tags/%E4%BA%BA%E7%89%A9%E8%AE%BF%E8%B0%88/" style="font-size: 1.19em; color: rgb(100, 48, 29)">人物访谈</a><a href="/tags/%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F/" style="font-size: 1.22em; color: rgb(9, 160, 40)">用户画像</a><a href="/tags/%E5%9C%B0%E5%9F%9F%E5%B7%AE%E5%BC%82/" style="font-size: 1.26em; color: rgb(168, 7, 94)">地域差异</a><a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 1.3em; color: rgb(138, 62, 62)">技术</a><a href="/tags/%E7%A1%AC%E6%A0%B8%E7%9F%A5%E8%AF%86/" style="font-size: 1.22em; color: rgb(12, 199, 145)">硬核知识</a><a href="/tags/%E7%BB%8F%E8%90%A5%E7%AE%A1%E7%90%86/" style="font-size: 1.38em; color: rgb(200, 94, 182)">经营管理</a><a href="/tags/%E7%94%9F%E6%B4%BB%E6%84%9F%E6%82%9F/" style="font-size: 1.45em; color: rgb(67, 158, 149)">生活感悟</a><a href="/tags/%E6%A6%82%E5%BF%B5%E8%A7%A3%E8%AF%BB/" style="font-size: 1.38em; color: rgb(126, 104, 171)">概念解读</a><a href="/tags/%E5%8E%86%E5%8F%B2/" style="font-size: 1.41em; color: rgb(85, 147, 135)">历史</a><a href="/tags/%E7%94%9F%E7%89%A9%E5%AD%A6/" style="font-size: 1.19em; color: rgb(136, 171, 31)">生物学</a><a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E6%80%9D%E7%BB%B4/" style="font-size: 1.3em; color: rgb(1, 154, 78)">互联网思维</a><a href="/tags/%E8%81%8C%E6%B6%AF%E5%8F%91%E5%B1%95/" style="font-size: 1.15em; color: rgb(57, 127, 9)">职涯发展</a><a href="/tags/%E5%A4%9A%E9%9D%A2%E4%BD%93%E7%9F%A5%E8%AF%86/" style="font-size: 1.15em; color: rgb(1, 166, 172)">多面体知识</a><a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 1.19em; color: rgb(186, 30, 81)">数据挖掘</a><a href="/tags/%E6%80%9D%E6%83%B3%E5%90%AF%E8%BF%AA/" style="font-size: 1.3em; color: rgb(159, 140, 39)">思想启迪</a><a href="/tags/%E5%AE%8F%E8%A7%82%E7%A0%94%E5%88%A4/" style="font-size: 1.22em; color: rgb(86, 108, 2)">宏观研判</a><a href="/tags/%E8%A1%8C%E4%B8%9A%E5%88%86%E6%9E%90/" style="font-size: 1.15em; color: rgb(20, 76, 199)">行业分析</a><a href="/tags/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E/" style="font-size: 1.22em; color: rgb(89, 6, 31)">宏观经济</a><a href="/tags/%E4%BA%BA%E6%80%A7/" style="font-size: 1.15em; color: rgb(181, 147, 174)">人性</a><a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" style="font-size: 1.22em; color: rgb(154, 7, 30)">软件工程</a><a href="/tags/%E5%9C%B0%E5%9F%9F%E7%89%B9%E8%89%B2/" style="font-size: 1.15em; color: rgb(138, 175, 125)">地域特色</a><a href="/tags/%E9%80%9A%E8%AF%86%E7%9F%A5%E8%AF%86/" style="font-size: 1.15em; color: rgb(181, 149, 140)">通识知识</a><a href="/tags/%E9%87%91%E8%9E%8D/" style="font-size: 1.15em; color: rgb(123, 122, 28)">金融</a><a href="/tags/%E4%BA%BA%E7%BE%A4%E8%A7%82%E5%AF%9F/" style="font-size: 1.34em; color: rgb(168, 44, 147)">人群观察</a><a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 1.15em; color: rgb(54, 173, 129)">生活</a><a href="/tags/%E6%96%87%E5%AD%A6/" style="font-size: 1.26em; color: rgb(126, 42, 79)">文学</a><a href="/tags/%E5%BF%83%E7%90%86%E5%AD%A6/" style="font-size: 1.22em; color: rgb(99, 5, 140)">心理学</a><a href="/tags/%E6%95%99%E8%82%B2/" style="font-size: 1.22em; color: rgb(102, 23, 171)">教育</a><a href="/tags/%E5%BF%83%E7%81%B5%E9%B8%A1%E6%B1%A4/" style="font-size: 1.15em; color: rgb(50, 62, 127)">心灵鸡汤</a><a href="/tags/%E8%A1%8C%E4%B8%9A%E8%A7%82%E5%AF%9F/" style="font-size: 1.15em; color: rgb(51, 6, 85)">行业观察</a><a href="/tags/%E5%9B%9E%E5%BF%86%E5%BD%95/" style="font-size: 1.15em; color: rgb(12, 6, 132)">回忆录</a><a href="/tags/%E6%96%87%E5%AD%97/" style="font-size: 1.15em; color: rgb(136, 84, 102)">文字</a><a href="/tags/%E8%82%B2%E5%84%BF/" style="font-size: 1.15em; color: rgb(169, 11, 116)">育儿</a><a href="/tags/%E8%B4%A2%E7%BB%8F/" style="font-size: 1.15em; color: rgb(86, 143, 66)">财经</a><a href="/tags/%E7%A4%BE%E4%BC%9A/" style="font-size: 1.15em; color: rgb(58, 31, 65)">社会</a><a href="/tags/IT/" style="font-size: 1.15em; color: rgb(138, 122, 115)">IT</a><a href="/tags/%E7%BB%8F%E6%B5%8E%E5%AD%A6/" style="font-size: 1.15em; color: rgb(99, 30, 76)">经济学</a><a href="/tags/%E4%BC%81%E4%B8%9A%E7%BB%8F%E8%90%A5/" style="font-size: 1.15em; color: rgb(41, 116, 20)">企业经营</a><a href="/tags/%E8%BD%AF%E5%AE%9E%E5%8A%9B/" style="font-size: 1.15em; color: rgb(121, 188, 191)">软实力</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">一月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/11/"><span class="card-archive-list-date">十一月 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/10/"><span class="card-archive-list-date">十月 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/09/"><span class="card-archive-list-date">九月 2022</span><span class="card-archive-list-count">2</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">110</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">383.3k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-05-22T01:11:26.791Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2014 - 2023 By DiffDay</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/"><img class="icp-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src=""><span>粤ICP备18103410号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
