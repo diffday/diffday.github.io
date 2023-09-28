@@ -2209,7 +2209,7 @@ h1.page-title + .tag-cloud-list {
   background-attachment: scroll;
   background-position: bottom;
   background-size: cover;
-  box-shadow: 0px 0px 6px -4px rgba(133,133,133,0.6);
+  box-shadow: 0px 0px 6px -3px rgba(133,133,133,0.6);
 }
 #footer-wrap {
   position: relative;
