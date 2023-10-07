@@ -1,0 +1,50 @@
+---
+title: 关于本站
+date: 2018-08-17 10:08:15
+---
+<div class="flink">
+    <h2>打赏致谢</h2>
+    <div class="flink-desc">感谢每一位曾经的鼓励师！</div>
+    <div class="flink-list">
+        <div class="flink-list-item">
+            <a href="#">
+                <div class="flink-item-icon">
+                    <img class="no-lightbox entered loaded" src="https://blog.guole.fun/img/default.png"
+                        onerror="this.onerror=null;this.src=&quot;/img/friend_404.gif&quot;" alt="">
+                </div>
+                <div class="flink-item-name">海蓝星|10元</div>
+                <div class="flink-item-desc">23年3.28，附言：感谢分享</div>
+            </a>
+        </div>
+        <div class="flink-list-item">
+            <a href="#">
+                <div class="flink-item-icon">
+                    <img class="no-lightbox" src="https://ohttps.com/favicon.ico" 
+                    	onerror="this.onerror=null;this.src=&quot;/img/friend_404.gif&quot;" alt="">
+                </div>
+                <div class="flink-item-name">Carol Yang|14元</div>
+                <div class="flink-item-desc">22年8.14，共7笔，附言：感谢分享^_^</div>
+            </a>
+        </div>
+        <div class="flink-list-item">
+            <a href="#">
+                <div class="flink-item-icon">
+                    <img class="no-lightbox" src="https://blog.guole.fun/img/default.png" 
+                    	onerror="this.onerror=null;this.src=&quot;/img/friend_404.gif&quot;" alt="">
+                </div>
+                <div class="flink-item-name">匿名好心人|2元</div>
+                <div class="flink-item-desc">21年4.16，附言：</div>
+            </a>
+        </div>
+        <div class="flink-list-item">
+            <a href="#">
+                <div class="flink-item-icon">
+                    <img class="no-lightbox" src="https://ohttps.com/favicon.ico" 
+                    	onerror="this.onerror=null;this.src=&quot;/img/friend_404.gif&quot;" alt="">
+                </div>
+                <div class="flink-item-name">豆豆龙|2元</div>
+                <div class="flink-item-desc">21年2.9，附言：继续努力，向我看齐</div>
+            </a>
+        </div>
+    </div>
+</div>
