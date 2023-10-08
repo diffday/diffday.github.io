@@ -1286,20 +1286,6 @@
   </url>
   
   <url>
-    <loc>https://blog.diffday.com/tags/%E4%BA%BA%E7%BE%A4%E8%A7%82%E5%AF%9F/</loc>
-    <lastmod>2023-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.diffday.com/tags/%E7%94%9F%E6%B4%BB/</loc>
-    <lastmod>2023-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.diffday.com/tags/%E9%80%9A%E8%AF%86%E7%9F%A5%E8%AF%86/</loc>
     <lastmod>2023-10-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -1308,6 +1294,20 @@
   
   <url>
     <loc>https://blog.diffday.com/tags/%E9%87%91%E8%9E%8D/</loc>
+    <lastmod>2023-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.diffday.com/tags/%E4%BA%BA%E7%BE%A4%E8%A7%82%E5%AF%9F/</loc>
+    <lastmod>2023-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.diffday.com/tags/%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2023-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

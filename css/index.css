@@ -23770,8 +23770,10 @@ div#swiper_container:hover {
 }
 
 b, strong {
-  color: var(--anzhiyu-lighttext);
+  /* color: var(--anzhiyu-lighttext); */
+  color: var(--anzhiyu-fontcolor);
 }
+
 .about-reward {
   position: absolute;
   top: 1rem;
