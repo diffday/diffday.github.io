@@ -1098,6 +1098,11 @@ const anzhiyu = {
     input.setSelectionRange(-1, -1);
   },
 
+  //removeTravelHover: function () {
+    //var travelBbutton = document.querySelector('#travellings_button a');
+    //travelBbutton.style.text=travelBbutton.style.cssText.replace(':hover', '');
+  //}
+
   // 跳转开往
   totraveling: function () {
     anzhiyu.snackbarShow(
@@ -1106,12 +1111,12 @@ const anzhiyu = {
         element.style.opacity = 0;
         travellingsTimer && clearTimeout(travellingsTimer);
       },
-      5000,
+      3000,
       "取消"
     );
     travellingsTimer = setTimeout(function () {
       window.open("https://www.travellings.cn/go.html", "_blank");
-    }, "5000");
+    }, "3000");
   },
 
   // 工具函数替换字符串

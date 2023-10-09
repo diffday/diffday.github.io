@@ -12423,9 +12423,6 @@ h1.page-title + .tag-cloud-list {
   #sidebar #sidebar-menus .menus_items .site-page:hover {
     background: none;
   }
-  div#travellings_button {
-    display: none !important;
-  }
 }
 #nav #blog_name a:hover,
 #nav .mask-name-container a:hover,
