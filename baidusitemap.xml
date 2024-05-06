@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.diffday.com/%E8%AE%A9%E5%A4%A7%E8%84%91%E8%87%AA%E7%94%B1.html</loc>
+    <lastmod>2024-05-06</lastmod>
+  </url>
+  <url>
     <loc>https://blog.diffday.com/%E4%BB%8EError-Based-Injection%E7%9C%8BMySQL%20group-by%E8%BF%87%E7%A8%8B.html</loc>
     <lastmod>2024-05-06</lastmod>
   </url>
@@ -231,10 +235,6 @@
   <url>
     <loc>https://blog.diffday.com/%E7%90%86%E8%B4%A2%E7%9A%84%E5%BA%95%E4%BB%93.html</loc>
     <lastmod>2023-09-10</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.diffday.com/%E8%AE%A9%E5%A4%A7%E8%84%91%E8%87%AA%E7%94%B1.html</loc>
-    <lastmod>2023-08-24</lastmod>
   </url>
   <url>
     <loc>https://blog.diffday.com/%E5%8D%81%E5%B9%B4%E7%9C%8B%E7%A7%91%E6%8A%80%E8%B6%8B%E5%8A%BF.html</loc>
