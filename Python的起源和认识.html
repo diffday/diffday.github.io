@@ -1,0 +1,643 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>Python的起源和认识 | Diffday</title><meta name="keywords" content="IT"><meta name="author" content="DiffDay"><meta name="copyright" content="DiffDay"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="Python的起源和认识"><meta name="application-name" content="Python的起源和认识"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="Python的起源和认识"><meta property="og:url" content="https://blog.diffday.com/Python%E7%9A%84%E8%B5%B7%E6%BA%90%E5%92%8C%E8%AE%A4%E8%AF%86.html"><meta property="og:site_name" content="Diffday"><meta property="og:description" content="Python的创始人是一个荷兰人，Guido van Rossum （吉多·范罗苏姆），89年圣诞节期间，在阿姆斯特丹，guido为了解决在分布式系统Amoeba项目中重复编写C语言工具代码的烦心问题，决心开发一个新的脚本解释程序，把写过的C语言小程序粘贴在一起构成一个新的工具。从89年12月开始"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="http://cdn.diffday.com/picgo/20240723171324.png"><meta property="article:author" content="DiffDay"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="http://cdn.diffday.com/picgo/20240723171324.png"><meta name="description" content="Python的创始人是一个荷兰人，Guido van Rossum （吉多·范罗苏姆），89年圣诞节期间，在阿姆斯特丹，guido为了解决在分布式系统Amoeba项目中重复编写C语言工具代码的烦心问题，决心开发一个新的脚本解释程序，把写过的C语言小程序粘贴在一起构成一个新的工具。从89年12月开始"><link rel="shortcut icon" href="https://cdn.diffday.com/picgo/diff32.ico"><link rel="canonical" href="https://blog.diffday.com/Python%E7%9A%84%E8%B5%B7%E6%BA%90%E5%92%8C%E8%AE%A4%E8%AF%86"><link rel="preconnect" href="//npm.elemecdn.com"/><link rel="preconnect" href="//npm.onmicrosoft.cn"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="UaMvLIOYuNWHgVq42dlN49RoniU73U6SoqoRnEcit9E"/><meta name="baidu-site-verification" content="code-DN25SBuR8T"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b5c9889dd454fff053fb5b93fc1b2ac7";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X0MW6B53JB"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-X0MW6B53JB');
+</script><script>const GLOBAL_CONFIG = {
+  linkPageTop: {"enable":true,"title":"同博主们无限进步","addFriendPlaceholder":"昵称（请勿包含博客等字样）：\n网站地址（要求博客地址，请勿提交个人主页）：\n头像图片url（请提供尽可能清晰的图片，我会上传到我自己的图床）：\n描述：\n站点截图（可选）：\n"},
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"一次时空相逢，祝好！","backTitle":"欢迎回来！"},
+  LA51: {"enable":true,"ck":"3G4PP4R5LAAt6DBv","LingQueMonitorID":"3GA1sASrkc8hJd7c"},
+  greetingBox: {"enable":true,"default":"晚上好👋","list":[{"greeting":"晚安😴","startTime":0,"endTime":5},{"greeting":"早上好鸭👋, 祝一天好心情！","startTime":6,"endTime":9},{"greeting":"上午好👋, 状态很好，鼓励一下～","startTime":10,"endTime":10},{"greeting":"11点多啦, 在坚持一下就吃饭啦～","startTime":11,"endTime":11},{"greeting":"午安👋, 为下午蓄力充电","startTime":12,"endTime":14},{"greeting":"🌈充实的一天辛苦啦！","startTime":14,"endTime":18},{"greeting":"19点喽, 奖励一顿丰盛的大餐吧🍔。","startTime":19,"endTime":19},{"greeting":"晚上好👋, 在属于自己的时间好好放松😌~","startTime":20,"endTime":24}]},
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  root: '/',
+  preloader: undefined,
+  friends_vue_info: undefined,
+  navMusic: false,
+  mainTone: {"mode":"both","api":"https://img2color-go.vercel.app/api?img=","cover_change":true},
+  authorStatus: undefined,
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: DiffDay","link":"链接: ","source":"来源: Diffday","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: 'Diffday',
+  title: 'Python的起源和认识',
+  postAI: '',
+  pageFillDescription: '发明Python的背景, ABC语言, 特点, 未能流行的原因, Python的特色, 小的核心语言+大的标准库, 优雅-明确-简单的哲学, Python与C的不同, 作者对Python的目标, 变态缩进, 青出于蓝, 作者的程序哲学, 底层概念与复杂体系, 开放与合作, 最爱Pascal的优雅, 目标感与当下主义者, 教堂与集市, 创造性还无银弹, 移动设备上Python不太成功, Python为什么这么慢？, 性能好的语言, Python3对Python2的抛弃, 引用的创始人是一个荷兰人吉多范罗苏姆年圣诞节期间在阿姆斯特丹为了解决在分布式系统项目中重复编写语言工具代码的烦心问题决心开发一个新的脚本解释程序把写过的语言小程序粘贴在一起构成一个新的工具从年月开始编写年月开源发布年月第一版标准才发布这给埋下了和版本分裂的隐患作者其实并不喜欢语言和大蟒蛇关联上选中大蟒蛇作为编程语言的名字取自英文世纪年代首播的电视喜剧蒙提派森的飞行马戏团那是他喜欢的一个马戏团的名字也符合编程语言名称来源于名人的名字的习惯如发明的背景年从阿姆斯特丹大学获得数学和计算机硕士双学位接触过当时的多种流行语言大学毕业加入荷兰教育部和其他研究基金资助的研究中心国家数学和计算机科学研究中心在中他参与了项目为两所机构共同参与开发的基于微内核的分布式系统在这个项目中发现用语言开发系统管理程序所花费的时间太长了且是一个全新的底层操作系统实现导致了和原有的不兼容在无法执行项目之中的一些程序这些原因让意识到它需要一个能弥合和间鸿沟更高抽象级别更加简单的编程语言去完成工作任务为什么选择造轮子发明而不是移植其它编程语言那是因为当初并没有其它编程语言可以完成这些任务语言语言是在主导研发的一种交互式结构化高级语言旨在替代等语言用于教学机原型软件设计的创始人在年代曾在系统开发中工作了数年特点语言的设计者称其代码量通常为或语言的且具备更强的可读性其主要特点如下只有五种基本数据类型不需要变量声明动态变量明确支持自上而下的编程语句嵌套由缩进来表示精度列表字符串均无限制未能流行的原因是由参加设计的一种教学语言就本人看来这种语言非常优美强大是专门为非专业程序员设计的但语言并不成功一方面是认为不开放故决心在中避免这一错误且还想在其中实现在中闪现过但未曾实现的东西就本人看来失败的原因是高级语言为时过早平台迁移能力弱难以添加新功能仅仅专注于编程初学者没有把有经验的编程人员纳入其中其通过解决了其一些问题让拓展模块的编写非常容易且可在多平台进行运行可以说是从发展起来的主要受到了另一种相当优美且强大的语言为小型团队所设计的的影响且结合了和的习惯的特色小的核心语言大的标准库并没有把所有功能特性都嵌入到它的核心代码中的设计是高度可扩展由于看到语言的失败认为小的核心语言大的标准库才是他需要的优雅明确简单的哲学在语法层面拒绝了强大并复杂的语法比如的语法而倾向于一种更简单更简洁的语法的哲学拒绝语言设计的方法不止一种而倾向于应该有一种最好只有一种显而易见的方法像让人诟病的一点就是它过于灵活源代码常常难以阅读甚至被称作语言当代码量达到成百上千行的规模想在中进行维护就需要大量的纪律约束而在中就没有这个烦恼显得尤为优美最好是只有一种方法来做一件事也因此它和拥有明显个人风格的其他语言很不一样如果面临多种选择开发者一般会拒绝花俏的语法而选择明确没有或者很少有歧义的语法这些准则被称为格言优美胜于丑陋以编写优美的代码为目标明了胜于晦涩优美的代码应当是明了的命名规范风格相似简洁胜于复杂优美的代码应当是简洁的不要有复杂的内部实现复杂胜于凌乱如果复杂不可避免那代码间也不能有难懂的关系要保持接口简洁扁平胜于嵌套优美的代码应当是扁平的不能有太多的嵌套间隔胜于紧凑优美的代码有适当的间隔不要奢望一行代码解决问题可读性很重要优美的代码是可读的不要包容所有错误除非你确定需要这样做精准地捕获异常不写风格的代码当存在多种可能而是尽量找一种最好是唯一一种明显的解决方案如果你无法向人描述你的方案那肯定不是一个好方案反之亦然方案测评标准命名空间是一种绝妙的理念我们应当多加利用倡导与号召更甚者的开发人员努力避免过早优化并拒绝对的非关键部分进行补丁这些补丁将以成本为代价提供边际增长速度与的不同大量使用了语言里的设计但它是一门动态语言不像语言一样需预先声明变量和指定变量类型运行时也可以改变变量类型也内置了大量的数据类型为了程序的模块化引入了包模块类方法和函数所有对象都是一等对象这意味着函数类方法模块和所有其它对象都可以在运行时自由传递并放入在各种数据结构中去在刚开始时是一个个人独自维护的项目没任何官方预算和支持要快速有结果所以有偷懒的设计哲学性能也不是他的重要追求目标对的发展也没什么预期觉得它就跟当时做过的许多失败项目一样没什么特别突出作者对的目标一门简单直观的语言并与主要竞争者一样强大开源以便任何人都可以为它做贡献代码像纯英语那样容易理解适用于短期开发的日常任务变态缩进使用功能缩进区分编程语句来源于编程语言虽然不是首创者但编程语言的作者确实发明了使用冒号将导入语句与缩进块分开的方式代码缩进并不是作者要如此是因为年前的代码编辑器都不能很好地对代码进行缩进排版在同事的启发下作者就鼓励程序员自己来对代码进行正确的排版作者也承认严格要求代码缩进确实有些夸张改用花括号也不是不可以确保从视觉上对代码的理解与编译器对代码的解析是一致的这还挺重要一些代码安全漏洞事故就是由于代码中语句与程序员实际设想的语法逻辑没有匹配引起的青出于蓝作为语言的一种继承及目标客服其失败从早期的版本开始就提供了一系列内置功能被称为内置电池得益于开放易拓展的属性最终拥有极其强大的标准库是整个社区的贡献让它从众多编程语言中容易脱颖而出最开始的发展其实非常缓慢也非常小众因为在计算机资源非常有限的年代大家都倾向于最大化榨取计算机资源并提升运算效率而显然不是为此而生得到大家的青睐主要是在年代末期很多科学家开始进行科学计算时就像作者一样用来作为胶水语言调用原来由或编写的代码对于这些科学家来说是非常顺手的工具对初学者非常友好的语法简单直观几乎就像是用英语写的学习曲线平缓在数据科学机器学习和人工智能领域提供了众多包这些包或者是被科学家用于数据分析建模或者被广泛部署在工业界的生产系统经受了学术圈和工业界的检验年在和社区斗争多年以后选择退出独裁模式年建立了委员会来管理的走向此后就发展的越来越好作者的程序哲学底层概念与复杂体系我们不能把计算机当作是一个魔法盒子而要去了解它是如何运作的这样虽然不一定能成为最厉害的程序员但会比那些完全不懂基本概念的程序员更了解软件和计算机的弱点和约束从而更好地运用各种软件工具避免愚蠢的错误软件实际上是有多层结构组成的这有点像生物的进化一方面编码方式已经有亿年没有发生变化了就像计算机体系中的比特字节指针和内存一样在软件当中其实最终都是指针内存和计算了解这些最底层概念非常重要水藻化石中发现的远古细胞跟现代的细胞没有太大的形态变化不同类的多细胞可组成不同的器官各种不同的器官最终又组成了人类人类自己又构成了人类社会软件也像这样软件领域里最重要的事情就是通过网络把计算机都联系在了一起从而能基于简单的细小结构构建出多层次的大型复杂体系在简单中蕴含着高层级的结构这里面具有超乎想象的灵活性和可能性我认为对编程来说真正酷的事情是将新软件构建于先前软件的基础之上现在的程序员编写代码可以借鉴前人的代码开放与合作自认为自己不是全能型的程序员所以他只负责制订框架如果问题太复杂他会选择绕过去也就是这些问题最终由社区中的其他人解决社区中的人才是异常丰富的就连创建网站筹集基金这样与开发稍远的事情也有人乐意于处理如今的项目开发越来越复杂越来越庞大合作以及开放的心态成为项目最终成功的关键最爱的优雅其最早是与年在阿姆斯特丹开始学习编程学的第一门语言是还学过一些别的语言但他最爱的是它是一门非常优雅的语言在这个过程中其逐渐了解一门编程语言应有的特性以及它们在处理具体问题时各自的特点例如在里是没有字符串类型的如果想定义一个标识符就必须用一种魔法一般的方式来处理字符串这种魔法在不同的输入硬件上的施展方式还不一样要知道当时是通过穿孔卡片来输入代码的每一种卡片机都是不同的而在处理字符串上也很有一套他认为非常优雅能帮程序员高效率编程目标感与当下主义者有些人非常有驱动力目标明确访谈中作者就提到盖茨及一个摇滚乐手做事非常有计划有些人则没有雄心勃勃的创业理想或商业目标如创造者之一也是贝尔实验室花了一番功夫才说服加入之父在年轻时也不知道自己将要干什么更关注当下而不是未来主义者教堂与集市微软就像大教堂开源则像集市作者在微软工作过一段时间他认为其实大公司不止有一个风格内部实际上还有众多不同的部落彼此有不同的目标及做事方式有的人不怎么关心软件只关心钱有的相反有的不关心使用软件的人还有人关心使用软件的人及软件如何帮助这些人你可以找到属于自己的部落创造性还无银弹人的大脑可能才是软件开发效率的天花板而不是屏幕上能显示多少行代码或者编译器能跑得多快新出现的一用就喜欢上了它它太棒了但其也不认为这是提升代码编写效率的银弹因为它自动生成了行代码你还得花时间去确认这行代码所做的事情确实就是你想要的作者想起来以前听过一个笑话在年代有个外行项目经理领导一个项目要交付一百来个用户界面的应用期限是个星期到了第三个星期他们还没生成一个用户界面这个项目经理非常焦虑对他来说团队生产效率就是然而程序员却说他们正在构建一个工具这个工具会在最后两天自动生成这多个用户界面这大概是所有程序员都梦寐以求的事情事实上他当初创建时也是这么想的他通过把原来语言写的小程序都粘连在一起很快完成了任务这说明他非常在意创造性与效率提升移动设备上不太成功移动操作系统套接字和信号行为和有所不同且禁止许多子进程使用受限说官方的解释器已有年的历史了它最初是为了工作站台式机和服务器环境诞生的但那些没法让能在移动设备上运行的人们发现消耗了太多的资源他又补充说到与期待中在移动操作系统运行的情况相比又大又慢运行编写的应用会迅速消耗电池电量和内存因为应用需要自己的运行环境副本意味着需缩小规模以顺利运行在移动设备也有人建议过创建一个简化内核版本的以解决该问题当时联合创始人有一种的存在恐慌当成为主流笔记本电脑不过是细分设备时会发生什么但世代的降临又让它飞上了天为什么这么慢速度真的是相当慢最简单的整数循环耗时是未优化程序的近倍编译器还真是很少进行优化比如明显的对反复和可以改为一直在栈上操作然而在里尝试做这种优化和把基于栈的指令集改成基于寄存器一样是没有关注到重点如果是基于寄存器的指令集那么最好情况下所有指令可以去掉指令数由条减少到条看起来是很大的进步然而数指令数估计时间这种思路并不适用于所有指令都没有类型或者说都是抽象操作这与形成了鲜明对比内置了多种基本类型并且指令都指定了类型比如为了效率甚至把这些类型在语言层面暴露出来哪怕基本类型和对象类型语义不一致给初学者带来了困惑如果把基于栈的虚拟机改为基于寄存器确定能省掉的是和这种纯解释开销和这种栈操作指令但是又要增加寄存器间复制的指令核心并不是基于寄存器还是基于栈也不是只要指令少就快前面说了字节码都是抽象的所以并不知道操作数能不能作不产生新对象的加法所以要去判断操作数是否支持恰好因为是不支持操作那么就要用普通的加法由于不能每次要一个新的对象还要掉原来的对象另外还要处理一大堆情况比如加法既可以由左操作数定义也可以由右操作数定义如果两边都定义了而一个是另一个的子类还要优先用子类的方法和前面一样最终实际干活的函数是由对象类型动态决定的在我们的例子里对象是所以调用了由于支持任意精度整数实现很长实际干活的指令最后会用而不是区别是前者会检查是否需要释放给别的线程这里需要原子地读一个标志所以比慢不少等指令用的原因是它们总是围绕着实际干活的指令没必要这么频繁地检查实际干活的指令由于会调用用户代码执行时间可以任意长所以如果每几条指令才检查一次标志线程切换延迟可能会很大而等指令执行时间比较短不检查标志也不会给线程切换带来很大延迟所以为什么慢一个整数加法用就是一条机器指令大概十几行代码而需要经过近百行代码这些代码都干啥了的指令集虽然也是抽象的但对应的数据类型是确定的几种因此不像对所有指令都要的加法语义设计得非常灵活可以定义在左操作数右操作数两边同时定义进一步增加了的逻辑的没有使用机器整型而是自己定义的任意精度整型格式因此即使数据范围可以被整型支持整数运算逻辑仍然较复杂实际上不只是整数运算作为面向对象语言最核心的调用方法和访问对象自身属性两个操作也是非常慢性能好的语言总的来说性能为什么这么差性能好的语言大体分两类被设计成高性能如这类语言在设计之初就把性能放在优先位置愿意为之作各种牺牲比如前面提到的作为面向对象语言而为基本类型搞特殊规则而后面加新功能时往往首先问的也是这是否会使现有程序变慢设计时不重视性能后期被强烈的性能需求和砸钱搞成高性能如而对设计者来说有太多因素排在性能之前易学灵活性比如加法的各种定义方法概念简单比如把合并成一个任意精度整数类型即使有人愿意砸钱设计者也不见得配合你比如提出各种与性能优化相悖的向后兼容要求对的抛弃为了修复缺陷更好地适应新环境让更有生命力社区做了一个非常有决断的动作推出不向后兼容开发的重点是清理代码库并删除冗余清晰地表明只能用一种方式来执行给定的任务语法差异在语法上更倾向于简单明了但某些设计可能会引起混淆的语法更加一致和清晰标准库改进对异步的支持更好的日期和时间库等性能改进性能上开展了很多优化某些功能执行效率更高字符串和字节处理字符串类型不区分和字节字符串在处理非字符文本时可能造成混淆所有字符串都是字符串和字节串有明确区分改进的编程功能函数注解类型提示先进的异步编程等更易读更易维护引用博客园的起源知乎早期设计与开发从到刘缙的速度为什么比快之父移动设备中的应用又大又慢对话之父人类大脑才是软件开发效率的天花板标点符认识起源与发展',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-07-23 17:45:21',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/" accesskey="h"><div class="title">Diffday</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/archives/"><span> 归档</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/"><span> 分类</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/"><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本站</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/copyright/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 版权协议</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button only-home" id="travellings_button" title="随机前往一个开往项目网站"><a class="site-page" onclick="anzhiyu.totraveling()" title="随机前往一个开往项目网站" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="anzhiyufont anzhiyu-icon-train"></i></a></div><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="http://cdn.diffday.com/picgo/wechatpay.jpg" target="_blank"><img class="post-qr-code-img" alt="微信" src="http://cdn.diffday.com/picgo/wechatpay.jpg"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="http://cdn.diffday.com/picgo/alipay-n.jpeg" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="http://cdn.diffday.com/picgo/alipay-n.jpeg"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="anzhiyufont anzhiyu-icon-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">七月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">三月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/02/"><span class="card-archive-list-date">二月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">5</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/01/"><span class="card-archive-list-date">一月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/12/"><span class="card-archive-list-date">十二月 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">十月 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">八月 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item on" id="consoleCommentBarrage" onclick="anzhiyu.switchCommentBarrage()" title="热评开关"><a class="commentBarrage"><i class="anzhiyufont anzhiyu-icon-message"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><!-- if (page.copyright_author && page.copyright_author !== config.author)// a.post-meta-original 转载--><!-- else--><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/" itemprop="url">信息技术</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/IT/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>IT</span></a></span></div></div><h1 class="post-title" itemprop="name headline">Python的起源和认识</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2022-11-08T09:11:30.000Z" title="发表于 2022-11-08 17:11:30">2022-11-08</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2024-07-23T09:45:21.000Z" title="更新于 2024-07-23 17:45:21">2024-07-23</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-wordcount"><i class="anzhiyufont anzhiyu-icon-file-word post-meta-icon" title="文章字数"></i><span class="post-meta-label" title="文章字数">字数总计:</span><span class="word-count" title="文章字数">5.8k</span><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-clock post-meta-icon" title="阅读时长"></i><span class="post-meta-label" title="阅读时长">阅读时长:</span><span>17分钟</span></span><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="Python的起源和认识"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为深圳"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>深圳</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="http://cdn.diffday.com/picgo/20240723171324.png"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://blog.diffday.com/Python%E7%9A%84%E8%B5%B7%E6%BA%90%E5%92%8C%E8%AE%A4%E8%AF%86.html"><header><a class="post-meta-categories" href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/" itemprop="url">信息技术</a><a href="/tags/IT/" tabindex="-1" itemprop="url">IT</a><h1 id="CrawlerTitle" itemprop="name headline">Python的起源和认识</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">DiffDay</span><time itemprop="dateCreated datePublished" datetime="2022-11-08T09:11:30.000Z" title="发表于 2022-11-08 17:11:30">2022-11-08</time><time itemprop="dateCreated datePublished" datetime="2024-07-23T09:45:21.000Z" title="更新于 2024-07-23 17:45:21">2024-07-23</time></header><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20240723171324.png" alt=""></p>
+<p>Python的创始人是一个荷兰人，Guido van Rossum （吉多·范罗苏姆），89年圣诞节期间，在阿姆斯特丹，guido为了解决在分布式系统Amoeba项目中重复编写C语言工具代码的烦心问题，决心开发一个新的脚本解释程序，把写过的C语言小程序粘贴在一起构成一个新的工具。从89年12月开始编写，91年2月开源发布。91年10月第一版Unicode标准才发布，这给Python埋下了Python2和Python3版本分裂的隐患。</p>
+<p>作者其实并不喜欢语言和大蟒蛇关联上，选中大蟒蛇作为编程语言的名字，取自英文20世纪70年代首播的电视喜剧《蒙提.派森的飞行马戏团》(Monty Python’s Flying Circus)，那是他喜欢的一个马戏团的名字，也符合编程语言名称来源于名人的名字的习惯，如pascal，ada，eiffel</p>
+<h2 id="发明Python的背景">发明Python的背景</h2>
+<p>Guido1982年从阿姆斯特丹大学获得数学和计算机硕士双学位，接触过当时的多种流行语言，Pascal，C，Fortran。大学毕业加入CWI（荷兰教育部和其他研究基金资助的研究中心，国家数学和计算机科学研究中心），在CWI中，他参与了Amoeba项目，为两所机构共同参与开发的基于微内核的分布式系统。</p>
+<p>在这个项目中，Guido发现用C语言开发系统管理程序所花费的时间太长了，<font color="tomato">且Amoeba是一个全新的底层操作系统实现，导致了和原有的Bourne shell不兼容，在Bourne shell无法执行Amoeba项目之中的一些程序</font>。这些原因让Guido意识到它需要一个能弥合C和shell间鸿沟，更高抽象级别，更加简单的编程语言去完成工作任务。</p>
+<p><u>为什么选择造轮子发明python，而不是移植其它编程语言？</u>那是因为当初并没有其它编程语言可以完成这些任务。</p>
+<span id="more"></span>
+<h3 id="ABC语言">ABC语言</h3>
+<p>ABC语言是在CWI主导研发的一种交互式，结构化高级语言，旨在替代basic，pascal等语言，用于教学机原型软件设计。Python的创始人在80年代曾在ABC系统开发中工作了数年。</p>
+<h4 id="特点">特点</h4>
+<p>ABC语言的设计者称其代码量通常为Pascal或C语言的1/4，且具备更强的可读性，其主要特点如下：</p>
+<ol>
+<li>只有五种基本数据类型</li>
+<li>不需要变量声明（动态变量）</li>
+<li>明确支持自上而下的编程</li>
+<li>语句嵌套由缩进来表示</li>
+<li>精度，列表，字符串均无限制</li>
+</ol>
+<h4 id="未能流行的原因">未能流行的原因</h4>
+<p>ABC是由Guido参加设计的一种教学语言，<font color="dodgerblue">就Guido本人看来，ABC这种语言非常优美强大，是专门为非专业程序员设计的</font>。但ABC语言并不成功，一方面是Guido认为ABC不开放，故Guido决心在Python中避免这一错误，且还想在其中实现在ABC中闪现过但未曾实现的东西。就Guido本人看来，ABC失败的原因是</p>
+<ol>
+<li>高级语言为时过早</li>
+<li>平台迁移能力弱，难以添加新功能</li>
+<li>仅仅专注于编程初学者，没有把有经验的编程人员纳入其中</li>
+</ol>
+<p>其通过python解决了其一些问题，让拓展模块的编写非常容易，且可在多平台进行运行。可以说，Python是从ABC发展起来的，主要受到了Modula-3（另一种相当优美且强大的语言，为小型团队所设计的）的影响，且结合了Unix shell和C的习惯。</p>
+<h2 id="Python的特色">Python的特色</h2>
+<h3 id="小的核心语言-大的标准库">小的核心语言+大的标准库</h3>
+<p>Python并没有把所有功能特性都嵌入到它的核心代码中。Python 的设计是高度可扩展。由于看到ABC语言的失败，Guido van Rossum认为“小的核心语言”+“大的标准库”才是他需要的</p>
+<h3 id="优雅-明确-简单的哲学">优雅-明确-简单的哲学</h3>
+<p>在语法层面，Python拒绝了强大并复杂的语法（比如Perl的语法），而倾向于一种更简单、更简洁的语法。Python 的哲学拒绝 Perl“语言设计的方法不止一种”，而倾向于”应该有一种——最好只有一种——显而易见的方法”。</p>
+<p>像Perl让人诟病的一点，就是它过于灵活，源代码常常难以阅读，甚至被称作write-only语言。当代码量达到成百上千行的规模，想在Perl中进行维护，就需要大量的纪律约束。而在Python中就没有这个烦恼，显得尤为优美。</p>
+<p><font color="dodgerblue">最好是只有一种方法来做一件事”，也因此它和拥有明显个人风格的其他语言很不一样</font>。如果面临多种选择，Python开发者一般会拒绝花俏的语法，而选择明确没有或者很少有歧义的语法。这些准则被称为“Python格言”：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">优美胜于丑陋（Python 以编写优美的代码为目标）</span><br><span class="line">明了胜于晦涩（优美的代码应当是明了的，命名规范，风格相似）</span><br><span class="line">简洁胜于复杂（优美的代码应当是简洁的，不要有复杂的内部实现）</span><br><span class="line">复杂胜于凌乱（如果复杂不可避免，那代码间也不能有难懂的关系，要保持接口简洁）</span><br><span class="line">扁平胜于嵌套（优美的代码应当是扁平的，不能有太多的嵌套）</span><br><span class="line">间隔胜于紧凑（优美的代码有适当的间隔，不要奢望一行代码解决问题）</span><br><span class="line">可读性很重要（优美的代码是可读的）</span><br><span class="line">不要包容所有错误，除非你确定需要这样做（精准地捕获异常，不写 except:pass 风格的代码）</span><br><span class="line">当存在多种可能，而是尽量找一种，最好是唯一一种明显的解决方案</span><br><span class="line">如果你无法向人描述你的方案，那肯定不是一个好方案；反之亦然（方案测评标准）</span><br><span class="line">命名空间是一种绝妙的理念，我们应当多加利用（倡导与号召）</span><br></pre></td></tr></table></figure>
+<p>更甚者，Python 的开发人员努力避免过早优化，并拒绝对 CPython 的非关键部分进行补丁，这些补丁将以成本为代价，提供边际增长速度。</p>
+<h3 id="Python与C的不同">Python与C的不同</h3>
+<p>Python大量使用了C语言里的设计，但它是一门动态语言。</p>
+<ul>
+<li>不像C语言一样需预先声明变量和指定变量类型，运行时也可以改变变量类型，也内置了大量的数据类型</li>
+<li>为了程序的模块化，引入了包，模块，类，方法和函数</li>
+<li>所有对象都是一等对象，这意味着函数，类，方法，模块和所有其它对象都可以在运行时自由传递，并放入在各种数据结构中去</li>
+</ul>
+<p>Python在刚开始时是一个个人独自维护的项目，没任何官方预算和支持，要快速有结果，所以有偷懒的设计哲学，性能也不是他的重要追求目标。对Python的发展也没什么预期，觉得它就跟当时做过的许多失败项目一样，没什么特别突出。</p>
+<h3 id="作者对Python的目标">作者对Python的目标</h3>
+<ol>
+<li>一门简单直观的语言并与主要竞争者一样强大</li>
+<li>开源，以便任何人都可以为它做贡献</li>
+<li>代码像纯英语那样容易理解</li>
+<li>适用于短期开发的日常任务</li>
+</ol>
+<h3 id="变态缩进">变态缩进</h3>
+<p>Python使用功能缩进区分编程语句来源于ABC编程语言，虽然不是首创者，但ABC编程语言的作者确实发明了使用冒号将导入语句（lead-in clause）与缩进块 (intented block)分开的方式。</p>
+<p>代码缩进并不是作者要如此<sup id="fnref:5"><a href="#fn:5" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="36kr [对话Python之父：人类大脑才是软件开发效率的天花板](https://36kr.com/p/1933174564702592)
+">[5]</span></a></sup>，<font color="blur">是因为30年前的代码编辑器都不能很好地对代码进行缩进排版。在同事的启发下作者就鼓励程序员自己来对代码进行正确的排版</font>(作者也承认严格要求代码缩进确实有些夸张，改用花括号，也不是不可以)。确保从视觉上对代码的理解与编译器对代码的解析是一致的，这还挺重要。一些代码安全漏洞事故，就是由于代码中语句与程序员实际设想的if-else语法逻辑没有匹配引起的。</p>
+<h3 id="青出于蓝">青出于蓝</h3>
+<p>作为ABC语言的一种继承及目标客服其失败，从早期的版本开始，Python就提供了一系列内置功能，被称为“Battery Included（内置电池）”，得益于Python开放易拓展的属性，最终拥有极其强大的标准库，是整个社区的贡献，让它从众多编程语言中容易脱颖而出。</p>
+<p>Python最开始的发展其实非常缓慢，也非常小众，因为在计算机资源非常有限的年代，大家都倾向于最大化榨取计算机资源并提升运算效率，而Python显然不是为此而生。</p>
+<p><font color="dodgerblue">得到大家的青睐，主要是在90年代末期，很多科学家开始进行科学计算时，就像Python作者一样用Python来作为胶水语言，调用原来由fortran或C++编写的代码。对于这些科学家来说，Python是非常顺手的工具</font>。</p>
+<ul>
+<li>
+<p>对初学者非常友好。Python 的语法简单直观，几乎就像是用英语写的，学习曲线平缓</p>
+</li>
+<li>
+<p>在数据科学、机器学习和人工智能领域提供了众多包，这些包或者是被科学家用于数据分析建模，或者被广泛部署在工业界的生产系统，经受了学术圈和工业界的检验。</p>
+</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20240723173051.png" alt="门槛低能力强"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20240723170412.png" alt="丰富的生态系统"></p>
+<p>2018年guido在和Python社区斗争多年以后，选择退出独裁模式，2019年建立了委员会来管理python的走向，此后python就发展的越来越好</p>
+<h2 id="作者的程序哲学">作者的程序哲学</h2>
+<h3 id="底层概念与复杂体系">底层概念与复杂体系</h3>
+<p>我们不能把计算机当作是一个魔法盒子，而要去了解它是如何运作的。这样虽然不一定能成为最厉害的程序员，但会比那些完全不懂基本概念的程序员更了解软件和计算机的弱点和约束，从而更好地运用各种软件工具，避免愚蠢的错误。</p>
+<p>软件实际上是有多层结构组成的，这有点像生物的进化，一方面DNA编码方式已经有10亿年没有发生变化了，就像计算机体系中的比特，字节，指针和内存一样（在软件当中其实最终都是指针，内存和计算，了解这些最底层概念非常重要），水藻化石中发现的远古细胞跟现代的细胞，没有太大的形态变化，不同类的多细胞可组成不同的器官，各种不同的器官最终又组成了人类，人类自己又构成了人类社会。软件也像这样，软件领域里最重要的事情就是通过网络把计算机都联系在了一起，从而能<font color="dodgerblue">基于简单的细小结构构建出多层次的大型复杂体系，在简单中蕴含着高层级的结构，这里面具有超乎想象的灵活性和可能性</font>。</p>
+<blockquote>
+<p>**Guido：**我认为对编程来说真正酷的事情，是将新软件构建于先前软件的基础之上，现在的程序员编写代码可以借鉴前人的代码。</p>
+</blockquote>
+<h3 id="开放与合作">开放与合作</h3>
+<p>Guido自认为自己不是全能型的程序员，所以他只负责制订框架。如果问题太复杂，他会选择绕过去，也就是cut the corner。这些问题最终由社区中的其他人解决。社区中的人才是异常丰富的，就连创建网站，筹集基金这样与开发稍远的事情，也有人乐意于处理。如今的项目开发越来越复杂，越来越庞大，合作以及开放的心态成为项目最终成功的关键</p>
+<h3 id="最爱Pascal的优雅">最爱Pascal的优雅</h3>
+<p>其最早是1974与1975年在阿姆斯特丹开始学习编程。学的第一门语言是 ALGOL 60，还学过一些别的语言，但他最爱的是 Pascal，它是一门非常优雅的语言<sup id="fnref:5"><a href="#fn:5" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="36kr [对话Python之父：人类大脑才是软件开发效率的天花板](https://36kr.com/p/1933174564702592)
+">[5]</span></a></sup>。在这个过程中，其逐渐了解一门编程语言应有的特性，以及它们在处理具体问题时各自的特点。例如，在 ALGOL 60 里是没有字符串类型的，如果想定义一个标识符就必须用一种魔法一般的方式来处理字符串，这种魔法在不同的输入硬件上的施展方式还不一样——要知道当时是通过穿孔卡片来输入代码的，每一种卡片机都是不同的。而 Pascal 在处理字符串上也很有一套，他认为 Pascal 非常优雅，能帮程序员高效率编程。</p>
+<h3 id="目标感与当下主义者">目标感与当下主义者</h3>
+<p>有些人非常有驱动力，目标明确，访谈中Python作者就提到盖茨及一个摇滚乐手，做事非常有计划，有些人则没有雄心勃勃的创业理想或商业目标，如Unix创造者之一也是贝尔实验室花了一番功夫才说服加入，Python之父在年轻时也不知道自己将要干什么，更关注当下，而不是未来主义者。</p>
+<h3 id="教堂与集市">教堂与集市</h3>
+<p>微软就像大教堂，开源则像集市？作者在微软工作过一段时间，他认为其实大公司不止有一个风格，内部实际上还有众多不同的部落，彼此有不同的目标及做事方式，有的人不怎么关心软件只关心钱，有的相反，有的不关心使用软件的人，还有人关心使用软件的人及软件如何帮助这些人，你可以找到属于自己的部落。</p>
+<h3 id="创造性还无银弹">创造性还无银弹</h3>
+<p>人的大脑可能才是软件开发效率的天花板，而不是屏幕上能显示多少行代码、或者编译器能跑得多快。新出现的 GitHub Copilot，一用就喜欢上了它，它太棒了，<font color="dodgerblue">但其也不认为这是提升代码编写效率的银弹</font>——因为它自动生成了 10 行代码，你还得花时间去确认这 10 行代码所做的事情确实就是你想要的。</p>
+<p>Python作者想起来以前听过一个笑话，在MS-DOS年代，有个外行项目经理领导一个项目，要交付一百来个用户界面的应用，期限是6个星期，到了第三个星期，他们还没生成一个用户界面，这个项目经理非常焦虑，对他来说团队生产效率就是0！然而程序员却说，他们正在构建一个工具，这个工具会在最后两天自动生成这100多个用户界面。这大概是所有程序员都梦寐以求的事情，事实上他当初创建Python时也是这么想的，他通过Python把原来C语言写的小程序都粘连在一起，很快完成了任务。<font color="dodgerblue">这说明他非常在意创造性与效率提升</font>。</p>
+<h2 id="移动设备上Python不太成功">移动设备上Python不太成功</h2>
+<p>移动操作系统，套接字和信号行为和Unix有所不同，且禁止许多syscall，子进程使用受限。</p>
+<p>Guido说：CPython（官方的Python解释器）已有30年的历史了，它最初是为了工作站，台式机和服务器环境诞生的，但那些没法让CPython能在移动设备上运行的人们发现，Python消耗了太多的资源。</p>
+<p>他又补充说到：与期待中在移动操作系统运行的情况相比，Python又大又慢，运行Python编写的应用会迅速消耗电池电量和内存。</p>
+<p>因为Python应用需要自己的运行环境副本，意味着Python需缩小规模以顺利运行在移动设备，也有人建议过创建一个简化内核版本的Python以解决该问题。</p>
+<blockquote>
+<p>当时BeeWare联合创始人Russell Keith-Magee有一种Python的”存在恐慌“：当iPad成为主流，笔记本电脑不过是细分设备时，Python会发生什么？</p>
+<p>但AI世代的降临又让它飞上了天。</p>
+</blockquote>
+<h2 id="Python为什么这么慢？">Python为什么这么慢？</h2>
+<p>Python速度真的是相当慢。最简单的整数循环耗时是未优化C程序的近30倍</p>
+<ul>
+<li>
+<p>Python编译器还真是很少进行优化，比如明显的对i反复LOAD_FAST和STORE_FAST，可以改为一直在栈上操作。然而在Python里尝试做这种优化，和把基于栈的指令集改成基于寄存器一样，是没有关注到重点。</p>
+</li>
+<li>
+<p>如果是基于寄存器的指令集，那么最好情况下所有LOAD_FAST, LOAD_CONST, STORE_FAST指令可以去掉，指令数由9条减少到4条，看起来是很大的进步。然而“数指令数估计时间”这种思路并不适用于Python VM。</p>
+</li>
+<li>
+<p><strong>所有指令都没有类型，或者说都是“抽象”操作。这与JVM形成了鲜明对比</strong>：JVM内置了多种基本类型，并且指令都指定了类型，比如iload,iadd。为了效率，Java甚至把这些类型在语言层面暴露出来，哪怕基本类型和对象类型语义不一致给初学者带来了困惑。</p>
+</li>
+</ul>
+<p>如果把基于栈的虚拟机改为基于寄存器，确定能省掉的是TARGET和FAST_DISPATCH这种纯解释开销和POP_TOP/ROT_THREE这种栈操作指令，但是又要增加寄存器间复制的指令。核心并不是基于寄存器还是基于栈，也不是只要指令少就快。</p>
+<ul>
+<li>
+<p>前面说了，Python字节码都是抽象的，所以INPLACE_ADD并不知道操作数能不能作inplace（不产生新对象）的加法，所以binary_iop1要去判断操作数是否支持。恰好int因为是immutable type，不支持inplace操作（nb_inplace_add=NULL），那么就要用普通的加法（nb_add）。</p>
+</li>
+<li>
+<p>由于不能inplace，每次n+=1要new一个新的int对象，还要free掉原来的对象。</p>
+</li>
+<li>
+<p>另外还要处理一大堆情况，比如加法既可以由左操作数定义也可以由右操作数定义；如果两边都定义了，而一个是另一个的子类，还要优先用子类的方法。</p>
+</li>
+<li>
+<p>和前面一样，最终实际干活的函数是由对象类型动态决定的。在我们的例子里对象是int，所以调用了long_add。由于int支持任意精度整数，long_add实现很长；</p>
+</li>
+<li>
+<p>“实际干活”的指令最后会用DISPATCH而不是FAST_DISPATCH，区别是前者会检查是否需要释放GIL给别的线程。这里需要原子地读一个标志，所以比FAST_DISPATCH慢不少。LOAD/STORE等指令用FAST_DISPATCH的原因是 1) 它们总是围绕着实际干活的指令，没必要这么频繁地检查 2) 实际干活的指令由于会调用用户代码，执行时间可以任意长，所以如果每几条指令才检查一次标志，<u>线程切换</u>延迟可能会很大；而LOAD等指令执行时间比较短，不检查标志也不会给线程切换带来很大延迟。</p>
+</li>
+</ul>
+<p><font color="blur">所以Python为什么慢？一个整数加法，用C就是一条机器指令，Lua大概十几行C代码，而Python需要经过近百行C代码。这些代码都干啥了？</font></p>
+<ol>
+<li>Lua VM的指令集虽然也是抽象的，但对应的数据类型是确定的几种，因此不像Python对所有指令都要dynamic dispatch。</li>
+<li>Python的加法语义设计得非常灵活，可以定义在左操作数/右操作数/两边同时定义… 进一步增加了dynamic dispatch的逻辑。</li>
+<li>Python的int没有使用机器native整型，而是自己定义的任意精度整型格式。因此即使数据范围可以被native整型支持，整数运算逻辑仍然较复杂。</li>
+</ol>
+<p><font color="blur">实际上不只是整数运算，作为面向对象语言最核心的“调用方法”和“访问对象自身属性”两个操作，Python也是非常慢。</font></p>
+<h3 id="性能好的语言">性能好的语言</h3>
+<p>总的来说，Python性能为什么这么差？性能好的语言大体分两类：</p>
+<ol>
+<li>被设计成高性能。如C，Java。这类<strong>语言在设计之初就把性能放在优先位置，愿意为之作各种牺牲</strong>，比如前面提到的，Java作为面向对象语言而为基本类型搞特殊规则；而后面加新功能时，往往首先问的也是这是否会使现有程序变慢。</li>
+<li>设计时不重视性能，后期被强烈的性能需求和砸钱搞成高性能。如Javascript。</li>
+</ol>
+<p>而对Python设计者来说，有太多因素排在性能之前：易学，灵活性（比如加法的各种定义方法），概念简单（比如把int/long合并成一个任意精度整数类型）。即使有人愿意砸钱，设计者也不见得配合你，比如提出各种与性能优化相悖的向后兼容要求…</p>
+<h2 id="Python3对Python2的抛弃">Python3对Python2的抛弃</h2>
+<p>为了修复缺陷，更好地适应新环境，让Python更有生命力，Python社区做了一个非常有决断的动作，推出Python 3，不向后兼容。Python 3 开发的重点是清理代码库并删除冗余，清晰地表明只能用一种方式来执行给定的任务。</p>
+<ul>
+<li>语法差异：Python2在语法上更倾向于简单明了，但某些设计可能会引起混淆，Python3的语法更加一致和清晰</li>
+<li>标准库改进：3对异步IO的支持，更好的日期和时间库等</li>
+<li>性能改进：性能上3开展了很多优化，某些功能执行效率更高</li>
+<li>字符串和字节处理：Python2字符串类型不区分Unicode和字节字符串，在处理非ASCII字符文本时可能造成混淆，Python3所有字符串都是Unicode，字符串和字节串有明确区分</li>
+<li>改进的编程功能：函数注解，类型提示，先进的异步编程等，更易读更易维护</li>
+</ul>
+<h2 id="引用">引用</h2>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">博客园 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/xtuz/p/12402372.html">Python的起源</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">知乎 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/60077260">Python早期设计与开发：从ABC到Python</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">刘缙 <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/25307289/answer/104643646">Lua 的速度为什么比 Python 快？</a><a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">36Kr <a target="_blank" rel="noopener" href="https://36kr.com/p/1239740242732680">Python 之父：移动设备中的 Python 应用“又大又慢”</a><a href="#fnref:4" rev="footnote"> ↩</a></span></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">5.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">36kr <a target="_blank" rel="noopener" href="https://36kr.com/p/1933174564702592">对话Python之父：人类大脑才是软件开发效率的天花板</a><a href="#fnref:5" rev="footnote"> ↩</a></span></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">6.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">标点符 <a target="_blank" rel="noopener" href="https://www.biaodianfu.com/python-intro.html">认识Python：起源与发展</a><a href="#fnref:6" rev="footnote"> ↩</a></span></li></ol></div></div></article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src="https://cdn.diffday.com/picgo/diff_128.png" title="头像" alt="头像"><img class="post-copyright__author_img_front" src="https://cdn.diffday.com/picgo/diff_128.png" title="头像" alt="头像"></a><div class="post-copyright__author_name">DiffDay</div><div class="post-copyright__author_desc">We are here to be creators!</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://blog.diffday.com/Python%E7%9A%84%E8%B5%B7%E6%BA%90%E5%92%8C%E8%AE%A4%E8%AF%86.html">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://blog.diffday.com/Python%E7%9A%84%E8%B5%B7%E6%BA%90%E5%92%8C%E8%AE%A4%E8%AF%86.html')">Python的起源和认识</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你的肯定与鼓励</span><ul class="reward-group"><li class="reward-item"><a href="http://cdn.diffday.com/picgo/wechatpay.jpg" target="_blank"><img class="post-qr-code-img" src="http://cdn.diffday.com/picgo/wechatpay.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="http://cdn.diffday.com/picgo/alipay-n.jpeg" target="_blank"><img class="post-qr-code-img" src="http://cdn.diffday.com/picgo/alipay-n.jpeg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://blog.diffday.com/Python%E7%9A%84%E8%B5%B7%E6%BA%90%E5%92%8C%E8%AE%A4%E8%AF%86.html"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=Python的起源和认识&amp;url=https://blog.diffday.com/Python%E7%9A%84%E8%B5%B7%E6%BA%90%E5%92%8C%E8%AE%A4%E8%AF%86.html&amp;pic=http://cdn.diffday.com/picgo/20240723171324.png" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="rm.copyPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.diffday.com" target="_blank">Diffday</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/IT/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>IT<span class="tagsPageCount">4</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="http://cdn.diffday.com/picgo/20240717183925.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/%E6%95%B0%E6%8D%AE%E5%80%BE%E6%96%9C%E6%B5%85%E8%BF%B0.html"><img class="prev-cover" src="http://cdn.diffday.com/picgo/20221109111839.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">数据倾斜浅述</div></div></a></div><div class="next-post pull-right"><a href="/%E4%B8%89%E5%9B%BD%E4%BA%BA%E7%89%A9%E5%B9%B4%E9%BE%84%E4%B8%8E%E6%9D%82%E8%AE%B0.html"><img class="next-cover" src="http://cdn.diffday.com/picgo/20221124205802.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">三国人物年龄与杂记</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/RPA-POC%E8%A7%82%E5%AF%9F.html" title="RPA-POC观察"><img class="cover" src="http://cdn.diffday.com/picgo/20240628234606.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2024-06-28</div><div class="title">RPA-POC观察</div></div></a></div><div><a href="/%E5%8D%81%E5%B9%B4%E7%9C%8B%E7%A7%91%E6%8A%80%E8%B6%8B%E5%8A%BF.html" title="十年看趋势"><img class="cover" src="http://cdn.diffday.com/picgo/20201116193234.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2024-07-10</div><div class="title">十年看趋势</div></div></a></div><div><a href="/%E5%BC%80%E6%BA%90%E8%AE%B8%E5%8F%AF%E8%AF%81.html" title="开源许可证"><img class="cover" src="http://cdn.diffday.com/picgo/20231008225625.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2024-07-22</div><div class="title">开源许可证</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> 评论</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a><a href="/privacy" style="margin-left: 4px">隐私政策</a></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%91%E6%98%8EPython%E7%9A%84%E8%83%8C%E6%99%AF"><span class="toc-number">1.</span> <span class="toc-text">发明Python的背景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ABC%E8%AF%AD%E8%A8%80"><span class="toc-number">1.1.</span> <span class="toc-text">ABC语言</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-number">1.1.1.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AA%E8%83%BD%E6%B5%81%E8%A1%8C%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="toc-number">1.1.2.</span> <span class="toc-text">未能流行的原因</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Python%E7%9A%84%E7%89%B9%E8%89%B2"><span class="toc-number">2.</span> <span class="toc-text">Python的特色</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8F%E7%9A%84%E6%A0%B8%E5%BF%83%E8%AF%AD%E8%A8%80-%E5%A4%A7%E7%9A%84%E6%A0%87%E5%87%86%E5%BA%93"><span class="toc-number">2.1.</span> <span class="toc-text">小的核心语言+大的标准库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E9%9B%85-%E6%98%8E%E7%A1%AE-%E7%AE%80%E5%8D%95%E7%9A%84%E5%93%B2%E5%AD%A6"><span class="toc-number">2.2.</span> <span class="toc-text">优雅-明确-简单的哲学</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Python%E4%B8%8EC%E7%9A%84%E4%B8%8D%E5%90%8C"><span class="toc-number">2.3.</span> <span class="toc-text">Python与C的不同</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E8%80%85%E5%AF%B9Python%E7%9A%84%E7%9B%AE%E6%A0%87"><span class="toc-number">2.4.</span> <span class="toc-text">作者对Python的目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E6%80%81%E7%BC%A9%E8%BF%9B"><span class="toc-number">2.5.</span> <span class="toc-text">变态缩进</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%92%E5%87%BA%E4%BA%8E%E8%93%9D"><span class="toc-number">2.6.</span> <span class="toc-text">青出于蓝</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E8%80%85%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%93%B2%E5%AD%A6"><span class="toc-number">3.</span> <span class="toc-text">作者的程序哲学</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%95%E5%B1%82%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%A4%8D%E6%9D%82%E4%BD%93%E7%B3%BB"><span class="toc-number">3.1.</span> <span class="toc-text">底层概念与复杂体系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E6%94%BE%E4%B8%8E%E5%90%88%E4%BD%9C"><span class="toc-number">3.2.</span> <span class="toc-text">开放与合作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E7%88%B1Pascal%E7%9A%84%E4%BC%98%E9%9B%85"><span class="toc-number">3.3.</span> <span class="toc-text">最爱Pascal的优雅</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87%E6%84%9F%E4%B8%8E%E5%BD%93%E4%B8%8B%E4%B8%BB%E4%B9%89%E8%80%85"><span class="toc-number">3.4.</span> <span class="toc-text">目标感与当下主义者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%99%E5%A0%82%E4%B8%8E%E9%9B%86%E5%B8%82"><span class="toc-number">3.5.</span> <span class="toc-text">教堂与集市</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E9%80%A0%E6%80%A7%E8%BF%98%E6%97%A0%E9%93%B6%E5%BC%B9"><span class="toc-number">3.6.</span> <span class="toc-text">创造性还无银弹</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87%E4%B8%8APython%E4%B8%8D%E5%A4%AA%E6%88%90%E5%8A%9F"><span class="toc-number">4.</span> <span class="toc-text">移动设备上Python不太成功</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Python%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%99%E4%B9%88%E6%85%A2%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">Python为什么这么慢？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E5%A5%BD%E7%9A%84%E8%AF%AD%E8%A8%80"><span class="toc-number">5.1.</span> <span class="toc-text">性能好的语言</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Python3%E5%AF%B9Python2%E7%9A%84%E6%8A%9B%E5%BC%83"><span class="toc-number">6.</span> <span class="toc-text">Python3对Python2的抛弃</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E7%94%A8"><span class="toc-number">7.</span> <span class="toc-text">引用</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/Python%E7%9A%84%E8%B5%B7%E6%BA%90%E5%92%8C%E8%AE%A4%E8%AF%86.html" title="Python的起源和认识"><img src="http://cdn.diffday.com/picgo/20240723171324.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python的起源和认识"/></a><div class="content"><a class="title" href="/Python%E7%9A%84%E8%B5%B7%E6%BA%90%E5%92%8C%E8%AE%A4%E8%AF%86.html" title="Python的起源和认识">Python的起源和认识</a><time datetime="2024-07-23T09:45:21.000Z" title="更新于 2024-07-23 17:45:21">2024-07-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E4%B8%AD%E5%9B%BD%E5%B0%B1%E4%B8%9A%E4%BA%BA%E7%BE%A4%E8%B0%83%E6%9F%A5.html" title="中国就业人群调查"><img src="http://cdn.diffday.com/picgo/20240220112557.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="中国就业人群调查"/></a><div class="content"><a class="title" href="/%E4%B8%AD%E5%9B%BD%E5%B0%B1%E4%B8%9A%E4%BA%BA%E7%BE%A4%E8%B0%83%E6%9F%A5.html" title="中国就业人群调查">中国就业人群调查</a><time datetime="2024-07-23T02:15:30.000Z" title="更新于 2024-07-23 10:15:30">2024-07-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%BC%80%E6%BA%90%E8%AE%B8%E5%8F%AF%E8%AF%81.html" title="开源许可证"><img src="http://cdn.diffday.com/picgo/20231008225625.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="开源许可证"/></a><div class="content"><a class="title" href="/%E5%BC%80%E6%BA%90%E8%AE%B8%E5%8F%AF%E8%AF%81.html" title="开源许可证">开源许可证</a><time datetime="2024-07-22T10:27:18.000Z" title="更新于 2024-07-22 18:27:18">2024-07-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B.html" title="大语言模型LLM"><img src="http://cdn.diffday.com/picgo/20230408222056.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="大语言模型LLM"/></a><div class="content"><a class="title" href="/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B.html" title="大语言模型LLM">大语言模型LLM</a><time datetime="2024-07-18T03:44:17.000Z" title="更新于 2024-07-18 11:44:17">2024-07-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E4%BD%8E%E7%94%9F%E8%82%B2%E9%99%B7%E9%98%B1.html" title="低生育陷阱"><img src="http://cdn.diffday.com/picgo/20210502154701.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="低生育陷阱"/></a><div class="content"><a class="title" href="/%E4%BD%8E%E7%94%9F%E8%82%B2%E9%99%B7%E9%98%B1.html" title="低生育陷阱">低生育陷阱</a><time datetime="2024-07-17T12:51:03.000Z" title="更新于 2024-07-17 20:51:03">2024-07-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E6%9D%90%E6%96%99%E7%9A%84%E5%8A%9B%E5%AD%A6%E6%80%A7%E8%83%BD.html" title="材料的力学性能指标"><img src="http://cdn.diffday.com/picgo/20240717183925.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="材料的力学性能指标"/></a><div class="content"><a class="title" href="/%E6%9D%90%E6%96%99%E7%9A%84%E5%8A%9B%E5%AD%A6%E6%80%A7%E8%83%BD.html" title="材料的力学性能指标">材料的力学性能指标</a><time datetime="2024-07-17T10:40:14.000Z" title="更新于 2024-07-17 18:40:14">2024-07-17</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2018 - 2024 By <a class="footer-bar-link" href="/" title="DiffDay" target="_blank">DiffDay</a></div></div><div id="footer-type-tips"></div><div class="js-pjax"><script>function subtitleType () {
+  getScript('https://sdk.jinrishici.com/v2/browser/jinrishici.js').then(() => {
+    jinrishici.load(result =>{
+      if (false) {
+        const sub = []
+        const content = result.data.content
+        sub.unshift(content)
+        window.typed = new Typed('#footer-type-tips', {
+          strings: sub,
+          startDelay: 300,
+          typeSpeed: 150,
+          loop: true,
+          backSpeed: 50,
+        })
+      } else {
+        document.getElementById('footer-type-tips').innerHTML = result.data.content
+      }
+    })
+  })
+}
+
+if (false) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}
+</script></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a><a class="footer-bar-link" target="_blank" rel="noopener" href="https://beian.miit.gov.cn/" title="粤ICP备-18103410号">粤ICP备-18103410号</a><a class="footer-bar-link cc" href="/copyright" title="cc协议"><i class="anzhiyufont anzhiyu-icon-copyright-line"></i><i class="anzhiyufont anzhiyu-icon-creative-commons-by-line"></i><i class="anzhiyufont anzhiyu-icon-creative-commons-nc-line"></i><i class="anzhiyufont anzhiyu-icon-creative-commons-nd-line"></i></a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">136</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">8</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/archives/"><span> 归档</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/"><span> 分类</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/"><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本站</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/copyright/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 版权协议</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="anzhiyufont anzhiyu-icon-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="is-center" id="loading-database"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-pulse-icon"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script async src="/anzhiyu/random.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  //if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  anzhiyu.addGlobalFn('themeChange', runMermaid, 'mermaid')
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'uwklgzjj0IepCMXNYCU3t9Ah-9Nh9j0Va',
+      appKey: 'jRMVc9QS0SBr1L9heA2V0m4q',
+      avatar: 'mp',
+      serverURLs: 'https://uwklgzjj.lc-cn-e1-shared.com',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) anzhiyu.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script src="https://cdn.jsdelivr.net/npm/blueimp-md5/js/md5.min.js"></script><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getIcon = (icon, mail) => {
+    if (icon) return icon
+    let defaultIcon = '?d=mp'
+    let iconUrl = `https://gravatar.loli.net/avatar/${md5(mail.toLowerCase()) + defaultIcon}`
+    return iconUrl
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${anzhiyu.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = () => {
+    const serverURL = 'https://uwklgzjj.lc-cn-e1-shared.com'
+
+    var settings = {
+      "method": "GET",
+      "headers": {
+        "X-LC-Id": 'uwklgzjj0IepCMXNYCU3t9Ah-9Nh9j0Va',
+        "X-LC-Key": 'jRMVc9QS0SBr1L9heA2V0m4q',
+        "Content-Type": "application/json"
+      },
+    }
+
+    fetch(`${serverURL}/1.1/classes/Comment?limit=6&order=-createdAt`,settings)
+      .then(response => response.json())
+      .then(data => {
+        const valineArray = data.results.map(function (e) {
+          return {
+            'avatar': getIcon(e.QQAvatar, e.mail),
+            'content': changeContent(e.comment),
+            'nick': e.nick,
+            'url': e.url + '#' + e.objectId,
+            'date': e.updatedAt,
+          }
+        })
+        saveToLocal.set('valine-newest-comments', JSON.stringify(valineArray), 10/(60*24))
+        generateHtml(valineArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+      }) 
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('valine-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script>var visitorMail = "visitor@anheyu.com";
+</script><script async data-pjax src="https://cdn.jsdelivr.net/npm/anzhiyu-theme-static/waterfall/waterfall.min.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><script src="/js/anzhiyu/right_click_menu.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/anzhiyu-theme-static/icon/ali_iconfont_css.min.css"><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', 'G-X0MW6B53JB', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.jsdelivr.net/npm/anzhiyu-theme-static/accesskey/accesskey.min.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
