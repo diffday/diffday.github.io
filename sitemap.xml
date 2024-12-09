@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.diffday.com/OKR-VS-KPI.html</loc>
+    
+    <lastmod>2024-12-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.diffday.com/%E4%B8%89%E8%A7%82%E4%B8%8E%E5%8A%A8%E6%9C%BA.html</loc>
+    
+    <lastmod>2024-12-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.diffday.com/%E7%8A%AC%E5%84%92%E4%B8%BB%E4%B9%89.html</loc>
     
     <lastmod>2024-12-09</lastmod>
@@ -758,15 +776,6 @@
   </url>
   
   <url>
-    <loc>https://blog.diffday.com/OKR-VS-KPI.html</loc>
-    
-    <lastmod>2024-06-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.diffday.com/%E5%BF%83%E5%8A%9B%E5%8F%91%E5%B1%95%E4%B8%8E%E7%BB%84%E7%BB%87%E5%A1%91%E9%80%A0.html</loc>
     
     <lastmod>2024-06-29</lastmod>
@@ -831,15 +840,6 @@
   
   <url>
     <loc>https://blog.diffday.com/%E5%B8%A6%E8%9B%A4%E8%9F%86%E5%85%88%E7%94%9F%E7%9C%8B%E5%BF%83%E7%90%86%E5%8C%BB%E7%94%9F.html</loc>
-    
-    <lastmod>2024-06-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.diffday.com/%E4%B8%89%E8%A7%82%E4%B8%8E%E5%8A%A8%E6%9C%BA.html</loc>
     
     <lastmod>2024-06-28</lastmod>
     
