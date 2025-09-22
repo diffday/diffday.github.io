@@ -1,0 +1,942 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>架构师与SQALE | Diffday</title><meta name="keywords" content="架构,软件工程,研发质效"><meta name="author" content="DiffDay"><meta name="copyright" content="DiffDay"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="架构师与SQALE"><meta name="application-name" content="架构师与SQALE"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="架构师与SQALE"><meta property="og:url" content="https://blog.diffday.com/%E6%9E%B6%E6%9E%84%E5%B8%88%E4%B8%8ESQALE.html"><meta property="og:site_name" content="Diffday"><meta property="og:description" content="SQALE质量模型  Software Quality Assessment based on Lifecycle Expectations 目标管理软件中源代码的质量  如下对于过程质量和结果质量的分类并没有绝对的官方出处，更多是一种直觉的分类 过程质量  Maintainability Cha"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="http://cdn.diffday.com/picgo/20220523155731.png"><meta property="article:author" content="DiffDay"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="http://cdn.diffday.com/picgo/20220523155731.png"><meta name="description" content="SQALE质量模型  Software Quality Assessment based on Lifecycle Expectations 目标管理软件中源代码的质量  如下对于过程质量和结果质量的分类并没有绝对的官方出处，更多是一种直觉的分类 过程质量  Maintainability Cha"><link rel="shortcut icon" href="https://cdn.diffday.com/picgo/diff32.ico"><link rel="canonical" href="https://blog.diffday.com/%E6%9E%B6%E6%9E%84%E5%B8%88%E4%B8%8ESQALE"><link rel="preconnect" href="//npm.elemecdn.com"/><link rel="preconnect" href="//npm.onmicrosoft.cn"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="UaMvLIOYuNWHgVq42dlN49RoniU73U6SoqoRnEcit9E"/><meta name="baidu-site-verification" content="code-DN25SBuR8T"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b5c9889dd454fff053fb5b93fc1b2ac7";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X0MW6B53JB"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-X0MW6B53JB');
+</script><script>const GLOBAL_CONFIG = {
+  linkPageTop: {"enable":true,"title":"同博主们无限进步","addFriendPlaceholder":"昵称（请勿包含博客等字样）：\n网站地址（要求博客地址，请勿提交个人主页）：\n头像图片url（请提供尽可能清晰的图片，我会上传到我自己的图床）：\n描述：\n站点截图（可选）：\n"},
+  peoplecanvas: undefined,
+  postHeadAiDescription: undefined,
+  diytitle: {"enable":true,"leaveTitle":"一次时空相逢，祝好！","backTitle":"欢迎回来！"},
+  LA51: {"enable":true,"ck":"3G4PP4R5LAAt6DBv","LingQueMonitorID":"3GA1sASrkc8hJd7c"},
+  greetingBox: {"enable":true,"default":"晚上好👋","list":[{"greeting":"晚安😴","startTime":0,"endTime":5},{"greeting":"早上好鸭👋, 祝一天好心情！","startTime":6,"endTime":9},{"greeting":"上午好👋, 状态很好，鼓励一下～","startTime":10,"endTime":10},{"greeting":"11点多啦, 在坚持一下就吃饭啦～","startTime":11,"endTime":11},{"greeting":"午安👋, 为下午蓄力充电","startTime":12,"endTime":14},{"greeting":"🌈充实的一天辛苦啦！","startTime":14,"endTime":18},{"greeting":"19点喽, 奖励一顿丰盛的大餐吧🍔。","startTime":19,"endTime":19},{"greeting":"晚上好👋, 在属于自己的时间好好放松😌~","startTime":20,"endTime":24}]},
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  root: '/',
+  preloader: undefined,
+  friends_vue_info: undefined,
+  navMusic: false,
+  mainTone: {"mode":"both","api":"https://img2color-go.vercel.app/api?img=","cover_change":true},
+  authorStatus: undefined,
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: DiffDay","link":"链接: ","source":"来源: Diffday","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: true,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: 'Diffday',
+  title: '架构师与SQALE',
+  postAI: '',
+  pageFillDescription: 'SQALE质量模型, 过程质量, 结果质量, SQALE度量内在质量, 落地好架构的要求, 架构合理性目标, 需求角度, 非需求角度, 持续架构的5原则, 架构和架构师的价值, 程序员最难任务排位, 着眼长期成本, 如何消解程序员的头疼问题？, 不同周期的发力方向, 短期, 长期, 榜样, 工程师文化, 质量, 务实, 效率, 革新, 角色划分, 何为工作能力？, 知无涯和能力发展, 技术债（TechnicalDebts）, 技术债的排序, 技术债规避举例, 代码是资产也是债务, 圈复杂度, 性能 != 效率, 金玉良言, 回顾收尾, 意面/屎山代码产生的原因, 重构~精进, 精神误区, 动手解决, 代码助手, 常规项目程序员时间分解, LLM 改变软件开发模式软件工程进入 3.0 时代, AI擅长的事情, AI对软件工程师的影响, 研发, 兼职架构师, 跨域架构师, LLM效能提升的正确姿势质量模型目标管理软件中源代码的质量如下对于过程质量和结果质量的分类并没有绝对的官方出处更多是一种直觉的分类过程质量结果质量互联网中架构更喜欢讨论的是结果质量的确有其挑战但过程控制是结果控制的非取巧不二法门度量内在质量整合了标准与代码规范目标是客观准确可复制和自动化的方式为评估软件应用程序的源代码提供支持为管理技术负债提供一种有效的方法戏称开发人员宗罪编码规范名字是最短的咒各位法师常乱施法潜在的可能在最坏的情况下出问题的代码及存在安全漏洞的代码文档和注释过少过多亦对信息量也是冲销过时重复代码违反了原则复杂度结构复杂如圈复杂度高难以理解测试维护测试覆盖率单元测试尤其是针对复杂代码的覆盖是否足够设计与架构是否高内聚低耦合依赖最少从可测性可读性可理解性容变性等代码可维护的质量属性来衡量代码质量代码质量不好最直接的受害者是开发者或组织本身同样是代码质量问题重复代码和注释过多危害肯定不一样圈复杂度为和的方法相比危害和修改难度差别也大不能直接用问题的数量来衡量质量需要更精细合理的量化度量方法这时你考虑解决问题的人力投入耗时这个维度根据不同的项目组是可以根据自己的生产力自定义配置开发语言不同默认值也不尽相同等商用代码扫描工具都将作为参照标准但同时也在做自己的扬弃或简化落地好架构的要求方向清晰具有一定的前瞻性了解技术的发展方向拥抱应用之理解业务最好领先业务半年因为架构升级朝向解决复杂问题往往带来业务阵痛这也要求架构师对业务理解和预判有更高的要求方案细致除了宏观上层设计还要关注关键细节给多种方案选型予以综合评估方法实用以解决问题为目标不搞大而空多方利益均衡康威定律软件架构无法超然跳脱组织架构架构合理性目标软件系统的架构将系统描述为计算机组件与组件之间的交互包含了组成系统的结构元素及它们的接口协作的问题决策不仅注重软件本身的结构和行为还注重其他特性易于使用功能性性能弹性重用可理解性经济和技术限制和权衡以及美学以高效稳定安全三大目标衡量架构的合理性追求的是面向维护的设计不仅仅是逻辑简单只有简单的体系才能经得起进化需求角度优雅可复用地解决当下业务问题前瞻设计能在未来一段时间都优雅可复用满足业务非需求角度稳定指标可用性包括各种测试覆盖单元测试自动化测试黑百盒故障注入等都是为了这个目标高效文档化可扩展软件设计秉承低耦合理念在合理的地方抽象方便功能更改新增和运用技术的迭代高复用安全数据安全持续架构的原则产品思维而非项目思维来设计架构聚焦质量属性而不仅仅是功能性需求在绝对必要的时候再做设计决策面向变化来设计架构将系统分解设计成可独立替代的松耦合模块集合为构建测试部署和运营来设计架构架构和架构师的价值通过保障系统质量属性来降本增效排首第一武器是抽象能力接着还有分层分治和演化模型思考者中提及模型是对现实世界问题的抽象模型思考着需针对问题看穿客观事务本质选取或构建合适模型推导出问题最优解架构师的职责和模型思考者类似定义问题并识别方向创建选择调整架构找到最合适的方法推进团队解决问题架构质量的优劣取决于系统在应对变化时所需投入的研发成本隔离变化用的话来说重要任务之一消除不可逆的决策高质量低成本直观看违背常理但高质量低成本通过业内在增量功能迭代和研发投入时间的增长曲线分析上发现基于低质量的架构在数周内就显现出研发效率的降低而高质量架构要好得多程序员最难任务排位程序员最难任务命名解释我的工作工作量评估团队协作接手别人的代码实现不认可的功能写文档写测试设计方案着眼长期成本架构规范的价值是降低长期成本涉及组织惯例和公共建设文档流程文化如何消解程序员的头疼问题命名下定义是一种概念能力抽象能力的磨炼锻炼存在平时之中如小说阴阳师中所言名字是最短的咒工作量评估掌握工具别人的代码代码规范写文档常规环节代码即文档不同周期的发力方向短期代码开发联调测试部署长期页面变更业务流程规则变更基础实施变更依赖包升级榜样的领域标准化所有团队的模块都要通过方式将其数据和功能开放出来团队间程序模块的信息通信都需要通过这些接口除开的通信形式一概不允许不能直接链结别的程序如外部团队的动态库不能直接读取其它团队的数据库不能使用共享内存模式不能使用别人模块的后门所有的毫无例外都必须从骨到皮设计成能对外开放的即团队必须做好规划以便未来把接口开放给全世界的程序员不这样做的人会被炒鱿鱼如此这般的的好处之一是领域限界清晰没有意外你的团队控制着源代码和数据在单一的限界上下文中工作工程师文化质量它是一个高度概括的词汇是一个结果质量是工程师的不仅是在职场换个土话可以解释为靠谱事情做成离不开靠谱的人聪明的人只能聊聊天工程师一直以做事为己任视出品为生命是我们对成事的渴望对自己孜孜向上的推进务实不消多说工程师一直在解决问题的路上眉眼为问题而动养成的自然是以解决问题为目标不搞假大空的作风但在评估需求时存在普遍乐观主义的倾向本质是因为需求信息不够详尽慢思考模式是惰性的通过经验可训练强化自己的评估模式效率效率就是生命减少中断进入心流状态充分将人脑效能提速起来抓重点做好数据和用户分析自动化更多的自动化更少的多人协作降成本去除支持性工作提高组件质量和重用持续改善组织文化良好的分层分治设计也是我们应对效率怪兽的解药革新在小革新的积累下也在涌动大的革新以解决结构性问题难题旧的世界的打破需要技术突破技术突破有些时候是跳跃性的但离不开原来渐近式的铺垫跳跃性解决结构性难题渐进性解决日常问题角色划分现在架构师划分的角色也很细顾名思义数据架构师运维云架构师安全架构师这些都比较容易让人好理解其定位还有几个不那么容易概念区分的架构师角色特在此记录说明一下企业架构师企业架构师的职责包括协助创建和执行信息技术架构路线图创建支持业务目标的企业基础设施分析技术架构领域的当前趋势并提供建议评估应用程序是否符合企业标准和业务标准确定与组织变更相关的架构的生存能力就治理模型和框架等领域的最佳实践对技术人员进行培训业务架构师解决方案架构师专门评估业务需求并将它们转换为解决方案产品或服务通常花费大部分时间来协调正在进行的活动从概念定义到需求的分析和实现最后转移到操作在设计和构建阶段管理应用程序开发团队为初级员工提供培训和指导与应用程序开发人员协作以实现业务目标领域架构师应用架构师领域架构师是在其专业领域具有深入知识的专家数据架构师安全架构师也属于领域架构师何为工作能力不局限于架构师角色工作能力即为将大目标分解为可执行的小任务的能力任务是实现结果的过程知无涯和能力发展各种岗位都是要不断构建自己的知识体系将经验沉淀总结为方法这方面贯穿着宏观思维能力抽象思维能力和钻研能力宏观思维就是考虑整体站在更高层次上看问题需要有意的跳出细节看整体找到关键重点再深入细节软件项目永远不变的就是变化抽象是应对变化的主要手段要求看得更远将现有和未来可能的业务场景综合起来进行分析做出相对稳定的抽象预留架构的扩展性钻研能力要求具备深入细节的能力攻坚克难专业的方向可以有选择性并不是所有技术都要深入到细节层面用源码学习很多时候并不是一个特别高效的学习过程学习就是一种挺高效的途径的的这些吵架吵出来的设计很漂亮通过学习你可以把它的领域想透了不信你自己写一个一比较很容易是这也忘了不对那个也忘了不对还有一个误区都喜欢钻研计算机科学知识唯底层为王深入钻研细节要权衡好对于业务部门技术人员而言在软件设计方法和软件工程的专业知识实际上也是应花力气钻研的这些基础知识同样是该领域的底层技术债概念最早出现在年本义指开发人员为加速软件开发在应采用最佳方案时做了妥协改用短期能加速开发的方案从而在未来给自己带来额外开发负担本金定义为修复代码质量所需消耗的人力资源估值例如针对而言修复一个圈复杂度为的方法需一个开发人员分钟的时间通常借钱是有利息的技术债也一样存在利滚利的情况有些违规项马上修复要分钟若放一段时间后也许就需要分钟甚至更多时间来修复代码细节的知识随时间流逝及破窗效应造成代码问题加速恶化等原因因为利息的存在不及时偿还的话会在未来呈现非线性增长造成始料不及的损失负债率偿还债务所需耗费的资源除以重写所有代码预估耗费的资源在扫描工具的实现中分母是通过代码量和开发生产力水平计算得出其中生产力是一个配置项技术债的排序技术债务对每个问题设置了规则等级面对那么多技术债务如何按优先级排序你的工作呢且看技术债务金字塔非结构化语句外的文件注释率循环语句中使用文件行数不一致的缩进变量大小写风格残留吴用的变量类继承太深滥用类复杂性未初始化变量使用条件循环语句中使用赋值符号方法参数列表庞大需独立测试路径过多这个金字塔仅是一个比喻自底向上的看每个特性建立在它下面的基础上可测试性是底部因为它是最重要的首先要确保你的应用程序是可测试的接着确保它的可靠性可变性有效性等等及以上更偏长期债务通常在转移维护团队时才得以察觉显现二者间可视作中期债务及以下更偏短期债务和属于关键债务按比喻来说是债务利息中最高的部分多见逻辑错误或异常管理不善等问题直接影响业务而其它问题有时并不会直接影响业务技术债规避举例某组织挑拣的条规则个人看法这几条规则有三条都跟复杂度有关抓本质的能力有待提升代码是资产也是债务布洛赫作者架构师曾说随着年龄增长其意识到编程不仅仅是让程序运行而已它是创造一个利于理解可维护的高效的作品一般来说干净整洁的代码即使运行不快也可以很容易让它变快让正确的程序更快要比让快速的程序正确容易得多最小化人们理解它所需要的时间是比最小化代码行数更好的度量方法别为了获得一丁点性能就牺牲掉整洁一流的编译器优化通常会自动把短代码转换成内联函数在现代计算机上函数调用的代价接近于霰弹式修改是个坏味道圈复杂度构造软件有两种方法一种是简单明显地没有缺陷另一种是使其复杂却没有明显的缺陷图灵奖得主霍尔有研究表明圈复杂度大于的方法存在很大的出错风险以下圈复杂度的方法有修复不成功率在的复杂度不成功率就来到了大于修复不成功率来到接近的复杂度有的几率出现修复失败应该将复杂的计算分解成具有内聚性的步骤令大尺度的运算更具可读性性能效率效率意味着最短路径性能意味着以跑代走就算你用博尔特的速度虽然高性能但可能没选择最优路径影响程序运行时间的一个重要原因是内存中的数据的布局和结构布局不优良会造成要花费很多时间获取数据同时会造成指令冗余金玉良言最好维护的代码就是没有代码好的程序员代码产量是负的他们通过减少代码来增加功能回顾收尾好的代码就像好的笑话一样它不需要解释有编码经验的人对代码有一定的鉴赏力能凭感觉给出代码好坏的主观评价这方面的反例就是意大利面条式代码意面式代码非结构化和难以维护的源代码的代称有一个复杂和纠结的控制结构程序流在概念上有如意大利面扭曲和纠结国内圈有更震撼的翻译屎山代码意面屎山代码产生的原因由于程序员在开发过程中缺乏良好的设计和规划从而导致逻辑混乱耦合度高难以理解和修改给后续开发人员带来了极大的成本不仅局限于代码难读环境差异废弃的代码过时临时的逻辑依赖和组件引入及锁片都在助力屎山代码的形成公认的幽默标准每分钟爆粗数量强调了代码的可读易懂有多么感人和基础重构精进当已有代码存在问题时程序员应主动进行重构优化代码结构和逻辑对一个东西最好的批评是做出新东西替代它精神误区得过且过无能为力推到重来面对现实的挑战和过去的包袱不能站出来的成不了架构师没有勇气承担的成不了架构师动手解决理解不干净背后的东西勇于承担拒绝破窗养成日常清洁边打扫边生活的习惯和产品达成共识解决大石头的同时干掉小石头慢即是快要干净的不仅仅是代码善于用减法的思路去对待产品使用工具提升效率君子性非异也善假于物也代码助手常规项目程序员时间分解常规迭代程序员时间开销理解需求理解整体架构设计并做详细设计画图写文档理解关联代码参考内部规范和已有基建查找类似代码或及技术方案修改新增代码运行调试写单元测试功能联调测试准备发布物料协作被动沟通其它摸鱼编码准备编码调试查找方案编码调试单测开发阶段约占版本周期中的测试约占产品阶段架构师设计运维项目经理贯穿消耗在研发阶段代码大模型能着力的部分占再加成项目周期的占比对整体项目的提升上限不超过改变软件开发模式软件工程进入时代人月神话软件工程年会议软件工程学科诞生软件工程年会议敏捷软件开发宣言发布软件工程年发布开发模式提升协同效率瀑布模式敏捷开发延续架构模式分解复杂度年半单体年模块化服务化微服务化延续重大挑战举例软件规模几十万行百万千万亿级精英与模型协同作业代码责任田万行万行软件生命周期成本开发维护从擅长的事情交给擅长的事情接受的不完美放大优势规避缺点心态开放接受短板全库检索与总结代码解释与解读局部重构与改写不熟悉的编程语言算法与通用逻辑对软件工程师的影响真正的价值创造来自于弥补其它人决策盲区你之所以被认为是架构师是因为你能看到别人看不到的东西在整个软件开发过程中越是偏向个体研发的能力受到的冲击就越大换句话说那些依赖与单兵作战的工作更容易被自动化工具和智能系统所取代越往下即越偏向于对整个开发场景的控制和管理这些工作受到的冲击相对较小架构活动中最大的成本是人力和时间这两个成本在大模型世代都会发生巨大变化研发能力沟通交流项目交付横向问题分工选型长期思考外部环境研发兼职架构师跨域架构师研发研发能力业务建模设计代码交付监控维护兼职架构师沟通交流文档总结需求对接人员培训进度沟通项目交付团队协同项目规划风险控制质量保障横向问题成本质量安全性跨域架构师分工选型前后端业务中台开源自建长期思考领域扩展规模跨度技术壁垒外部环境不确定性竞争格局监管合规效能提升的正确姿势广泛提升个体效能让没有很好能力的人也能受益并内置到企业现有开发环境和工具链中成为开发基础设施有机组成部分嵌入于研发全生命周期流程项目管理工具等优化上下游知识共享',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-09-22 18:19:48',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/" accesskey="h"><div class="title">Diffday</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/archives/"><span> 归档</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/"><span> 分类</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/"><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本站</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/copyright/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 版权协议</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button only-home" id="travellings_button" title="随机前往一个开往项目网站"><a class="site-page" onclick="anzhiyu.totraveling()" title="随机前往一个开往项目网站" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="anzhiyufont anzhiyu-icon-train"></i></a></div><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="http://cdn.diffday.com/picgo/wechatpay.jpg" target="_blank"><img class="post-qr-code-img" alt="微信" src="http://cdn.diffday.com/picgo/wechatpay.jpg"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="http://cdn.diffday.com/picgo/alipay-n.jpeg" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="http://cdn.diffday.com/picgo/alipay-n.jpeg"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="anzhiyufont anzhiyu-icon-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/09/"><span class="card-archive-list-date">九月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">七月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">六月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">四月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">三月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">二月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">一月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">6</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">十二月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item on" id="consoleCommentBarrage" onclick="anzhiyu.switchCommentBarrage()" title="热评开关"><a class="commentBarrage"><i class="anzhiyufont anzhiyu-icon-message"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><!-- if (page.copyright_author && page.copyright_author !== config.author)// a.post-meta-original 转载--><!-- else--><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/" itemprop="url">信息技术</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E6%9E%B6%E6%9E%84/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>架构</span></a><a class="article-meta__tags" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>软件工程</span></a><a class="article-meta__tags" href="/tags/%E7%A0%94%E5%8F%91%E8%B4%A8%E6%95%88/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>研发质效</span></a></span></div></div><h1 class="post-title" itemprop="name headline">架构师与SQALE</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2022-05-23T08:00:00.000Z" title="发表于 2022-05-23 16:00:00">2022-05-23</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2025-09-22T10:19:48.000Z" title="更新于 2025-09-22 18:19:48">2025-09-22</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-wordcount"><i class="anzhiyufont anzhiyu-icon-file-word post-meta-icon" title="文章字数"></i><span class="post-meta-label" title="文章字数">字数总计:</span><span class="word-count" title="文章字数">5.9k</span><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-clock post-meta-icon" title="阅读时长"></i><span class="post-meta-label" title="阅读时长">阅读时长:</span><span>18分钟</span></span><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="架构师与SQALE"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为深圳"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>深圳</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="http://cdn.diffday.com/picgo/20220523155731.png"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://blog.diffday.com/%E6%9E%B6%E6%9E%84%E5%B8%88%E4%B8%8ESQALE.html"><header><a class="post-meta-categories" href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/" itemprop="url">信息技术</a><a href="/tags/%E6%9E%B6%E6%9E%84/" tabindex="-1" itemprop="url">架构</a><a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" tabindex="-1" itemprop="url">软件工程</a><a href="/tags/%E7%A0%94%E5%8F%91%E8%B4%A8%E6%95%88/" tabindex="-1" itemprop="url">研发质效</a><h1 id="CrawlerTitle" itemprop="name headline">架构师与SQALE</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">DiffDay</span><time itemprop="dateCreated datePublished" datetime="2022-05-23T08:00:00.000Z" title="发表于 2022-05-23 16:00:00">2022-05-23</time><time itemprop="dateCreated datePublished" datetime="2025-09-22T10:19:48.000Z" title="更新于 2025-09-22 18:19:48">2025-09-22</time></header><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20220523155731.png" alt="意面式代码"></p>
+<h1>SQALE质量模型</h1>
+<blockquote>
+<p>Software Quality Assessment based on Lifecycle Expectations 目标管理软件中源代码的质量</p>
+</blockquote>
+<p>如下对于过程质量和结果质量的分类并没有绝对的官方出处，更多是一种直觉的分类</p>
+<h2 id="过程质量">过程质量</h2>
+<ul>
+<li>Maintainability</li>
+<li>Changeability</li>
+<li>Testability</li>
+<li>Reusability</li>
+</ul>
+<h2 id="结果质量">结果质量</h2>
+<ul>
+<li>Reliability</li>
+<li>Effciency</li>
+<li>Security</li>
+</ul>
+<p>互联网中架构更喜欢讨论的是结果质量，的确有其挑战，但过程控制是结果控制的非取巧不二法门</p>
+<span id="more"></span>
+<h2 id="SQALE度量内在质量">SQALE度量内在质量</h2>
+<p>整合了ISO-25010标准与代码规范，目标是客观，准确，可复制和自动化的方式为评估软件应用程序的源代码提供支持，为管理技术负债提供一种有效的方法</p>
+<blockquote>
+<p>Sonar code quality testing essential,戏称开发人员7宗罪</p>
+</blockquote>
+<ul>
+<li>编码规范：<font color="blur">名字是最短的咒，各位法师常乱施法</font></li>
+<li>潜在的Bug：可能在最坏的情况下出问题的代码，及存在安全漏洞的代码</li>
+<li>文档和注释：过少，过多（亦对信息量也是冲销），过时</li>
+<li>重复代码：违反了Don’t Repeat Yourself 原则</li>
+<li>复杂度：结构复杂（如圈复杂度高），难以理解，测试，维护</li>
+<li>测试覆盖率：单元测试，尤其是针对复杂代码的覆盖是否足够</li>
+<li>设计与架构：是否高内聚，低耦合，依赖最少</li>
+</ul>
+<p>从可测性，可读性，可理解性，容变性 等代码可维护的质量属性来衡量代码质量，代码质量不好最直接的受害者是开发者或组织本身</p>
+<blockquote>
+<p>同样是代码质量问题，重复代码和注释过多危害肯定不一样，圈复杂度为10和20的方法相比，危害和修改难度差别也大，不能直接用问题的数量来衡量质量，需要更精细合理的量化度量方法，这时你考虑解决问题的人力投入耗时这个维度，根据不同的项目组是可以根据自己的生产力自定义配置（开发语言不同，默认值也不尽相同）</p>
+</blockquote>
+<p>SonarQube，CoderGears，SQURE等商用代码扫描工具都将SQALE作为参照标准，但同时也在做自己的扬弃或简化</p>
+<h1>落地好架构的要求</h1>
+<ul>
+<li>
+<p><strong>方向清晰</strong>：具有一定的前瞻性，了解技术的发展方向拥抱应用之；理解业务，最好领先业务半年（因为架构升级-- 朝向解决复杂问题–往往带来业务阵痛），这也要求架构师对业务理解和预判有更高的要求</p>
+</li>
+<li>
+<p><strong>方案细致</strong>：除了宏观上层设计，还要关注关键细节，给多种方案选型予以综合评估</p>
+</li>
+<li>
+<p><strong>方法实用</strong>：以解决问题为目标，不搞大而空</p>
+</li>
+<li>
+<p><strong>多方利益均衡</strong>：康威定律（1967）：软件架构无法超然跳脱组织架构</p>
+</li>
+</ul>
+<h2 id="架构合理性目标">架构合理性目标</h2>
+<blockquote>
+<p>软件系统的架构将系统描述为计算机组件与组件之间的交互。包含了组成系统的结构元素及它们的接口，协作的问题决策，不仅注重软件本身的结构和行为，还注重其他特性：易于使用，功能性，性能，弹性，重用，可理解性，经济和技术限制和权衡，以及美学。</p>
+</blockquote>
+<p>以高效、稳定、安全 三大目标衡量架构的合理性。</p>
+<blockquote>
+<p>追求的是面向维护的设计;</p>
+<p>KISS，不仅仅是逻辑简单，只有简单的体系，才能经得起进化</p>
+</blockquote>
+<h3 id="需求角度">需求角度</h3>
+<ul>
+<li>优雅可复用地解决当下业务问题</li>
+<li>前瞻设计：能在未来一段时间都优雅可复用满足业务</li>
+</ul>
+<h3 id="非需求角度">非需求角度</h3>
+<ul>
+<li>稳定指标：可用性，包括各种测试覆盖（单元测试、自动化测试、黑百盒、故障注入等），都是为了这个目标</li>
+<li>高效
+<ul>
+<li>文档化</li>
+<li>可扩展：软件设计秉承低耦合理念，在合理的地方抽象，方便功能更改，新增和运用技术的迭代</li>
+<li>高复用</li>
+</ul>
+</li>
+<li>安全：数据安全</li>
+</ul>
+<h3 id="持续架构的5原则">持续架构的5原则</h3>
+<ol>
+<li>产品思维，而非项目思维来设计架构</li>
+<li>聚焦质量属性，而不仅仅是功能性需求</li>
+<li>在绝对必要的时候再做设计决策</li>
+<li>面向变化来设计架构，将系统分解设计成可独立替代的松耦合模块集合。Reduce the risk of change, Leverage the power of small</li>
+<li>为构建、测试、部署和运营来设计架构</li>
+</ol>
+<h1>架构和架构师的价值</h1>
+<ul>
+<li>
+<p>通过保障系统质量属性来降本增效</p>
+</li>
+<li>
+<p>排首第一武器是抽象能力，接着还有分层，分治和演化</p>
+<ul>
+<li>《模型思考者》中提及模型是对现实世界问题的抽象，模型思考着需针对问题，看穿客观事务本质，选取或构建合适模型，推导出问题最优解</li>
+<li>架构师的职责和模型思考者类似，定义问题并识别方向，创建/选择/调整架构，找到最合适的方法，推进团队解决问题</li>
+</ul>
+</li>
+<li>
+<p>架构质量的优劣</p>
+<ul>
+<li>取决于系统在应对变化时所需投入的研发成本，隔离变化</li>
+<li>用Martin Fowler的话来说，重要任务之一：消除不可逆的决策</li>
+</ul>
+</li>
+<li>
+<p>高质量低成本直观看违背常理，但高质量=低成本</p>
+<p><u>通过业内在增量功能迭代和研发投入时间的增长曲线分析上发现，基于低质量的架构，在数周内就显现出研发效率的降低</u>，而高质量架构要好得多</p>
+</li>
+</ul>
+<h2 id="程序员最难任务排位">程序员最难任务排位</h2>
+<pre class="mermaid">pie showData
+    title 程序员最难任务
+    "命名" : 49
+    "解释我的工作" : 15
+    "工作量评估" : 10
+    "团队协作" : 8
+    "接手别人的代码" : 8
+    "实现不认可的功能" : 3
+    "写文档" : 2
+    "写测试" : 2
+    "设计方案" : 2</pre>
+<h2 id="着眼长期成本">着眼长期成本</h2>
+<p><font color="dodgerblue">架构规范的价值是降低长期成本，涉及组织惯例和公共建设，文档，流程，文化</font></p>
+<h3 id="如何消解程序员的头疼问题？">如何消解程序员的头疼问题？</h3>
+<ul>
+<li>
+<p><strong>命名:</strong> 下定义是一种概念能力，抽象能力的磨炼，锻炼存在平时之中。如小说《阴阳师》中所言，名字是最短的咒。</p>
+</li>
+<li>
+<p><strong>工作量评估</strong>：WBS，掌握工具</p>
+</li>
+<li>
+<p><strong>别人的代码</strong>：代码规范</p>
+</li>
+<li>
+<p><strong>写文档</strong>：常规环节，<font color="blur">代码即文档</font></p>
+</li>
+</ul>
+<h3 id="不同周期的发力方向">不同周期的发力方向</h3>
+<h4 id="短期">短期</h4>
+<p>代码开发，联调测试，部署</p>
+<h4 id="长期">长期</h4>
+<p>页面变更，业务流程/规则变更，基础实施变更，依赖包升级，etc</p>
+<h3 id="榜样">榜样</h3>
+<blockquote>
+<p>Amazon的领域API标准化</p>
+</blockquote>
+<ol>
+<li>所有团队的模块都要通过Service Interface方式将其数据和功能开放出来</li>
+<li>团队间程序模块的信息通信，都需要通过这些接口</li>
+<li>除开Service Interface的通信形式一概不允许：不能直接链结别的程序（如外部团队的动态库），不能直接读取其它团队的数据库，不能使用共享内存模式，不能使用别人模块的后门</li>
+<li>所有的Service Interface，毫无例外，都必须从骨到皮设计成能对外开放的。即：团队必须做好规划，以便未来把接口开放给全世界的程序员</li>
+<li>不这样做的人会被炒鱿鱼！</li>
+</ol>
+<p><font color="dodgerblue">如此这般的的好处之一是：领域限界清晰，没有意外，你的团队控制着源代码和数据，在单一的限界上下文中工作</font></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20231007212819.png" alt="how amazon became a platform"></p>
+<h2 id="工程师文化">工程师文化</h2>
+<h3 id="质量">质量</h3>
+<ul>
+<li>它是一个高度概括的词汇，是一个结果。质量是工程师的reputation，不仅是在职场。</li>
+<li>换个土话，可以解释为“靠谱”
+<ul>
+<li>事情做成离不开靠谱的人，聪明的人只能聊聊天</li>
+</ul>
+</li>
+<li>工程师一直以做事为己任，视出品为生命，是我们对成事的渴望，对自己孜孜向上的推进</li>
+</ul>
+<h3 id="务实">务实</h3>
+<ul>
+<li>不消多说，工程师一直在解决问题的路上，眉眼为问题而动，养成的自然是以解决问题为目标，不搞假大空的作风</li>
+<li>但在评估需求时，存在普遍乐观主义的倾向。本质是因为需求信息不够详尽。
+<ul>
+<li>慢思考模式是惰性的，通过经验可训练强化自己的评估模式</li>
+</ul>
+</li>
+</ul>
+<h3 id="效率">效率</h3>
+<ul>
+<li>效率就是生命，减少中断进入心流状态，充分将人脑效能提速起来。</li>
+<li>抓重点：做好数据和用户分析</li>
+<li>自动化：更多的自动化，更少的多人协作</li>
+<li>降成本：去除支持性工作，提高组件质量和重用，持续改善组织文化</li>
+<li>良好的分层分治设计，也是我们应对效率怪兽的解药</li>
+</ul>
+<h3 id="革新">革新</h3>
+<blockquote>
+<p>在小革新的积累下，也在涌动大的革新，以解决结构性问题/难题，旧的世界的打破需要技术突破，技术突破有些时候是跳跃性的，但离不开原来渐近式的铺垫</p>
+</blockquote>
+<ul>
+<li>跳跃性解决结构性难题</li>
+<li>渐进性解决日常问题</li>
+</ul>
+<h2 id="角色划分">角色划分</h2>
+<p>现在架构师划分的角色也很细，顾名思义，数据架构师，（运维）云架构师，安全架构师这些都比较容易让人好理解其定位。还有几个不那么容易概念区分的架构师角色，特在此记录说明一下。</p>
+<ul>
+<li>企业架构师：企业架构师的职责包括协助创建和执行信息技术架构路线图，创建支持业务目标的企业基础设施。
+<ul>
+<li>分析技术架构领域的当前趋势并提供建议</li>
+<li>评估应用程序是否符合企业标准和业务标准</li>
+<li>确定与组织变更相关的架构的生存能力</li>
+<li>就治理模型和框架等领域的最佳实践对技术人员进行培训</li>
+</ul>
+</li>
+<li>业务架构师（解决方案架构师）：专门评估业务需求，并将它们转换为解决方案、产品或服务。通常花费大部分时间来协调正在进行的活动，从概念定义到需求的分析和实现，最后转移到IT操作。
+<ul>
+<li>在设计和构建阶段管理应用程序开发团队</li>
+<li>为初级员工提供培训和指导</li>
+<li>与应用程序开发人员协作以实现业务目标</li>
+</ul>
+</li>
+<li>领域架构师–应用架构师：领域架构师是在其专业领域具有深入知识的专家。数据架构师，安全架构师也属于领域架构师</li>
+</ul>
+<h2 id="何为工作能力？">何为工作能力？</h2>
+<blockquote>
+<p>不局限于架构师角色</p>
+</blockquote>
+<p><font color="dodgerblue"><strong>工作能力即为 将大目标分解为可执行的小任务的能力</strong>，任务是实现结果的过程</font>。</p>
+<h1>知无涯和能力发展</h1>
+<blockquote>
+<p>各种岗位都是要不断构建自己的知识体系，将经验沉淀总结为方法，这方面贯穿着宏观思维能力，抽象思维能力和钻研能力</p>
+</blockquote>
+<ul>
+<li>宏观思维就是考虑整体，站在更高层次上看问题，需要有意的跳出细节看整体，找到关键重点再深入细节</li>
+<li>软件项目永远不变的就是变化，抽象是应对变化的主要手段，要求看得更远，将现有和未来可能的业务场景综合起来进行分析，做出相对稳定的抽象，预留架构的扩展性</li>
+<li>钻研能力要求具备深入细节的能力，攻坚克难</li>
+</ul>
+<blockquote>
+<p>专业的方向可以有选择性，并不是所有技术都要深入到细节层面</p>
+</blockquote>
+<ul>
+<li>用源码学习很多时候并不是一个特别高效的学习过程，API学习就是一种挺高效的途径</li>
+<li>AWS的API，J2EE的API，这些吵架吵出来的API设计很漂亮，通过API学习你可以把它的领域想透了，不信你自己写一个，一比较很容易是这也忘了（不对），那个也忘了（不对）</li>
+</ul>
+<blockquote>
+<p>还有一个误区</p>
+</blockquote>
+<p>都喜欢钻研计算机科学知识，唯“底层”为王，深入钻研细节要权衡好ROI，对于业务部门技术人员而言，在<u>软件设计方法</u>和<u>软件工程</u>的专业知识实际上也是应花力气钻研的，这些基础知识同样是该领域的底层</p>
+<h1>技术债（TechnicalDebts）</h1>
+<p>概念最早出现在1992年，本义指开发人员为加速软件开发，在应采用最佳方案时做了妥协，改用短期能加速开发的方案，从而在未来给自己带来额外开发负担。</p>
+<p><strong>本金</strong> : 定义为修复代码质量所需消耗的人力资源估值</p>
+<blockquote>
+<p>例如针对java而言，修复一个圈复杂度为15的方法需一个开发人员15分钟的时间</p>
+</blockquote>
+<p>通常借钱是有利息的，技术债也一样，存在利滚利的情况。有些违规项马上修复要10分钟，若放一段时间后，也许就需要20分钟甚至更多时间来修复（代码细节的知识随时间流逝，及破窗效应造成代码问题加速恶化等原因），因为利息的存在，不及时偿还的话，会在未来呈现非线性增长，造成始料不及的损失</p>
+<p>负债率：偿还债务所需耗费的资源，除以重写所有代码预估耗费的资源。在扫描工具的实现中，分母是通过代码量和开发生产力水平计算得出，其中生产力是一个配置项。</p>
+<h2 id="技术债的排序">技术债的排序</h2>
+<p>技术债务对每个问题设置了规则等级，面对那么多技术债务，如何按优先级排序你的工作呢？</p>
+<p>且看技术债务金字塔</p>
+<ul>
+<li>Reusability</li>
+<li>Portability</li>
+<li>Maintainability（非结构化语句goto，switch外的break，文件注释率&lt;35%，循环语句中使用continue，文件行数&gt;1000, 不一致的缩进，变量大小写风格）</li>
+<li>Security</li>
+<li>Effciency（残留吴用的变量，类继承太深&gt;7）</li>
+<li>Changeability（滥用public，类复杂性&gt;100）</li>
+<li>Reliability（未初始化变量使用，条件循环语句中使用赋值符号）</li>
+<li>Testability（方法参数列表庞大&gt;6, 需独立测试路径过多 &gt; 11）</li>
+</ul>
+<p>这个金字塔仅是一个比喻，自底向上的看，每个特性建立在它下面的基础上，可测试性是底部，因为它是最重要的，首先要确保你的应用程序是可测试的，接着确保它的可靠性，可变性，有效性等等</p>
+<ul>
+<li>
+<p>maintainability及以上，更偏长期债务（通常在转移维护团队时才得以察觉显现）</p>
+</li>
+<li>
+<p>二者间可视作中期债务</p>
+</li>
+<li>
+<p>Reliability及以下，更偏短期债务</p>
+</li>
+<li>
+<p>Security和Reliability属于关键债务，按比喻来说是债务利息中最高的部分，多见逻辑错误或异常管理不善等问题，直接影响业务，而其它问题有时并不会直接影响业务。</p>
+</li>
+</ul>
+<h2 id="技术债规避举例">技术债规避举例</h2>
+<p>某组织挑拣的4条规则</p>
+<ul>
+<li>Source files should not have any duplicated blocks</li>
+<li>Classes should not becoupled to too many other classes</li>
+<li>Methods should not be too complex</li>
+<li>Control flow statements if for while switch and try should not be nested too deeply</li>
+</ul>
+<p>个人看法这几条规则，有三条都跟复杂度有关，抓本质的能力有待提升</p>
+<h2 id="代码是资产也是债务">代码是资产也是债务</h2>
+<blockquote>
+<p>Joshua Bloch(布洛赫)：java.math.assertions、 Collections Framework、《Effective Java》作者</p>
+</blockquote>
+<p>Java架构师 Joshua Bloch曾说：随着年龄增长，其意识到 编程不仅仅是让程序运行而已，它是创造一个利于理解，可维护的，高效的作品。一般来说，干净整洁的代码即使运行不快，也可以很容易让它变快。让正确的程序更快，要比让快速的程序正确容易得多。</p>
+<ul>
+<li>最小化人们理解它所需要的时间是比最小化代码行数更好的度量方法</li>
+<li>别为了获得一丁点 ”性能“ 就牺牲掉整洁，一流的编译器优化通常会自动把短代码转换成内联函数，在现代计算机上，函数调用的代价接近于0</li>
+<li>霰弹式修改，是个坏味道</li>
+</ul>
+<h3 id="圈复杂度">圈复杂度</h3>
+<blockquote>
+<p>构造软件有两种方法：一种是简单，明显地没有缺陷，另一种是使其复杂，却没有明显的缺陷。 — 图灵奖得主 tony hoare(霍尔)</p>
+</blockquote>
+<p>有研究表明，圈复杂度大于10的方法存在很大的出错风险</p>
+<p>10以下圈复杂度的方法，有bug修复不成功率在5%，20~30的复杂度，不成功率就来到了20%，大于50，修复不成功率来到40%，接近100的复杂度，有60%的几率出现修复失败</p>
+<p>应该将复杂的计算分解成具有内聚性的步骤，令大尺度的运算更具可读性</p>
+<h3 id="性能-效率">性能 != 效率</h3>
+<p><font color="dodgerblue">效率意味着最短路径，性能意味着以跑代走</font>。就算你用博尔特的速度，虽然高性能，但可能没选择最优路径</p>
+<p>影响程序运行时间的一个重要原因是内存中的<strong>数据的布局和结构</strong>，布局不优良，会造成要花费很多时间获取数据，同时会造成指令冗余</p>
+<h3 id="金玉良言">金玉良言</h3>
+<p><font color="tomato">最好维护的代码就是没有代码，好的程序员代码产量是负的，他们通过减少代码来增加功能</font></p>
+<h1>回顾收尾</h1>
+<p>好的代码就像好的笑话一样，它不需要解释（Good code is like a good joke：it needs no explanation）。</p>
+<p>有编码经验的人对代码有一定的鉴赏力，能凭感觉给出代码好坏的主观评价，这方面的反例就是意大利面条式代码（spaghetti [ spəˈgeti ] code）</p>
+<blockquote>
+<p>意面式代码：非结构化和难以维护的源代码的代称，有一个复杂和纠结的控制结构，程序流在概念上有如意大利面，扭曲和纠结。</p>
+<p>国内圈有更震撼的翻译：屎山代码</p>
+</blockquote>
+<h2 id="意面-屎山代码产生的原因">意面/屎山代码产生的原因</h2>
+<p>由于程序员在开发过程中缺乏良好的设计和规划：从而导致逻辑混乱、耦合度高、难以理解和修改，给后续开发人员带来了极大的成本。</p>
+<p>不仅局限于代码难读，环境差异，废弃的代码，过时/临时的逻辑，依赖和组件引入及锁片，都在助力屎山代码的形成。</p>
+<p><font color="blur">公认的幽默标准 ： 每分钟爆粗数量</font>，强调了代码的可读易懂有多么感人和基础</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20220523155851.png" alt=""></p>
+<h2 id="重构-精进">重构~精进</h2>
+<blockquote>
+<p>Refactor，Be Better</p>
+</blockquote>
+<p>当已有代码存在问题时，程序员应主动进行重构，优化代码结构和逻辑（对一个东西最好的批评，是做出新东西替代它）</p>
+<h3 id="精神误区">精神误区</h3>
+<p>得过且过、无能为力、推到重来</p>
+<blockquote>
+<p>面对现实的挑战和过去的包袱，不能站出来的成不了架构师，没有勇气承担的成不了架构师</p>
+</blockquote>
+<h3 id="动手解决">动手解决</h3>
+<ul>
+<li>
+<p>理解不干净背后的东西，勇于承担、拒绝破窗、养成日常清洁（边打扫边生活）的习惯</p>
+</li>
+<li>
+<p>和产品达成共识，解决“大石头”的同时干掉“小石头”，慢即是快</p>
+</li>
+<li>
+<p>要干净的不仅仅是代码，善于用减法的思路去对待产品</p>
+</li>
+<li>
+<p>使用工具，提升效率。君子性非异也，善假于物也。</p>
+</li>
+</ul>
+<h2 id="代码助手">代码助手</h2>
+<h2 id="常规项目程序员时间分解">常规项目程序员时间分解</h2>
+<pre class="mermaid">pie showData
+    title 常规迭代程序员时间开销
+    "理解需求" : 8.4
+    "理解整体架构设计并做详细设计" : 5.8
+    "画图/写文档" : 6.8
+    "理解关联代码" : 11.2
+    "参考内部规范和已有基建" : 7.7
+    "查找类似代码或及技术方案" : 6.4
+    "修改/新增代码" : 9.8
+    "运行调试" : 7.2
+    "写单元测试" : 8.7
+    "功能联调测试" : 6.5
+    "准备发布物料" : 3.1
+    "协作/被动沟通" : 11.4
+    "其它/摸鱼":7</pre>
+<blockquote>
+<p>编码准备+编码调试=查找方案+编码+调试+单测=32.1%</p>
+</blockquote>
+<p>开发阶段约占版本周期中的60%，测试约占20%，产品阶段10%，架构师设计5%，运维5%。项目经理贯穿消耗10%。在研发阶段，代码大模型能着力的部分占32.1%，再加成项目周期的60%占比，对整体项目的提升上限不超过20%=32.1%*60%=19.26%</p>
+<h2 id="LLM-改变软件开发模式，软件工程进入-3-0-时代">LLM 改变软件开发模式，软件工程进入 3.0 时代</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>人月神话</th>
+<th>软件工程 1.0<br>1968年 NATO 会议，软件工程学科诞生</th>
+<th>软件工程 2.0<br>2001年 Snowbird 会议，《敏捷软件开发宣言》发布</th>
+<th>软件工程3.0<br>2023年 chatGPT 发布</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>开发模式</td>
+<td>提升协同效率</td>
+<td>1970 瀑布模式</td>
+<td>2001敏捷开发<br>2009 DevOps<br>2015 MLOps</td>
+<td>延续</td>
+</tr>
+<tr>
+<td>架构模式</td>
+<td>分解复杂度</td>
+<td>1970 年半单体<br>1990年模块化</td>
+<td>1998 服务化<br>2012 微服务化<br>2014 ServerLess</td>
+<td>延续<br>CloundNative --&gt; AI Native</td>
+</tr>
+<tr>
+<td>重大挑战举例</td>
+<td>软件规模</td>
+<td>几十万行</td>
+<td>百万 --&gt; 千万 --&gt; 亿级</td>
+<td>精英与模型协同作业：代码责任田 10 万行 $\rightarrow$ 50 万行<br>软件生命周期成本：开发 vs 维护 从 3:7 $\rightarrow$  5:5</td>
+</tr>
+</tbody>
+</table>
+<h3 id="AI擅长的事情">AI擅长的事情</h3>
+<p>交给AI擅长的事情，接受AI的不完美（放大优势，规避缺点，心态开放，接受短板）</p>
+<ul>
+<li>全库检索与总结</li>
+<li>代码解释与解读</li>
+<li>局部重构与改写</li>
+<li>不熟悉的编程语言</li>
+<li>算法与通用逻辑</li>
+</ul>
+<h3 id="AI对软件工程师的影响">AI对软件工程师的影响</h3>
+<p><font color="dodgerblue">真正的价值创造来自于弥补其它人决策盲区</font>，你之所以被认为是架构师，是因为你能看到别人看不到的东西。</p>
+<p>在整个软件开发过程中，越是偏向个体研发的能力，受到的冲击就越大。换句话说，那些依赖与单兵作战的工作，更容易被自动化工具和智能系统所取代。越往下，<u>即越偏向于对整个开发场景的控制和管理，这些工作受到的冲击相对较小。</u></p>
+<p>架构活动中最大的成本是人力和时间，这两个成本在大模型世代都会发生巨大变化</p>
+<pre class="mermaid">---
+config:
+  theme: base
+  themeVariables:
+    radar:
+      curveOpacity: 0
+---
+radar-beta
+axis m["研发能力"]
+axis s["沟通交流"],e["项目交付"],s["横向问题"]
+axis g["分工选型"],a["长期思考"],b["外部环境"]
+curve c["研发"] {85,60,60,60,45,30,15}
+curve d["兼职架构师"] {85,75,75,80,80,75,75}
+curve f["跨域架构师"] {75,90,85,85,90,90,90}
+max 100
+min 0
+graticule polygon</pre>
+<h4 id="研发">研发</h4>
+<ul>
+<li><font color="goldenrod">研发能力: 业务建模设计，代码交付，监控维护</font></li>
+</ul>
+<h4 id="兼职架构师">兼职架构师</h4>
+<ul>
+<li><font color="purple">沟通交流：文档总结、需求对接、人员培训、进度沟通</font></li>
+<li><font color="purple">项目交付：团队协同、项目规划、风险控制、质量保障</font></li>
+<li><font color="purple">横向问题：成本、质量、安全、xx 性</font></li>
+</ul>
+<h4 id="跨域架构师">跨域架构师</h4>
+<ul>
+<li><font color="dodgerblue">分工选型：前后端、业务/中台，开源//自建</font></li>
+<li><font color="dodgerblue">长期思考：领域扩展、规模跨度、技术壁垒</font></li>
+<li><font color="dodgerblue">外部环境：不确定性、竞争格局、监管合规</font></li>
+</ul>
+<h3 id="LLM效能提升的正确姿势">LLM效能提升的正确姿势</h3>
+<ol>
+<li>广泛提升个体效能，让没有很好prompt能力的人也能受益，并内置到企业现有开发环境和工具链中，成为开发基础设施有机组成部分</li>
+<li>嵌入于研发全生命周期，CI/CD流程，项目管理工具等；优化上下游知识共享。</li>
+</ol>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src="https://cdn.diffday.com/picgo/diff_128.png" title="头像" alt="头像"><img class="post-copyright__author_img_front" src="https://cdn.diffday.com/picgo/diff_128.png" title="头像" alt="头像"></a><div class="post-copyright__author_name">DiffDay</div><div class="post-copyright__author_desc">We are here to be creators!</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://blog.diffday.com/%E6%9E%B6%E6%9E%84%E5%B8%88%E4%B8%8ESQALE.html">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://blog.diffday.com/%E6%9E%B6%E6%9E%84%E5%B8%88%E4%B8%8ESQALE.html')">架构师与SQALE</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你的肯定与鼓励</span><ul class="reward-group"><li class="reward-item"><a href="http://cdn.diffday.com/picgo/wechatpay.jpg" target="_blank"><img class="post-qr-code-img" src="http://cdn.diffday.com/picgo/wechatpay.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="http://cdn.diffday.com/picgo/alipay-n.jpeg" target="_blank"><img class="post-qr-code-img" src="http://cdn.diffday.com/picgo/alipay-n.jpeg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://blog.diffday.com/%E6%9E%B6%E6%9E%84%E5%B8%88%E4%B8%8ESQALE.html"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=架构师与SQALE&amp;url=https://blog.diffday.com/%E6%9E%B6%E6%9E%84%E5%B8%88%E4%B8%8ESQALE.html&amp;pic=http://cdn.diffday.com/picgo/20220523155731.png" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="rm.copyPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.diffday.com" target="_blank">Diffday</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/%E6%9E%B6%E6%9E%84/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>架构<span class="tagsPageCount">2</span></a><a class="post-meta__box__tags" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>软件工程<span class="tagsPageCount">2</span></a><a class="post-meta__box__tags" href="/tags/%E7%A0%94%E5%8F%91%E8%B4%A8%E6%95%88/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>研发质效<span class="tagsPageCount">3</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="http://cdn.diffday.com/picgo/20250918182147.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/%E5%B0%8F%E9%95%87%E5%81%9A%E9%A2%98%E5%AE%B6.html"><img class="prev-cover" src="http://cdn.diffday.com/picgo/20220316230838.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">中产滑落与小镇做题家</div></div></a></div><div class="next-post pull-right"><a href="/%E5%8F%91%E5%B1%95%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E5%85%B7%E7%AE%B1.html"><img class="next-cover" src="http://cdn.diffday.com/picgo/20220823112642.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">发展自己的工具箱</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/%E8%BD%AF%E4%BB%B6%E7%9A%84%E4%BF%A1%E5%BF%83.html" title="软件的信心"><img class="cover" src="http://cdn.diffday.com/picgo/20240229111940.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2024-07-26</div><div class="title">软件的信心</div></div></a></div><div><a href="/%E4%B8%AD%E5%8F%B0%E7%9A%84%E6%9E%97%E5%AD%90%E5%A5%BD%E7%83%AD%E9%97%B9.html" title="中台的林子好热闹"><img class="cover" src="http://cdn.diffday.com/picgo/20201117104745.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2024-07-08</div><div class="title">中台的林子好热闹</div></div></a></div><div><a href="/%E7%A0%94%E5%8F%91%E6%95%88%E8%83%BD%E6%8C%87%E6%A0%87.html" title="研发效能指标"><img class="cover" src="http://cdn.diffday.com/picgo/20221209173518.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2025-06-19</div><div class="title">研发效能指标</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> 评论</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a><a href="/privacy" style="margin-left: 4px">隐私政策</a></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">SQALE质量模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%87%E7%A8%8B%E8%B4%A8%E9%87%8F"><span class="toc-number">1.1.</span> <span class="toc-text">过程质量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C%E8%B4%A8%E9%87%8F"><span class="toc-number">1.2.</span> <span class="toc-text">结果质量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQALE%E5%BA%A6%E9%87%8F%E5%86%85%E5%9C%A8%E8%B4%A8%E9%87%8F"><span class="toc-number">1.3.</span> <span class="toc-text">SQALE度量内在质量</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">落地好架构的要求</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84%E5%90%88%E7%90%86%E6%80%A7%E7%9B%AE%E6%A0%87"><span class="toc-number">2.1.</span> <span class="toc-text">架构合理性目标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E8%A7%92%E5%BA%A6"><span class="toc-number">2.1.1.</span> <span class="toc-text">需求角度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E9%9C%80%E6%B1%82%E8%A7%92%E5%BA%A6"><span class="toc-number">2.1.2.</span> <span class="toc-text">非需求角度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%81%E7%BB%AD%E6%9E%B6%E6%9E%84%E7%9A%845%E5%8E%9F%E5%88%99"><span class="toc-number">2.1.3.</span> <span class="toc-text">持续架构的5原则</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">架构和架构师的价值</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E5%91%98%E6%9C%80%E9%9A%BE%E4%BB%BB%E5%8A%A1%E6%8E%92%E4%BD%8D"><span class="toc-number">3.1.</span> <span class="toc-text">程序员最难任务排位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9D%80%E7%9C%BC%E9%95%BF%E6%9C%9F%E6%88%90%E6%9C%AC"><span class="toc-number">3.2.</span> <span class="toc-text">着眼长期成本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%B6%88%E8%A7%A3%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E5%A4%B4%E7%96%BC%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="toc-number">3.2.1.</span> <span class="toc-text">如何消解程序员的头疼问题？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E5%91%A8%E6%9C%9F%E7%9A%84%E5%8F%91%E5%8A%9B%E6%96%B9%E5%90%91"><span class="toc-number">3.2.2.</span> <span class="toc-text">不同周期的发力方向</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9F%AD%E6%9C%9F"><span class="toc-number">3.2.2.1.</span> <span class="toc-text">短期</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%95%BF%E6%9C%9F"><span class="toc-number">3.2.2.2.</span> <span class="toc-text">长期</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%9C%E6%A0%B7"><span class="toc-number">3.2.3.</span> <span class="toc-text">榜样</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E7%A8%8B%E5%B8%88%E6%96%87%E5%8C%96"><span class="toc-number">3.3.</span> <span class="toc-text">工程师文化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B4%A8%E9%87%8F"><span class="toc-number">3.3.1.</span> <span class="toc-text">质量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A1%E5%AE%9E"><span class="toc-number">3.3.2.</span> <span class="toc-text">务实</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%88%E7%8E%87"><span class="toc-number">3.3.3.</span> <span class="toc-text">效率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%A9%E6%96%B0"><span class="toc-number">3.3.4.</span> <span class="toc-text">革新</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%92%E8%89%B2%E5%88%92%E5%88%86"><span class="toc-number">3.4.</span> <span class="toc-text">角色划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%95%E4%B8%BA%E5%B7%A5%E4%BD%9C%E8%83%BD%E5%8A%9B%EF%BC%9F"><span class="toc-number">3.5.</span> <span class="toc-text">何为工作能力？</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">知无涯和能力发展</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">技术债（TechnicalDebts）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E5%80%BA%E7%9A%84%E6%8E%92%E5%BA%8F"><span class="toc-number">5.1.</span> <span class="toc-text">技术债的排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E5%80%BA%E8%A7%84%E9%81%BF%E4%B8%BE%E4%BE%8B"><span class="toc-number">5.2.</span> <span class="toc-text">技术债规避举例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%98%AF%E8%B5%84%E4%BA%A7%E4%B9%9F%E6%98%AF%E5%80%BA%E5%8A%A1"><span class="toc-number">5.3.</span> <span class="toc-text">代码是资产也是债务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%88%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-number">5.3.1.</span> <span class="toc-text">圈复杂度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%83%BD-%E6%95%88%E7%8E%87"><span class="toc-number">5.3.2.</span> <span class="toc-text">性能 !&#x3D; 效率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%91%E7%8E%89%E8%89%AF%E8%A8%80"><span class="toc-number">5.3.3.</span> <span class="toc-text">金玉良言</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">回顾收尾</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%84%8F%E9%9D%A2-%E5%B1%8E%E5%B1%B1%E4%BB%A3%E7%A0%81%E4%BA%A7%E7%94%9F%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="toc-number">6.1.</span> <span class="toc-text">意面&#x2F;屎山代码产生的原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E6%9E%84-%E7%B2%BE%E8%BF%9B"><span class="toc-number">6.2.</span> <span class="toc-text">重构~精进</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B2%BE%E7%A5%9E%E8%AF%AF%E5%8C%BA"><span class="toc-number">6.2.1.</span> <span class="toc-text">精神误区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%89%8B%E8%A7%A3%E5%86%B3"><span class="toc-number">6.2.2.</span> <span class="toc-text">动手解决</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%8A%A9%E6%89%8B"><span class="toc-number">6.3.</span> <span class="toc-text">代码助手</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%84%E9%A1%B9%E7%9B%AE%E7%A8%8B%E5%BA%8F%E5%91%98%E6%97%B6%E9%97%B4%E5%88%86%E8%A7%A3"><span class="toc-number">6.4.</span> <span class="toc-text">常规项目程序员时间分解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LLM-%E6%94%B9%E5%8F%98%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F%EF%BC%8C%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E8%BF%9B%E5%85%A5-3-0-%E6%97%B6%E4%BB%A3"><span class="toc-number">6.5.</span> <span class="toc-text">LLM 改变软件开发模式，软件工程进入 3.0 时代</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AI%E6%93%85%E9%95%BF%E7%9A%84%E4%BA%8B%E6%83%85"><span class="toc-number">6.5.1.</span> <span class="toc-text">AI擅长的事情</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AI%E5%AF%B9%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-number">6.5.2.</span> <span class="toc-text">AI对软件工程师的影响</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A0%94%E5%8F%91"><span class="toc-number">6.5.2.1.</span> <span class="toc-text">研发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%BC%E8%81%8C%E6%9E%B6%E6%9E%84%E5%B8%88"><span class="toc-number">6.5.2.2.</span> <span class="toc-text">兼职架构师</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B7%A8%E5%9F%9F%E6%9E%B6%E6%9E%84%E5%B8%88"><span class="toc-number">6.5.2.3.</span> <span class="toc-text">跨域架构师</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LLM%E6%95%88%E8%83%BD%E6%8F%90%E5%8D%87%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF"><span class="toc-number">6.5.3.</span> <span class="toc-text">LLM效能提升的正确姿势</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B.html" title="大语言模型LLM"><img src="http://cdn.diffday.com/picgo/20230408222056.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="大语言模型LLM"/></a><div class="content"><a class="title" href="/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B.html" title="大语言模型LLM">大语言模型LLM</a><time datetime="2025-09-22T10:25:46.000Z" title="更新于 2025-09-22 18:25:46">2025-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E6%9E%B6%E6%9E%84%E5%B8%88%E4%B8%8ESQALE.html" title="架构师与SQALE"><img src="http://cdn.diffday.com/picgo/20220523155731.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="架构师与SQALE"/></a><div class="content"><a class="title" href="/%E6%9E%B6%E6%9E%84%E5%B8%88%E4%B8%8ESQALE.html" title="架构师与SQALE">架构师与SQALE</a><time datetime="2025-09-22T10:19:48.000Z" title="更新于 2025-09-22 18:19:48">2025-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/PRC%E7%9A%84%E9%81%93%E8%B7%AF.html" title="PRC的道路"><img src="http://cdn.diffday.com/picgo/20240814180818.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PRC的道路"/></a><div class="content"><a class="title" href="/PRC%E7%9A%84%E9%81%93%E8%B7%AF.html" title="PRC的道路">PRC的道路</a><time datetime="2025-09-22T04:34:30.000Z" title="更新于 2025-09-22 12:34:30">2025-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E6%95%99%E8%82%B2%E6%94%B9%E5%8F%98%E5%91%BD%E8%BF%90.html" title="教育改变命运"><img src="http://cdn.diffday.com/picgo/20210611202855.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="教育改变命运"/></a><div class="content"><a class="title" href="/%E6%95%99%E8%82%B2%E6%94%B9%E5%8F%98%E5%91%BD%E8%BF%90.html" title="教育改变命运">教育改变命运</a><time datetime="2025-09-21T14:33:53.000Z" title="更新于 2025-09-21 22:33:53">2025-09-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E4%B8%89%E5%9B%BD%E4%BA%BA%E7%89%A9%E5%B9%B4%E9%BE%84%E4%B8%8E%E6%9D%82%E8%AE%B0.html" title="三国人物年龄与杂记"><img src="http://cdn.diffday.com/picgo/20221124205802.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="三国人物年龄与杂记"/></a><div class="content"><a class="title" href="/%E4%B8%89%E5%9B%BD%E4%BA%BA%E7%89%A9%E5%B9%B4%E9%BE%84%E4%B8%8E%E6%9D%82%E8%AE%B0.html" title="三国人物年龄与杂记">三国人物年龄与杂记</a><time datetime="2025-09-21T14:22:09.000Z" title="更新于 2025-09-21 22:22:09">2025-09-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%A2%9C%E5%80%BCvs%E8%BA%AB%E6%9D%90.html" title="颜值vs身材"><img src="http://cdn.diffday.com/picgo/20240318141838.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="颜值vs身材"/></a><div class="content"><a class="title" href="/%E9%A2%9C%E5%80%BCvs%E8%BA%AB%E6%9D%90.html" title="颜值vs身材">颜值vs身材</a><time datetime="2025-09-21T13:33:01.000Z" title="更新于 2025-09-21 21:33:01">2025-09-21</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2018 - 2025 By <a class="footer-bar-link" href="/" title="DiffDay" target="_blank">DiffDay</a></div></div><div id="footer-type-tips"></div><div class="js-pjax"><script>function subtitleType () {
+  getScript('https://sdk.jinrishici.com/v2/browser/jinrishici.js').then(() => {
+    jinrishici.load(result =>{
+      if (false) {
+        const sub = []
+        const content = result.data.content
+        sub.unshift(content)
+        window.typed = new Typed('#footer-type-tips', {
+          strings: sub,
+          startDelay: 300,
+          typeSpeed: 150,
+          loop: true,
+          backSpeed: 50,
+        })
+      } else {
+        document.getElementById('footer-type-tips').innerHTML = result.data.content
+      }
+    })
+  })
+}
+
+if (false) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}
+</script></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a><a class="footer-bar-link" target="_blank" rel="noopener" href="https://beian.miit.gov.cn/" title="粤ICP备-18103410号">粤ICP备-18103410号</a><a class="footer-bar-link cc" href="/copyright" title="cc协议"><i class="anzhiyufont anzhiyu-icon-copyright-line"></i><i class="anzhiyufont anzhiyu-icon-creative-commons-by-line"></i><i class="anzhiyufont anzhiyu-icon-creative-commons-nc-line"></i><i class="anzhiyufont anzhiyu-icon-creative-commons-nd-line"></i></a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">173</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">51</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">9</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/archives/"><span> 归档</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/"><span> 分类</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/"><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本站</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/copyright/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 版权协议</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="anzhiyufont anzhiyu-icon-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="is-center" id="loading-database"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-pulse-icon"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script async src="/anzhiyu/random.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  //if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid@11.6.0/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  anzhiyu.addGlobalFn('themeChange', runMermaid, 'mermaid')
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'uwklgzjj0IepCMXNYCU3t9Ah-9Nh9j0Va',
+      appKey: 'jRMVc9QS0SBr1L9heA2V0m4q',
+      avatar: 'mp',
+      serverURLs: 'https://uwklgzjj.lc-cn-e1-shared.com',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) anzhiyu.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script src="https://cdn.jsdelivr.net/npm/blueimp-md5/js/md5.min.js"></script><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getIcon = (icon, mail) => {
+    if (icon) return icon
+    let defaultIcon = '?d=mp'
+    let iconUrl = `https://gravatar.loli.net/avatar/${md5(mail.toLowerCase()) + defaultIcon}`
+    return iconUrl
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${anzhiyu.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = () => {
+    const serverURL = 'https://uwklgzjj.lc-cn-e1-shared.com'
+
+    var settings = {
+      "method": "GET",
+      "headers": {
+        "X-LC-Id": 'uwklgzjj0IepCMXNYCU3t9Ah-9Nh9j0Va',
+        "X-LC-Key": 'jRMVc9QS0SBr1L9heA2V0m4q',
+        "Content-Type": "application/json"
+      },
+    }
+
+    fetch(`${serverURL}/1.1/classes/Comment?limit=6&order=-createdAt`,settings)
+      .then(response => response.json())
+      .then(data => {
+        const valineArray = data.results.map(function (e) {
+          return {
+            'avatar': getIcon(e.QQAvatar, e.mail),
+            'content': changeContent(e.comment),
+            'nick': e.nick,
+            'url': e.url + '#' + e.objectId,
+            'date': e.updatedAt,
+          }
+        })
+        saveToLocal.set('valine-newest-comments', JSON.stringify(valineArray), 10/(60*24))
+        generateHtml(valineArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+      }) 
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('valine-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script>var visitorMail = "visitor@anheyu.com";
+</script><script async data-pjax src="https://cdn.jsdelivr.net/npm/anzhiyu-theme-static/waterfall/waterfall.min.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><script src="/js/anzhiyu/right_click_menu.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/anzhiyu-theme-static/icon/ali_iconfont_css.min.css"><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', 'G-X0MW6B53JB', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.jsdelivr.net/npm/anzhiyu-theme-static/accesskey/accesskey.min.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>

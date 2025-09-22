@@ -1,0 +1,1154 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>浪潮之巅NVIDIA | Diffday</title><meta name="keywords" content="AI,浪潮之巅"><meta name="author" content="DiffDay"><meta name="copyright" content="DiffDay"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="浪潮之巅NVIDIA"><meta name="application-name" content="浪潮之巅NVIDIA"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="浪潮之巅NVIDIA"><meta property="og:url" content="https://blog.diffday.com/%E6%B5%AA%E6%BD%AE%E4%B9%8B%E5%B7%85NVIDIA.html"><meta property="og:site_name" content="Diffday"><meta property="og:description" content="吴军老师的《浪潮之巅》写作较早，暂未收录NVIDIA这家公司。写一篇网文汇总，回顾这位2023年彪炳IT史的弄潮儿，勇立潮头者，少不了值得我们品味学习的地方。 从&amp;quot;刺头&amp;quot;到巨头  linux之父linus，因英伟达多年来拒绝对GPU内核驱动开源，对英伟达竖过🖕🏻：英伟达是我"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="http://cdn.diffday.com/picgo/20240130095825.png"><meta property="article:author" content="DiffDay"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="http://cdn.diffday.com/picgo/20240130095825.png"><meta name="description" content="吴军老师的《浪潮之巅》写作较早，暂未收录NVIDIA这家公司。写一篇网文汇总，回顾这位2023年彪炳IT史的弄潮儿，勇立潮头者，少不了值得我们品味学习的地方。 从&amp;quot;刺头&amp;quot;到巨头  linux之父linus，因英伟达多年来拒绝对GPU内核驱动开源，对英伟达竖过🖕🏻：英伟达是我"><link rel="shortcut icon" href="https://cdn.diffday.com/picgo/diff32.ico"><link rel="canonical" href="https://blog.diffday.com/%E6%B5%AA%E6%BD%AE%E4%B9%8B%E5%B7%85NVIDIA"><link rel="preconnect" href="//npm.elemecdn.com"/><link rel="preconnect" href="//npm.onmicrosoft.cn"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="UaMvLIOYuNWHgVq42dlN49RoniU73U6SoqoRnEcit9E"/><meta name="baidu-site-verification" content="code-DN25SBuR8T"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b5c9889dd454fff053fb5b93fc1b2ac7";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X0MW6B53JB"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-X0MW6B53JB');
+</script><script>const GLOBAL_CONFIG = {
+  linkPageTop: {"enable":true,"title":"同博主们无限进步","addFriendPlaceholder":"昵称（请勿包含博客等字样）：\n网站地址（要求博客地址，请勿提交个人主页）：\n头像图片url（请提供尽可能清晰的图片，我会上传到我自己的图床）：\n描述：\n站点截图（可选）：\n"},
+  peoplecanvas: undefined,
+  postHeadAiDescription: undefined,
+  diytitle: {"enable":true,"leaveTitle":"一次时空相逢，祝好！","backTitle":"欢迎回来！"},
+  LA51: {"enable":true,"ck":"3G4PP4R5LAAt6DBv","LingQueMonitorID":"3GA1sASrkc8hJd7c"},
+  greetingBox: {"enable":true,"default":"晚上好👋","list":[{"greeting":"晚安😴","startTime":0,"endTime":5},{"greeting":"早上好鸭👋, 祝一天好心情！","startTime":6,"endTime":9},{"greeting":"上午好👋, 状态很好，鼓励一下～","startTime":10,"endTime":10},{"greeting":"11点多啦, 在坚持一下就吃饭啦～","startTime":11,"endTime":11},{"greeting":"午安👋, 为下午蓄力充电","startTime":12,"endTime":14},{"greeting":"🌈充实的一天辛苦啦！","startTime":14,"endTime":18},{"greeting":"19点喽, 奖励一顿丰盛的大餐吧🍔。","startTime":19,"endTime":19},{"greeting":"晚上好👋, 在属于自己的时间好好放松😌~","startTime":20,"endTime":24}]},
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  root: '/',
+  preloader: undefined,
+  friends_vue_info: undefined,
+  navMusic: false,
+  mainTone: {"mode":"both","api":"https://img2color-go.vercel.app/api?img=","cover_change":true},
+  authorStatus: undefined,
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: DiffDay","link":"链接: ","source":"来源: Diffday","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: true,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: 'Diffday',
+  title: '浪潮之巅NVIDIA',
+  postAI: '',
+  pageFillDescription: '从刺头到巨头, 命运的齿轮, 成长履历, 创立NVIDIA, CPU vs GPU, 通用vs专用, 核数差异, 总结来看, 成本+专业演进, 两个小芯片比一个大芯片便宜, 专业之道惟精惟一, 独立GPU的催化剂-DirectX, DX7：催化剂的临界点, DX8：CPU和GPU彻底分离, DX的后续嬗变, 统一渲染Milestone, 命运齿轮的再次转动, DX10引导了CUDA, 真正的大佬：Microsoft, 土地与作物, 与各位大佬Battle, 意识到错误忍辱负重, 挣钱嘛跪着很常见, AMD收购ATI天上掉馅饼, Intel vs Nvidia二英扭打起来, Intel保守坠落, 市值对比, 移动市场battle三星高通, 一路走来的经营感悟, 反脆弱化生存, 活下去 $\rightarrow$ 站着挣, 另拓生态求生, 任务分解, GPU技术通用化, 成功之前路亦难走, 软件烘托硬件, 坚守与创新, Numpy与Tensor的应用区别, AI浪潮, 2012-奠基年, 乘胜出击人类群星闪耀, 为了计算和人类的未来, 中国的人口红利创新, 遥遥领先, 为何GPU领先一众专用解决方案, 极致的将来, 大家怎么不去卷它, 同为显卡厂商AMD有没有解法？, 其它玩家呢, 风光无限好, 但护城河并非GPU本身而是在软件部分, 能风光多久还是一个未知数, 寄语, 反脆弱生存, 反面的代表, 在竞争中寻找新的增长点, 参考吴军老师的浪潮之巅写作较早暂未收录这家公司写一篇网文汇总回顾这位年彪炳史的弄潮儿勇立潮头者少不了值得我们品味学习的地方从刺头到巨头之父因英伟达多年来拒绝对内核驱动开源对英伟达竖过英伟达是我们遇到过最糟糕的公司年应黑客攻击才开源驱动源码黑客也为了解除特定显卡的挖矿限制微软英特尔三星高通都跟英伟达对簿过公堂但皮衣刀客就是不怕得罪客户不怕战斗给加密货币提供矿机推出专门面向挖矿定制的专业矿卡为了挖矿生产的游戏玩家们没办法用直接舍弃了图形处理功能以前吹以太坊有价值加密货币矿机有未来但以太坊从工作量证明转向了权益证明话锋一转又说加密货币无法给社会带来啥价值矿机的几年背负了很多骂名但也让公司撑到了新世代的周期一路推动走向主流市场坚持搭建生态形成了如今高耸的护城河和垄断式的市场占有率不得不佩服管理层近几年的远见卓识命运的齿轮老黄如今已是硅谷科技巨头中现任最久的敏锐又灵活精明无比成长履历祖籍浙江年生于台湾岁后跟哥哥一道去美国并就此定居在美老爹出差去了一次美国后就执意让孩子过去发展脱离父母在美生活了年陌生的差环境锻炼了黄仁勋强大的环境适应能力当时住在肯塔基州的亲戚家上着一所乡村寄宿学校学校有很多问题学生他学会了爬墙偷吃东西和抽烟掌舵人苏姿丰岁移民美国比老黄小岁要尊称黄仁勋为表舅其姥爷是老黄的亲大舅年岁的老黄获得美国乒乓球男子双打季军在竞争不强的美国乒乓球界老黄有很大机会成为乒乓球运动员代表美国队参加年奥运会说说有趣的走向大神钱学森生于清朝二战末期被授予上校军衔他和冯卡门冯布劳恩都是美国现代火箭和导弹技术奠基人若在漫威世界线中钱上校应该和美国队长是战友和霍华德史塔克是同事同是神盾局创始人之一年岁黄仁勋进入波特兰州立大学就读年进入斯坦福攻读电子工程硕士学位在斯坦福接触到了更先进的计算机图形技术对于图形处理器的研究个更加深入毕业后黄仁勋加入负责图形处理器及相关产品两年后黄仁勋离开加入了担任图形处理器设计师在他又积累了大量关于图形处理器的实践经验创立年岁的黄仁勋与和共同创立了专注于图形处理器的研发和制造公司名称来源于拉丁语意为视觉此时是游戏发展街机转家用机的浪潮他们早期的明星产品是是时代千禧年前后的市场精品老黄立志将公司做到计算机图形领域的老大哥可现实是残酷的起初黄与团队耗时两年打造了第一款显卡产品由于不兼容竞争对手的标准销售表现十分惨淡最终不得不停止销售好在这款产品吸引了视频游戏制造商的注意并与之建立了合作但经过一年的开发英伟达的团队意识到其设计的架构是错误策略因为微软即将宣布基于反向纹理映射和三角形的这代表着如果英伟达完成了的游戏机公司将会创造出与不相容的产品想要拯救奄奄一息的英伟达必须破釜沉舟黄仁勋将英伟达的战略从游戏主机转向市场并从游戏设计公司晶体动力挖来也就是后来的之父博士担任首席科学家组织了一个庞大的研发团队通用专用就像一个学习渊博的教授什么都精通都能做但任务的一项项做比较慢就像一堆小学生对于特定的简单运算任务人多力量大所以在大量并行计算上完胜是做协同处理叫因为是处理大量并行计算所以它的设计上并没花很多心血做程序的控制依然作为协处理器存在体系结构中由于历史原因是为了视频游戏而产生的在三维游戏中常常出现的一类操作是对数据进行相同的操作如对每一个顶点进行同样的坐标变换对每一个顶点按照同样的光照模型计算颜色值的众核架构非常适合把同样的指令流并行发送到众核上采用不同的输入数据执行时代的和差异可以参阅在的概念中和分属和二者之间通过总线连接可以在编程中使用函数进行与之间的数据传递核数差异虽然有多核但总数没有超过两位数每个核都有足够大的缓存和足够多的数字和逻辑运算单元并辅助有很多加速分支判断甚至更复杂的逻辑判断的硬件核数远超被成为众核有个核每个核拥有的缓存大小相对小数字逻辑运算单元也少而简单初始在浮点运算上一直弱于总结来看包含较少的多功能核心很多功能单一的核心内存消耗高低专注于低延迟高通量擅长处理复杂的串行指令处理并行的简单指令成本专业演进两个小芯片比一个大芯片便宜不断膨胀臃肿的在成本功耗还有灵活性上远不如一个小加上一个的组合搭配专业之道惟精惟一和很多东西是不一样的领域专注使其性能架构灵活性使得其可随着行业生态及编程等不断去修改去提升独立的催化剂微软看到越来越多人开始用而除了办公外还有游戏功能但游戏的效果没有办法跟对比上尚缺乏统一的图形和音频接口开发者难以为应用程序和游戏提供一致的用户体验微软那时想到一个办法就是把大量图形的功能才中移植出来放到上通过这种方法让的性能强起来推动行业发展反过来去巩固他自己在端的地位与此战略打配合的就是一种图形音频接口把市面上各种各样的硬件统一起来提供了一个标准让开发者们能更好地调用这些的硬件性能而不必耗费大量精力在兼容性上它的早期版本图标是一个核弹内部代号曼哈顿计划寓意也很明显从日本人手里把图形方面的制高点拿下来把市场标准甚至以后的前沿技术都攥在自己手里刚诞生时还是很原始的一个东西没什么人去用它那时候整个民用行业关于图形应用方面的话语权都在日本游戏厂商手里年当时还有三个标准公司的直到才借助位渲染和整合的纹理压缩算法打败对手成为主流在微软的带动下英伟达开始与下游厂商纷纷结成伙伴最终活了下来催化剂的临界点在版本的时候的设计决定了现代意义上的的诞生之前的专做填充颜色图形从顶点到多边形的的生成这种运算全都由来做微软在里把顶点计算多边形生成的很大一部分工作卸载下来了坐标转换和光源给了使得有更大的作用游戏中除了场景物体还需要灯光没有灯光就没有物体的表现卸载前计算出顶点坐标之后还要去生成很多三角形然后再做一些着色指令发给再去做这些东西之前坐标转换和灯光都需要来计算卸载后只要告诉坐标点在哪里剩下的交给自己去做就可好了在刚开始分离的时候效率没有太大的提升随着特效越来越多往中塞入更多浮点加速单元跟上新版本的要求已经越来越难了这时候的重要性就凸显出来了换句话说通过一个很复杂性能很强的去渲染图像在成本和技术上实现都有困难就是能从一个硬件上支持的显示芯片因为是渲染中的一个重要部分其作用是计算多边形的位置和处理动态光线效果也可以称为几何处理时代开始英伟达和微软深度绑定之前英伟达喜欢支持一些自有或不够主流的标准经常产品失败而后微软每一次的大改动老黄都是第一时间去支持的深度绑定微软就是的划时代产品所采用的核心技术除了硬件之外还有立方环境材质贴图顶点混合纹理压缩和凹凸映射贴图双重纹理四像素位渲染引擎等诸多先进技术在性能大幅提升同时游戏的画面得到了质的提升和彻底分离也发生了一件关键的事情微软在中引入了法线贴图及可编程着色器这两个功能都需要你在处理器的执行单元额外加入晶体管芯片面积会变大比如说个流处理器每个周期可以做两个操作它跑在频率下就能跑出的浮点运算能力今天纳米的时代把个流处理器集成到一个里也还是一个非常占面积很费力的事情而这只是独立的入门水平可编程着色器每一个渲染管线开发者控制力增强走到这一步就没办法承受了因为本就为了追求单核性能和灵活性再去加入专用单元会越来越臃肿首款显卡由于渲染模式的改变相对于的有了天翻地覆的变化一半以上的模块需重新设计更多的晶体管融入你也可映射为现在显卡的浮点计算能力图形处理在两家显卡厂商的产品里架构更出色家的性能更强晶体管投放到顶点管线上后行业已默认没办法再完全承担图形渲染任务如果你想玩游戏或者想从事一些工作的话是必须的大幅增加性能继续负担图形渲染的思路也是有的即上的用的处理器这颗处理器非常奇葩完全沿袭了日本人过去十几年对图形行业的理解就是一个加入足够多的浮点单元和加速单元可实现各种各样的计算功能他们当时号称能模拟地球可惜在那个年代没有走通这样的芯片太复杂了开发难度太大处理器很臃肿成本也太高最后的表现不尽如人意的后续嬗变从到出具成型首发于是一个非常好的标准吹响高精度渲染时代的号角但实际上当时游戏主要依靠美工并没有支持很多特效主要原因是灵活性不是很强本质上还没有跳脱暴力的纹理填充机器的范畴统一渲染微软又一次推动了行业引入了统一渲染渲染一个画面本质是两个步骤绘制出顶点顶点用来绘制三角形然后绘制每个模型顶点单元给这些顶点绘制出来的部分上色或者做一些渲染像素渲染分开来看本来是一种很合理的方案让专门的单元做专门的事情但在游戏渲染过程中你顶点单元个渲染单元个的硬件预设可能对编程的灵活应用带来复杂度微软对两者做了一个合并这两个东西变成了一个东西我就既可以计算顶点也可以去填充像素这就是我们说的统一渲染随年发布在支持方面可谓占了先机早在年就已经推出了硬件支持的下一代显示核心其不再区分像素和顶点着色单元而是由流处理器单元按照负载动态的执行包括像素和顶点在内的各种着色指令不同的着色单元不会再出现空闲浪费资源的情况命运齿轮的再次转动微软尝试统一渲染的时候英伟达是被排除在体系之外的之前两家在打官司但后来英伟达非常迅速地倒向统一渲染完成了架构上的革新架构推倒重来彻底地自我革命英伟达把它的流处理器拆成了很独立很标准的单元方便控制和调度每个流处理器都可以独立运行的处理器是很长的一个大组一次读取大量指令缺点是每个或个流处理被绑定在一起不能独立运行是用超长指令集的架构单指令多数据流每个矢量个标量做一个流处理器组配合当时微软做的统一渲染的一种试水没有彻底为统一渲染架构从头做一个设计效率还是很有问题只有一个指令数据输入口个单元同进退现实中很多时候每个周期可能只是过来一个标量和或两个矢量指令相当于流处理器中很多单元是在闲置状态设计与现实不完全匹配后来被收购合并更是无法及时对技术架构做一个彻底的变革引导了而如果英伟达没有把自己的变成统一渲染的标量化就是一个空谈本身编程已经是一个很困难的东西了更何况是给超长指令集的编程给编程让其资源利用最大化计算资源需要都标准化不能是特殊配比流处理器是标量处理器它一次只能计算像素和顶点个数据中的一个这样效率不会很低吗当然不是因为随着游戏的发展要处理的指令已经不是这种常规数据流了进入时代后缓冲区或纹理存取等非指令所占比重越来越多此时传统的单元在执行此类指令时效率会降至甚至标量处理器执行各种类型指令时效率都能达到这也就是对于架构大换血的主要目的的这种架构被称为多指令多数据流其特色就是执行效率非常高但也不是没缺点理论运算能力偏低晶体管消耗比较大当然由于对手产品实力不行这些缺点在很长一段时间内都没有被发现而且的标量流处理器还可以异步工作在超高频率下一般是核心频率的两倍由此大幅提升了渲染能力这一技术到年时还没实现的标量架构需要占用额外的晶体管数在流处理器和理论运算能力方面比较吃亏但却能保证超高的执行效率而的超标量架构可以用较少的晶体管数获得很多的流处理器数量和理论运算能力但执行效率方面却不如人意的架构显然要比改进更为彻底单指令多数据流的超标量架构可以执行任意组合形式的混合指令架构非常依赖于将离散指令重新打包组合的算法和效率赢了晶体管成本输了执行效率真正的大佬半导体行业尤其数字芯片这块有一句话叫硬件软件不分家微软是生态主导它的承担了桥梁的作用自然而然它能去收集很多游戏开发商及软件生态行业的需求还有一些研究院有很多前沿的探索在研究的过程中微软觉得下一代可能要做某些改进于是反馈给厂商也正是因为如此微软在行业发生变革的时候它走在前面或者说它引领了变革重大版本更新必采用全新架构决定显卡市场胜败的关键是在体系架构方面这是双方设计实力的体现市场验证每次都是新架构产品胜出不变则败真正能起来一方面是英伟达顶层的远见卓识一方面是因为微软背后推动了架构的重大变革微软要搞光追老黄第一个站出来说好我来当马前卒老黄很卖力地去推微软要推进的东西相比之下英特尔对这一块没那么感兴趣土地与作物本质上跟软件是高度耦合的这也导致了它跟版本跟厂商关系必须非常密切微软在图形领域掌握了标准话语权作物要长得好它就必须听土地的话而土地就是微软英伟达干过很多荒唐的事但还是一步步走到了今天能够成功有很大的因素就是他当微软的跟屁虫这样能保证其在生态上在标准上不会被人拉到后面去与各位大佬曾几何时半导体市场有大玩家英特尔以及英伟达还有一个超级大甲方金主微软英特尔的市场太大了处于非常舒服的位置基本上的态度就是市场上有啥新东西你们先搞着到时候组装到我的主板里面就行了后来采用了的集成显卡策略让和英伟达去竞争英特尔坐收渔利集成显卡一般分为独立显存集成显卡内存划分集成显卡及混合式集成显卡三类两个巨头盯着两个新星明着暗着拉帮结派再加上微软几方就开始搞事情微软为了进军游戏主机业务与任天堂和索尼展开直接竞争就找到了英伟达让他成为当时还是秘密项目的的供应商此时正是的年代亿美金的合同定金就直接给了亿美元当时英伟达全年销售才亿美元相当于包养了氪金玩家下场初代配置奇高堪比高配电脑进而错过了与的先发时机盖茨的一号项目不成功就成仁亏钱市场也要有个响卖一台就要亏美元奔腾处理器英伟达的显卡光驱装载英伟达的比单买还要便宜美金这就动了让供应商英伟达降价的念头一口回绝法庭见微软扭头转向英伟达的对手英伟达一年股价蒸发以亿美元身家排在第位后一年老黄个人财富缩水倍直接从亿万回到了千万富翁意识到错误忍辱负重与微软的交恶直接导致新推出的因为和微软的标准不兼容而被对手推出的打得一败涂地更糟糕的是还出现运行温度过高的问题挣钱嘛跪着很常见服了软在年月号与微软共同宣布结束法庭仲裁程序同意与微软合作降低的未来成本另一手争取到新金主为下一代游戏主机提供显示芯片主板芯片领域也开始和芯片组兼容原来首发跟老东家年还跟专利交叉许可第三季度在独立显卡市场市占率而英伟达只有此时在时代区间收购天上掉馅饼时代的转机当时很焦虑争不过也认同的发展会是未来重要的策略于是一跺脚买下市面上最好的供应商最开始想买的是英伟达但黄仁勋坚持要做合并后公司的遂告吹你可以说老黄开出一个无法接受的条件拒绝合并年月宣布以亿美元收购市场认为一个强大的巨头即将诞生但老黄不这么看他笃定吞下之际必然有一段时间的消化和整合期而英伟达需要抓住这个时期重新找到市场优势这简直是天上掉馅饼一样的礼物基本上已经认输了我们成了世界上唯一一家独立的图形芯片公司老黄的采访原话果不其然整合让伤筋动骨颓势一直持续到年消化不良了年时间沉重的债务负担几乎用光了公司的账面现金负债表到年才降下来一度让濒临破产收购之前花了相当的时间在当时的显卡领域买买买专利和技术在的收购过程中产生了大量的溢价其实老牌显卡商的技术已落后也就是说花大价钱把自己吃成了个大胖子然后这个大胖子又被花更大的价钱吃掉穷得连晶圆厂也卖了整合拖慢了节奏资金链紧张拖累了研发进度暂时没有产生的效果双线作战的时候力不从心统一渲染面临收购买落地架构变革二英扭打起来英伟达不满足只做的芯片组集成显卡供应商开始进攻的蛋糕年英伟达退出系列用于大规模的并联电脑运算计算解决方案涵盖到个人电脑以及大规模服务器集群大客户是年的苹果除了用的剩下的直接替换成英伟达的架构支持的集成控制器而不是英特尔芯片组的南北桥保守坠落铆足了劲想自研芯片市占率图形处理器市场靠集成芯片组也能吃这么大的公司这么多人才可就是搞不定自研芯片平台那就决裂提前脱钩北桥芯片不跟你合作了之前的交叉专利授权不再适用新一代芯片组一个月后老黄反手就将诉上指违反合同实为阻碍技术打了两年官司累了双方和解和解条件是要在年内向英伟达支付亿美元的专利使用费市值对比谁曾想英特尔市值当前竟是英伟达的九分之一直奔而去英特尔市值亿英伟达亿亿原来时代的万年老二现今也力压千亿市值半导体公司市值市值亿移动市场三星高通英伟达推出的独立移动芯片也就是处理器含但还缺基带芯片整合和市场半道转行到手机芯片看似功能强大功耗发热问题有致命伤英伟达之前一直是苹果电脑系列的提供商手机芯片这样一块大蛋糕大家都想要但苹果说你们都别想了我自研苹果芯片找三星来代工同时合作了高通的基带芯片苹果不满意可能也跟遭遇过显卡门事件有关何况这么吹毛求疵一人然后就将三星高通告上法庭侵犯英伟达图形技术专利项三星亦反诉其推出的平板电脑侵犯三星专利项官司一打就是年却在年无赔偿庭外和解和挖矿已经开始大时代画卷已经展开何必在法庭瞪眼一路走来的经营感悟因为专注研发最领先的技术将巨头们都甩在身后但也意识到产品过于单一过于依赖性金主甲方的商业模式终究是不安全的大客户永远想砍价永远想将技术变为自有反脆弱化生存在老黄的感悟中生存非常重要现今为王作为一名要么赚钱要么省钱要么融资不专注于这三件事就是不务正业活下去站着挣紧跟标准图形领域的的标准话语权掌握在微软手里当好微软的跟屁虫英伟达的文化就是快速试错快速迭代如果一个东西对了它就死命加注如果错了就当做没发生过比如大概十年前显示很火英伟达不遗余力宣传显示推出配套软件配套眼镜但后来发现这个东西没推广开英伟达很快翻篇了发布会什么热点都蹭量子计算元宇宙挖矿等等老黄看到了大家都在做智能手机他也想去做智能手机的所以它有一个图睿的产品线但一直很烂图睿就一直在折腾折腾手机折腾什么机顶盒后来去折腾车终于给他蹭上一次风口在英伟达创立初期我经历了失败极大的失败所有的失败都令人羞愧和尴尬很多都几乎使我们走向了灭亡老黄总是有一种创业初期的紧张感强调快速决策并要求快速执行本质上跟软件是高度耦合的开始下注产品的多样性以及软件生态的搭建另拓生态求生产品的多样性以及软件生态的搭建路在哪里任务分解如何将自己身的技术更前沿化修建更高的护城河将产品更多元化更少依赖单一大客户技术通用化首席科学家提出了将技术通用化的思路之前主要为了图形图像处理而生主要做渲染游戏是长期核心业务应该探索运行图形渲染之外的通用计算任务包括超级计算机科学研究和计算模拟药物发现更专业的好莱坞制作等其他更高端的专业图形领域的众核架构非常适合把同样的指令流并行发送到众核上采用不同的输入数据执行开始在通用计算领域得到广泛应用包括数值分析海量数据处理排序等金融分析等黄仁勋支持了的想法在年开始投入大量人员和资源研发这样的并行计算程序开发环境名为计算统一设备架构成功之前路亦难走计算统一设备架构太前瞻了外界质疑一片回顾通用计算年到年期间统一渲染刚刚出来英伟达就不断投入资源持续了很多年当时被人骂的非常惨在硬件产品中增加逻辑电路这使得芯片面积变大散热增加成本上升故障率增高图形性能却和差不多人家价格还便宜功耗还低年就发生了英伟达显卡门事件高温下屏幕扭曲画面杂乱让苹果这些大客户对英伟达产生了不满至于英伟达那时候扯什么显卡能做通用计算消费者根本不关心玩游戏为什么要考虑蛋白质折叠计算如果做的原因仅仅是基于科学计算的需求你将所有市场加起来也不过是个几十亿美元的小市场华尔街否定华尔街一直问英伟达为什么你们做了这项投入却没有人使用它他们对我们的市值估值为美元围绕着的质疑一直持续到了时代的前夜英伟达的市值常年徘徊在亿美元的水平股价甚至一度因为附加成本对业绩的拖累跌至美元股东多次提出希望他们专注于提高盈利能力老黄也需要说服股东接受成本上升一倍去搏一个回报周期可能在年以上的未来当时说实话老黄在当年也无法准确预知这个市场会有多大是不是正确的选择他只知道他押注的是加速计算并深信不疑相信这是未来若这份坚持对的那么更大更宽的市场会向他打开大门智能车云计算元宇宙超算还有各种各样的一些支撑我们数字化的底层的东西都需要算力而这些算力大部分时候都是需要一种并行的向量计算他们可能不需要像那样去处理不同的程序但是需要做很多简单但是非常繁重的计算任务很多超算数据中心加速卡他们做的事情就是这类计算需求的是一种大规模并行向量的计算卡软件烘托硬件可以有效地执行多种运算从线性代数和信号处理到数值仿真虽然概念简单但新用户在使用计算时还是会感到迷惑因为需要专有的图形知识这种情况下一些软件工具可以提供帮助编写程序的复杂度非常高如果要为更通用的人群做产品那就要开始做软硬件的生态满足不同领域的开发者用他们已经熟悉的编程语言在软件生态上编写程序和应用来驱动处理不同的计算任务当程序员为编写程序时他们倾向于利用复杂的逻辑结构优化算法从而减少计算任务的运行时间即当程序员为编写程序时则利用其处理海量数据的优势通过提高总的数据吞吐量来掩盖编译器把一个本来是串行处理的东西变成并行就是因为降低了编程的难度所以很多人来用它如果英伟达没有做在硬件架构上做一个彻底性的变革后来通用计算的功能也就不可能了并非一个纯软件的解决方案它还需要在硬件上做出相应的设计从那时的至往后都有相关的硬件设计经存储和操作的数据被形象地比喻成流类似于标准中的数组核心是在流上操作的函数在一系列输入流上调用一个核心函数意味着在流元素上实施了隐含的循环即对每一个流元素调用核心体早期让能运行写的通用计算程序可惜没有加入合作协议计划他们毕竟是竞争对手发布了和等公司也发布了开始在通用计算领域得到广泛应用包括数值分析海量数据处理排序等金融分析等等真正能够起来一方面是因为微软背后推动了架构的重大变革另一方面在大家都还没看好时间节点的时候英伟达投入大量的资源去开发相关的生态坚守与创新皮衣刀客在守住自己的基本盘传统图形业务的同时不断地在未来看得到赔率的地方加速投入从开始整整四代的架构对应五代的产品线他折磨了无数的玩家无数买他卡的人陪他一起去分摊成本也推出了系列的专门的计算卡但是除了超算之外的地方相对卖得比较少从又臃肿又难用到不断自我革命英伟达挺过来了等到了那一刻获得了未来十年的丰厚回报不断自我革命英伟达创新性引入了一个东西之前所有的计算都是用里面的或者说流处理来计算很多人都觉得流处理器是给图形渲染局用的效率比较低就想用去做计算那英伟达本来是最不应该去开发或者加速单元的因为这是自己抢自己饭碗吃嘛但英伟达就做了他引入了一种专用加速单元效果非常好进一步拉大了跟其他后来者的一个差距是一种能执行高效矩阵运算的微小核心以两个的矩阵乘法为例有计算频率周期能下降一半访问共享内存周期和计算周期都下降引入了一个矩阵函数语言以便开发者可使用上的加速矩阵乘加操作编译器将代码编译成主机端代码和设备端代码设备端代码首先编成设备无关机器语言指令集然后再编译成设备相关机器码环境已经在持续投入过程中成型了一些生物实验室开始买显卡了与的应用区别虽然在科学计算领域十分普及但在深度学习领域有两个制约它使用的因素没有自动求导不能用加速故大公司普遍选择了创立更易用的接口或新的编程语言来进行深度学习计算另可在进行高效并行计算可别分割成多个块每个块可以在不同的上进行计算还有自动求导形状变换张量积矩阵乘法等浪潮奠基年深度学习之父的教授带着他的两位学生和参加大赛设计的深度卷积神经网络一举夺冠开启了之后十多年神经网络的迅速发展团队参赛的时候他们发现如果用来训练需要几个月的时间于是他们尝试了一下英伟达的没想到他们惊喜的发现两张显卡只花了一周时间就训练完成了万张图片人工智能历史上算力的重大突破装载了的从因为功耗和发热问题而臭名远扬的核弹显卡一夜之间变成了通往未来最重要的必要装备各大厂商还有各个高校实验室纷纷开始向英伟达订购算力大部分时候都是需要一种并行的向量计算他们可能不需要像那样去处理不同的程序但是需要做很多简单但是非常繁重的计算任务乘胜出击人类群星闪耀为了计算和人类的未来英伟达的硬件仿佛就是新时代的内燃机载着世代不断前进黄仁勋敏锐的意识到发展的重要性开始加速打造为设计的硬件之初就将块的超级计算机送去捐给的办公室价值过百万美元是老黄带领英伟达名员工耗时三年打造轻量化的小型超算计算和吞吐能力相当于台传统服务器能把一年的训练时间压缩到短短一个月在场的工程师和科学家纷纷签名里面还有两位华人附录参考里有现场照这件事往往被解读为黄仁勋的眼光老辣但对他本人来说这无非是确保成为前沿科学研究者最习惯的框架的又一次尝试中国的人口红利创新年种花家互联网金融搞得如火如荼当年的网贷交易额接近万亿年种花家的房价开始翻番人们为了摇号买房彻夜排队第二年种花家网贷开始清盘楼市迎来最严调控历史在奖励长期主义者遥遥领先为何领先一众专用解决方案复杂处理由基本计算组成指令复杂度越高性能越好处理器形态越多单个处理器覆盖场景越小左侧灵活性通用性右侧性能高能耗低具有一定程度的可编程覆盖领域和场景比要大但仍需要很多面向不同领域的为什么今天大家选择的是而不是本质上来说还是编程环境的易用性其次能更好地适配各种各样的任务大规模的并行向量计算是一种计算效率编程性以及通用性的一个取舍目前取舍最好的结果就是相较于和每项测试都不能拿第一但可以每项测试都在前这对下游应用和厂商很有价值特定领域架构专用集成电路的芯片的算法迭代太快了和都很难跟上变化英伟达有符合它的架构有支持编程的编译器还能够给你提供一套完整支持的生态所以才能在今天的环境中走到这样一个地位英伟达能够跟随时代的发展趋势不断去调整策略赌赢了趋势极致的将来真正到最后的极致软硬一体化才能达到最优就如苹果的设备相对比较流畅软件开发到一定阶段一定会受制于硬件的发展到底是先确定硬件平台再向上构造软件生态的过程合理还是现有软件应用方案然后逐步业务交由硬件加速合理软件基本是消耗资源达成多平台都支持要么豪赌一个时间要短一点则是硬件同志们痛苦战况往往惨烈如芯片爆发都是这类在硬件跟得上摩尔定律时专心投钱做软件挑最快的顺风车搭模型的爆发期阶段因为护城河差距顺风车竟然只有一辆当硬件魔法失败时给钱给硬件厂商给你造一个独享的法拉利大家怎么不去卷它为什么大家都在卷模型不去卷老黄的市场呢因为拿不到入场卷了整个深度学习的框架已经是老黄的形状了通过十数年时间的开发和社区的持续投入和各类框架深度绑定曾几何时主机甲方爸爸也尝试过统一开放的给各家不同提供一个规范用以开发类似的通用计算软件框架但通用就意味着不一定好用各大厂商型号繁杂驱动差异质量参差不齐统一框架缺少针对特定厂商的针对性优化同等算力下都比不过的速度且开发复杂等同为显卡厂商有没有解法有生态平台兼容不少计算框架但效果不咋地很多东西理论上都支持但在实践中当你尝试使用它时你会遇到大大小小的错误并且会崩溃或无法正常工作还要在源码级别对程序进行支持各框架还费尽心力编写一套支持框架干啥那就只支持家的就得了其它玩家呢谷歌的也只能做到对自家的框架进行优化的还在起步态风光无限好当大家都在淘金时英伟达成为了那个卖水的关键是只有他家的水能解渴从的第一台到之后微软帮训练用的一万颗英伟达打造的超级算力中心英伟达清楚并关注大模型的进展它家是如今训练通用模型的最优解市占率高达在工作中的能效是的倍在训练大型语言模型方面的效率是的倍但护城河并非本身而是在软件部分软件框架允许开发人员和用户在不同型号和连续几代上运行相同的软件实现无缝升级并显著简化原始开发用户们还是会因为太熟悉自年起步的的软件生态而不愿意选择非英伟达的能风光多久还是一个未知数在定价方面英伟达为其他公司留出了很大的竞争空间有人估计芯片成本只需美元但的售价高达万美元皮衣刀客就是对产品性能和价格的精准控制花少钱买好货不存在的一款价钱不高的产品在某方面的性能过于强大老黄就会对该产品砍一刀让它在其他方面非常弱鸡过于重视发展的英伟达它的老本行显卡已经被其玩烂大客户蓄力自研大客户微软也正在与合作共同自研人工智能处理器雅典娜来制衡英伟达特斯拉的自研芯片在年月第一次试产年月获得认证后开始全面生产英伟达和特斯拉的蜜月期也只有短短几年而已既然脱钩断链中国人力资本雄厚准备另玩一个生态寄语反脆弱生存你说已经够他赚了老黄又跑去蹭挖矿蹭元宇宙量子计算机这就是很典型的反脆弱行为不断去做额外的尝试以便于在未来出现大的机遇或者大的混乱的时候能够抓住机遇或者规避损失真正的英雄主义是认清了生活的不确定性后努力从不确定性中收益塔勒布反面的代表英伟达作风相反的一个很典型的例子就是英特尔年当时的王者英特尔曾传出计划收购英伟达当时价钱不是问题问题是该给黄仁勋一个什么职位从动心收购时就知道想收购老黄的梦想还是别做梦了英特尔在十年前天下无敌没有人能打过它曾经英特尔有最好的架构最好的工艺谁都没有想到仅仅是因为纳米制程翻车了一次整个都被打乱了看起来很稳的但实际上它的系统是很脆弱的没有能抵抗黑天鹅的能力对自己的工艺过度自信按着线性外推的结果制定发展策略一次翻车即遭遇了滑铁卢原来强势的半导体制造工艺反落后于以台积电为代表的新兴势力让乘着台积电的工艺占据了优势在竞争中寻找新的增长点在投资领域又成为一个新的重要科技概念也要拜英伟达的布局所赐老黄在演讲中表示将成为未来计算的三大支柱之一未来数据中心的标配是分别用于通用计算加速计算和数据处理随着游戏设计等多媒体图形软件的高速发展要处理的工作量越来越大越发复杂实在忙不过来就有了分担的压力出现的道理也一样也是因为一些难以负担的复杂计算需要进行任务分工在现在的云计算的趋势下在数据中心等算力基础设施提升设施效率减少能耗浪费降低成本是一个无法回避的问题虚拟化网络存储和安全是数据中心非常重要的工作大量消耗算力资源以网络为例时时刻刻大量的数据在进行传输主机在收发数据时需要进行海量网络协议处理工作根据传统的计算架构这些协议都是由完成的要处理的网络包约要占个的核也就是说业务程序尚未运行仅仅进行网络数据包的处理就要占用核一半的算力现在数据中心网络不断升级从到甚至高速网络这些开销如何承受这些开销甚至被称为就有公司提出了智能网卡的概念将网络协议处理的工作从卸载到网卡上以此分担的负载年率先探索这种模式收购了芯片厂商于年推出系统同年阿里也发布了类似功能的神龙架构年月花费亿美元收购了以色列芯片公司英伟达将的系列高速网卡技术与自己的已有技术结合在年推出两款产品从此概念正式进入公众视野不仅仅是智能网卡扩展将存储安全和虚拟化等工作从卸载到自己身上年和内存的硬件虚拟化问题逐渐解决让虚拟化系统的性能有了大幅的提升激活了云计算的发展前景和价值虚拟化发展的过程是硬件能力不断取代软件能力的过程是一种新型可编程多核处理器具有很高的算力具备高性能网络接口能告诉解析处理数据并高效将数据传输到和在网络协议处理交换路由计算加密解密数据压缩等累活型基础层应用任务很擅长英伟达的是首款为和加速计算设计的提供数据中心级的软件定义和硬件加速的网络存储安全和管理等服务为了构建更为强大的生态专门给打造了开发平台数据中心基础设施体系架构利用行业标准快速创建网络存储安全和管理服务及高性能计算一系列应用程序和服务从而迅速推出新产品利用专业合理分工促成数据中心能效最大化功成名就的英伟达不再需要苦口婆心地向市场证明自己眼光的独到之处创投圈已经蜂拥尾随年创投圈曾流行过一个笑话是什么支付宝到账一亿元只要触发了这个关键词钱就会滚滚而来国外厂商中英特尔均研发了或的对位产品国内亦涌现出一批初创企业参考泡泡网支配游戏历代架构全解析搜狐在诉讼与骂名中崛起的英伟达搜狐有什么区别百家号英伟达的反脆弱式崛起英伟达单机箱人工智能超级计算机赠予知乎是什么以及与性能对比代码矩阵乘法示例康乃尔大学新浪正在垄断百家号有多牛',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-06-19 16:41:35',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/" accesskey="h"><div class="title">Diffday</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/archives/"><span> 归档</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/"><span> 分类</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/"><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本站</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/copyright/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 版权协议</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button only-home" id="travellings_button" title="随机前往一个开往项目网站"><a class="site-page" onclick="anzhiyu.totraveling()" title="随机前往一个开往项目网站" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="anzhiyufont anzhiyu-icon-train"></i></a></div><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="http://cdn.diffday.com/picgo/wechatpay.jpg" target="_blank"><img class="post-qr-code-img" alt="微信" src="http://cdn.diffday.com/picgo/wechatpay.jpg"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="http://cdn.diffday.com/picgo/alipay-n.jpeg" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="http://cdn.diffday.com/picgo/alipay-n.jpeg"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="anzhiyufont anzhiyu-icon-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/09/"><span class="card-archive-list-date">九月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">七月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">六月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">四月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">三月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">二月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">一月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">6</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">十二月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item on" id="consoleCommentBarrage" onclick="anzhiyu.switchCommentBarrage()" title="热评开关"><a class="commentBarrage"><i class="anzhiyufont anzhiyu-icon-message"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><!-- if (page.copyright_author && page.copyright_author !== config.author)// a.post-meta-original 转载--><!-- else--><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/" itemprop="url">信息技术</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/AI/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>AI</span></a><a class="article-meta__tags" href="/tags/%E6%B5%AA%E6%BD%AE%E4%B9%8B%E5%B7%85/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>浪潮之巅</span></a></span></div></div><h1 class="post-title" itemprop="name headline">浪潮之巅NVIDIA</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2024-02-06T07:30:00.000Z" title="发表于 2024-02-06 15:30:00">2024-02-06</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2025-06-19T08:41:35.000Z" title="更新于 2025-06-19 16:41:35">2025-06-19</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-wordcount"><i class="anzhiyufont anzhiyu-icon-file-word post-meta-icon" title="文章字数"></i><span class="post-meta-label" title="文章字数">字数总计:</span><span class="word-count" title="文章字数">13.3k</span><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-clock post-meta-icon" title="阅读时长"></i><span class="post-meta-label" title="阅读时长">阅读时长:</span><span>40分钟</span></span><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="浪潮之巅NVIDIA"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为深圳"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>深圳</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="http://cdn.diffday.com/picgo/20240130095825.png"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://blog.diffday.com/%E6%B5%AA%E6%BD%AE%E4%B9%8B%E5%B7%85NVIDIA.html"><header><a class="post-meta-categories" href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/" itemprop="url">信息技术</a><a href="/tags/AI/" tabindex="-1" itemprop="url">AI</a><a href="/tags/%E6%B5%AA%E6%BD%AE%E4%B9%8B%E5%B7%85/" tabindex="-1" itemprop="url">浪潮之巅</a><h1 id="CrawlerTitle" itemprop="name headline">浪潮之巅NVIDIA</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">DiffDay</span><time itemprop="dateCreated datePublished" datetime="2024-02-06T07:30:00.000Z" title="发表于 2024-02-06 15:30:00">2024-02-06</time><time itemprop="dateCreated datePublished" datetime="2025-06-19T08:41:35.000Z" title="更新于 2025-06-19 16:41:35">2025-06-19</time></header><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20240130095825.png" alt=""></p>
+<p>吴军老师的《浪潮之巅》写作较早，暂未收录NVIDIA这家公司。写一篇网文汇总，回顾这位2023年彪炳IT史的弄潮儿，勇立潮头者，少不了值得我们品味学习的地方。</p>
+<h1>从&quot;刺头&quot;到巨头</h1>
+<ul>
+<li>linux之父linus，因英伟达多年来拒绝对GPU内核驱动开源，对英伟达竖过🖕🏻：英伟达是我们遇到过最糟糕的公司。So F**K you，Nvidia！
+<ul>
+<li>22年应黑客攻击，才开源Linux驱动源码（黑客也为了解除特定显卡的挖矿限制）</li>
+</ul>
+</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20240206110816.png" alt="2012: Linus Torvalds: “Fuck Nvidia”"></p>
+<ul>
+<li>
+<p>微软，英特尔，AMD，三星，高通都跟英伟达对簿过公堂，但「皮衣刀客」就是：<font color="blur">不怕得罪客户，不怕战斗！</font></p>
+</li>
+<li>
+<p>给加密货币提供矿机，推出专门面向“挖矿”定制的专业矿卡。为了挖矿生产的，游戏玩家们没办法用，直接舍弃了图形处理功能</p>
+<ul>
+<li>以前吹以太坊有价值，加密货币矿机有未来。但以太坊从POW（工作量证明）转向了POS（权益证明），话锋一转，又说加密货币无法给社会带来啥价值</li>
+<li>矿机的几年背负了很多骂名，但也让公司撑到了AI新世代的周期</li>
+</ul>
+</li>
+<li>
+<p>一路推动GPU走向主流市场，坚持搭建生态，形成了如今高耸的护城河和垄断式的市场占有率，不得不佩服管理层近10几年的远见卓识</p>
+</li>
+</ul>
+<span id="more"></span>
+<h1>命运的齿轮</h1>
+<blockquote>
+<p>老黄如今已是硅谷科技巨头中现任最久的CEO，敏锐又灵活，精明无比</p>
+</blockquote>
+<h2 id="成长履历">成长履历</h2>
+<ul>
+<li>
+<p>祖籍浙江，1963年生于台湾，9岁后跟哥哥一道去美国，并就此定居在美（老爹出差去了一次美国后就执意让孩子过去发展），脱离父母在美生活了2年，陌生的差环境，锻炼了黄仁勋强大的环境适应能力</p>
+</li>
+<li>
+<p>当时住在肯塔基州的亲戚家，上着一所乡村寄宿学校，学校有很多问题学生，他学会了爬墙，偷吃东西和抽烟</p>
+</li>
+<li>
+<p><font color="dodgerblue">AMD掌舵人 苏姿丰（3岁移民美国，比老黄小6岁）要尊称黄仁勋为表舅，其姥爷是老黄的亲大舅</font></p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20240206112114.png" alt="半导体台湾家族帮" style="zoom:67%;" />
+</li>
+<li>
+<p>1978年，15岁的老黄获得美国乒乓球男子双打季军，在竞争不强的美国乒乓球界，老黄有很大机会成为乒乓球运动员，代表美国队参加88年奥运会</p>
+<blockquote>
+<p>说说有趣的走向，大神钱学森生于清朝，二战末期被授予上校军衔，他和冯.卡门，冯.布劳恩都是美国现代火箭和导弹技术奠基人，若在漫威世界线中，钱上校应该和美国队长是战友，和霍华德史塔克是同事，同是神盾局创始人之一</p>
+</blockquote>
+</li>
+<li>
+<p>81年(18岁），黄仁勋进入波特兰州立大学就读，86~89年进入斯坦福攻读电子工程硕士学位，在斯坦福，接触到了更先进的计算机图形技术，对于图形处理器的研究个更加深入</p>
+</li>
+<li>
+<p>毕业后，黄仁勋加入AMD负责图形处理器及相关产品，两年后，黄仁勋离开AMD，加入了LSI Logic，担任图形处理器设计师。在LSI Logic，他又积累了大量关于图形处理器的实践经验</p>
+</li>
+</ul>
+<h2 id="创立NVIDIA">创立NVIDIA</h2>
+<p>93年，30岁的黄仁勋与Chris Malachowsky和Curtis Priem共同创立了NVIDIA，专注于图形处理器的研发和制造。公司名称NVIDIA来源于拉丁语“envidea”，意为“视觉”，此时是游戏发展「街机转家用机」的浪潮。他们早期的明星产品是Geforce 256，是dx7时代「千禧年前后」的市场精品</p>
+<p>老黄立志将公司做到计算机图形领域的老大哥，可现实是残酷的。起初，黄与团队耗时两年打造了第一款显卡产品NV1，由于不兼容竞争对手3DFX的Glide 3D标准，销售表现十分惨淡，最终不得不停止销售。好在这款产品吸引了视频游戏制造商Sega的注意，并与之建立了合作。但经过一年的开发，英伟达的团队意识到其设计的架构是错误策略，因为微软即将宣布基于反向纹理映射和三角形的Windows 95 Directx3D，这代表着如果英伟达完成了Sega的游戏机，公司将会创造出与Windows不相容的产品，sigh！</p>
+<p>想要拯救奄奄一息的英伟达，必须破釜沉舟。黄仁勋将英伟达的战略从游戏主机转向PC市场，并从游戏设计公司晶体动力挖来David Kirk（也就是后来的CUDA之父）博士担任首席科学家，组织了一个庞大的研发团队。</p>
+<h1>CPU vs GPU</h1>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/gpu-imageonline.co-merged.jpeg" alt="cpu对比gpu的图形渲染机制对比"></p>
+<h2 id="通用vs专用">通用vs专用</h2>
+<ul>
+<li>CPU就像一个学习渊博的教授，什么都精通都能做，但任务的一项项做，比较慢</li>
+<li>GPU就像一堆小学生，对于特定的简单运算任务，人多力量大，所以在大量并行计算上，GPU完胜</li>
+</ul>
+<p>GPU是做协同处理，叫co-processor，因为GPU是处理大量并行计算，所以它的设计上并没花很多心血做程序的控制，依然作为协处理器存在PC体系结构中</p>
+<p>GPU由于历史原因，是为了视频游戏而产生的，在三维游戏中常常出现的一类操作是对数据进行相同的操作，如：对每一个顶点进行同样的坐标变换，对每一个顶点按照同样的光照模型计算颜色值。GPU的众核架构非常适合把同样的指令流并行发送到众核上，采用不同的输入数据执行。</p>
+<p>CUDA时代的CPU和GPU差异可以参阅<sup id="fnref:6"><a href="#fn:6" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="知乎 [CUDA是什么？以及GPU 与 CPU 性能对比：代码矩阵乘法示例](https://zhuanlan.zhihu.com/p/669262197)
+">[6]</span></a></sup>，在CUDA的概念中，CPU和GPU分属Host和Device，二者之间通过PCIe总线连接，可以在CUDA编程中使用cudaMemcpy函数进行CPU与GPU之间的数据传递</p>
+<h3 id="核数差异">核数差异</h3>
+<p>CPU虽然有多核，但总数没有超过两位数，每个核都有足够大的缓存和足够多的数字和逻辑运算单元，并辅助有很多加速分支判断甚至更复杂的逻辑判断的硬件；</p>
+<p>GPU核数远超CPU，被成为众核（Nvidia Fermi有512个核）。每个核拥有的缓存大小相对小，数字逻辑运算单元也少而简单（初始GPU在浮点运算上一直弱于CPU）</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20240207152548.png" alt="CPU和GPU的架构差异"></p>
+<h3 id="总结来看">总结来看</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>CPU</th>
+<th>GPU</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>包含</td>
+<td>较少的多功能核心</td>
+<td>很多功能单一的核心</td>
+</tr>
+<tr>
+<td>内存消耗</td>
+<td>高</td>
+<td>低</td>
+</tr>
+<tr>
+<td>专注于</td>
+<td>低延迟</td>
+<td>高通量</td>
+</tr>
+<tr>
+<td>擅长</td>
+<td>处理复杂的串行指令</td>
+<td>处理并行的简单指令</td>
+</tr>
+</tbody>
+</table>
+<h2 id="成本-专业演进">成本+专业演进</h2>
+<h3 id="两个小芯片比一个大芯片便宜">两个小芯片比一个大芯片便宜</h3>
+<p>不断膨胀臃肿的CPU，在成本，功耗，还有灵活性上，远不如一个小CPU加上一个GPU的组合搭配</p>
+<h3 id="专业之道，惟精惟一">专业之道，惟精惟一</h3>
+<p>CPU和GPU很多东西是不一样的，领域专注使其性能，架构灵活性，使得其可随着行业生态及编程API等不断去修改，去提升</p>
+<h1>独立GPU的催化剂-DirectX</h1>
+<p>微软看到越来越多人开始用PC，而PC除了办公外，还有游戏功能，但PC游戏的3D效果没有办法跟PS2对比。Windows上尚缺乏统一的图形和音频接口，开发者难以为应用程序和游戏提供一致的用户体验。</p>
+<p>微软那时想到一个办法，就是把大量图形的功能，才CPU中移植出来放到GPU上，通过这种方法让GPU的性能强起来，推动行业发展，反过来去巩固他自己在PC端的地位。与此战略打配合的就是DirectX：一种图形音频API接口。</p>
+<p>DirectX把市面上各种各样的硬件统一起来，提供了一个标准API，让开发者们能更好地调用这些GPU的硬件性能，而不必耗费大量精力在兼容性上。</p>
+<p>DirectX，它的早期版本图标是一个核弹（内部代号曼哈顿计划），寓意也很明显，从日本人手里把图形方面的制高点拿下来。把市场、标准甚至以后的前沿技术，都攥在自己手里</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20240206154717.png" alt="DirectX核弹图标"></p>
+<p>刚诞生时，还是很原始的一个东西，没什么人去用它，那时候整个民用行业关于图形应用方面的话语权，都在日本游戏厂商手里。</p>
+<ul>
+<li>97年当时还有三个标准:OpenGL、DirectX、3DFX公司的Glide。</li>
+<li>直到Directx6（1998）才借助32位渲染和整合的纹理压缩算法打败对手，成为主流</li>
+</ul>
+<p><strong>在微软的带动下，英伟达开始与下游厂商纷纷结成伙伴，最终活了下来。</strong></p>
+<h2 id="DX7：催化剂的临界点">DX7：催化剂的临界点</h2>
+<p>Directx在DX7版本的时候（1999）的设计，决定了现代意义上的GPU的诞生。</p>
+<p>DX7之前的GPU，专做填充颜色，图形从顶点到多边形的的生成，这种运算全都由CPU来做。微软在DX7-API里，把顶点计算、多边形生成的很大一部分工作卸载下来了（Transform &amp; Lighting：T&amp;L，坐标转换和光源），给了GPU，使得GPU有更大的作用。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20240206155702.png" alt="T&amp;L技术能力效果展示"></p>
+<ul>
+<li>3D游戏中除了场景+物体还需要灯光，没有灯光就没有3D物体的表现</li>
+<li>卸载前，CPU计算出顶点坐标之后，还要去生成很多三角形，然后再做一些着色指令发给GPU，GPU再去做这些东西，之前坐标转换和灯光都需要CPU来计算</li>
+<li>卸载后，CPU只要告诉GPU坐标点在哪里，剩下的交给GPU自己去做就可好了。在刚开始分离的时候，效率没有太大的提升</li>
+</ul>
+<p>随着特效越来越多，往CPU中塞入更多浮点加速单元，跟上DX新版本的要求，已经越来越难了，这时候GPU的重要性就凸显出来了</p>
+<ul>
+<li>换句话说，通过一个很复杂，性能很强的CPU去渲染3D图像，在成本和技术上实现都有困难</li>
+<li>GPU就是能从一个硬件上支持T&amp;L的显示芯片，因为T&amp;L是3D渲染中的一个重要部分，其作用是计算多边形的3D位置和处理动态光线效果，也可以称为“几何处理”</li>
+</ul>
+<p>DX7时代开始，英伟达和微软深度绑定。之前英伟达喜欢支持一些自有或不够主流的标准，经常产品失败，而后微软每一次API的大改动，老黄都是第一时间去支持的。</p>
+<blockquote>
+<p>深度绑定微软，Geforce256就是DX7的划时代产品。</p>
+<p>Geforce256所采用的核心技术除了硬件T&amp;L之外，还有立方环境材质贴图、顶点混合，纹理压缩和凹凸映射贴图，双重纹理四像素、256位渲染引擎等诸多先进技术，在性能大幅提升同时，3D游戏的画面得到了质的提升</p>
+</blockquote>
+<h2 id="DX8：CPU和GPU彻底分离">DX8：CPU和GPU彻底分离</h2>
+<p>DX8（2000）也发生了一件关键的事情：微软在GPU API中引入了法线贴图，及可编程着色器</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20240206155917.png" alt="DX8 Pixel Shader和Vertex Shader技术带来的动态光影效果展示：变色龙和不同角度的人脸"></p>
+<p>这两个功能都需要你在处理器的执行单元额外加入晶体管，芯片面积会变大。</p>
+<ul>
+<li>比如说1000个流处理器，每个周期可以做两个操作，它跑在1GHz频率下，就能跑出2TFlops的浮点运算能力</li>
+<li>今天7纳米的时代，把1000个流处理器集成到一个CPU里，也还是一个非常占面积，很费力的事情，而这只是独立GPU的入门水平</li>
+</ul>
+<p>可编程着色器（每一个渲染管线），开发者控制力增强。走到这一步，CPU就没办法承受了，因为CPU本就为了追求单核性能和灵活性，再去加入专用单元，CPU会越来越臃肿。</p>
+<p>首款DX8显卡：GeForce 3 Ti，由于DX8渲染模式的改变，GeForce 3相对于DX7的GeForce 2/256有了天翻地覆的变化，一半以上的模块需重新设计，更多的晶体管融入，你也可映射为现在显卡的浮点计算能力（3D图形处理），在两家显卡厂商的DX8产品里，ATI架构更出色，NV家的性能更强（晶体管投放到顶点管线上）</p>
+<p><font color="blur"> <u>DX8后，行业已默认CPU没办法再完全承担3D图形渲染任务，如果你想玩游戏，或者想从事一些3D工作的话，GPU是必须的</u></font>。</p>
+<p>大幅增加CPU性能继续负担图形渲染的思路，也是有的，即PS3上的用的处理器</p>
+<ul>
+<li>这颗处理器非常奇葩，完全沿袭了日本人过去十几年对图形行业的理解，就是一个CPU加入足够多的浮点单元和加速单元，可实现各种各样的计算功能，他们当时号称能“模拟地球”，可惜在那个年代没有走通</li>
+<li>这样的芯片太复杂了，开发难度太大，处理器很臃肿，成本也太高，最后的表现不尽如人意。</li>
+</ul>
+<h2 id="DX的后续嬗变">DX的后续嬗变</h2>
+<p>从DX7到DX8，GPU出具成型。DX9C（2004，DX9首发于2002），是一个非常好的标准，吹响高精度渲染时代的号角。但实际上，当时游戏主要依靠美工，并没有支持很多特效，主要原因是，GPU灵活性不是很强，本质上还没有跳脱暴力的“纹理填充”机器的范畴。</p>
+<h3 id="统一渲染Milestone">统一渲染Milestone</h3>
+<p>DX10（2006），微软<font color="dodgerblue">又一次推动了行业，引入了“统一渲染”</font></p>
+<p>渲染一个画面，本质是两个步骤</p>
+<ol>
+<li>绘制出顶点，顶点用来绘制三角形，然后绘制每个模型 ： 顶点单元</li>
+<li>给这些顶点绘制出来的部分上色，或者做一些渲染：像素渲染</li>
+</ol>
+<p>分开来看，本来是一种很合理的方案，让专门的单元做专门的事情，但在游戏渲染过程中，你顶点单元10个，渲染单元5个的硬件预设，可能对编程的灵活应用带来复杂度。</p>
+<p>微软对两者做了一个合并，这两个东西变成了一个东西，我就既可以计算顶点，也可以去填充像素，这就是我们说的统一渲染。</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20240206160258.png" alt="统一渲染后不同着色单元不会再出现空闲浪费" style="zoom:80%;" />
+<p>DX10随07年Vista发布，NVIDIA在支持DX10方面可谓占了先机，早在06年就已经推出了硬件支持DX10的下一代显示核心–G80。其不再区分像素和顶点着色单元，而是由流处理器单元按照负载动态的执行包括像素和顶点在内的各种着色指令，不同的着色单元不会再出现空闲浪费资源的情况。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20240206160213.png" alt="DX10主要改进内容"></p>
+<h2 id="命运齿轮的再次转动">命运齿轮的再次转动</h2>
+<p>微软尝试统一渲染的时候（DX10），英伟达是被排除在体系之外的（之前两家在打官司），但后来，<font color="blur">英伟达非常迅速地倒向统一渲染，完成了架构上的革新（架构推倒重来，彻底地自我革命）</font></p>
+<ul>
+<li>英伟达把它的流处理器拆成了很独立，很标准的单元，方便控制和调度，每个流处理器都可以独立运行</li>
+<li>AMD的处理器是很长的一个大组，一次读取大量指令，缺点是每5个或4个流处理被绑定在一起，不能独立运行
+<ul>
+<li>ATI是用超长指令集的架构（SIMD-单指令多数据流），每4个矢量+1个标量做一个流处理器组，配合当时微软做的统一渲染的<font color="blur">一种试水，没有彻底为统一渲染架构从头做一个设计</font>，效率还是很有问题</li>
+<li>只有一个指令数据输入口，5个单元同进退，现实中很多时候，每个周期可能只是过来一个标量和或两个矢量指令，相当于流处理器中很多单元是在闲置状态（设计与现实不完全匹配）</li>
+<li>后来被收购合并更是无法及时对技术架构做一个彻底的变革</li>
+</ul>
+</li>
+</ul>
+<h3 id="DX10引导了CUDA">DX10引导了CUDA</h3>
+<p><strong><font color="blur">而如果英伟达没有把自己的GPU变成统一渲染的标量化，CUDA就是一个空谈</font></strong></p>
+<ul>
+<li>本身GPU编程已经是一个很困难的东西了，更何况是给超长指令集的GPU编程。</li>
+<li>给GPU编程，让其资源利用最大化，计算资源需要都标准化，不能是特殊配比</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/R600-imageonline.co-merged.jpg" alt="AMD和NVIDIA在DX10时代显卡架构差异"></p>
+<p>流处理器是1D标量处理器，它一次只能计算像素和顶点 4个数据中的一个，这样效率不会很低吗？当然不是，因为随着游戏的发展，GPU要处理的指令已经不是4D这种常规数据流了，进入DX10时代后，Z缓冲区（1D）或纹理存取（2D）等非4D指令所占比重越来越多，此时传统的Shader单元在执行此类指令时效率会降至1/2甚至1/4</p>
+<p>G80 1D标量处理器执行各种类型指令时效率都能达到100%，这也就是NVIDIA对于GPU架构大换血的主要目的，G80的这种架构被称为MIMD（多指令多数据流），其特色就是执行效率非常高，但也不是没缺点，理论运算能力偏低，晶体管消耗比较大，当然由于对手产品实力不行，这些缺点在很长一段时间内都没有被发现。而且NVIDIA的1D标量流处理器还可以异步工作在超高频率下，一般是GPU核心频率的两倍，由此大幅提升了渲染能力，这一技术ATI到2010年时还没实现。</p>
+<p>G80的MIMD标量架构需要占用额外的晶体管数，在流处理器和理论运算能力方面比较吃亏，但却能保证超高的执行效率；而R600的SIMD超标量架构可以用较少的晶体管数获得很多的流处理器数量和理论运算能力，但执行效率方面却不如人意，G80的架构显然要比R600改进更为彻底。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/R600ALU-imageonline.co-merged.jpg" alt="左N家右A家DX10小模块架构"></p>
+<blockquote>
+<ul>
+<li>MIMD(单指令多数据流)的超标量架构可以执行任意组合形式的混合指令</li>
+<li>SIMD架构非常依赖于将离散指令重新打包组合的算法和效率，赢了晶体管成本，输了执行效率</li>
+</ul>
+</blockquote>
+<h2 id="真正的大佬：Microsoft">真正的大佬：Microsoft</h2>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20240206161012.png" alt="甲方大金主"></p>
+<p>半导体行业，尤其数字芯片这块，有一句话叫“硬件软件不分家“，微软是PC生态主导，它的API承担了桥梁的作用，自然而然，它能去收集很多游戏开发商及软件生态行业的需求。</p>
+<p>还有一些研究院，有很多前沿的探索，在研究的过程中，微软觉得下一代可能要做某些改进，于是反馈给GPU厂商。</p>
+<p>也正是因为如此，<strong>微软在GPU行业发生变革的时候，它走在前面，或者说它引领了变革</strong></p>
+<ul>
+<li>DX重大版本更新，GPU必采用全新架构
+<ul>
+<li>决定显卡市场胜败的关键是在体系架构方面，这是双方设计实力的体现</li>
+<li>市场验证每次都是新架构产品胜出，不变则败</li>
+</ul>
+</li>
+<li>CUDA真正能起来，一方面是英伟达顶层的远见卓识，一方面是因为微软背后推动了GPU架构的重大变革</li>
+<li>微软要搞光追，老黄第一个站出来说：”好，我来当马前卒“，老黄很卖力地去推微软要推进的东西，相比之下，AMD，英特尔对这一块没那么感兴趣</li>
+</ul>
+<h3 id="土地与作物">土地与作物</h3>
+<p>GPU本质上跟软件是高度耦合的，这也导致了它跟API版本，跟API厂商关系必须非常密切，微软在图形领域掌握了标准话语权</p>
+<p>GPU作物要长得好，它就必须听土地的话，而土地就是微软。</p>
+<p>英伟达干过很多荒唐的事，但还是一步步走到了今天，能够成功，有很大的因素就是他当微软的跟屁虫，这样能保证其在生态上、在标准上不会被人拉到后面去</p>
+<h1>与各位大佬Battle</h1>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20240206171716.png" alt="半导体五方大佬"></p>
+<p>曾几何时，半导体市场有4大玩家：英特尔，AMD，ATI以及英伟达，还有一个超级大甲方金主：微软</p>
+<p>英特尔CPU的市场太大了，处于非常舒服的位置，基本上的态度就是：市场上有啥新东西，你们先搞着，到时候组装到我的主板里面就行了，后来Intel采用了CPU+GPU的集成显卡策略，让ATI和英伟达去竞争，英特尔坐收渔利。</p>
+<blockquote>
+<p>集成显卡一般分为独立显存集成显卡，内存划分集成显卡及混合式集成显卡三类</p>
+</blockquote>
+<p>两个CPU巨头盯着两个GPU新星，明着暗着拉帮结派，再加上，微软，几方就开始搞事情</p>
+<p>微软为了进军游戏主机业务，与任天堂和索尼展开直接竞争，就找到了英伟达，让他成为当时还是秘密项目的Xbox（2002）的GPU供应商。（此时正是DX8的年代）</p>
+<ul>
+<li>52亿美金的合同，定金就直接给了2亿美元，当时英伟达全年销售才5亿美元，相当于包养了</li>
+<li>氪金玩家下场，初代配置奇高（堪比高配电脑），进而错过了与PS2（2000）的先发时机，盖茨的一号项目，不成功就成仁，亏钱市场也要有个响（卖一台Xbox，就要亏126美元）
+<ul>
+<li>奔腾3处理器+英伟达的显卡+DVD光驱+…</li>
+<li>装载英伟达GPU-Geforce 3的Xbox比单买Geforce 3还要便宜30美金（299 vs 329）</li>
+</ul>
+</li>
+<li>这就动了让供应商英伟达降价的念头，一口回绝法庭见，微软扭头转向英伟达的对手ATI，英伟达一年股价蒸发90%
+<ul>
+<li>以5.07亿美元身家排在第12位，后一年老黄个人财富缩水10倍，直接从”亿万“回到了”千万“富翁</li>
+</ul>
+</li>
+</ul>
+<h2 id="意识到错误，忍辱负重">意识到错误，忍辱负重</h2>
+<p>与微软的交恶，直接导致新推出的Geforce FX因为和微软的标准不兼容，而被对手ATI推出的Radeon 9700打得一败涂地，更糟糕的是，GeForce FX还出现运行温度过高的问题</p>
+<h3 id="挣钱嘛，跪着很常见">挣钱嘛，跪着很常见</h3>
+<ul>
+<li>服了软，在2003年2月6号与微软共同宣布结束法庭仲裁程序，同意与微软合作降低Xbox的未来成本</li>
+<li>另一手，争取到新金主，为下一代游戏主机PS3提供显示芯片</li>
+<li>主板芯片领域也开始和Intel芯片组兼容（原来首发跟老东家AMD），04年还跟Intel专利交叉许可</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20240206171837.png" alt="N斗而不破"></p>
+<p>2004第三季度，在独立显卡市场，ATI市占率59%，而英伟达只有37%。此时在DX9时代区间（02~04）</p>
+<h2 id="AMD收购ATI，天上掉馅饼">AMD收购ATI，天上掉馅饼</h2>
+<p>时代的转机：当时AMD很焦虑，CPU争不过Intel，也认同GPU的发展会是未来重要的策略，于是一跺脚，买下市面上最好的GPU供应商。</p>
+<blockquote>
+<p>最开始，AMD想买的是英伟达，<font color="tomato">但黄仁勋坚持要做合并后公司的CEO，遂告吹</font>，你可以说老黄开出一个无法接受的条件拒绝合并</p>
+</blockquote>
+<p>2006年7月，AMD宣布，以54亿美元收购ATI，市场认为，一个强大的巨头即将诞生，但老黄不这么看，他笃定，AMD吞下AIT之际必然有一段时间的消化和整合期，而英伟达需要抓住这个时期，重新找到市场优势。</p>
+<blockquote>
+<p>这简直是天上掉馅饼一样的礼物，ATI基本上已经认输了，我们成了世界上唯一一家独立的图形芯片公司 – 老黄的采访原话</p>
+</blockquote>
+<p>果不其然，整合让AMD伤筋动骨，颓势一直持续到2016年，消化不良了10年时间</p>
+<ul>
+<li>沉重的债务负担，几乎用光了公司的账面现金，负债表到2010年才降下来，一度让AMD濒临破产
+<ul>
+<li>AMD收购ATI之前，ATI花了相当的时间在当时的显卡领域”买买买“，专利和技术在ATI的收购过程中产生了大量的溢价（其实老牌显卡商的技术已落后），也就是说，ATI花大价钱把自己吃成了个大胖子，然后这个大胖子又被AMD花更大的价钱吃掉</li>
+<li>AMD穷得连晶圆厂也卖了</li>
+</ul>
+</li>
+<li>整合拖慢了节奏，资金链紧张拖累了研发进度，暂时没有产生1+1&gt;2的效果，双线作战的时候力不从心
+<ul>
+<li>DX10（2006），统一渲染，ATI面临收购买落地架构变革</li>
+</ul>
+</li>
+</ul>
+<h2 id="Intel-vs-Nvidia二英扭打起来">Intel vs Nvidia二英扭打起来</h2>
+<blockquote>
+<p>英伟达不满足只做Intel的芯片组集成显卡供应商，开始进攻Intel的蛋糕</p>
+</blockquote>
+<p>2007年，英伟达退出Tesla系列，用于大规模的并联电脑运算，GPU计算解决方案，涵盖到个人电脑以及大规模服务器集群，大客户是Apple。</p>
+<p>08年的苹果MacBook除了CPU用Intel的Core 2 Duo，剩下的直接替换成英伟达的Tesla架构支持的集成控制器GeForce 9400MG，而不是英特尔芯片组的南北桥。</p>
+<h3 id="Intel保守坠落">Intel保守坠落</h3>
+<p>Intel铆足了劲想自研芯片，CPU市占率80%，图形处理器市场靠集成芯片组，也能吃50%</p>
+<ul>
+<li><font color="blur">这么大的公司，这么多人才，可就是搞不定自研GPU芯片平台</font></li>
+<li>那就决裂，提前脱钩，北桥芯片不跟你合作了，之前的交叉专利授权不再适用新一代芯片组
+<ul>
+<li>一个月后，老黄反手就将Intel诉上，指Intel违反合同，实为阻碍技术</li>
+</ul>
+</li>
+<li>打了两年官司，Intel累了，双方和解，和解条件是，Intel要在5年内向英伟达支付15亿美元的专利使用费</li>
+</ul>
+<h3 id="市值对比">市值对比</h3>
+<p>谁曾想，英特尔市值当前竟是英伟达的九分之一，<font color="blur">直奔1:10而去</font>（2024.2.6）</p>
+<ul>
+<li>英特尔市值：$1808亿</li>
+<li>英伟达：$17125亿</li>
+<li>AMD：$2815亿，原来PC时代的万年老二，现今也力压Intel 1千亿市值</li>
+</ul>
+<pre class="mermaid">xychart-beta horizontal
+    title "半导体公司市值"
+    x-axis [INTEL, AMD, NVIDIA]
+    y-axis "2024.2.6市值 (in $亿)" 1000 --> 20000
+    bar [1808, 2815, 17125]</pre>
+<h2 id="移动市场battle三星高通">移动市场battle三星高通</h2>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20240207144102.png" alt="移动SOC"></p>
+<p>英伟达推出的独立移动芯片Tegra，也就是AP（Application Processor）处理器，含CPU+GPU，<font color="blur">但还缺基带芯片整合</font>和市场</p>
+<blockquote>
+<p>半道转行到手机芯片，看似功能强大，功耗发热问题有致命伤</p>
+</blockquote>
+<p>英伟达之前一直是苹果Mac电脑系列的GPU提供商，手机芯片这样一块大蛋糕，大家都想要，但苹果说：你们都别想了，我自研</p>
+<blockquote>
+<p>苹果芯片找三星来代工，同时合作了高通的基带芯片</p>
+<p>苹果不满意，可能也跟遭遇过显卡门事件有关，何况Jobs这么吹毛求疵一人</p>
+</blockquote>
+<p>然后就将三星，高通告上法庭，侵犯英伟达图形技术专利7项。三星亦反诉其推出的平板电脑侵犯三星专利8项。官司一打就是8年，却在16年无赔偿庭外和解（AI和挖矿已经开始，大时代画卷已经展开，何必在法庭瞪眼）</p>
+<h1>一路走来的经营感悟</h1>
+<p>因为专注研发最领先的GPU技术，将巨头们都甩在身后</p>
+<p>但也意识到：<strong>产品过于单一、过于依赖性金主甲方的商业模式终究是不安全的</strong></p>
+<ul>
+<li>
+<p><font color="blur">大客户永远想砍价</font></p>
+</li>
+<li>
+<p><font color="blur">永远想将技术变为自有</font></p>
+</li>
+</ul>
+<h2 id="反脆弱化生存">反脆弱化生存</h2>
+<p>在老黄的感悟中，生存非常重要，现今为王，作为一名CEO，要么赚钱，要么省钱，要么融资。不专注于这三件事就是CEO不务正业。</p>
+<h3 id="活下去-rightarrow-站着挣">活下去 $\rightarrow$ 站着挣</h3>
+<ul>
+<li>
+<p>紧跟标准。图形领域的的标准话语权掌握在微软手里，当好微软的跟屁虫</p>
+</li>
+<li>
+<p>英伟达的文化，就是“快速试错，快速迭代”。如果一个东西对了，它就死命加注；如果错了，就当做没发生过。比如大概十年前，3D显示很火。英伟达不遗余力宣传3D 显示，推出配套软件，配套眼镜。但后来发现这个东西没推广开，英伟达很快翻篇了。</p>
+</li>
+<li>
+<p>GTC发布会什么热点都蹭，量子计算、元宇宙，挖矿等等</p>
+<blockquote>
+<p>老黄看到了大家都在做智能手机，他也想去做智能手机的soc，所以它有一个图睿的产品线，但一直很烂。图睿就一直在折腾，折腾手机，折腾什么机顶盒，后来去折腾车，终于给他蹭上一次风口</p>
+<p>“在英伟达创立初期，我经历了失败，极大的失败，所有的失败都令人羞愧和尴尬。很多都几乎使我们走向了灭亡。”老黄总是有一种创业初期的紧张感，强调快速决策并要求快速执行</p>
+</blockquote>
+</li>
+<li>
+<p>GPU本质上跟软件是高度耦合的，开始下注GPU产品的多样性以及软件生态的搭建。</p>
+</li>
+</ul>
+<h1>另拓生态求生</h1>
+<p><font color="tomato"> <strong>GPU产品的多样性以及软件生态的搭建，路在哪里？</strong></font></p>
+<h2 id="任务分解">任务分解</h2>
+<ul>
+<li>
+<p><strong>如何将自己身的技术更前沿化，修建更高的护城河</strong></p>
+</li>
+<li>
+<p><strong>将产品更多元化，更少依赖单一大客户？</strong></p>
+</li>
+</ul>
+<h2 id="GPU技术通用化">GPU技术通用化</h2>
+<p>首席科学家David Kirk提出了“将GPU技术通用化”的思路</p>
+<ul>
+<li>
+<p>之前主要为了图形图像处理而生，主要做3D渲染，游戏是长期核心业务</p>
+</li>
+<li>
+<p><font color="dodgerblue">应该探索“运行图形渲染”之外的“通用计算”任务，包括超级计算机</font></p>
+<ul>
+<li>科学研究和计算、模拟、药物发现、更专业的好莱坞制作等其他更高端的专业图形领域</li>
+<li>GPU的众核架构非常适合把同样的指令流并行发送到众核上，采用不同的输入数据执行。开始在通用计算领域得到广泛应用，包括：数值分析，海量数据处理（排序，Map-Reduce等），金融分析等</li>
+</ul>
+</li>
+</ul>
+<p>黄仁勋支持了David Kirk的想法，在2006年开始投入大量人员和资源研发这样的并行计算程序开发环境，名为CUDA-Compute Unified Device Architecture–计算统一设备架构</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20240207093526.png" alt="David Kirk-大卫·柯克 博士"></p>
+<h2 id="成功之前路亦难走">成功之前路亦难走</h2>
+<blockquote>
+<p>计算统一设备架构太前瞻了，外界质疑一片</p>
+</blockquote>
+<p>回顾通用计算，2006年到2008年期间，dx10统一渲染刚刚出来，英伟达就不断投入资源，持续了很多年，当时被人骂的非常惨。</p>
+<ul>
+<li>在硬件产品中增加CUDA逻辑电路，这使得芯片面积变大、散热增加、成本上升、故障率增高；图形性能却和AMD差不多，人家价格还便宜，功耗还低
+<ul>
+<li>2008年就发生了英伟达“显卡门”事件，高温下屏幕扭曲、画面杂乱，让苹果这些大客户对英伟达产生了不满</li>
+</ul>
+</li>
+<li>至于英伟达那时候扯什么显卡能做通用计算？消费者根本不关心，玩游戏为什么要考虑蛋白质折叠计算？</li>
+</ul>
+<p><font color="tomato">如果做CUDA的原因仅仅是基于“科学计算”的需求，你将所有市场加起来，也不过是个几十亿美元的小市场</font>，<strong>华尔街否定CUDA</strong></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20240709183259.png" alt="华尔街起先不看好CUDA"></p>
+<blockquote>
+<p><font color="blur">华尔街一直问英伟达，为什么你们做了这项投入，却没有人使用它，他们对我们的市值估值为0美元</font></p>
+<p>围绕着CUDA的质疑一直持续到了AI时代的前夜，英伟达的市值常年徘徊在10亿美元的水平，股价甚至一度因为CUDA附加成本对业绩的拖累跌至1.5美元。股东多次提出希望他们专注于提高盈利能力。老黄也需要说服股东接受成本上升一倍，去搏一个回报周期可能在10年以上的未来</p>
+</blockquote>
+<p>当时，说实话，老黄在当年也无法准确预知，这个市场会有多大，是不是正确的选择。<font color="dodgerblue"><strong>他只知道他押注的是“加速计算”并深信不疑相信这是未来</strong>。若这份坚持对的，那么更大更宽的市场会向他打开大门</font>。</p>
+<p>**智能车，云计算、元宇宙、超算，还有各种各样的一些支撑我们数字化的底层的东西，都需要算力。而这些算力大部分时候，都是需要一种并行的向量计算。**他们可能不需要像CPU那样去处理不同的程序，但是需要做很多简单但是非常繁重的计算任务。很多超算、数据中心、加速卡，他们做的事情就是这类计算，需求的是一种大规模并行向量的计算卡</p>
+<h2 id="软件烘托硬件">软件烘托硬件</h2>
+<p>GPU可以有效地执行多种运算，从线性代数和信号处理到数值仿真。虽然概念简单，但新用户在使用GPU计算时还是会感到迷惑，因为GPU需要专有的图形知识。这种情况下，一些软件工具可以提供帮助</p>
+<p>GPU编写程序的复杂度非常高，如果要为更通用的人群做GPU产品，那就要开始做软硬件的生态</p>
+<ul>
+<li>满足不同领域的开发者用他们已经熟悉的编程语言在软件生态上编写程序和应用，来驱动GPU处理不同的计算任务</li>
+<li>当程序员为CPU编写程序时，他们倾向于利用复杂的逻辑结构优化算法从而减少计算任务的运行时间，即Latency。当程序员为GPU编写程序时，则利用其处理海量数据的优势，<u>通过提高总的数据吞吐量（Throughput）来掩盖Lantency</u></li>
+</ul>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20240207162746.png" alt="CUDA软件体系" style="zoom:75%;" />
+<p>CUDA编译器，把一个本来是串行处理的东西变成并行。就是因为CUDA降低了编程的难度，所以很多人来用它。如果英伟达没有做在硬件架构上做一个彻底性的变革，后来通用计算的功能也就不可能了。</p>
+<ul>
+<li>CUDA并非一个纯软件的解决方案，它还需要在硬件上做出相应的设计，从directx10那时的G80至往后都有CUDA相关的硬件设计</li>
+<li>经 GPU存储和操作的数据被形象地比喻成“流”（stream），类似于标准C中的数组。核心（Kernel）是在流上操作的函数。在一系列输入流上调用一个核心函数意味着在流元素上实施了隐含的循环，即对每一个流元素调用核心体</li>
+</ul>
+<p>早期CUDA让GPU能运行C写的通用计算程序，可惜AMD没有加入合作协议计划（他们毕竟是竞争对手）。NVIDIA发布了CUDA，AMD和Apple等公司也发布了OpenCL，GPU开始在通用计算领域得到广泛应用，包括：数值分析，海量数据处理（排序，Map-Reduce等），金融分析等等</p>
+<p><font color="dodgerblue">CUDA真正能够起来，一方面是因为微软背后推动了GPU架构的重大变革，另一方面，在大家都还没看好时间节点的时候，英伟达投入大量的资源去开发相关的生态</font></p>
+<h2 id="坚守与创新">坚守与创新</h2>
+<p>皮衣刀客在守住自己的基本盘——GPU传统图形业务的同时，不断地在未来看得到赔率的地方加速投入。</p>
+<ul>
+<li>
+<p>从g80开始，g90、g200，整整四代的架构、对应五代的产品线。他折磨了无数的玩家，无数买他卡的人，陪他一起去分摊成本</p>
+</li>
+<li>
+<p>也推出了Tesla系列的专门的计算卡，但是除了超算之外的地方，相对卖得比较少</p>
+</li>
+</ul>
+<p>从又臃肿又难用，到不断自我革命，英伟达挺过来了，等到了那一刻，获得了未来十年的丰厚回报</p>
+<ul>
+<li>
+<p>不断自我革命。英伟达创新性引入了一个东西——tensor core。之前所有的AI计算，都是用GPU里面的CUDA或者说流处理来计算</p>
+<ul>
+<li>
+<p>很多人都觉得流处理器，是给图形渲染局用的，效率比较低，就想用ASIC去做AI计算。那英伟达本来是最不应该去开发ASIC或者加速单元的，因为这是自己抢自己饭碗吃嘛。但英伟达就做了，他引入了Tensor Core，一种专用加速单元，效果非常好，进一步拉大了跟其他后来者的一个差距。</p>
+</li>
+<li>
+<p>tensor core是一种能执行高效矩阵运算的微小核心。以两个32*32的矩阵乘法为例，有tensor core，计算频率周期能下降一半（访问共享内存周期和计算周期都下降）</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20240207165944.png" alt="Tensor Core是专门针对Deep Learning的应用而设计的专用ASIC单元"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>cuda9.0引入了一个warp矩阵函数 C++语言API，以便开发者可使用GPU上的tensor core，加速矩阵乘加操作</p>
+</li>
+<li>
+<p>NVCC编译器将CUDA代码编译成主机端代码和设备端代码。设备端代码首先编成设备无关机器语言指令集，然后再编译成设备相关机器码</p>
+</li>
+</ul>
+<p><u>CUDA环境已经在持续投入过程中成型了，一些生物实验室开始买显卡了</u></p>
+<h3 id="Numpy与Tensor的应用区别">Numpy与Tensor的应用区别</h3>
+<p>numpy虽然在科学计算领域十分普及，但在深度学习领域，有两个制约它使用的因素：没有自动求导，不能用GPU加速。故大公司普遍选择了创立更易用的接口或新的编程语言来进行深度学习计算。另：</p>
+<p>tensor可在GPU进行高效并行计算，tensor可别分割成多个块，每个块可以在不同的GPU上进行计算，还有自动求导，形状变换，张量积，矩阵乘法等</p>
+<h1>AI浪潮</h1>
+<h2 id="2012-奠基年">2012-奠基年</h2>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20240206135147.png" alt="图灵奖得主和他的学生"></p>
+<p>“深度学习之父”的Jeffery Hinton教授带着他的两位学生Alex Krizhevsky和Ilya Sutskeverz，参加ImageNet大赛，设计的深度卷积神经网络AlexNet一举夺冠，开启了之后十多年神经网络AI的迅速发展。</p>
+<ul>
+<li>
+<p>Hinton团队参赛的时候，他们发现，如果用CPU来训练AlexNet，需要几个月的时间，于是他们尝试了一下英伟达的GPU，没想到，他们惊喜的发现，两张GTX580显卡只花了一周时间，就训练完成了1400万张图片。人工智能历史上算力的重大突破</p>
+</li>
+<li>
+<p>装载了CUDA的GPU GTX 580，从因为功耗和发热问题而臭名远扬的“核弹显卡”，一夜之间，变成了通往未来最重要的必要装备</p>
+</li>
+<li>
+<p>各大厂商，还有各个高校实验室，纷纷开始向英伟达订购GPU</p>
+</li>
+</ul>
+<p>算力大部分时候，都是需要一种并行的向量计算。他们可能不需要像CPU那样去处理不同的程序，但是需要做很多简单但是非常繁重的计算任务</p>
+<h2 id="乘胜出击，人类群星闪耀">乘胜出击，人类群星闪耀</h2>
+<h3 id="为了计算和人类的未来">为了计算和人类的未来</h3>
+<blockquote>
+<p>英伟达的硬件，仿佛就是新时代的内燃机，载着AI世代不断前进</p>
+</blockquote>
+<p>黄仁勋敏锐的意识到AI发展的重要性，开始加速打造为AI设计的GPU硬件</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20240206114924.png" alt="捐赠DGX-1" style="zoom:50%;" />
+<ul>
+<li>2016 OpenAI之初，就将8块P100GPU的超级计算机DGX-1，送去（捐给）OpenAI的办公室
+<ul>
+<li>
+<p>DGX-1价值过百万美元，是老黄带领英伟达3000名员工，耗时三年打造轻量化的小型超算，计算和吞吐能力相当于 250台传统服务器，能把OpenAI 一年的训练时间，压缩到短短一个月</p>
+</li>
+<li>
+<p>在场的工程师和科学家纷纷签名，里面还有两位华人，附录参考里有现场照<sup id="fnref:5"><a href="#fn:5" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="英伟达 [单机箱人工智能超级计算机赠予 OpenAI](https://blogs.nvidia.cn/2016/08/15/first-ai-supercomputer-openai-elon-musk-deep-learning/)
+">[5]</span></a></sup></p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20240206135602.png" style="zoom:65%;" alt="OpenAI 研究人员围绕率先推出的DGX-1签名"/>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><font color="tomato">这件事往往被解读为黄仁勋的眼光老辣，但对他本人来说，这无非是确保CUDA成为前沿科学研究者最习惯的框架的又一次尝试</font></p>
+</blockquote>
+<h3 id="中国的人口红利创新">中国的人口红利创新</h3>
+<ul>
+<li>
+<p>2016年，种花家互联网金融搞得如火如荼，当年的网贷交易额接近2万亿</p>
+</li>
+<li>
+<p>2016年，种花家的房价开始翻番，人们为了摇号买房彻夜排队</p>
+</li>
+<li>
+<p>第二年，种花家网贷开始清盘，楼市迎来最严调控</p>
+</li>
+</ul>
+<blockquote>
+<p><font color="tomato">历史在奖励长期主义者</font></p>
+</blockquote>
+<h1>遥遥领先</h1>
+<h2 id="为何GPU领先一众专用解决方案">为何GPU领先一众专用解决方案</h2>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20240207175918.png" alt="不同芯片的对比" style="zoom:75%;" />
+<blockquote>
+<ul>
+<li>复杂处理由基本计算组成，指令复杂度越高，性能越好，处理器形态越多，单个处理器覆盖场景越小</li>
+<li>左侧灵活性通用性，右侧性能高能耗低</li>
+</ul>
+<p>DSA：具有一定程度的可编程，覆盖领域和场景比ASIC要大，但仍需要很多面向不同领域的DSA</p>
+</blockquote>
+<p>为什么今天大家选择的是GPU，而不是DSP？本质上来说还是编程环境的易用性。其次，GPU能更好地适配各种各样的任务。</p>
+<p><strong>大规模的并行向量计算，是一种计算效率、编程性以及通用性的一个取舍，目前取舍最好的结果就是GPU</strong>。</p>
+<ul>
+<li>
+<p><font color="tomato">相较于ASIC和DSA，GPU每项测试都不能拿第一，但可以每项测试都在前10%，这对下游应用和厂商很有价值</font></p>
+<blockquote>
+<p>DSA-特定领域架构</p>
+<p>ASIC-专用集成电路的芯片</p>
+</blockquote>
+</li>
+<li>
+<p><u>AI的算法迭代太快了，ASIC和DSA都很难跟上变化</u></p>
+</li>
+<li>
+<p>英伟达有符合它的架构，有支持编程的编译器，还能够给你提供一套完整支持的生态，所以才能在今天的环境中走到这样一个地位。英伟达能够跟随时代的发展趋势，不断去调整策略，赌赢了趋势</p>
+</li>
+</ul>
+<h3 id="极致的将来">极致的将来</h3>
+<p>真正到最后的极致，软硬一体化才能达到最优。就如苹果的设备相对比较流畅。软件开发到一定阶段，一定会受制于硬件的发展。</p>
+<p>到底是先确定硬件平台，再向上构造软件生态的 bottom to top 过程合理，还是现有软件应用方案，然后 top to bottom 逐步 offload 业务，交由硬件加速合理？</p>
+<ul>
+<li>bottom to top，软件基本是消耗资源，达成多平台都支持，要么豪赌一个</li>
+<li>top to bottom，时间要短一点，则是硬件同志们痛苦，战况往往惨烈。如 SmartNIC，AI 芯片爆发都是这类</li>
+</ul>
+<p>在硬件跟得上摩尔定律时，专心投钱做 multi-arch 软件，挑最快的顺风车搭（模型的爆发期阶段因为护城河差距，GPU顺风车竟然只有一辆）；当硬件魔法失败时，给钱给硬件厂商给你造一个独享的法拉利。</p>
+<h2 id="大家怎么不去卷它">大家怎么不去卷它</h2>
+<p>为什么大家都在卷模型，不去卷老黄的市场呢？</p>
+<p>因为拿不到入场卷了，整个深度学习的框架已经是老黄的形状了。通过十数年时间CUDA的开发和社区的持续投入，CUDA和各类AI框架深度绑定。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.diffday.com/picgo/20240207163556.png" alt=""></p>
+<p>曾几何时，主机甲方爸爸也尝试过统一开放的API–OpenCL，给各家不同GPU提供一个规范，用以开发类似CUDA的通用计算软件框架， 但通用就意味着不一定好用。</p>
+<ul>
+<li>
+<p>各大厂商GPU型号繁杂，驱动差异，质量参差不齐</p>
+</li>
+<li>
+<p>统一框架缺少针对特定厂商的针对性优化</p>
+</li>
+<li>
+<p>同等算力下，都比不过CUDA的速度。且开发复杂</p>
+<ul>
+<li>CUDA Toolkit，Nvidia GPU Computing SDK，Nsight等</li>
+</ul>
+</li>
+</ul>
+<h3 id="同为显卡厂商，AMD有没有解法？">同为显卡厂商，AMD有没有解法？</h3>
+<ul>
+<li>
+<p>有生态平台ROCm，兼容不少计算框架，但效果不咋地</p>
+<ul>
+<li>很多东西理论上都支持 ROCm，但在实践中，当你尝试使用它时，你会遇到大大小小的错误，并且会崩溃或无法正常工作</li>
+</ul>
+</li>
+<li>
+<p>还要在源码级别对CUDA程序进行支持</p>
+<ul>
+<li>各AI框架还费尽心力编写一套支持框架干啥，那就只支持N家的就得了</li>
+</ul>
+</li>
+</ul>
+<h3 id="其它玩家呢">其它玩家呢</h3>
+<ul>
+<li>
+<p>谷歌的TPU也只能做到对自家的Tensorflow框架进行优化</p>
+</li>
+<li>
+<p>Intel的OneAPI还在起步态</p>
+</li>
+</ul>
+<h2 id="风光无限好">风光无限好</h2>
+<p>当大家都在AI淘金时，英伟达成为了那个卖水的，关键是只有他家的水能解渴</p>
+<p>从OpenAI的第一台GPU，到之后微软帮OpenAI训练ChatGPT用的一万颗英伟达A100 GPU打造的超级算力中心，英伟达清楚并关注大模型的进展。它家是如今训练通用模型的最优解，市占率高达95%。GPU在AI工作中的能效是CPU的20倍，H100 GPU在训练大型语言模型方面的效率是CPU的300倍</p>
+<h3 id="但护城河并非GPU本身，而是在软件部分">但护城河并非GPU本身，而是在软件部分</h3>
+<ul>
+<li>
+<p>CUDA软件框架，允许开发人员和用户在不同型号和<font color="dodgerblue"><strong>连续几代GPU上运行相同的软件</strong></font>，实现无缝升级，并显著简化原始开发</p>
+</li>
+<li>
+<p>用户们还是会因为太熟悉自06年起步的CUDA的软件生态而不愿意选择非英伟达的GPU</p>
+</li>
+</ul>
+<h3 id="能风光多久，还是一个未知数">能风光多久，还是一个未知数</h3>
+<ul>
+<li>
+<p>在定价方面，英伟达为其他公司留出了很大的竞争空间</p>
+<ul>
+<li>
+<p>有人估计H100芯片成本只需3200美元，但H100的售价高达3万美元</p>
+</li>
+<li>
+<p>“皮衣刀客”，就是对产品性能和价格的精准控制，花少钱买好货？不存在的！</p>
+<blockquote>
+<p>一款价钱不高的产品，在某方面的性能过于强大，老黄就会对该产品砍一刀，让它在其他方面非常弱鸡</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>过于重视 AI 发展的英伟达，它的老本行显卡已经被其玩烂</p>
+</li>
+<li>
+<p>大客户蓄力自研</p>
+<ul>
+<li>
+<p>大客户微软也正在与AMD合作共同自研人工智能处理器“雅典娜”（Athena），来制衡英伟达</p>
+</li>
+<li>
+<p>特斯拉的自研FSD芯片在2017年12月第一次试产，2018年7月获得认证后开始全面生产，英伟达和特斯拉的蜜月期，也只有短短几年而已</p>
+</li>
+</ul>
+</li>
+<li>
+<p>既然脱钩断链，<u>中国人力资本雄厚，准备另玩一个生态</u></p>
+</li>
+</ul>
+<h1>寄语</h1>
+<ul>
+<li><code>Creativity Create Advantage</code></li>
+<li><code>Innovation Create Leadership</code></li>
+</ul>
+<h2 id="反脆弱生存">反脆弱生存</h2>
+<p>你说AI已经够他赚了，老黄又跑去蹭挖矿，蹭元宇宙、量子计算机。这就是<font color="dodgerblue">很典型的反脆弱行为，不断去做额外的尝试，以便于在未来出现大的机遇或者大的混乱的时候，能够抓住机遇或者规避损失</font>。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20240207150157.png" alt=""></p>
+<blockquote>
+<p><font color="tomato">真正的英雄主义，是认清了生活的不确定性后，努力从不确定性中收益 – 塔勒布</font></p>
+</blockquote>
+<h3 id="反面的代表">反面的代表</h3>
+<p>英伟达作风相反的一个很典型的例子，就是英特尔。</p>
+<blockquote>
+<p>2010年，当时的CPU王者英特尔曾传出计划收购英伟达，当时价钱不是问题，问题是该给黄仁勋一个什么职位。从AMD动心收购时就知道想收购老黄的梦想，还是别做梦了</p>
+</blockquote>
+<p>英特尔在十年前天下无敌，没有人能打过它。曾经英特尔有最好的架构，最好的工艺，谁都没有想到，仅仅是因为10纳米制程翻车了一次，整个都被打乱了。<font color="blur">看起来很稳的，但实际上它的系统是很脆弱的，没有能抵抗黑天鹅的能力</font>。对自己的工艺过度自信，按着线性外推的结果制定发展策略，一次翻车即遭遇了滑铁卢（原来强势的半导体制造工艺反落后于以台积电为代表的新兴势力，让AMD乘着台积电的工艺占据了优势）</p>
+<h3 id="在竞争中寻找新的增长点">在竞争中寻找新的增长点</h3>
+<p>DPU（Data Processing Unit）在投资领域又成为一个新的重要科技概念，也要拜英伟达的布局所赐。老黄在演讲中表示：DPU将成为未来计算的三大支柱之一，未来数据中心的标配是：CPU+GPU+DPU，分别用于通用计算，加速计算和数据处理。</p>
+<p>随着游戏，3D设计等多媒体图形软件的高速发展，要处理的工作量越来越大，越发复杂，CPU实在忙不过来，就有了GPU分担CPU的压力。DPU出现的道理也一样，也是因为CPU一些难以负担的复杂计算需要进行任务分工。在现在的云计算的趋势下，在数据中心等算力基础设施，提升设施效率，减少能耗浪费，降低成本是一个无法回避的问题。</p>
+<p>虚拟化，网络，存储和安全，是数据中心非常重要的工作，大量消耗算力资源。以网络为例，时时刻刻大量的数据在进行传输，主机在收发数据时，需要进行海量网络协议处理工作，根据传统的计算架构，这些协议都是由CPU完成的。要处理10G的网络包，约要占4个Xeon CPU的核，也就是说，业务程序尚未运行，仅仅进行网络数据包的处理，就要占用8核CPU一半的算力。现在数据中心网络不断升级，从10G到100G，甚至400G高速网络，这些开销如何承受。这些开销，甚至被称为Datacenter Tax。</p>
+<p>就有公司提出了SmartNIC（智能网卡）的概念，将网络协议处理的工作从CPU卸载到网卡上，以此分担CPU的负载。2015年，AWS率先探索这种模式，收购了芯片厂商Annapurna Labs，于17年推出Nitro系统，同年，阿里也发布了类似功能的神龙(X-Dragon)架构。</p>
+<p>2019年3月，NVIDIA花费69亿美元收购了以色列芯片公司Mellanox，英伟达将Mellanox的ConnectX系列高速网卡技术与自己的已有技术结合，在2020年推出两款DPU产品，从此GPU概念正式进入公众视野。DPU不仅仅是智能网卡，扩展将存储，安全和虚拟化等工作从CPU卸载到自己身上。</p>
+<blockquote>
+<p>05年，CPU和内存的硬件虚拟化问题逐渐解决，让虚拟化系统的性能有了大幅的提升，激活了云计算的发展前景和价值。虚拟化发展的过程，是硬件能力不断取代软件能力的过程</p>
+</blockquote>
+<p>DPU是一种新型可编程多核处理器，具有很高的算力，具备高性能网络接口，能告诉解析处理数据，并高效将数据传输到CPU和GPU。在网络协议处理，交换路由计算，加密解密，数据压缩等累活型基础层应用任务很擅长。</p>
+<p>英伟达的DPU是首款为AI和加速计算设计的DPU，提供数据中心级的软件定义和硬件加速的网络，存储，安全和管理等服务，为了构建更为强大的生态，NVIDIA专门给BlueField DPU打造了开发平台–NVIDIA DOCA（Data Center Intrastructure On A Chip Architecture），数据中心基础设施体系架构，利用行业标准API快速创建网络，存储，安全和管理服务，及AI/HPC(高性能计算)一系列应用程序和服务，从而迅速推出新产品。利用专业合理分工，促成数据中心能效最大化。</p>
+<p>功成名就的英伟达不再需要苦口婆心地向市场证明自己眼光的独到之处，创投圈已经蜂拥尾随。</p>
+<blockquote>
+<p>2020年，创投圈曾流行过一个笑话。</p>
+<p>“DPU是什么？”</p>
+<p>“支付宝到账，一亿元。”</p>
+<p>只要触发了DPU这个关键词，钱就会滚滚而来</p>
+</blockquote>
+<p>国外厂商中，Marvell、英特尔、AMD均研发了DPU或DPU的对位产品，国内亦涌现出一批DPU初创企业。</p>
+<h1>参考</h1>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">泡泡网 <a target="_blank" rel="noopener" href="https://www.pcpop.com/article/521833_all.shtml">DirectX支配游戏！历代GPU架构全解析</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">搜狐 <a target="_blank" rel="noopener" href="https://www.sohu.com/a/724792815_116132">在诉讼与骂名中崛起的英伟达GPU</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">搜狐 <a target="_blank" rel="noopener" href="https://www.sohu.com/a/156178300_793365">GPU/CPU/DSP有什么区别</a><a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">百家号 <a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1747544421380905146">英伟达的“反脆弱”式崛起</a><a href="#fnref:4" rev="footnote"> ↩</a></span></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">5.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">英伟达 <a target="_blank" rel="noopener" href="https://blogs.nvidia.cn/2016/08/15/first-ai-supercomputer-openai-elon-musk-deep-learning/">单机箱人工智能超级计算机赠予 OpenAI</a><a href="#fnref:5" rev="footnote"> ↩</a></span></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">6.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">知乎 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/669262197">CUDA是什么？以及GPU 与 CPU 性能对比：代码矩阵乘法示例</a><a href="#fnref:6" rev="footnote"> ↩</a></span></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">7.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Cornell University康乃尔大学 <a target="_blank" rel="noopener" href="https://cvw.cac.cornell.edu/gpu-architecture">Roadmap: Understanding GPU Architecture</a><a href="#fnref:7" rev="footnote"> ↩</a></span></li><li id="fn:8"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">8.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">新浪 <a target="_blank" rel="noopener" href="https://finance.sina.cn/tech/2023-04-04/detail-imypcumv3190827.d.html">NVIDIA正在“垄断”AI！</a><a href="#fnref:8" rev="footnote"> ↩</a></span></li><li id="fn:9"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">9.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">百家号 <a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1588032016265909716">Tensor Core有多牛</a><a href="#fnref:9" rev="footnote"> ↩</a></span></li></ol></div></div></article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src="https://cdn.diffday.com/picgo/diff_128.png" title="头像" alt="头像"><img class="post-copyright__author_img_front" src="https://cdn.diffday.com/picgo/diff_128.png" title="头像" alt="头像"></a><div class="post-copyright__author_name">DiffDay</div><div class="post-copyright__author_desc">We are here to be creators!</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://blog.diffday.com/%E6%B5%AA%E6%BD%AE%E4%B9%8B%E5%B7%85NVIDIA.html">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://blog.diffday.com/%E6%B5%AA%E6%BD%AE%E4%B9%8B%E5%B7%85NVIDIA.html')">浪潮之巅NVIDIA</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你的肯定与鼓励</span><ul class="reward-group"><li class="reward-item"><a href="http://cdn.diffday.com/picgo/wechatpay.jpg" target="_blank"><img class="post-qr-code-img" src="http://cdn.diffday.com/picgo/wechatpay.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="http://cdn.diffday.com/picgo/alipay-n.jpeg" target="_blank"><img class="post-qr-code-img" src="http://cdn.diffday.com/picgo/alipay-n.jpeg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://blog.diffday.com/%E6%B5%AA%E6%BD%AE%E4%B9%8B%E5%B7%85NVIDIA.html"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=浪潮之巅NVIDIA&amp;url=https://blog.diffday.com/%E6%B5%AA%E6%BD%AE%E4%B9%8B%E5%B7%85NVIDIA.html&amp;pic=http://cdn.diffday.com/picgo/20240130095825.png" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="rm.copyPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.diffday.com" target="_blank">Diffday</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/AI/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>AI<span class="tagsPageCount">5</span></a><a class="post-meta__box__tags" href="/tags/%E6%B5%AA%E6%BD%AE%E4%B9%8B%E5%B7%85/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>浪潮之巅<span class="tagsPageCount">3</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="http://cdn.diffday.com/picgo/20250918182147.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/%E5%8D%93%E6%9C%89%E6%88%90%E6%95%88%E7%9A%84%E7%AE%A1%E7%90%86%E8%80%85.html"><img class="prev-cover" src="http://cdn.diffday.com/picgo/卓有成效的管理者.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">卓有成效的管理者</div></div></a></div><div class="next-post pull-right"><a href="/%E4%B8%AD%E5%9B%BD%E5%B0%B1%E4%B8%9A%E4%BA%BA%E7%BE%A4%E8%B0%83%E6%9F%A5.html"><img class="next-cover" src="http://cdn.diffday.com/picgo/20240220112557.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">中国就业人群调查</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B.html" title="大语言模型LLM"><img class="cover" src="http://cdn.diffday.com/picgo/20230408222056.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2025-09-22</div><div class="title">大语言模型LLM</div></div></a></div><div><a href="/%E4%BC%81%E4%B8%9A%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%8E%86%E5%8F%B2%E4%B8%8E%E5%BA%94%E7%94%A8%E8%B6%8B%E5%8A%BF.html" title="企业大数据历史与应用趋势"><img class="cover" src="https://cdn.diffday.com/picgo/20210421170120.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2024-06-27</div><div class="title">企业大数据历史与应用趋势</div></div></a></div><div><a href="/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E5%B0%8F%E7%AC%94%E8%AE%B0.html" title="协同过滤（CF）的一些小笔记"><img class="cover" src="http://cdn.diffday.com/picgo/20220214134420.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2025-04-09</div><div class="title">协同过滤（CF）的一些小笔记</div></div></a></div><div><a href="/%E6%99%BA%E8%83%BD%E9%A9%BE%E9%A9%B6%E7%9A%84%E4%B8%AD%E5%9B%BD%E6%95%85%E4%BA%8B.html" title="智能驾驶的中国故事"><img class="cover" src="http://cdn.diffday.com/picgo/20241010095826.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2024-10-24</div><div class="title">智能驾驶的中国故事</div></div></a></div><div><a href="/%E7%94%B5%E5%AD%90%E6%B8%B8%E6%88%8F%E5%8F%B2.html" title="电子游戏史话"><img class="cover" src="http://cdn.diffday.com/picgo/20210512164846.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2024-07-01</div><div class="title">电子游戏史话</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> 评论</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a><a href="/privacy" style="margin-left: 4px">隐私政策</a></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">从&quot;刺头&quot;到巨头</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">命运的齿轮</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%90%E9%95%BF%E5%B1%A5%E5%8E%86"><span class="toc-number">2.1.</span> <span class="toc-text">成长履历</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E7%AB%8BNVIDIA"><span class="toc-number">2.2.</span> <span class="toc-text">创立NVIDIA</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">CPU vs GPU</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E7%94%A8vs%E4%B8%93%E7%94%A8"><span class="toc-number">3.1.</span> <span class="toc-text">通用vs专用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E6%95%B0%E5%B7%AE%E5%BC%82"><span class="toc-number">3.1.1.</span> <span class="toc-text">核数差异</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%E6%9D%A5%E7%9C%8B"><span class="toc-number">3.1.2.</span> <span class="toc-text">总结来看</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%90%E6%9C%AC-%E4%B8%93%E4%B8%9A%E6%BC%94%E8%BF%9B"><span class="toc-number">3.2.</span> <span class="toc-text">成本+专业演进</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%A4%E4%B8%AA%E5%B0%8F%E8%8A%AF%E7%89%87%E6%AF%94%E4%B8%80%E4%B8%AA%E5%A4%A7%E8%8A%AF%E7%89%87%E4%BE%BF%E5%AE%9C"><span class="toc-number">3.2.1.</span> <span class="toc-text">两个小芯片比一个大芯片便宜</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%93%E4%B8%9A%E4%B9%8B%E9%81%93%EF%BC%8C%E6%83%9F%E7%B2%BE%E6%83%9F%E4%B8%80"><span class="toc-number">3.2.2.</span> <span class="toc-text">专业之道，惟精惟一</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">独立GPU的催化剂-DirectX</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DX7%EF%BC%9A%E5%82%AC%E5%8C%96%E5%89%82%E7%9A%84%E4%B8%B4%E7%95%8C%E7%82%B9"><span class="toc-number">4.1.</span> <span class="toc-text">DX7：催化剂的临界点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DX8%EF%BC%9ACPU%E5%92%8CGPU%E5%BD%BB%E5%BA%95%E5%88%86%E7%A6%BB"><span class="toc-number">4.2.</span> <span class="toc-text">DX8：CPU和GPU彻底分离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DX%E7%9A%84%E5%90%8E%E7%BB%AD%E5%AC%97%E5%8F%98"><span class="toc-number">4.3.</span> <span class="toc-text">DX的后续嬗变</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%9F%E4%B8%80%E6%B8%B2%E6%9F%93Milestone"><span class="toc-number">4.3.1.</span> <span class="toc-text">统一渲染Milestone</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E8%BF%90%E9%BD%BF%E8%BD%AE%E7%9A%84%E5%86%8D%E6%AC%A1%E8%BD%AC%E5%8A%A8"><span class="toc-number">4.4.</span> <span class="toc-text">命运齿轮的再次转动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DX10%E5%BC%95%E5%AF%BC%E4%BA%86CUDA"><span class="toc-number">4.4.1.</span> <span class="toc-text">DX10引导了CUDA</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9C%9F%E6%AD%A3%E7%9A%84%E5%A4%A7%E4%BD%AC%EF%BC%9AMicrosoft"><span class="toc-number">4.5.</span> <span class="toc-text">真正的大佬：Microsoft</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%9F%E5%9C%B0%E4%B8%8E%E4%BD%9C%E7%89%A9"><span class="toc-number">4.5.1.</span> <span class="toc-text">土地与作物</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">与各位大佬Battle</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%84%8F%E8%AF%86%E5%88%B0%E9%94%99%E8%AF%AF%EF%BC%8C%E5%BF%8D%E8%BE%B1%E8%B4%9F%E9%87%8D"><span class="toc-number">5.1.</span> <span class="toc-text">意识到错误，忍辱负重</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%A3%E9%92%B1%E5%98%9B%EF%BC%8C%E8%B7%AA%E7%9D%80%E5%BE%88%E5%B8%B8%E8%A7%81"><span class="toc-number">5.1.1.</span> <span class="toc-text">挣钱嘛，跪着很常见</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AMD%E6%94%B6%E8%B4%ADATI%EF%BC%8C%E5%A4%A9%E4%B8%8A%E6%8E%89%E9%A6%85%E9%A5%BC"><span class="toc-number">5.2.</span> <span class="toc-text">AMD收购ATI，天上掉馅饼</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Intel-vs-Nvidia%E4%BA%8C%E8%8B%B1%E6%89%AD%E6%89%93%E8%B5%B7%E6%9D%A5"><span class="toc-number">5.3.</span> <span class="toc-text">Intel vs Nvidia二英扭打起来</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Intel%E4%BF%9D%E5%AE%88%E5%9D%A0%E8%90%BD"><span class="toc-number">5.3.1.</span> <span class="toc-text">Intel保守坠落</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%82%E5%80%BC%E5%AF%B9%E6%AF%94"><span class="toc-number">5.3.2.</span> <span class="toc-text">市值对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E5%B8%82%E5%9C%BAbattle%E4%B8%89%E6%98%9F%E9%AB%98%E9%80%9A"><span class="toc-number">5.4.</span> <span class="toc-text">移动市场battle三星高通</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">一路走来的经营感悟</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E8%84%86%E5%BC%B1%E5%8C%96%E7%94%9F%E5%AD%98"><span class="toc-number">6.1.</span> <span class="toc-text">反脆弱化生存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B4%BB%E4%B8%8B%E5%8E%BB-rightarrow-%E7%AB%99%E7%9D%80%E6%8C%A3"><span class="toc-number">6.1.1.</span> <span class="toc-text">活下去 $\rightarrow$ 站着挣</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">另拓生态求生</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E5%88%86%E8%A7%A3"><span class="toc-number">7.1.</span> <span class="toc-text">任务分解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GPU%E6%8A%80%E6%9C%AF%E9%80%9A%E7%94%A8%E5%8C%96"><span class="toc-number">7.2.</span> <span class="toc-text">GPU技术通用化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%90%E5%8A%9F%E4%B9%8B%E5%89%8D%E8%B7%AF%E4%BA%A6%E9%9A%BE%E8%B5%B0"><span class="toc-number">7.3.</span> <span class="toc-text">成功之前路亦难走</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E7%83%98%E6%89%98%E7%A1%AC%E4%BB%B6"><span class="toc-number">7.4.</span> <span class="toc-text">软件烘托硬件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9D%9A%E5%AE%88%E4%B8%8E%E5%88%9B%E6%96%B0"><span class="toc-number">7.5.</span> <span class="toc-text">坚守与创新</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Numpy%E4%B8%8ETensor%E7%9A%84%E5%BA%94%E7%94%A8%E5%8C%BA%E5%88%AB"><span class="toc-number">7.5.1.</span> <span class="toc-text">Numpy与Tensor的应用区别</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">8.</span> <span class="toc-text">AI浪潮</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2012-%E5%A5%A0%E5%9F%BA%E5%B9%B4"><span class="toc-number">8.1.</span> <span class="toc-text">2012-奠基年</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%98%E8%83%9C%E5%87%BA%E5%87%BB%EF%BC%8C%E4%BA%BA%E7%B1%BB%E7%BE%A4%E6%98%9F%E9%97%AA%E8%80%80"><span class="toc-number">8.2.</span> <span class="toc-text">乘胜出击，人类群星闪耀</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BA%86%E8%AE%A1%E7%AE%97%E5%92%8C%E4%BA%BA%E7%B1%BB%E7%9A%84%E6%9C%AA%E6%9D%A5"><span class="toc-number">8.2.1.</span> <span class="toc-text">为了计算和人类的未来</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%BA%E5%8F%A3%E7%BA%A2%E5%88%A9%E5%88%9B%E6%96%B0"><span class="toc-number">8.2.2.</span> <span class="toc-text">中国的人口红利创新</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">9.</span> <span class="toc-text">遥遥领先</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BD%95GPU%E9%A2%86%E5%85%88%E4%B8%80%E4%BC%97%E4%B8%93%E7%94%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">9.1.</span> <span class="toc-text">为何GPU领先一众专用解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%81%E8%87%B4%E7%9A%84%E5%B0%86%E6%9D%A5"><span class="toc-number">9.1.1.</span> <span class="toc-text">极致的将来</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%A7%E5%AE%B6%E6%80%8E%E4%B9%88%E4%B8%8D%E5%8E%BB%E5%8D%B7%E5%AE%83"><span class="toc-number">9.2.</span> <span class="toc-text">大家怎么不去卷它</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E4%B8%BA%E6%98%BE%E5%8D%A1%E5%8E%82%E5%95%86%EF%BC%8CAMD%E6%9C%89%E6%B2%A1%E6%9C%89%E8%A7%A3%E6%B3%95%EF%BC%9F"><span class="toc-number">9.2.1.</span> <span class="toc-text">同为显卡厂商，AMD有没有解法？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E5%AE%83%E7%8E%A9%E5%AE%B6%E5%91%A2"><span class="toc-number">9.2.2.</span> <span class="toc-text">其它玩家呢</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A3%8E%E5%85%89%E6%97%A0%E9%99%90%E5%A5%BD"><span class="toc-number">9.3.</span> <span class="toc-text">风光无限好</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%86%E6%8A%A4%E5%9F%8E%E6%B2%B3%E5%B9%B6%E9%9D%9EGPU%E6%9C%AC%E8%BA%AB%EF%BC%8C%E8%80%8C%E6%98%AF%E5%9C%A8%E8%BD%AF%E4%BB%B6%E9%83%A8%E5%88%86"><span class="toc-number">9.3.1.</span> <span class="toc-text">但护城河并非GPU本身，而是在软件部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%83%BD%E9%A3%8E%E5%85%89%E5%A4%9A%E4%B9%85%EF%BC%8C%E8%BF%98%E6%98%AF%E4%B8%80%E4%B8%AA%E6%9C%AA%E7%9F%A5%E6%95%B0"><span class="toc-number">9.3.2.</span> <span class="toc-text">能风光多久，还是一个未知数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">10.</span> <span class="toc-text">寄语</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E8%84%86%E5%BC%B1%E7%94%9F%E5%AD%98"><span class="toc-number">10.1.</span> <span class="toc-text">反脆弱生存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E9%9D%A2%E7%9A%84%E4%BB%A3%E8%A1%A8"><span class="toc-number">10.1.1.</span> <span class="toc-text">反面的代表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E7%AB%9E%E4%BA%89%E4%B8%AD%E5%AF%BB%E6%89%BE%E6%96%B0%E7%9A%84%E5%A2%9E%E9%95%BF%E7%82%B9"><span class="toc-number">10.1.2.</span> <span class="toc-text">在竞争中寻找新的增长点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">11.</span> <span class="toc-text">参考</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B.html" title="大语言模型LLM"><img src="http://cdn.diffday.com/picgo/20230408222056.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="大语言模型LLM"/></a><div class="content"><a class="title" href="/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B.html" title="大语言模型LLM">大语言模型LLM</a><time datetime="2025-09-22T10:25:46.000Z" title="更新于 2025-09-22 18:25:46">2025-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E6%9E%B6%E6%9E%84%E5%B8%88%E4%B8%8ESQALE.html" title="架构师与SQALE"><img src="http://cdn.diffday.com/picgo/20220523155731.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="架构师与SQALE"/></a><div class="content"><a class="title" href="/%E6%9E%B6%E6%9E%84%E5%B8%88%E4%B8%8ESQALE.html" title="架构师与SQALE">架构师与SQALE</a><time datetime="2025-09-22T10:19:48.000Z" title="更新于 2025-09-22 18:19:48">2025-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/PRC%E7%9A%84%E9%81%93%E8%B7%AF.html" title="PRC的道路"><img src="http://cdn.diffday.com/picgo/20240814180818.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PRC的道路"/></a><div class="content"><a class="title" href="/PRC%E7%9A%84%E9%81%93%E8%B7%AF.html" title="PRC的道路">PRC的道路</a><time datetime="2025-09-22T04:34:30.000Z" title="更新于 2025-09-22 12:34:30">2025-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E6%95%99%E8%82%B2%E6%94%B9%E5%8F%98%E5%91%BD%E8%BF%90.html" title="教育改变命运"><img src="http://cdn.diffday.com/picgo/20210611202855.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="教育改变命运"/></a><div class="content"><a class="title" href="/%E6%95%99%E8%82%B2%E6%94%B9%E5%8F%98%E5%91%BD%E8%BF%90.html" title="教育改变命运">教育改变命运</a><time datetime="2025-09-21T14:33:53.000Z" title="更新于 2025-09-21 22:33:53">2025-09-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E4%B8%89%E5%9B%BD%E4%BA%BA%E7%89%A9%E5%B9%B4%E9%BE%84%E4%B8%8E%E6%9D%82%E8%AE%B0.html" title="三国人物年龄与杂记"><img src="http://cdn.diffday.com/picgo/20221124205802.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="三国人物年龄与杂记"/></a><div class="content"><a class="title" href="/%E4%B8%89%E5%9B%BD%E4%BA%BA%E7%89%A9%E5%B9%B4%E9%BE%84%E4%B8%8E%E6%9D%82%E8%AE%B0.html" title="三国人物年龄与杂记">三国人物年龄与杂记</a><time datetime="2025-09-21T14:22:09.000Z" title="更新于 2025-09-21 22:22:09">2025-09-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%A2%9C%E5%80%BCvs%E8%BA%AB%E6%9D%90.html" title="颜值vs身材"><img src="http://cdn.diffday.com/picgo/20240318141838.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="颜值vs身材"/></a><div class="content"><a class="title" href="/%E9%A2%9C%E5%80%BCvs%E8%BA%AB%E6%9D%90.html" title="颜值vs身材">颜值vs身材</a><time datetime="2025-09-21T13:33:01.000Z" title="更新于 2025-09-21 21:33:01">2025-09-21</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2018 - 2025 By <a class="footer-bar-link" href="/" title="DiffDay" target="_blank">DiffDay</a></div></div><div id="footer-type-tips"></div><div class="js-pjax"><script>function subtitleType () {
+  getScript('https://sdk.jinrishici.com/v2/browser/jinrishici.js').then(() => {
+    jinrishici.load(result =>{
+      if (false) {
+        const sub = []
+        const content = result.data.content
+        sub.unshift(content)
+        window.typed = new Typed('#footer-type-tips', {
+          strings: sub,
+          startDelay: 300,
+          typeSpeed: 150,
+          loop: true,
+          backSpeed: 50,
+        })
+      } else {
+        document.getElementById('footer-type-tips').innerHTML = result.data.content
+      }
+    })
+  })
+}
+
+if (false) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}
+</script></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a><a class="footer-bar-link" target="_blank" rel="noopener" href="https://beian.miit.gov.cn/" title="粤ICP备-18103410号">粤ICP备-18103410号</a><a class="footer-bar-link cc" href="/copyright" title="cc协议"><i class="anzhiyufont anzhiyu-icon-copyright-line"></i><i class="anzhiyufont anzhiyu-icon-creative-commons-by-line"></i><i class="anzhiyufont anzhiyu-icon-creative-commons-nc-line"></i><i class="anzhiyufont anzhiyu-icon-creative-commons-nd-line"></i></a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">173</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">51</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">9</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/archives/"><span> 归档</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/"><span> 分类</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/"><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本站</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/copyright/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 版权协议</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="anzhiyufont anzhiyu-icon-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="is-center" id="loading-database"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-pulse-icon"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script async src="/anzhiyu/random.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  //if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid@11.6.0/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  anzhiyu.addGlobalFn('themeChange', runMermaid, 'mermaid')
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'uwklgzjj0IepCMXNYCU3t9Ah-9Nh9j0Va',
+      appKey: 'jRMVc9QS0SBr1L9heA2V0m4q',
+      avatar: 'mp',
+      serverURLs: 'https://uwklgzjj.lc-cn-e1-shared.com',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) anzhiyu.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script src="https://cdn.jsdelivr.net/npm/blueimp-md5/js/md5.min.js"></script><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getIcon = (icon, mail) => {
+    if (icon) return icon
+    let defaultIcon = '?d=mp'
+    let iconUrl = `https://gravatar.loli.net/avatar/${md5(mail.toLowerCase()) + defaultIcon}`
+    return iconUrl
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${anzhiyu.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = () => {
+    const serverURL = 'https://uwklgzjj.lc-cn-e1-shared.com'
+
+    var settings = {
+      "method": "GET",
+      "headers": {
+        "X-LC-Id": 'uwklgzjj0IepCMXNYCU3t9Ah-9Nh9j0Va',
+        "X-LC-Key": 'jRMVc9QS0SBr1L9heA2V0m4q',
+        "Content-Type": "application/json"
+      },
+    }
+
+    fetch(`${serverURL}/1.1/classes/Comment?limit=6&order=-createdAt`,settings)
+      .then(response => response.json())
+      .then(data => {
+        const valineArray = data.results.map(function (e) {
+          return {
+            'avatar': getIcon(e.QQAvatar, e.mail),
+            'content': changeContent(e.comment),
+            'nick': e.nick,
+            'url': e.url + '#' + e.objectId,
+            'date': e.updatedAt,
+          }
+        })
+        saveToLocal.set('valine-newest-comments', JSON.stringify(valineArray), 10/(60*24))
+        generateHtml(valineArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+      }) 
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('valine-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script>var visitorMail = "visitor@anheyu.com";
+</script><script async data-pjax src="https://cdn.jsdelivr.net/npm/anzhiyu-theme-static/waterfall/waterfall.min.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><script src="/js/anzhiyu/right_click_menu.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/anzhiyu-theme-static/icon/ali_iconfont_css.min.css"><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', 'G-X0MW6B53JB', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.jsdelivr.net/npm/anzhiyu-theme-static/accesskey/accesskey.min.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
