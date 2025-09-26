@@ -1,0 +1,765 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>大数据收集处理工具链简介 | Diffday</title><meta name="keywords" content="大数据"><meta name="author" content="DiffDay"><meta name="copyright" content="DiffDay"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="大数据收集处理工具链简介"><meta name="application-name" content="大数据收集处理工具链简介"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="大数据收集处理工具链简介"><meta property="og:url" content="https://blog.diffday.com/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%94%B6%E9%9B%86%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7%E9%93%BE.html"><meta property="og:site_name" content="Diffday"><meta property="og:description" content="HDFS存储格式探查  在 MapReduce 中，数据格式易于分割是被期望的特性 XML，JSON 都不容易被分割，类似于它们的所有半结构化的格式特征好处是可以模拟复杂的数据结构 大规模的数据，存储空间和数据能支持模式演变（版本兼容）都是值得考量的因素 一些常见的序列化格式，如 PB，Thrif"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="http://cdn.diffday.com/picgo/20240829105817.png"><meta property="article:author" content="DiffDay"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="http://cdn.diffday.com/picgo/20240829105817.png"><meta name="description" content="HDFS存储格式探查  在 MapReduce 中，数据格式易于分割是被期望的特性 XML，JSON 都不容易被分割，类似于它们的所有半结构化的格式特征好处是可以模拟复杂的数据结构 大规模的数据，存储空间和数据能支持模式演变（版本兼容）都是值得考量的因素 一些常见的序列化格式，如 PB，Thrif"><link rel="shortcut icon" href="https://cdn.diffday.com/picgo/diff32.ico"><link rel="canonical" href="https://blog.diffday.com/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%94%B6%E9%9B%86%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7%E9%93%BE"><link rel="preconnect" href="//npm.elemecdn.com"/><link rel="preconnect" href="//npm.onmicrosoft.cn"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="UaMvLIOYuNWHgVq42dlN49RoniU73U6SoqoRnEcit9E"/><meta name="baidu-site-verification" content="code-DN25SBuR8T"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b5c9889dd454fff053fb5b93fc1b2ac7";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X0MW6B53JB"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-X0MW6B53JB');
+</script><script>const GLOBAL_CONFIG = {
+  linkPageTop: {"enable":true,"title":"同博主们无限进步","addFriendPlaceholder":"昵称（请勿包含博客等字样）：\n网站地址（要求博客地址，请勿提交个人主页）：\n头像图片url（请提供尽可能清晰的图片，我会上传到我自己的图床）：\n描述：\n站点截图（可选）：\n"},
+  peoplecanvas: undefined,
+  postHeadAiDescription: undefined,
+  diytitle: {"enable":true,"leaveTitle":"一次时空相逢，祝好！","backTitle":"欢迎回来！"},
+  LA51: {"enable":true,"ck":"3G4PP4R5LAAt6DBv","LingQueMonitorID":"3GA1sASrkc8hJd7c"},
+  greetingBox: {"enable":true,"default":"晚上好👋","list":[{"greeting":"晚安😴","startTime":0,"endTime":5},{"greeting":"早上好鸭👋, 祝一天好心情！","startTime":6,"endTime":9},{"greeting":"上午好👋, 状态很好，鼓励一下～","startTime":10,"endTime":10},{"greeting":"11点多啦, 在坚持一下就吃饭啦～","startTime":11,"endTime":11},{"greeting":"午安👋, 为下午蓄力充电","startTime":12,"endTime":14},{"greeting":"🌈充实的一天辛苦啦！","startTime":14,"endTime":18},{"greeting":"19点喽, 奖励一顿丰盛的大餐吧🍔。","startTime":19,"endTime":19},{"greeting":"晚上好👋, 在属于自己的时间好好放松😌~","startTime":20,"endTime":24}]},
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  root: '/',
+  preloader: undefined,
+  friends_vue_info: undefined,
+  navMusic: false,
+  mainTone: {"mode":"both","api":"https://img2color-go.vercel.app/api?img=","cover_change":true},
+  authorStatus: undefined,
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: DiffDay","link":"链接: ","source":"来源: Diffday","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: true,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: 'Diffday',
+  title: '大数据收集处理工具链简介',
+  postAI: '',
+  pageFillDescription: 'HDFS存储格式探查, Hive存储格式探查, Hive 的原生的存储格式选择, Hive 操作 JSON 文件, ORC和Parquet 的补充对比, 日志落地文件仓库, 推导出的方案建议, Flume, 结合 Flume 的日志落盘方案, 数据推送及消费的流程, 数据供业务消费的方案机制, Spark的 API, 引用参考存储格式探查在中数据格式易于分割是被期望的特性都不容易被分割类似于它们的所有半结构化的格式特征好处是可以模拟复杂的数据结构大规模的数据存储空间和数据能支持模式演变版本兼容都是值得考量的因素一些常见的序列化格式如等都原生没考虑数据分割一些第三方包的处理方式是在原基础上对格式进行扩展加入分割块但序列化反序列化就需要专有配套的类库都是设计出来适配的文件格式存储格式探查分为元数据存储通常在关系型数据库中与数据存储两部分数据存储构建在的文件系统之上基本的划分有内部表外部表之分数据是否全由管理为判定依据常见其它平台有数据入库的过程统一存储格式数据清洗通常业务直推的文件格式都是行格式组织入库过程可转换为大数据场景友好的列存储格式开放接口用以支持各种格式的文件解析需要将解析类添加至的查找路径通过的方式支持本地或的包或者加入固定的目录或配置文件中声明在公共平台上灵活获得配置支持较难的原生的存储格式选择默认格式行存储默认列分隔符压缩的无法分割和合并压缩的文件可以分割和合并直接读写格式文件行列结合同行数据不会跨存放块内数据按列组织存储对演化自持较差从名字上就看出是的升级空间压缩编码性能优化支持事务和操作自完整支持操作开始逐步支持初始设计动机是存储嵌套式数据如转成列式方便压缩和编码减少和都是列式存储引擎的顶级开源项目由不同的厂家推广性能优劣上可能更佳来自的测试对嵌套式数据结构支持上更佳开发语言主导公司不支持支持修改操作不支持支持支持索引统计信息粗粒度索引级别统计信息粗粒度索引级别统计信息不能精确到列建立索引支持的查询引擎查询性能更高一点压缩比更高一点列编码支持多种编码字典等支持主流编码与类似操作文件解析操作格式的数据需要引入对应类在安装目录下有包可以采用运行命令亦可添加上的包如因为不在的默认配置中所以每次运行都需要执行命令建表示例和的补充对比引用做的一个简单实验数据建表写数据查量化形象对比压缩算法文件大小耗时秒总时间秒如果数据结构比较扁平那么用如果嵌套较多用脱始于项目当初较吸引互联网大厂的眼球日志落地文件仓库日志数据基本均为可见打印字符嵌套复杂数据结构较少各业务格式风格不统一且存在变更扩展可能业务端的数据应用需求不同统计分析导出推导出的方案建议保留业务端的日志原始格式数据的使用由业务方自行定制无嵌套数据结构哟给你固定分隔符的文本行否则用解析需要额外包的引入支持类似及其它格式亦可以空间占用率下降的和模式演化能力增强但可读性下降的三级概念设计及数据流向每级概念均支持多类型实现多种数据源多种多种类型中生产出对上可以进行自定义拦截处理存入保存数据至指定目的地的功能比较简单性能瓶颈可能出现在和两端更容易出现在端端可以通过成组多配置来扩容提升处理能力或其它负载均衡机制类型支持多种要求表提前定义存储格式为分区分桶结合的日志落盘方案开放字符型日志的上报接口会自动附加换行二进制型的接口视需要后续开放其放入不同的中时不加换行符号落盘至应用目录路径日期对应目录下指引业务建表时根据日期进行静态分区每日脚本运行时进行分区添加动作数据推送及消费的流程日志上报至的对应根据的消息头进行分流至建表可选统计计算保存数据至表可选回传数据至业务数据库可选数据供业务消费的方案机制通过脚本导出表对应数据至业务库表计算结果直接存入业务数据库表计算结果存入业务访问统计结果推送邮件作为内容查看的是在处理数据时的核心数据结构类似于数据库的表的形式进行存储按行组织选择编写和编写程序的依据类同于用存储过程和普通的差别非结构化的数据处理可对数据进行最基本的转换处理控制提供类似数据表的抽象处理数据上对数据分析人员更有熟悉感可看作是编译时类型检查版本的引用参考与对比',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-08-29 11:02:50',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/" accesskey="h"><div class="title">Diffday</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/archives/"><span> 归档</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/"><span> 分类</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/"><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本站</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/copyright/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 版权协议</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button only-home" id="travellings_button" title="随机前往一个开往项目网站"><a class="site-page" onclick="anzhiyu.totraveling()" title="随机前往一个开往项目网站" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="anzhiyufont anzhiyu-icon-train"></i></a></div><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="http://cdn.diffday.com/picgo/wechatpay.jpg" target="_blank"><img class="post-qr-code-img" alt="微信" src="http://cdn.diffday.com/picgo/wechatpay.jpg"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="http://cdn.diffday.com/picgo/alipay-n.jpeg" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="http://cdn.diffday.com/picgo/alipay-n.jpeg"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="anzhiyufont anzhiyu-icon-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/09/"><span class="card-archive-list-date">九月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">七月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">六月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">四月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">三月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">二月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">一月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">6</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">十二月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item on" id="consoleCommentBarrage" onclick="anzhiyu.switchCommentBarrage()" title="热评开关"><a class="commentBarrage"><i class="anzhiyufont anzhiyu-icon-message"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><!-- if (page.copyright_author && page.copyright_author !== config.author)// a.post-meta-original 转载--><!-- else--><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/" itemprop="url">信息技术</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>大数据</span></a></span></div></div><h1 class="post-title" itemprop="name headline">大数据收集处理工具链简介</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2019-01-14T03:00:00.000Z" title="发表于 2019-01-14 11:00:00">2019-01-14</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2024-08-29T03:02:50.000Z" title="更新于 2024-08-29 11:02:50">2024-08-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-wordcount"><i class="anzhiyufont anzhiyu-icon-file-word post-meta-icon" title="文章字数"></i><span class="post-meta-label" title="文章字数">字数总计:</span><span class="word-count" title="文章字数">1.8k</span><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-clock post-meta-icon" title="阅读时长"></i><span class="post-meta-label" title="阅读时长">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="大数据收集处理工具链简介"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为深圳"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>深圳</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="http://cdn.diffday.com/picgo/20240829105817.png"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://blog.diffday.com/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%94%B6%E9%9B%86%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7%E9%93%BE.html"><header><a class="post-meta-categories" href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/" itemprop="url">信息技术</a><a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" tabindex="-1" itemprop="url">大数据</a><h1 id="CrawlerTitle" itemprop="name headline">大数据收集处理工具链简介</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">DiffDay</span><time itemprop="dateCreated datePublished" datetime="2019-01-14T03:00:00.000Z" title="发表于 2019-01-14 11:00:00">2019-01-14</time><time itemprop="dateCreated datePublished" datetime="2024-08-29T03:02:50.000Z" title="更新于 2024-08-29 11:02:50">2024-08-29</time></header><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20240829105817.png" alt=""></p>
+<h2 id="HDFS存储格式探查">HDFS存储格式探查</h2>
+<ul>
+<li>在 MapReduce 中，数据格式易于分割是被期望的特性</li>
+<li>XML，JSON 都不容易被分割，类似于它们的所有半结构化的格式特征好处是可以模拟复杂的数据结构</li>
+<li>大规模的数据，存储空间和数据能支持模式演变（版本兼容）都是值得考量的因素</li>
+<li>一些常见的序列化格式，如 PB，Thrift 等，都原生没考虑数据分割，一些第三方包的处理方式是在原基础上对格式进行扩展，加入分割块，但序列化/反序列化就需要专有配套的类库</li>
+<li>SequenceFiles/Avro，都是设计出来适配 MapReduce 的文件格式</li>
+</ul>
+<h2 id="Hive存储格式探查">Hive存储格式探查</h2>
+<ul>
+<li>
+<p>分为元数据存储（通常在关系型数据库中）与数据存储两部分</p>
+</li>
+<li>
+<p>数据存储构建在 Hadoop 的 HDFS 文件系统之上</p>
+</li>
+<li>
+<p>基本的划分，有内部表外部表之分（数据是否全由 Hive 管理为判定依据）</p>
+<span id="more"></span>
+<ul>
+<li>常见其它平台有数据入库的过程，统一存储格式，数据清洗</li>
+<li>通常业务直推的文件格式都是行格式组织，入库过程可转换为大数据场景友好的列存储格式</li>
+</ul>
+</li>
+<li>
+<p>开放 SerDe 接口用以支持各种格式的文件解析</p>
+<ul>
+<li>需要将解析类添加至 classpath 的查找路径，通过 addjar 的方式（支持本地或 hdfs 的 jar 包）</li>
+<li>或者加入固定的 hive lib 目录或配置文件中声明（在公共平台上灵活获得配置支持较难）</li>
+</ul>
+</li>
+</ul>
+<h3 id="Hive-的原生的存储格式选择">Hive 的原生的存储格式选择</h3>
+<ol>
+<li>TextFile：默认格式，行存储，默认列分隔符 0x01，压缩的text 无法分割和合并</li>
+<li>SequenceFile：压缩的文件可以分割和合并</li>
+<li>Avro（From Hive 0.10.1）直接读写 avro 格式文件</li>
+<li>RCFile (RecordColumnar File)
+<ol>
+<li>行列结合，同行数据不会跨 Block 存放，块内数据按列组织存储</li>
+<li>对 schema 演化自持较差</li>
+</ol>
+</li>
+<li>ORC（Optimized），从名字上就看出是 RCFile的升级
+<ol>
+<li>空间「压缩编码」&amp; 性能优化</li>
+<li>支持事务和 Update 操作（自 Hive0.14.0完整支持 ACID 操作）</li>
+</ol>
+</li>
+<li>Parquet（From Hive 0.13 开始逐步支持），初始设计动机是存储嵌套式数据，如 PB，json，转成列式，方便压缩 和编码，减少 IO</li>
+</ol>
+<p>ORC 和 Parquet都是 Apache列式存储引擎的顶级开源项目，由不同的厂家推广，性能优劣上 ORC 可能更佳（来自 netflix2014 的测试），Parquet 对嵌套式数据结构支持上更佳</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Parquet(<a target="_blank" rel="noopener" href="http://parquet.apache.org">parquet.apache.org</a>)</th>
+<th>Orc(<a target="_blank" rel="noopener" href="http://orc.apache.org">orc.apache.org</a>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>开发语言</td>
+<td>Java</td>
+<td>Java</td>
+</tr>
+<tr>
+<td>主导公司</td>
+<td>Twitter/Cloudera</td>
+<td>Hortonworks</td>
+</tr>
+<tr>
+<td>ACID</td>
+<td>不支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>修改操作</td>
+<td>不支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>支持索引（统计信息）</td>
+<td>粗粒度索引<br>block/group/chunk级别统计信息</td>
+<td>粗粒度索引<br>file/stripe/row级别统计信息，不能精确到列建立索引</td>
+</tr>
+<tr>
+<td>支持的查询引擎</td>
+<td>Apache Drill、Impala</td>
+<td>Apache Hive</td>
+</tr>
+<tr>
+<td>查询性能</td>
+<td></td>
+<td>更高一点</td>
+</tr>
+<tr>
+<td>压缩比</td>
+<td></td>
+<td>更高一点</td>
+</tr>
+<tr>
+<td>列编码</td>
+<td>支持多种编码，字典，RLE，Delta 等</td>
+<td>支持主流编码，与 Parquet 类似</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Hive-操作-JSON-文件">Hive 操作 JSON 文件</h3>
+<ul>
+<li>
+<p>解析操作 JSON 格式的数据，需要引入对应 SerDe 类</p>
+<ul>
+<li>在 Hive 安装目录 hcatalog 下有 hive-hcatalog-core-x.x.x.jar包可以采用</li>
+<li>运行命令 add jar /appcom/hive/hcatalog/share/hcatelog/hive-hcatalog-core-x.x.x.jar</li>
+<li>亦可添加 hdfs 上的 jar 包，如 add jar hdfs://AAA/BBB</li>
+</ul>
+</li>
+<li>
+<p>因为不在 Hive 的默认配置中，所以每次运行都需要执行 add jar 命令</p>
+</li>
+<li>
+<p>建表示例</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">external</span> <span class="keyword">table</span> spark_people_json (</span><br><span class="line">  `name` string,</span><br><span class="line">  `age` <span class="type">int</span></span><br><span class="line">) </span><br><span class="line"><span class="type">ROW</span> FORMAT SERDE <span class="string">&#x27;org.apache.hive.hcatalog.data.JsonSerDe&#x27;</span></span><br><span class="line">STORED <span class="keyword">AS</span> TEXTFILE;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="ORC和Parquet-的补充对比">ORC和Parquet 的补充对比</h3>
+<p>引用<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="github [orc与 parquet 对比](http://icejoywoo.github.io/2016/03/29/hive-ocr-and-parquet.html)">[1]</span></a></sup>做的一个简单实验数据（建表，写数据，SQL 查），量化形象对比</p>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>压缩算法</th>
+<th>文件大小</th>
+<th>耗时-秒</th>
+<th>总CPU时间-秒(Cumulative CPU)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>textfile</td>
+<td>NONE</td>
+<td>98.2G</td>
+<td>41.521</td>
+<td>3745.67</td>
+</tr>
+<tr>
+<td>ORC</td>
+<td>ZLIB</td>
+<td>18.5G</td>
+<td>31.713</td>
+<td>1107.44</td>
+</tr>
+<tr>
+<td>ORC</td>
+<td>SNAPPY</td>
+<td>28G</td>
+<td>25.59</td>
+<td>1234.89</td>
+</tr>
+<tr>
+<td>ORC</td>
+<td>NONE</td>
+<td>87.6G</td>
+<td>40.571</td>
+<td>1652.23</td>
+</tr>
+<tr>
+<td>Parquet</td>
+<td>NONE</td>
+<td>88G</td>
+<td>33.318</td>
+<td>5440.49</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>如果数据结构比较扁平，那么用 ORC，如果嵌套较多，用Parquet</li>
+<li>Parquet 脱始于 Google Dremel 项目，当初较吸引互联网大厂的眼球</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20240828155842.png" alt="Hive文件格式空间效率对比"></p>
+<h2 id="日志落地文件仓库">日志落地文件仓库</h2>
+<ul>
+<li>日志数据基本均为可见打印字符</li>
+<li>嵌套复杂数据结构较少</li>
+<li>各业务格式风格不统一且存在变更扩展可能</li>
+<li>业务端的数据应用需求不同（统计分析/导出）</li>
+</ul>
+<h3 id="推导出的方案建议">推导出的方案建议</h3>
+<ol>
+<li>保留业务端的日志原始格式</li>
+<li>数据的使用由业务方自行定制</li>
+<li>无嵌套数据结构，哟给你固定分隔符的文本行，否则用 Json（hive 解析需要额外 jar 包的引入支持）</li>
+<li>类似 PB，Avro，Thrift 及其它格式，亦可以，空间占用率下降的和模式演化能力增强，但可读性下降</li>
+</ol>
+<h2 id="Flume">Flume</h2>
+<ul>
+<li>Source --》 Channel --》 Sink 的三级概念设计及数据流向
+<ul>
+<li>每级概念均支持多类型实现</li>
+<li>多种数据源，多种 channel，多种 sink 类型</li>
+</ul>
+</li>
+<li>Source 中生产出 Event，对 Event 上可以进行自定义（拦截）处理，存入 Channel，Sink 保存数据至指定目的地</li>
+<li>Channel 的功能比较简单，性能瓶颈可能出现在 source 和 sink 两端，更容易出现在 sink 端。Sink 端可以通过成组多配置，来扩容提升处理能力（round robin 或其它负载均衡机制）</li>
+<li>Sink 类型支持多种
+<ul>
+<li>Hive 要求表提前定义，存储格式为 ORC，分区分桶</li>
+</ul>
+</li>
+</ul>
+<h3 id="结合-Flume-的日志落盘方案">结合 Flume 的日志落盘方案</h3>
+<ul>
+<li>开放字符型日志的上报接口（会自动附加换行）
+<ul>
+<li>Byte[] 二进制型的接口，视需要后续开放，其放入不同的 kafka topic 中（sink 时不加换行符号）</li>
+</ul>
+</li>
+<li>reportLog（String app，int version，String log）</li>
+<li>落盘至 HDFS /应用目录路径/version/日期 对应目录下</li>
+<li>指引业务建表时根据日期进行静态分区，每日脚本运行时，进行分区添加动作</li>
+</ul>
+<h3 id="数据推送及消费的流程">数据推送及消费的流程</h3>
+<pre class="mermaid">flowchart LR
+    A(日志上报至 Kafka 的<br>对应 topic) --> B(Flume根据 topic 的消息头<br>进行分流)
+    B --> C(sinks至<br>HDFS)
+    C -->D(建Hive表<br>『可选』)
+    D --> E(统计计算on<br>Hive/Spark)
+    E --> F(保存数据至 Hive 表<br>『可选』)
+    F --> G(回传数据至<br>业务数据库<br>『可选』)</pre>
+<h4 id="数据供业务消费的方案机制">数据供业务消费的方案机制</h4>
+<ol>
+<li>通过 Sqoop 脚本导出 Hive 表对应数据至业务库表</li>
+<li>计算结果直接存入业务数据库表</li>
+<li>计算结果存入 Hbase，业务访问 Hbase</li>
+<li>统计结果推送邮件作为内容查看</li>
+</ol>
+<h2 id="Spark的-API">Spark的 API</h2>
+<ul>
+<li>RDD</li>
+<li>DataFrame/DataSet
+<ul>
+<li>DataFrame是 SparkSql 在处理数据时的核心数据结构</li>
+<li>类似于数据库的表的形式进行存储，按行组织</li>
+</ul>
+</li>
+<li>选择编写 SQL 和编写 Spark 程序（Scala/Java/Python）的依据
+<ul>
+<li>类同于用存储过程和普通 SQL 的差别</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RDD</td>
+<td>非结构化的数据处理，可对数据进行最基本的转换，处理，控制</td>
+<td></td>
+</tr>
+<tr>
+<td>DataFrame/DataSet</td>
+<td>提供类似数据表的抽象，处理数据上对数据分析人员更有熟悉感</td>
+<td>DataSet 可看作是编译时类型检查版本的 DataFrame</td>
+</tr>
+</tbody>
+</table>
+<h2 id="引用参考">引用参考</h2>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">github <a target="_blank" rel="noopener" href="http://icejoywoo.github.io/2016/03/29/hive-ocr-and-parquet.html">orc与 parquet 对比</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div></article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src="https://cdn.diffday.com/picgo/diff_128.png" title="头像" alt="头像"><img class="post-copyright__author_img_front" src="https://cdn.diffday.com/picgo/diff_128.png" title="头像" alt="头像"></a><div class="post-copyright__author_name">DiffDay</div><div class="post-copyright__author_desc">We are here to be creators!</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://blog.diffday.com/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%94%B6%E9%9B%86%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7%E9%93%BE.html">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://blog.diffday.com/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%94%B6%E9%9B%86%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7%E9%93%BE.html')">大数据收集处理工具链简介</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你的肯定与鼓励</span><ul class="reward-group"><li class="reward-item"><a href="http://cdn.diffday.com/picgo/wechatpay.jpg" target="_blank"><img class="post-qr-code-img" src="http://cdn.diffday.com/picgo/wechatpay.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="http://cdn.diffday.com/picgo/alipay-n.jpeg" target="_blank"><img class="post-qr-code-img" src="http://cdn.diffday.com/picgo/alipay-n.jpeg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://blog.diffday.com/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%94%B6%E9%9B%86%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7%E9%93%BE.html"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=大数据收集处理工具链简介&amp;url=https://blog.diffday.com/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%94%B6%E9%9B%86%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7%E9%93%BE.html&amp;pic=http://cdn.diffday.com/picgo/20240829105817.png" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="rm.copyPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.diffday.com" target="_blank">Diffday</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>大数据<span class="tagsPageCount">6</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="http://cdn.diffday.com/picgo/20250926212522.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/%E7%BA%A2%E8%A1%A3%E6%95%99%E4%B8%BB%E4%BA%92%E6%96%B9%E8%AE%BA.html"><img class="prev-cover" src="http://cdn.diffday.com/picgo/20240629164053.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">红衣教主互方论</div></div></a></div><div class="next-post pull-right"><a href="/%E5%9F%8E%E5%B8%82%E7%94%A8%E7%94%B5%E9%87%8F%E5%A4%A7%E6%95%B0%E6%8D%AE.html"><img class="next-cover" src="http://cdn.diffday.com/picgo/20210512102600.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">城市用电量大数据</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/Yarn%E8%B5%84%E6%BA%90%E8%B0%83%E5%BA%A6%E7%AD%96%E7%95%A5.html" title="Yarn资源调度策略"><img class="cover" src="http://cdn.diffday.com/picgo/20210126151356.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2024-06-21</div><div class="title">Yarn资源调度策略</div></div></a></div><div><a href="/%E4%BA%91%E5%8E%9F%E7%94%9F%E5%9F%BA%E5%BA%A7%E4%B8%8B%E7%9A%84%E5%A4%A7%E6%95%B0%E6%8D%AE.html" title="云原生基座下的大数据"><img class="cover" src="http://cdn.diffday.com/picgo/20230809113620.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2024-06-27</div><div class="title">云原生基座下的大数据</div></div></a></div><div><a href="/%E4%BC%81%E4%B8%9A%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%8E%86%E5%8F%B2%E4%B8%8E%E5%BA%94%E7%94%A8%E8%B6%8B%E5%8A%BF.html" title="企业大数据历史与应用趋势"><img class="cover" src="https://cdn.diffday.com/picgo/20210421170120.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2024-06-27</div><div class="title">企业大数据历史与应用趋势</div></div></a></div><div><a href="/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E4%B8%8E%E6%8A%80%E6%9C%AF%E6%BC%AB%E8%B0%88.html" title="数据中台与技术漫谈"><img class="cover" src="http://cdn.diffday.com/picgo/20241023162552.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2025-01-21</div><div class="title">数据中台与技术漫谈</div></div></a></div><div><a href="/%E6%95%B0%E6%8D%AE%E5%80%BE%E6%96%9C%E6%B5%85%E8%BF%B0.html" title="数据倾斜浅述"><img class="cover" src="http://cdn.diffday.com/picgo/20221109111839.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2024-08-26</div><div class="title">数据倾斜浅述</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> 评论</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a><a href="/privacy" style="margin-left: 4px">隐私政策</a></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HDFS%E5%AD%98%E5%82%A8%E6%A0%BC%E5%BC%8F%E6%8E%A2%E6%9F%A5"><span class="toc-number">1.</span> <span class="toc-text">HDFS存储格式探查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hive%E5%AD%98%E5%82%A8%E6%A0%BC%E5%BC%8F%E6%8E%A2%E6%9F%A5"><span class="toc-number">2.</span> <span class="toc-text">Hive存储格式探查</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hive-%E7%9A%84%E5%8E%9F%E7%94%9F%E7%9A%84%E5%AD%98%E5%82%A8%E6%A0%BC%E5%BC%8F%E9%80%89%E6%8B%A9"><span class="toc-number">2.1.</span> <span class="toc-text">Hive 的原生的存储格式选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hive-%E6%93%8D%E4%BD%9C-JSON-%E6%96%87%E4%BB%B6"><span class="toc-number">2.2.</span> <span class="toc-text">Hive 操作 JSON 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ORC%E5%92%8CParquet-%E7%9A%84%E8%A1%A5%E5%85%85%E5%AF%B9%E6%AF%94"><span class="toc-number">2.3.</span> <span class="toc-text">ORC和Parquet 的补充对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E8%90%BD%E5%9C%B0%E6%96%87%E4%BB%B6%E4%BB%93%E5%BA%93"><span class="toc-number">3.</span> <span class="toc-text">日志落地文件仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E5%AF%BC%E5%87%BA%E7%9A%84%E6%96%B9%E6%A1%88%E5%BB%BA%E8%AE%AE"><span class="toc-number">3.1.</span> <span class="toc-text">推导出的方案建议</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flume"><span class="toc-number">4.</span> <span class="toc-text">Flume</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E5%90%88-Flume-%E7%9A%84%E6%97%A5%E5%BF%97%E8%90%BD%E7%9B%98%E6%96%B9%E6%A1%88"><span class="toc-number">4.1.</span> <span class="toc-text">结合 Flume 的日志落盘方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%8E%A8%E9%80%81%E5%8F%8A%E6%B6%88%E8%B4%B9%E7%9A%84%E6%B5%81%E7%A8%8B"><span class="toc-number">4.2.</span> <span class="toc-text">数据推送及消费的流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%BE%9B%E4%B8%9A%E5%8A%A1%E6%B6%88%E8%B4%B9%E7%9A%84%E6%96%B9%E6%A1%88%E6%9C%BA%E5%88%B6"><span class="toc-number">4.2.1.</span> <span class="toc-text">数据供业务消费的方案机制</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spark%E7%9A%84-API"><span class="toc-number">5.</span> <span class="toc-text">Spark的 API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E5%8F%82%E8%80%83"><span class="toc-number">6.</span> <span class="toc-text">引用参考</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E4%B8%AD%E9%A4%90%E6%8A%B5%E5%BE%A1%E9%A5%AE%E9%A3%9F%E8%A5%BF%E5%8C%96.html" title="中餐的生命力"><img src="http://cdn.diffday.com/picgo/20250926212522.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="中餐的生命力"/></a><div class="content"><a class="title" href="/%E4%B8%AD%E9%A4%90%E6%8A%B5%E5%BE%A1%E9%A5%AE%E9%A3%9F%E8%A5%BF%E5%8C%96.html" title="中餐的生命力">中餐的生命力</a><time datetime="2025-09-26T13:53:44.000Z" title="更新于 2025-09-26 21:53:44">2025-09-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E6%B1%89%E5%AD%97%E9%80%A0%E5%AD%97%E7%9A%84%E7%B2%BE%E7%BB%86.html" title="汉字造字的精细"><img src="http://cdn.diffday.com/picgo/20230310134115.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="汉字造字的精细"/></a><div class="content"><a class="title" href="/%E6%B1%89%E5%AD%97%E9%80%A0%E5%AD%97%E7%9A%84%E7%B2%BE%E7%BB%86.html" title="汉字造字的精细">汉字造字的精细</a><time datetime="2025-09-26T01:49:10.000Z" title="更新于 2025-09-26 09:49:10">2025-09-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%A2%A8%E5%AE%B6%E4%BB%8E%E6%B5%81%E8%A1%8C%E5%88%B0%E6%B2%A1%E8%90%BD.html" title="墨家从流行到没落"><img src="http://cdn.diffday.com/picgo/20210607171311.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="墨家从流行到没落"/></a><div class="content"><a class="title" href="/%E5%A2%A8%E5%AE%B6%E4%BB%8E%E6%B5%81%E8%A1%8C%E5%88%B0%E6%B2%A1%E8%90%BD.html" title="墨家从流行到没落">墨家从流行到没落</a><time datetime="2025-09-26T01:49:07.000Z" title="更新于 2025-09-26 09:49:07">2025-09-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%92%8C%E7%94%B0%E7%8E%89%E7%9A%84%E4%B8%8B%E6%B2%89%E6%BC%94%E5%8F%98.html" title="和田玉的下沉演变"><img src="http://cdn.diffday.com/picgo/20250716132428.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="和田玉的下沉演变"/></a><div class="content"><a class="title" href="/%E5%92%8C%E7%94%B0%E7%8E%89%E7%9A%84%E4%B8%8B%E6%B2%89%E6%BC%94%E5%8F%98.html" title="和田玉的下沉演变">和田玉的下沉演变</a><time datetime="2025-09-26T01:49:03.000Z" title="更新于 2025-09-26 09:49:03">2025-09-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E4%B8%AD%E5%9B%BD%E5%BC%8F%E6%80%9D%E7%BB%B4.html" title="中国式思维"><img src="http://cdn.diffday.com/picgo/20240222183801.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="中国式思维"/></a><div class="content"><a class="title" href="/%E4%B8%AD%E5%9B%BD%E5%BC%8F%E6%80%9D%E7%BB%B4.html" title="中国式思维">中国式思维</a><time datetime="2025-09-26T01:49:00.000Z" title="更新于 2025-09-26 09:49:00">2025-09-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E4%B8%9C%E4%BA%9A%E6%9C%AA%E5%8F%91%E5%B1%95%E6%9C%89%E9%AD%85%E5%8A%9B%E7%9A%84%E7%94%9F%E6%B4%BB%E6%96%B9%E5%BC%8F.html" title="东亚未发展有魅力的生活方式"><img src="http://cdn.diffday.com/picgo/20241226144808.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="东亚未发展有魅力的生活方式"/></a><div class="content"><a class="title" href="/%E4%B8%9C%E4%BA%9A%E6%9C%AA%E5%8F%91%E5%B1%95%E6%9C%89%E9%AD%85%E5%8A%9B%E7%9A%84%E7%94%9F%E6%B4%BB%E6%96%B9%E5%BC%8F.html" title="东亚未发展有魅力的生活方式">东亚未发展有魅力的生活方式</a><time datetime="2025-09-26T01:48:55.000Z" title="更新于 2025-09-26 09:48:55">2025-09-26</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2018 - 2025 By <a class="footer-bar-link" href="/" title="DiffDay" target="_blank">DiffDay</a></div></div><div id="footer-type-tips"></div><div class="js-pjax"><script>function subtitleType () {
+  getScript('https://sdk.jinrishici.com/v2/browser/jinrishici.js').then(() => {
+    jinrishici.load(result =>{
+      if (false) {
+        const sub = []
+        const content = result.data.content
+        sub.unshift(content)
+        window.typed = new Typed('#footer-type-tips', {
+          strings: sub,
+          startDelay: 300,
+          typeSpeed: 150,
+          loop: true,
+          backSpeed: 50,
+        })
+      } else {
+        document.getElementById('footer-type-tips').innerHTML = result.data.content
+      }
+    })
+  })
+}
+
+if (false) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}
+</script></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a><a class="footer-bar-link" target="_blank" rel="noopener" href="https://beian.miit.gov.cn/" title="粤ICP备-18103410号">粤ICP备-18103410号</a><a class="footer-bar-link cc" href="/copyright" title="cc协议"><i class="anzhiyufont anzhiyu-icon-copyright-line"></i><i class="anzhiyufont anzhiyu-icon-creative-commons-by-line"></i><i class="anzhiyufont anzhiyu-icon-creative-commons-nc-line"></i><i class="anzhiyufont anzhiyu-icon-creative-commons-nd-line"></i></a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">51</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">8</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/archives/"><span> 归档</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/"><span> 分类</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/"><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本站</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/copyright/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 版权协议</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="anzhiyufont anzhiyu-icon-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="is-center" id="loading-database"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-pulse-icon"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script async src="/anzhiyu/random.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  //if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid@11.6.0/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  anzhiyu.addGlobalFn('themeChange', runMermaid, 'mermaid')
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'uwklgzjj0IepCMXNYCU3t9Ah-9Nh9j0Va',
+      appKey: 'jRMVc9QS0SBr1L9heA2V0m4q',
+      avatar: 'mp',
+      serverURLs: 'https://uwklgzjj.lc-cn-e1-shared.com',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) anzhiyu.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script src="https://cdn.jsdelivr.net/npm/blueimp-md5/js/md5.min.js"></script><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getIcon = (icon, mail) => {
+    if (icon) return icon
+    let defaultIcon = '?d=mp'
+    let iconUrl = `https://gravatar.loli.net/avatar/${md5(mail.toLowerCase()) + defaultIcon}`
+    return iconUrl
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${anzhiyu.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = () => {
+    const serverURL = 'https://uwklgzjj.lc-cn-e1-shared.com'
+
+    var settings = {
+      "method": "GET",
+      "headers": {
+        "X-LC-Id": 'uwklgzjj0IepCMXNYCU3t9Ah-9Nh9j0Va',
+        "X-LC-Key": 'jRMVc9QS0SBr1L9heA2V0m4q',
+        "Content-Type": "application/json"
+      },
+    }
+
+    fetch(`${serverURL}/1.1/classes/Comment?limit=6&order=-createdAt`,settings)
+      .then(response => response.json())
+      .then(data => {
+        const valineArray = data.results.map(function (e) {
+          return {
+            'avatar': getIcon(e.QQAvatar, e.mail),
+            'content': changeContent(e.comment),
+            'nick': e.nick,
+            'url': e.url + '#' + e.objectId,
+            'date': e.updatedAt,
+          }
+        })
+        saveToLocal.set('valine-newest-comments', JSON.stringify(valineArray), 10/(60*24))
+        generateHtml(valineArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+      }) 
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('valine-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script>var visitorMail = "visitor@anheyu.com";
+</script><script async data-pjax src="https://cdn.jsdelivr.net/npm/anzhiyu-theme-static/waterfall/waterfall.min.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><script src="/js/anzhiyu/right_click_menu.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/anzhiyu-theme-static/icon/ali_iconfont_css.min.css"><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', 'G-X0MW6B53JB', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.jsdelivr.net/npm/anzhiyu-theme-static/accesskey/accesskey.min.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>

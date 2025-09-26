@@ -1,0 +1,688 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>堆排序与归并排序 | Diffday</title><meta name="keywords" content="算法"><meta name="author" content="DiffDay"><meta name="copyright" content="DiffDay"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="堆排序与归并排序"><meta name="application-name" content="堆排序与归并排序"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="堆排序与归并排序"><meta property="og:url" content="https://blog.diffday.com/%E5%A0%86%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.html"><meta property="og:site_name" content="Diffday"><meta property="og:description" content="大家最常见的就是用数组这一数据结构来记录一系列有序或无序的数据。 堆排序 Heap  此文讲的堆和堆内存不是一个概念。属于大家都形而上的用了这个英文词来描述自己的领域概念。  完全二叉树  叶子结点只出现在最下层和次下层（所有分支长度几乎相同，最长分支最短分支差异最多为1），最下层节点都集中在最左边"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="http://cdn.diffday.com/picgo/20221024110942.png"><meta property="article:author" content="DiffDay"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="http://cdn.diffday.com/picgo/20221024110942.png"><meta name="description" content="大家最常见的就是用数组这一数据结构来记录一系列有序或无序的数据。 堆排序 Heap  此文讲的堆和堆内存不是一个概念。属于大家都形而上的用了这个英文词来描述自己的领域概念。  完全二叉树  叶子结点只出现在最下层和次下层（所有分支长度几乎相同，最长分支最短分支差异最多为1），最下层节点都集中在最左边"><link rel="shortcut icon" href="https://cdn.diffday.com/picgo/diff32.ico"><link rel="canonical" href="https://blog.diffday.com/%E5%A0%86%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><link rel="preconnect" href="//npm.elemecdn.com"/><link rel="preconnect" href="//npm.onmicrosoft.cn"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="UaMvLIOYuNWHgVq42dlN49RoniU73U6SoqoRnEcit9E"/><meta name="baidu-site-verification" content="code-DN25SBuR8T"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b5c9889dd454fff053fb5b93fc1b2ac7";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X0MW6B53JB"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-X0MW6B53JB');
+</script><script>const GLOBAL_CONFIG = {
+  linkPageTop: {"enable":true,"title":"同博主们无限进步","addFriendPlaceholder":"昵称（请勿包含博客等字样）：\n网站地址（要求博客地址，请勿提交个人主页）：\n头像图片url（请提供尽可能清晰的图片，我会上传到我自己的图床）：\n描述：\n站点截图（可选）：\n"},
+  peoplecanvas: undefined,
+  postHeadAiDescription: undefined,
+  diytitle: {"enable":true,"leaveTitle":"一次时空相逢，祝好！","backTitle":"欢迎回来！"},
+  LA51: {"enable":true,"ck":"3G4PP4R5LAAt6DBv","LingQueMonitorID":"3GA1sASrkc8hJd7c"},
+  greetingBox: {"enable":true,"default":"晚上好👋","list":[{"greeting":"晚安😴","startTime":0,"endTime":5},{"greeting":"早上好鸭👋, 祝一天好心情！","startTime":6,"endTime":9},{"greeting":"上午好👋, 状态很好，鼓励一下～","startTime":10,"endTime":10},{"greeting":"11点多啦, 在坚持一下就吃饭啦～","startTime":11,"endTime":11},{"greeting":"午安👋, 为下午蓄力充电","startTime":12,"endTime":14},{"greeting":"🌈充实的一天辛苦啦！","startTime":14,"endTime":18},{"greeting":"19点喽, 奖励一顿丰盛的大餐吧🍔。","startTime":19,"endTime":19},{"greeting":"晚上好👋, 在属于自己的时间好好放松😌~","startTime":20,"endTime":24}]},
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  root: '/',
+  preloader: undefined,
+  friends_vue_info: undefined,
+  navMusic: false,
+  mainTone: {"mode":"both","api":"https://img2color-go.vercel.app/api?img=","cover_change":true},
+  authorStatus: undefined,
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: DiffDay","link":"链接: ","source":"来源: Diffday","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: true,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: 'Diffday',
+  title: '堆排序与归并排序',
+  postAI: '',
+  pageFillDescription: '堆排序, Heap, 完全二叉树, Full vs Complete vs Perfect, 堆序性, 具体实现, 交换-下沉, 概念Tips, 堆本身不是排序数组, 堆形式并不是唯一的, 归并排序, 兄弟排序算法, 外部排序的选择, 多路归并, 多路举例, 归并路数扩大的弊端, 算法优化登场, 结论先行, 树排与堆排, 二叉堆, 胜者树, 胜者树与堆的异同, 树深度的疑问, 胜者树vs败者树, 败者树工作过程, 量化对比, 后记大家最常见的就是用数组这一数据结构来记录一系列有序或无序的数据堆排序此文讲的堆和堆内存不是一个概念属于大家都形而上的用了这个英文词来描述自己的领域概念完全二叉树叶子结点只出现在最下层和次下层所有分支长度几乎相同最长分支最短分支差异最多为最下层节点都集中在最左边若干位置的二叉树堆也是一颗完全二叉树举例如下无序数组表示为完全二叉树的形式为基于完全二叉树的基本性质可从数组索引角度描述数字与数字在二叉树中的位置关系堆的结构性要求其为完全二叉树就为了使用此好特性好结论的左节点为右节点为父节点为二叉树通常用链表通过指针实现堆的属性及所有非叶子节点也是数值节点对于将其实现为数组非常有用堆为完全二叉树我们可使用位置来确定哪个节点是哪个节点的子节点和是一个意思要求只要你有孩子就必然是有两个孩子但不要求所有长短分支差异最多为的约束也不要求孩子在最左边位置优先集中堆序性堆序性通俗点也是说父节点中的元素不小于不大于任意子节点的元素我们举例大根堆一个节点元素在其子树所有元素组成的集合中必定是最大值如下个都是符合定义的大根堆具体实现根据无序数组创建一个大根堆不断调整大根堆使其达到有序堆排序是一种算法可归纳为个步骤将输入数组转换为堆初始堆排序将堆转换为排序数组堆排序输出交换下沉将根元素与最后一个叶子节点元素交换位置这样做产生了两个后果最大值被挑选出来置于数组的末位和换位置首尾交换根节点元素打乱了堆序性其中第点不是我们希望的结果那就重复做这个过程此时尾部元素不参与任何交换位置操作已经是最终位置且它确定是最大值后续的二叉树可以将元素排除在外元素下沉每次堆顶元素与数组尾部元素互换后我们要处理生成最大堆树的节点数据都会减一通过重复提取最大元素在的复杂度下可轻松使用它生成排序数组提取的元素放置在数组末尾不再参与下一轮的堆处理中这一点上大根堆实现数组从小到大排序小根堆实现数组从大到小排序概念堆本身不是排序数组原始数组转换成堆而排序数组是堆看上去元素顺序看起来不像原始数组中那样随机但它们没有完全排序堆形式并不是唯一的对于给定的无序数组根据算法的叶子节点左右大小设定不同可以构建出多个大根堆即可以生成的大根堆并不是唯一的上段中的数组转换成堆不止一种形式这里左右互换也是符合堆的含义的归并排序兄弟排序算法冒泡排序和选择排序是最好理解最容易实现的两种排序算法冒泡交换相邻两个元素将最大元素升至最后位置像水中的冒泡选择遍历所有元素选出最小的放在排序序列头部然后再从未排序元素中继续寻找最小的放到已排序序列末位以此类推直至排好所有元素这点的一个个来和堆排序有那么一点神似这二位相较于其他排序算法除了易于理解外并无任何优势所以在实际开发或类库中基本没人用插入排序像打扑克牌核心是将某个元素插到合适位置该元素后所有元素都后移一个位置比较和挪动到抽牌处为止适用场景为大部分数据近乎有序如原始数据根据订单完成时间排序现需要根据订单发起时间排序这样每个元素就能很快挪到正确位置这个动图比较形象插入排序动图快速排序是最快的的通用排序算法多数情况下都适合适用快速排序外部排序的选择归并排序将已排好序的两部分进行归并合在一起动图的话观看归并排序动图当待排序的文件超过内存可使用容量文件无法一次性放到内存中进行排序需要借助外部存储器称为外部排序外部排序算法由两个阶段构成类比为过程也合适按内存大小将大文件分成若干子文件将各子文件依次读入内存适用恰当的内部排序算法对其进行排序将排好序的归并段重新写入外存为下一个子文件排序腾出内存空间对得到的顺序段进行合并直至得到整个有序文件位置例如含有个记录的文件内存可使用容量仅为个记录毫无疑问需要使用外部排序算法可以看作是选择排序的组合版实际归并过程中由于内存容量限制不能满足同时将个归并段全部完整的读入内存进行归并只能不断取个归并段中的每一小部分进行归并通过不断读取数据和向外写数据直至个归并段完成归并成个大的有序文件多路归并堆外部排序算法来说影响整体排序效率的因素主要为读写外存的次数即访问外存越多花的时间也越多简单来看访问外存的次数同归并次数成正比每次归并都要在外存中暂存结果两个角度可助力提高算法效率减少初始归并段的数量即增加每个归并段小文件的容量增加路同行归并的段数因此在个初始段下提高归并时参与的段数可以加快效率这也是多路归并的由来多路举例路归并路归并归并路数扩大的弊端无限度增加值虽会减少读写外存数据的次数但会增加内部归并的时间路归并每次从个文件中得到一个最小值只需比一次路归并时要比次如要得到整个临时文件耗费的时间就会相差很大如何同等参数下优化算法缩减比较次数耗时呢算法优化登场结论先行最小堆胜者树败者树首先选择用来做外部排序优化的是最小堆小文件内部为最小堆它的插入和查询复杂度都是可以说比较高效不过堆调整时每个节点都需要和左右孩子进行比较即需要次比较在不考虑块读取优化的外部排序中也就是需要读取两次外存能不能再优化下呢树排与堆排二叉堆二叉堆除了可以应用于对一个数组进行堆排序外还可以应用于多路归并排序中堆排序的后半部分算法中就是一个很明确的多个值中选取极值取出极值更新根然后修复堆的过程在多路归并排序中每次取出极值后堆长度未变胜者树树排全称可叫树形选择排序因为其排序过程和体育比赛中的进进争冠非常相似所以树排又称为锦标赛排序且树排中用到的树就是胜者树进进争冠嘛树排算法很简单建树注意事项是胜者树种的节点都是原数组中的索引而不是真实值因为第二步要拿到冠军的索引节点都在叶子上然后一路向上更新胜者树冠军出堆然后找到冠军的索引将此索引处的值变成要求最小进行调整剩余元素个数重复上述步骤直至剩余元素个数为此时按照出堆顺序就是从小到大的胜者树的特征完全二叉树每个叶子节点表示一个选手记录选手的标号每个非叶子节点表示一场比赛记录胜者数值小的的标号每层表示一轮比赛新插入选手红色来自另一个归并段的胜者胜者树重构胜者树与堆的异同都是完全树时间复杂度量级也一样最大的区别就是堆的非叶子节点有包含元素而胜者树只有叶子节点有元素非叶子节点用来存放两个节点的胜者由于此结构上的差异在每次调整的时候堆分别要跟两个孩子进行两次比较而胜者树只需要跟兄弟进行一次比较即可效率上会高一点路径保存了额外的信息树深度的疑问但大家可能有疑问你比较次数虽然少了但堆非叶子节点也含有原始数据所以堆的树高度会比胜者树低那么要调整的次数少了综合起来是否差不多请注意大家都是完全二叉树每增加一层节点数目可容纳就多了一倍因此堆的高度一般也之比胜者树矮一层这样定性来分析堆在高度上也只有很小的优势胜者树败者树胜者树在内部排序有用而败者树在外部排序的多路平衡归并中有用武之地怎么讲其实现在程序的主要瓶颈在于访存了计算倒几乎可以忽略不计了谁能在减少比较更新次数上更胜一筹谁将拔得头筹这必然要重新调整数据结构设计比较胜者树与败者树的代码非常相似都像是一根根不断将数组中的水数组元素吸取上来然后吐出来也都是完全二叉树是树形选择排序的一种变形胜者树新元素上升时首先需获得父节点值内容是下标然后再获得兄弟节点的值进行比较相较于堆减少了一半的比较量且因为新插入的值取代了原先的最优胜者新值向上调整的过程中必然要更新父节点能不能再优化呢败者树就抓住者一小点再做优化胜者树种的非叶子节点存储的是胜利的一方而败者树非叶子节点存储的是失败的一方而在比较过程中都是拿胜者去比较有一个额外指针保存当前的胜者败者树解决了胜者树存在的弊端只需和父节点比较一次新插入的值向上调整中不一定要更新总得来说减少了访存时间胜者树和败者树在每输出和补充一个值之后都需要自底向上调整每上升一层都需要一次比较败者树是和父节点的一次比较胜者树适合兄弟的一次比较在比较的内存次数上二者没有太大的差别不同的是胜者树每次必然需要更新胜者这条路径就是以原来的最终胜者为外部节点的路径而原来的最终胜者已经被输出了但败者树每次不一定需要更新这代表它在每次上升时可能会少一次向内存的写入因此更优败者树工作过程如上图为一个路归并的败者树其中为叶子节点分别为个归并段中存储的记录的关键字位一维数组表示非叶子节点存储的数值表示第几归并段如就为第归并段中存储的为最终胜利者如图表示第归并段中的值最小当胜利者筛选出来后只需要更新叶子结点的值即导入然后让该节点不断与其父亲节点表示的值进行比较败者留在父亲节点胜利者继续向上比较为防止归并过程中某个归并段变空处理办法通常是在每个归并段最后附件一个关键字为最大值的记录这样当某一时刻选出冠军位为最大值时表明所有归并段已全部归并完成量化对比在堆胜者树败者树空间和时间复杂度都一样没有量级上的差别但还是有优中选优的差异堆不消多说胜者树每次从个组中首元素中选一个最小的值加入到新组都要比较次算法复杂度就是而如果用败者树可以在的复杂度下得到最小的数对于外部排序这种数据量超大的排序来说也是一个不小的提高故外部排序大多采用的都是败者树算法实现的在信息爆炸的年代海量数据大文件排序是很普遍的外排序本质上在真正排序的时候用的还是内排序的算法毕竟不能直接和外存打交道外部排序比内排序在同等算法下要慢得多根本原因在于时间相比内存和交互运算时间太长所以外部排序的算法主要集中的地方在于如何有效降低读写外存的次数次数越多算法效率越低一种思路就是增加路平衡归并中的值但无限增加值虽会减少读写外存的次数但会增加内部归并的时间败者树数据结构使得在增加值时不会线性的影响内部归并的效率所以成为一种优中之选后记临近春节把这拖拖拉拉一直放在草稿箱个月的文稿终于可以出来事情结项如此拖沓着实惭愧清扫的心境是松弛的轻装迎接兔年',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-06-18 22:57:35',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/" accesskey="h"><div class="title">Diffday</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/archives/"><span> 归档</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/"><span> 分类</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/"><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本站</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/copyright/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 版权协议</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button only-home" id="travellings_button" title="随机前往一个开往项目网站"><a class="site-page" onclick="anzhiyu.totraveling()" title="随机前往一个开往项目网站" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="anzhiyufont anzhiyu-icon-train"></i></a></div><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="http://cdn.diffday.com/picgo/wechatpay.jpg" target="_blank"><img class="post-qr-code-img" alt="微信" src="http://cdn.diffday.com/picgo/wechatpay.jpg"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="http://cdn.diffday.com/picgo/alipay-n.jpeg" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="http://cdn.diffday.com/picgo/alipay-n.jpeg"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="anzhiyufont anzhiyu-icon-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/09/"><span class="card-archive-list-date">九月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">七月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">六月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">四月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">三月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">二月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">一月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">6</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">十二月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item on" id="consoleCommentBarrage" onclick="anzhiyu.switchCommentBarrage()" title="热评开关"><a class="commentBarrage"><i class="anzhiyufont anzhiyu-icon-message"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><!-- if (page.copyright_author && page.copyright_author !== config.author)// a.post-meta-original 转载--><!-- else--><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/" itemprop="url">信息技术</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>算法</span></a></span></div></div><h1 class="post-title" itemprop="name headline">堆排序与归并排序</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2023-01-16T10:50:00.000Z" title="发表于 2023-01-16 18:50:00">2023-01-16</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2024-06-18T14:57:35.000Z" title="更新于 2024-06-18 22:57:35">2024-06-18</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-wordcount"><i class="anzhiyufont anzhiyu-icon-file-word post-meta-icon" title="文章字数"></i><span class="post-meta-label" title="文章字数">字数总计:</span><span class="word-count" title="文章字数">4.1k</span><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-clock post-meta-icon" title="阅读时长"></i><span class="post-meta-label" title="阅读时长">阅读时长:</span><span>12分钟</span></span><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="堆排序与归并排序"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为深圳"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>深圳</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="http://cdn.diffday.com/picgo/20221024110942.png"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://blog.diffday.com/%E5%A0%86%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.html"><header><a class="post-meta-categories" href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/" itemprop="url">信息技术</a><a href="/tags/%E7%AE%97%E6%B3%95/" tabindex="-1" itemprop="url">算法</a><h1 id="CrawlerTitle" itemprop="name headline">堆排序与归并排序</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">DiffDay</span><time itemprop="dateCreated datePublished" datetime="2023-01-16T10:50:00.000Z" title="发表于 2023-01-16 18:50:00">2023-01-16</time><time itemprop="dateCreated datePublished" datetime="2024-06-18T14:57:35.000Z" title="更新于 2024-06-18 22:57:35">2024-06-18</time></header><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>大家最常见的就是用数组这一数据结构来记录一系列有序或无序的数据。</p>
+<h1>堆排序</h1>
+<h2 id="Heap">Heap</h2>
+<blockquote>
+<p>此文讲的<u>堆和堆内存不是一个概念</u>。属于大家<u>都形而上的用了这个英文词来描述自己的领域概念</u>。</p>
+</blockquote>
+<h2 id="完全二叉树">完全二叉树</h2>
+<blockquote>
+<p><strong>叶子结点只出现在最下层和次下层（所有分支长度几乎相同，最长分支最短分支差异最多为1），最下层节点都集中在最左边若干位置的二叉树</strong></p>
+</blockquote>
+<p><font color="dodgerblue">堆也是一颗完全二叉树</font>，举例如下无序数组：$\begin{bmatrix}4 &amp;5 &amp;3 &amp;2 &amp;6 &amp;1 \end{bmatrix}$。表示为完全二叉树的形式为</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20221024110942.png" style="zoom: 67%;" alt="堆示例"/>
+<p>基于完全二叉树的基本性质，<u>可从数组索引角度描述数字与数字在二叉树中的位置关系</u>，堆的结构性要求其为完全二叉树，就为了使用此好特性好结论</p>
+<ul>
+<li>$A_i$ 的左节点为 $A_{2i+1}$</li>
+<li>右节点为$A_{2i+2}$</li>
+<li>父节点为 $A_{i/2}$</li>
+</ul>
+<h3 id="Full-vs-Complete-vs-Perfect">Full vs Complete vs Perfect</h3>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20221109135729.png" alt=""></p>
+<span id="more"></span>
+<p>二叉树通常用链表通过指针实现。堆的“(almost)-complete”属性及所有非叶子节点也是数值节点，对于将其实现为数组非常有用。堆为完全二叉树，我们可使用位置来确定哪个节点是哪个节点的子节点，i，2i+1，2i+2。</p>
+<blockquote>
+<p>almost-complete 和 complete是一个意思</p>
+<p>full binary tree 要求只要你有孩子，就必然是有两个孩子，但不要求所有长短分支差异最多为1的约束，也不要求孩子在最左边位置优先集中</p>
+</blockquote>
+<h2 id="堆序性">堆序性</h2>
+<p><font color="dodgerblue">堆序性，通俗点也是说，父节点中的元素不小于（不大于）任意子节点的元素</font>。</p>
+<p>我们举例大根堆，一个节点元素在其子树所有元素组成的集合中必定是最大值。</p>
+<blockquote>
+<p>如下3个，都是符合定义的大根堆</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20221024181144.png" alt=""></p>
+<h3 id="具体实现">具体实现</h3>
+<blockquote>
+<p>根据无序数组创建一个大根堆，不断调整大根堆，使其达到有序。</p>
+</blockquote>
+<p>堆排序是一种算法，可归纳为2个步骤：</p>
+<ol>
+<li>将输入数组转换为堆 – <font color="dodgerblue">初始堆排序</font></li>
+<li>将堆转换为排序数组 – <font color="dodgerblue">堆排序输出</font></li>
+</ol>
+<h4 id="交换-下沉">交换-下沉</h4>
+<p>将根元素与最后一个叶子节点元素交换位置，这样做产生了两个后果：</p>
+<ol>
+<li>
+<p>最大值6被挑选出来，置于数组的末位 （1和6换位置）<font color="dodgerblue">【首尾交换】</font></p>
+</li>
+<li>
+<p>根节点元素1打乱了堆序性</p>
+</li>
+</ol>
+<p>其中第2点不是我们希望的结果，那就重复做这个过程（此时，尾部元素6不参与任何交换位置操作，已经是最终位置，且它确定是最大值，后续的二叉树可以将元素6排除在外）【元素下沉】</p>
+<blockquote>
+<p>每次堆顶元素与数组尾部元素互换后，我们要处理生成最大堆树的节点数据都会减一</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20221024181705.png" alt=""></p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20221109140416.png" style="zoom:67%;" />
+<p>通过重复提取最大元素，在$\mathcal{O}(n\log(n))$的复杂度下，可轻松使用它生成排序数组（提取的元素放置在数组末尾，不再参与下一轮的堆处理中）。</p>
+<p>这一点上，<font color="dodgerblue"><u>大根堆实现数组从小到大排序；小根堆实现数组从大到小排序</u>。</font></p>
+<h3 id="概念Tips">概念Tips</h3>
+<h4 id="堆本身不是排序数组">堆本身不是排序数组</h4>
+<p>原始数组</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[9,7,3,5,4,2,0,6,8,1]</span><br></pre></td></tr></table></figure>
+<p>转换成 <font color="dodgerblue">堆</font></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[0,1,2,5,4,9,3,6,8,7]</span><br></pre></td></tr></table></figure>
+<p>而排序数组是</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[0,1,2,3,4,5,6,7,8,9]</span><br></pre></td></tr></table></figure>
+<p><u><font color="blur">堆看上去元素顺序看起来不像原始数组中那样随机，但它们没有完全排序</font></u>。</p>
+<h4 id="堆形式并不是唯一的">堆形式并不是唯一的</h4>
+<blockquote>
+<p>对于给定的无序数组，根据算法的叶子节点左右大小设定不同，可以构建出多个大根堆，即可以生成的大根堆并不是唯一的</p>
+</blockquote>
+<p>上段中的数组，转换成堆不止一种形式</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">       0</span><br><span class="line">      /      \</span><br><span class="line">     1        2 （这里2，1左右互换，也是符合堆的含义的）</span><br><span class="line">   /   \     / \</span><br><span class="line">  5     4   9   3</span><br><span class="line"> / \   / \ / \ / \</span><br><span class="line">6   8 7</span><br></pre></td></tr></table></figure>
+<h1>归并排序</h1>
+<h2 id="兄弟排序算法">兄弟排序算法</h2>
+<blockquote>
+<p>冒泡排序和选择排序，是最好理解最容易实现的两种排序算法。</p>
+</blockquote>
+<ul>
+<li>
+<p>冒泡：交换相邻两个元素，将最大元素升至最后位置（像水中的冒泡）</p>
+</li>
+<li>
+<p>选择：遍历所有元素，选出最小的 ，放在排序序列头部，然后再从未排序元素中继续寻找最小的，放到已排序序列末位，以此类推直至排好所有元素（这点的一个个来，<strong>和堆排序有那么一点神似</strong>）</p>
+</li>
+</ul>
+<blockquote>
+<p>这二位相较于其他排序算法，除了易于理解外，并无任何优势，所以在实际开发或类库中，基本没人用。</p>
+</blockquote>
+<ul>
+<li>
+<p>插入排序，像打扑克牌，核心是将某个元素插到合适位置，该元素后所有元素都后移一个位置（比较和挪动到抽牌处为止）。<font color="dodgerblue">适用场景为大部分数据近乎有序。如原始数据根据订单完成时间排序，现需要根据订单发起时间排序，这样每个元素就能很快挪到正确位置</font>。这个动图比较形象 <a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/insertion-sort.html">插入排序动图</a></p>
+</li>
+<li>
+<p>快速排序是最快的的通用排序算法，多数情况下，都适合适用快速排序。</p>
+</li>
+</ul>
+<h2 id="外部排序的选择">外部排序的选择</h2>
+<p>归并排序：将已排好序的两部分进行归并（合在一起），动图的话观看 <a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/merge-sort.html">归并排序动图</a></p>
+<p>当待排序的文件超过内存可使用容量，文件无法一次性放到内存中进行排序，需要借助外部存储器，称为外部排序。外部排序算法由两个阶段构成，类比为Map-Reduce过程也合适</p>
+<ol>
+<li>按内存大小，将大文件分成若干子文件，将各子文件依次读入内存，适用恰当的内部排序算法对其进行排序，将排好序的归并段重新写入外存，为下一个子文件排序腾出内存空间</li>
+<li>对得到的顺序段进行合并，直至得到整个有序文件位置。</li>
+</ol>
+<p>例如含有1w个记录的文件，内存可使用容量仅为1k个记录，毫无疑问需要使用外部排序算法（<font color="dodgerblue">可以看作是选择排序的组合版</font>）。</p>
+<blockquote>
+<p>实际归并过程中，由于内存容量限制不能满足同时将2个归并段全部完整的读入内存进行归并，只能不断取2个归并段中的每一小部分进行归并，通过不断读取数据和向外写数据，直至2个归并段完成归并成1个大的有序文件。</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20221109141202.png" alt=""></p>
+<h3 id="多路归并">多路归并</h3>
+<p>堆外部排序算法来说，影响整体排序效率的因素主要为读写外存的次数，即访问外存越多，花的时间也越多。</p>
+<p>简单来看，访问外存的次数同归并次数成正比（每次归并都要在外存中暂存结果），两个角度可助力提高算法效率</p>
+<ul>
+<li>
+<p>减少初始归并段的数量m，即<font color="dodgerblue">增加每个归并段(小文件)的容量</font></p>
+</li>
+<li>
+<p>增加k-路同行归并的段数</p>
+</li>
+</ul>
+<p>因此在m个初始段下，提高归并时参与的段数，可以加快效率。这也是多路归并的由来</p>
+<h4 id="多路举例">多路举例</h4>
+<blockquote>
+<p>2路归并</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20221109143220.png" alt="2路归并"></p>
+<blockquote>
+<p>5路归并</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20221109142344.png" alt=""></p>
+<h4 id="归并路数扩大的弊端">归并路数扩大的弊端</h4>
+<p><font color="blur">无限度增加K值，虽会减少读写外存数据的次数，但会增加内部归并的时间</font>。</p>
+<blockquote>
+<p>2路归并，每次从2个文件中得到一个最小值只需比一次，5路归并时要比4次。</p>
+</blockquote>
+<p>如要<u>得到整个临时文件，耗费的时间就会相差很大，如何同等参数下优化算法缩减比较次数（耗时）呢</u>？</p>
+<h3 id="算法优化登场">算法优化登场</h3>
+<h4 id="结论先行">结论先行</h4>
+<blockquote>
+<p>最小堆 $\Rightarrow$ 胜者树 $\longrightarrow$ 败者树</p>
+</blockquote>
+<p><font color="dodgerblue">首先选择用来做外部排序优化的是最小堆</font>，(小文件内部为最小堆)，它的插入和查询复杂度都是$\mathcal{O}(\log(n))$，可以说比较高效。<u>不过，堆调整时，每个节点都需要和左右孩子进行比较</u>，即需要2次比较。在不考虑块读取优化的外部排序中，也就是需要读取两次外存，能不能再优化下呢？</p>
+<h4 id="树排与堆排">树排与堆排</h4>
+<h5 id="二叉堆">二叉堆</h5>
+<p>二叉堆除了可以应用于对一个数组进行堆排序外，还可以应用于多路归并排序中。</p>
+<ul>
+<li>堆排序的后半部分算法中，就是一个很明确的，多个值中选取极值，取出极值，更新根，然后修复堆的过程。在多路归并排序中，每次取出极值后，堆长度未变</li>
+</ul>
+<h5 id="胜者树">胜者树</h5>
+<p><u>树排，全称可叫树形选择排序</u>，因为其排序过程和体育比赛中的8进4, 4进2, 2争冠非常相似，所以<u>树排又称为锦标赛排序，且树排中用到的树就是胜者树</u>（8进4，4进2，2争冠嘛）</p>
+<p>树排算法很简单：</p>
+<ol>
+<li>建树。注意事项是胜者树种的节点都是原数组中的索引，而不是真实值（因为第二步要拿到冠军的索引，节点都在叶子上），然后一路向上更新胜者树</li>
+<li>冠军出堆，然后找到冠军的索引，将此索引处的值变成inf（要求最小），进行siftUp调整，剩余元素个数-1</li>
+</ol>
+<p>重复上述步骤直至剩余元素个数为0，此时按照出堆顺序就是从小到大的。</p>
+<blockquote>
+<p>胜者树的特征</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 完全二叉树 </span><br><span class="line">2. 每个叶子节点表示一个选手，记录选手的标号</span><br><span class="line">3. 每个非叶子节点表示一场比赛，记录胜者（数值小的）的标号，每层表示一轮比赛</span><br></pre></td></tr></table></figure>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20230116163623.png" alt="胜者树"></p>
+<blockquote>
+<p>新插入选手（红色–来自另一个归并段的胜者），胜者树重构</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20230116163915.png" alt="胜者树重构"></p>
+<h5 id="胜者树与堆的异同">胜者树与堆的异同</h5>
+<p>都是完全树，时间复杂度量级也一样，最大的区别就是堆的非叶子节点有包含元素，而胜者树只有叶子节点有元素，<u>非叶子节点用来存放两个节点的胜者。由于此结构上的差异，在每次调整的时候堆分别要跟两个孩子进行两次比较，而胜者树只需要跟兄弟进行一次比较即可</u>，效率上会高一点（路径保存了额外的信息）。</p>
+<h5 id="树深度的疑问">树深度的疑问</h5>
+<p>但大家可能有疑问，你比较次数虽然少了，但堆非叶子节点也含有原始数据，所以堆的树高度会比胜者树低，那么要调整的次数少了，综合起来是否差不多？</p>
+<p><u>请注意，大家都是完全二叉树，每增加一层，节点数目可容纳就多了一倍，因此堆的高度一般也之比胜者树矮一层，这样定性来分析，堆在高度上也只有很小的优势。</u></p>
+<h4 id="胜者树vs败者树">胜者树vs败者树</h4>
+<blockquote>
+<p>胜者树在内部排序有用，而败者树在外部排序的多路平衡归并中有用武之地，怎么讲？<font color="blur">其实现在程序的主要瓶颈在于访存了，计算倒几乎可以忽略不计了</font>，<font color="dodgerblue">谁能在减少比较/更新次数上更胜一筹，谁将拔得头筹！这必然要重新调整数据结构设计</font></p>
+</blockquote>
+<p>比较胜者树与败者树的代码，非常相似，都像是一根根不断将数组中的水（数组元素）吸取上来然后吐出来，也都是完全二叉树，是树形选择排序的一种变形。</p>
+<p>胜者树，新元素上升时，首先需获得父节点值（内容是下标），然后再获得兄弟节点的值进行比较，相较于堆减少了一半的比较量。且因为新插入的值取代了原先的最优胜者，新值向上调整的过程中，<u>必然要更新父节点</u>，能不能再优化呢？</p>
+<p><font color="dodgerblue"><u>败者树就抓住者一小点再做优化</u></font></p>
+<blockquote>
+<p>胜者树种的非叶子节点存储的是胜利的一方；而败者树非叶子节点存储的是失败的一方，而在比较过程中，都是拿胜者去比较。有一个额外指针保存当前的胜者。</p>
+</blockquote>
+<p><font color="dodgerblue">败者树解决了胜者树存在的弊端，只需和父节点比较一次，新插入的值向上调整中，不一定要更新【总得来说，减少了访存时间】。</font></p>
+<p>胜者树和败者树在每输出和补充一个值之后都需要自底向上调整，每上升一层都需要一次比较，败者树是和父节点的一次比较，胜者树适合兄弟的一次比较，在比较的内存次数上二者没有太大的差别。不同的是胜者树每次必然需要更新胜者（这条路径就是以原来的最终胜者为外部节点的路径，而原来的最终胜者已经被输出了），但败者树每次不一定需要更新，这代表它在每次上升时可能会少一次向内存的写入，因此更优。</p>
+<h5 id="败者树工作过程">败者树工作过程</h5>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20221110113441.png" alt="5路归并败者树"></p>
+<p>如上图为一个5路归并的败者树，其中b0 ~ b4为叶子节点，分别为5个归并段中存储的记录的关键字。ls位一维数组，表示<u>非叶子节点，存储的数值表示第几归并段（如b0就为第0归并段），ls[0]中存储的为最终胜利者</u>，如图表示第3归并段中的值最小。</p>
+<p>当胜利者筛选出来后，只需要更新叶子结点b3的值，即导入15，然后让该节点不断与其父亲节点表示的值进行比较，败者留在父亲节点，胜利者继续向上比较</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/20221114144100.png" alt="败者树的工作过程"></p>
+<blockquote>
+<p>为防止归并过程中某个归并段变空，处理办法通常是在每个归并段最后附件一个关键字为最大值的记录，这样当某一时刻选出冠军位为最大值时，表明所有归并段已全部归并完成。</p>
+</blockquote>
+<h5 id="量化对比">量化对比</h5>
+<p>在<u>堆，胜者树，败者树，空间和时间复杂度都一样，没有量级上的差别，但还是有优中选优的差异</u>。</p>
+<p>堆不消多说，胜者树每次从k个组中首元素中选一个最小的值，加入到新组，都要比较k-1次，算法复杂度就是 $\mathcal{O}((n-1)(k-1))$，而如果用败者树，可以在$\mathcal{O}((n-1)\log(k)$的复杂度下，得到最小的数。对于外部排序这种数据量超大的排序来说，也是一个不小的提高，故外部排序大多采用的都是败者树算法实现的【在信息爆炸的年代，海量数据大文件排序是很普遍的】。</p>
+<p><font color="dodgerblue">外排序本质上在真正排序的时候用的还是内排序的算法，毕竟CPU不能直接和外存打交道</font>。外部排序比内排序在同等算法下要慢得多，根本原因在于IO时间相比内存和cpu交互运算时间太长，所以外部排序的算法主要集中的地方在于如何有效降低读写外存的次数，次数越多，算法效率越低，一种思路就是增加k路平衡归并中的k值。但无限增加k值，虽会减少读写外存的次数，但会增加内部归并的时间。败者树数据结构使得在增加 K 值时不会线性的影响内部归并的效率，所以成为一种优中之选。</p>
+<h1>后记</h1>
+<p>临近春节，把这拖拖拉拉一直放在草稿箱5个月的文稿终于可以post出来，事情结项如此拖沓，着实惭愧，清扫TODO的心境是松弛的，轻装迎接兔年。</p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src="https://cdn.diffday.com/picgo/diff_128.png" title="头像" alt="头像"><img class="post-copyright__author_img_front" src="https://cdn.diffday.com/picgo/diff_128.png" title="头像" alt="头像"></a><div class="post-copyright__author_name">DiffDay</div><div class="post-copyright__author_desc">We are here to be creators!</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://blog.diffday.com/%E5%A0%86%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.html">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://blog.diffday.com/%E5%A0%86%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.html')">堆排序与归并排序</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你的肯定与鼓励</span><ul class="reward-group"><li class="reward-item"><a href="http://cdn.diffday.com/picgo/wechatpay.jpg" target="_blank"><img class="post-qr-code-img" src="http://cdn.diffday.com/picgo/wechatpay.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="http://cdn.diffday.com/picgo/alipay-n.jpeg" target="_blank"><img class="post-qr-code-img" src="http://cdn.diffday.com/picgo/alipay-n.jpeg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://blog.diffday.com/%E5%A0%86%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.html"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=堆排序与归并排序&amp;url=https://blog.diffday.com/%E5%A0%86%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.html&amp;pic=http://cdn.diffday.com/picgo/20221024110942.png" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="rm.copyPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.diffday.com" target="_blank">Diffday</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/%E7%AE%97%E6%B3%95/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>算法<span class="tagsPageCount">3</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="http://cdn.diffday.com/picgo/20250926212522.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/%E5%A4%A7%E5%9B%BD%E5%A4%A7%E6%B0%91%E5%9C%B0%E5%9B%BE%E7%82%AE.html"><img class="prev-cover" src="http://cdn.diffday.com/picgo/20221229181830.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">大国大民地图炮</div></div></a></div><div class="next-post pull-right"><a href="/%E7%AE%80%E8%AF%BB%E4%B8%AD%E5%9B%BD%E5%8F%B2.html"><img class="next-cover" src="http://cdn.diffday.com/picgo/20230221152116.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">简读中国史摘记</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E5%B0%8F%E7%AC%94%E8%AE%B0.html" title="协同过滤（CF）的一些小笔记"><img class="cover" src="http://cdn.diffday.com/picgo/20220214134420.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2025-04-09</div><div class="title">协同过滤（CF）的一些小笔记</div></div></a></div><div><a href="/%E6%90%9C%E7%B4%A2%E7%9A%84%E6%9C%AC%E8%B4%A8.html" title="搜索的本质"><img class="cover" src="http://cdn.diffday.com/picgo/20240115180931.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2024-06-28</div><div class="title">搜索的本质</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> 评论</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a><a href="/privacy" style="margin-left: 4px">隐私政策</a></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">堆排序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Heap"><span class="toc-number">1.1.</span> <span class="toc-text">Heap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">1.2.</span> <span class="toc-text">完全二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Full-vs-Complete-vs-Perfect"><span class="toc-number">1.2.1.</span> <span class="toc-text">Full vs Complete vs Perfect</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A0%86%E5%BA%8F%E6%80%A7"><span class="toc-number">1.3.</span> <span class="toc-text">堆序性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.3.1.</span> <span class="toc-text">具体实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2-%E4%B8%8B%E6%B2%89"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">交换-下沉</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5Tips"><span class="toc-number">1.3.2.</span> <span class="toc-text">概念Tips</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A0%86%E6%9C%AC%E8%BA%AB%E4%B8%8D%E6%98%AF%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">堆本身不是排序数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A0%86%E5%BD%A2%E5%BC%8F%E5%B9%B6%E4%B8%8D%E6%98%AF%E5%94%AF%E4%B8%80%E7%9A%84"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">堆形式并不是唯一的</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">归并排序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%84%E5%BC%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text">兄弟排序算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%96%E9%83%A8%E6%8E%92%E5%BA%8F%E7%9A%84%E9%80%89%E6%8B%A9"><span class="toc-number">2.2.</span> <span class="toc-text">外部排序的选择</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E8%B7%AF%E5%BD%92%E5%B9%B6"><span class="toc-number">2.2.1.</span> <span class="toc-text">多路归并</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E8%B7%AF%E4%B8%BE%E4%BE%8B"><span class="toc-number">2.2.1.1.</span> <span class="toc-text">多路举例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%92%E5%B9%B6%E8%B7%AF%E6%95%B0%E6%89%A9%E5%A4%A7%E7%9A%84%E5%BC%8A%E7%AB%AF"><span class="toc-number">2.2.1.2.</span> <span class="toc-text">归并路数扩大的弊端</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E4%BC%98%E5%8C%96%E7%99%BB%E5%9C%BA"><span class="toc-number">2.2.2.</span> <span class="toc-text">算法优化登场</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA%E5%85%88%E8%A1%8C"><span class="toc-number">2.2.2.1.</span> <span class="toc-text">结论先行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%91%E6%8E%92%E4%B8%8E%E5%A0%86%E6%8E%92"><span class="toc-number">2.2.2.2.</span> <span class="toc-text">树排与堆排</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E5%A0%86"><span class="toc-number">2.2.2.2.1.</span> <span class="toc-text">二叉堆</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%83%9C%E8%80%85%E6%A0%91"><span class="toc-number">2.2.2.2.2.</span> <span class="toc-text">胜者树</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%83%9C%E8%80%85%E6%A0%91%E4%B8%8E%E5%A0%86%E7%9A%84%E5%BC%82%E5%90%8C"><span class="toc-number">2.2.2.2.3.</span> <span class="toc-text">胜者树与堆的异同</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%91%E6%B7%B1%E5%BA%A6%E7%9A%84%E7%96%91%E9%97%AE"><span class="toc-number">2.2.2.2.4.</span> <span class="toc-text">树深度的疑问</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%83%9C%E8%80%85%E6%A0%91vs%E8%B4%A5%E8%80%85%E6%A0%91"><span class="toc-number">2.2.2.3.</span> <span class="toc-text">胜者树vs败者树</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%B4%A5%E8%80%85%E6%A0%91%E5%B7%A5%E4%BD%9C%E8%BF%87%E7%A8%8B"><span class="toc-number">2.2.2.3.1.</span> <span class="toc-text">败者树工作过程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%87%8F%E5%8C%96%E5%AF%B9%E6%AF%94"><span class="toc-number">2.2.2.3.2.</span> <span class="toc-text">量化对比</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">后记</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E4%B8%AD%E9%A4%90%E6%8A%B5%E5%BE%A1%E9%A5%AE%E9%A3%9F%E8%A5%BF%E5%8C%96.html" title="中餐的生命力"><img src="http://cdn.diffday.com/picgo/20250926212522.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="中餐的生命力"/></a><div class="content"><a class="title" href="/%E4%B8%AD%E9%A4%90%E6%8A%B5%E5%BE%A1%E9%A5%AE%E9%A3%9F%E8%A5%BF%E5%8C%96.html" title="中餐的生命力">中餐的生命力</a><time datetime="2025-09-26T13:53:44.000Z" title="更新于 2025-09-26 21:53:44">2025-09-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E6%B1%89%E5%AD%97%E9%80%A0%E5%AD%97%E7%9A%84%E7%B2%BE%E7%BB%86.html" title="汉字造字的精细"><img src="http://cdn.diffday.com/picgo/20230310134115.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="汉字造字的精细"/></a><div class="content"><a class="title" href="/%E6%B1%89%E5%AD%97%E9%80%A0%E5%AD%97%E7%9A%84%E7%B2%BE%E7%BB%86.html" title="汉字造字的精细">汉字造字的精细</a><time datetime="2025-09-26T01:49:10.000Z" title="更新于 2025-09-26 09:49:10">2025-09-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%A2%A8%E5%AE%B6%E4%BB%8E%E6%B5%81%E8%A1%8C%E5%88%B0%E6%B2%A1%E8%90%BD.html" title="墨家从流行到没落"><img src="http://cdn.diffday.com/picgo/20210607171311.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="墨家从流行到没落"/></a><div class="content"><a class="title" href="/%E5%A2%A8%E5%AE%B6%E4%BB%8E%E6%B5%81%E8%A1%8C%E5%88%B0%E6%B2%A1%E8%90%BD.html" title="墨家从流行到没落">墨家从流行到没落</a><time datetime="2025-09-26T01:49:07.000Z" title="更新于 2025-09-26 09:49:07">2025-09-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%92%8C%E7%94%B0%E7%8E%89%E7%9A%84%E4%B8%8B%E6%B2%89%E6%BC%94%E5%8F%98.html" title="和田玉的下沉演变"><img src="http://cdn.diffday.com/picgo/20250716132428.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="和田玉的下沉演变"/></a><div class="content"><a class="title" href="/%E5%92%8C%E7%94%B0%E7%8E%89%E7%9A%84%E4%B8%8B%E6%B2%89%E6%BC%94%E5%8F%98.html" title="和田玉的下沉演变">和田玉的下沉演变</a><time datetime="2025-09-26T01:49:03.000Z" title="更新于 2025-09-26 09:49:03">2025-09-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E4%B8%AD%E5%9B%BD%E5%BC%8F%E6%80%9D%E7%BB%B4.html" title="中国式思维"><img src="http://cdn.diffday.com/picgo/20240222183801.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="中国式思维"/></a><div class="content"><a class="title" href="/%E4%B8%AD%E5%9B%BD%E5%BC%8F%E6%80%9D%E7%BB%B4.html" title="中国式思维">中国式思维</a><time datetime="2025-09-26T01:49:00.000Z" title="更新于 2025-09-26 09:49:00">2025-09-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E4%B8%9C%E4%BA%9A%E6%9C%AA%E5%8F%91%E5%B1%95%E6%9C%89%E9%AD%85%E5%8A%9B%E7%9A%84%E7%94%9F%E6%B4%BB%E6%96%B9%E5%BC%8F.html" title="东亚未发展有魅力的生活方式"><img src="http://cdn.diffday.com/picgo/20241226144808.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="东亚未发展有魅力的生活方式"/></a><div class="content"><a class="title" href="/%E4%B8%9C%E4%BA%9A%E6%9C%AA%E5%8F%91%E5%B1%95%E6%9C%89%E9%AD%85%E5%8A%9B%E7%9A%84%E7%94%9F%E6%B4%BB%E6%96%B9%E5%BC%8F.html" title="东亚未发展有魅力的生活方式">东亚未发展有魅力的生活方式</a><time datetime="2025-09-26T01:48:55.000Z" title="更新于 2025-09-26 09:48:55">2025-09-26</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2018 - 2025 By <a class="footer-bar-link" href="/" title="DiffDay" target="_blank">DiffDay</a></div></div><div id="footer-type-tips"></div><div class="js-pjax"><script>function subtitleType () {
+  getScript('https://sdk.jinrishici.com/v2/browser/jinrishici.js').then(() => {
+    jinrishici.load(result =>{
+      if (false) {
+        const sub = []
+        const content = result.data.content
+        sub.unshift(content)
+        window.typed = new Typed('#footer-type-tips', {
+          strings: sub,
+          startDelay: 300,
+          typeSpeed: 150,
+          loop: true,
+          backSpeed: 50,
+        })
+      } else {
+        document.getElementById('footer-type-tips').innerHTML = result.data.content
+      }
+    })
+  })
+}
+
+if (false) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}
+</script></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a><a class="footer-bar-link" target="_blank" rel="noopener" href="https://beian.miit.gov.cn/" title="粤ICP备-18103410号">粤ICP备-18103410号</a><a class="footer-bar-link cc" href="/copyright" title="cc协议"><i class="anzhiyufont anzhiyu-icon-copyright-line"></i><i class="anzhiyufont anzhiyu-icon-creative-commons-by-line"></i><i class="anzhiyufont anzhiyu-icon-creative-commons-nc-line"></i><i class="anzhiyufont anzhiyu-icon-creative-commons-nd-line"></i></a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">51</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">8</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/archives/"><span> 归档</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/"><span> 分类</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/"><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本站</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/copyright/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 版权协议</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="anzhiyufont anzhiyu-icon-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="is-center" id="loading-database"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-pulse-icon"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script async src="/anzhiyu/random.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  //if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid@11.6.0/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  anzhiyu.addGlobalFn('themeChange', runMermaid, 'mermaid')
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'uwklgzjj0IepCMXNYCU3t9Ah-9Nh9j0Va',
+      appKey: 'jRMVc9QS0SBr1L9heA2V0m4q',
+      avatar: 'mp',
+      serverURLs: 'https://uwklgzjj.lc-cn-e1-shared.com',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) anzhiyu.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script src="https://cdn.jsdelivr.net/npm/blueimp-md5/js/md5.min.js"></script><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getIcon = (icon, mail) => {
+    if (icon) return icon
+    let defaultIcon = '?d=mp'
+    let iconUrl = `https://gravatar.loli.net/avatar/${md5(mail.toLowerCase()) + defaultIcon}`
+    return iconUrl
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${anzhiyu.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = () => {
+    const serverURL = 'https://uwklgzjj.lc-cn-e1-shared.com'
+
+    var settings = {
+      "method": "GET",
+      "headers": {
+        "X-LC-Id": 'uwklgzjj0IepCMXNYCU3t9Ah-9Nh9j0Va',
+        "X-LC-Key": 'jRMVc9QS0SBr1L9heA2V0m4q',
+        "Content-Type": "application/json"
+      },
+    }
+
+    fetch(`${serverURL}/1.1/classes/Comment?limit=6&order=-createdAt`,settings)
+      .then(response => response.json())
+      .then(data => {
+        const valineArray = data.results.map(function (e) {
+          return {
+            'avatar': getIcon(e.QQAvatar, e.mail),
+            'content': changeContent(e.comment),
+            'nick': e.nick,
+            'url': e.url + '#' + e.objectId,
+            'date': e.updatedAt,
+          }
+        })
+        saveToLocal.set('valine-newest-comments', JSON.stringify(valineArray), 10/(60*24))
+        generateHtml(valineArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+      }) 
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('valine-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script>var visitorMail = "visitor@anheyu.com";
+</script><script async data-pjax src="https://cdn.jsdelivr.net/npm/anzhiyu-theme-static/waterfall/waterfall.min.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><script src="/js/anzhiyu/right_click_menu.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/anzhiyu-theme-static/icon/ali_iconfont_css.min.css"><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', 'G-X0MW6B53JB', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.jsdelivr.net/npm/anzhiyu-theme-static/accesskey/accesskey.min.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
