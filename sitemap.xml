@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.diffday.com/IT%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8%E6%96%B9%E6%A1%88%E5%AF%BC%E8%AE%BA.html</loc>
+    
+    <lastmod>2025-10-31</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.diffday.com/%E4%B8%89%E5%9B%BD%E5%8F%B0%E8%AF%8D%E5%A6%82%E9%A5%AE%E7%BE%8E%E9%85%92.html</loc>
     
     <lastmod>2025-10-31</lastmod>
@@ -14,15 +23,6 @@
     <loc>https://blog.diffday.com/%E5%A5%B3%E6%80%A7%E5%A9%9A%E6%81%8B%E7%9B%B8%E4%BA%B2%E7%AA%98%E5%A2%83.html</loc>
     
     <lastmod>2025-10-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.diffday.com/IT%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8%E6%96%B9%E6%A1%88%E5%AF%BC%E8%AE%BA.html</loc>
-    
-    <lastmod>2025-10-30</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
