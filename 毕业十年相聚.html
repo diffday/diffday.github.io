@@ -267,7 +267,11 @@ if (false) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
-      tags: 'ams'
+      tags: 'ams',
+      processEscapes: true,
+      // 关键：添加 textcomp 扩展
+      extensions: ["textcomp.js"],
+      packages: ['base', 'textcomp'] // 显式加载 textcomp 包
     },
     chtml: {
       scale: 1.1
