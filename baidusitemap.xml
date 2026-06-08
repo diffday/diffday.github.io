@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.diffday.com/Me-vs.-Me.html</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
     <loc>https://blog.diffday.com/%E4%BD%8E%E7%94%9F%E8%82%B2%E9%99%B7%E9%98%B1.html</loc>
     <lastmod>2026-06-05</lastmod>
   </url>
@@ -258,10 +262,6 @@
   </url>
   <url>
     <loc>https://blog.diffday.com/LVS%E4%B8%89%E7%B1%BB%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F.html</loc>
-    <lastmod>2026-05-25</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.diffday.com/Me-vs.-Me.html</loc>
     <lastmod>2026-05-25</lastmod>
   </url>
   <url>
