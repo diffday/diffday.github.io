@@ -1,0 +1,972 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>架构表达方法论 | Diffday</title><meta name="keywords" content="架构,职涯"><meta name="author" content="DiffDay"><meta name="copyright" content="DiffDay"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="架构表达方法论"><meta name="application-name" content="架构表达方法论"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="架构表达方法论"><meta property="og:url" content="https://blog.diffday.com/%E6%9E%B6%E6%9E%84%E8%A1%A8%E8%BE%BE%E6%96%B9%E6%B3%95%E8%AE%BA.html"><meta property="og:site_name" content="Diffday"><meta property="og:description" content="概念是人认知这个世界的基础，并用来沟通的手段。 架构定义 Linux 有架构，MySQL&amp;#x2F;JVM&amp;#x2F;业务系统也有架构。要清晰讨论架构问题，先梳理几个相似概念：模块与组件、框架与架构。  模块与组件：都是系统的组成部分。拆分角度不同，模块是逻辑单元，组件是物理单元 框架与架构：框架是提供基础功能的产品"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://cdn.diffday.com/picgo/b65a94267bbb12afd4b5bc230eb564f6.png"><meta property="article:author" content="DiffDay"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://cdn.diffday.com/picgo/b65a94267bbb12afd4b5bc230eb564f6.png"><meta name="description" content="概念是人认知这个世界的基础，并用来沟通的手段。 架构定义 Linux 有架构，MySQL&amp;#x2F;JVM&amp;#x2F;业务系统也有架构。要清晰讨论架构问题，先梳理几个相似概念：模块与组件、框架与架构。  模块与组件：都是系统的组成部分。拆分角度不同，模块是逻辑单元，组件是物理单元 框架与架构：框架是提供基础功能的产品"><link rel="shortcut icon" href="https://cdn.diffday.com/picgo/diff32.ico"><link rel="canonical" href="https://blog.diffday.com/%E6%9E%B6%E6%9E%84%E8%A1%A8%E8%BE%BE%E6%96%B9%E6%B3%95%E8%AE%BA"><link rel="preconnect" href="//npm.elemecdn.com"/><link rel="preconnect" href="//npm.onmicrosoft.cn"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="UaMvLIOYuNWHgVq42dlN49RoniU73U6SoqoRnEcit9E"/><meta name="baidu-site-verification" content="code-DN25SBuR8T"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b5c9889dd454fff053fb5b93fc1b2ac7";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X0MW6B53JB"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-X0MW6B53JB');
+</script><script>const GLOBAL_CONFIG = {
+  linkPageTop: {"enable":true,"title":"同博主们无限进步","addFriendPlaceholder":"昵称（请勿包含博客等字样）：\n网站地址（要求博客地址，请勿提交个人主页）：\n头像图片url（请提供尽可能清晰的图片，我会上传到我自己的图床）：\n描述：\n站点截图（可选）：\n"},
+  peoplecanvas: undefined,
+  postHeadAiDescription: undefined,
+  diytitle: {"enable":true,"leaveTitle":"一次时空相逢，祝好！","backTitle":"欢迎回来！"},
+  LA51: {"enable":true,"ck":"3G4PP4R5LAAt6DBv","LingQueMonitorID":"3GA1sASrkc8hJd7c"},
+  greetingBox: {"enable":true,"default":"晚上好👋","list":[{"greeting":"晚安😴","startTime":0,"endTime":5},{"greeting":"早上好鸭👋, 祝一天好心情！","startTime":6,"endTime":9},{"greeting":"上午好👋, 状态很好，鼓励一下～","startTime":10,"endTime":10},{"greeting":"11点多啦, 在坚持一下就吃饭啦～","startTime":11,"endTime":11},{"greeting":"午安👋, 为下午蓄力充电","startTime":12,"endTime":14},{"greeting":"🌈充实的一天辛苦啦！","startTime":14,"endTime":18},{"greeting":"19点喽, 奖励一顿丰盛的大餐吧🍔。","startTime":19,"endTime":19},{"greeting":"晚上好👋, 在属于自己的时间好好放松😌~","startTime":20,"endTime":24}]},
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  root: '/',
+  preloader: undefined,
+  friends_vue_info: undefined,
+  navMusic: false,
+  mainTone: {"mode":"both","api":"https://img2color-go.vercel.app/api?img=","cover_change":true},
+  authorStatus: undefined,
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: DiffDay","link":"链接: ","source":"来源: Diffday","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: true,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: 'Diffday',
+  title: '架构表达方法论',
+  postAI: '',
+  pageFillDescription: '架构定义, 何为架构, TOGAF, 战略架构, 领域架构, 价值链, 业务流程和 IT 系统, IT 架构, 技术架构, 应用架构, 数据架构, 业务架构（俯视）, 架构合理性如何衡量, 架构图的目的, 可视化建模语言对比, UML 之死？, UML的适用情况, 4+1 模型, 逻辑视图, 流程视图, 物理视图, 开发视图, 场景视图, C4 图例, 语境图, 容器图, 组件图, 代码图, DDD, 如何应对软件复杂度？, 流程落地, 应用架构落地方法论, 典型方法论, IT 咨询, 存在两大问题, 拆解 IT 规划, 引用参考概念是人认知这个世界的基础并用来沟通的手段架构定义有架构业务系统也有架构要清晰讨论架构问题先梳理几个相似概念模块与组件框架与架构模块与组件都是系统的组成部分拆分角度不同模块是逻辑单元组件是物理单元框架与架构框架是提供基础功能的产品是实现的规范架构的定义则要复杂的多何为架构架构是结构与愿景抽象的表示软件整体轮廓和各组件间相互关系约束边界是一系列决策组成单元的结构组成单元的关系原则和指南整体规则通信是系统的结构包括组成部分系统模块组件和他们之间的协作关系约束规范保证有序高效稳定运行目标是对系统进行的有序构建以符合当前业务的发展并可快速扩展是物理部署和软件系统演进方向的整体视图是对物信息的功能于形式元素间的对应情况所做的分配对元素间关系及元素同周边环境间关系所做的定义我的总结说法满足功能性要求及稳定性性能安全成本等非功能性要求时所生成的代码接口服务业务域集群等组织要素及其依赖关系的基本组织架构流程如何做到快速更新部署甚至都在架构的外延考虑之列开放组织架构框架是国际众多知名开放性标准的制订架构和交流平台在年由与合并组成提供全面和系统化的方法厂商中立该组织也负责维护在欧洲挺流行但在全球某些地区使用仍然有限其架构开发方法被被的福布斯强公司使用特别为应对业务需求而设计实现业务和的一致性支持灵活变化的业务需求满足组织的业务目标在不同层次业务应用数据技术上开发架构使架构师能确保复杂的需求能被充分考虑到战略架构在企业架构理论中架构是从公司战略层面自顶向下的细化的一部分老板关注的是战略和业务架构架构愿景战略架构更高层次不局限于技术从战略业务架构应用数据技术架构老板战略业务架构师设计业务架构数据应用技术架构师设计数据应用技术领域架构业务架构应用架构数据架构技术架构将差距分析结果具体转为解决方案形成一个个项目规划价值链价值链模型可理解为企业的核心顶层流程视图通过该视图你再去分析企业核心的端到端业务流程去分析跨业务域的一些流程你熟知的行业领域你可以直接拿出结果对于未知领域你必须通过详细流程分析得出结果业务活动最终会体现到业务架构图中的业务功能单元流程分析中的关键业务对象和数据对象体现到数据架构中业务架构重点是在流程信息架构重点是在数据人身险行业价值链环节域产品开发产品渠道管理个险渠道银保渠道电销渠道网销渠道兼代保单服务投保核保保全理赔续期风控客户保单客户服务客户运营内容运营营销活动居家养老消保投资管理投资管理内控管理内控管理财务企划财务企划行政品宣行政品宣科技研发科技研发监管报送人力资源管理人力资源管理业务流程和系统业务流程业务数据系统功能接口集成和部署四大方面的内容是四大架构规划的基础应用架构基本是和业务架构对应的只有两点差异增加了技术平台内容和上层门户集成等内容对业务架构中的业务域可能出现拆分合并大的规划一定会涉及到组合管理项目群管理架构架构设计是为了业务领域问题非功能性需求在设计考量上占据重要位置系统生命周期长有扩展性需求业务流程有再造的需要以非纯技术领域的分类看业务架构战略生产力应用架构战术生产关系技术架构装备生产工具针对当前需求选择合适的应用架构如何面向未来保证架构平滑过渡是软件开发者特别是架构师需深入考虑的问题业务架构师也会成为业务领域专家行业专家其对业务的定义和划分会影响组织架构和技术架构应用架构根据业务场景需要设计应用的层次结构制定应用规范定义接口和数据交互协议等将应用的复杂度控制在一个可接受的水平在快速支撑业务发展的同时保证系统的可用性和和维护性满足非功能属性要求如性能安全稳定应用架构和业务架构师相辅相成业务架构决定应用架构应用架构需适配业务架构并随业务架构不断进化应用架构依托技术架构最终落地技术架构描述需要哪些服务哪些技术组件来实现技术服务技术服务机组件间的交互关系数据架构描述数据模型分布数据的流向生命周期数据的管理等关系技术架构确定组成应用系统的实际运行组件等这些运行组件间的关系及部署到硬件的策略主要考虑系统的非功能特征对系统高可用高性能扩展安全伸缩性简洁等做系统级的把握要求架构师具备软硬件的功能和性能过硬知识应用架构应用作为独立可部署的单元为系统划分了边界影响系统功能组织代码开发部署运维多方面应用架构定义有哪些应用逻辑模块系统应用间如何分工合作明确各模块边界逻辑分层系统模块定义管件类职责之间的协作接口协议协作关系本质是通过拆分平衡业务和技术复杂性数据架构指导数据库的设计也要考虑物理架构中数据存储的设计用什么数据库关系型还是非关系型是集中还是分布式存储领域模型与数据库表的转换表结构关系的设计图数据类实体设计类图业务架构俯视业务服务信息图描述服务间流转关系和中间环节数据信息数据架构的构思源头功能分解图组织所做的事情无需陷入如何做对业务服务进行功能分类建立业务服务功能目录含业务规划业务模块业务流程对业务进行拆分对领域模型进行设计把现实业务转化为抽象对象业务架构是企业治理结构商业能力与价值流的正式蓝图对企业的业务流程进行根本性的再思考和再思考的彻底性再设计从而获得成本质量速度等方面业绩的巨大改善或提高架构合理性如何衡量最优的架构和最合适的架构后者更有生命力在理念中一切系统设计原则都要以解决业务问题为最终目标完全脱离业务的基础架构是空中楼阁容易陷入自嗨业务价值优先做问题的终结者业务是否发展了才是重要的问题问题的前提是要搞清楚今天面临的业务量有多大增长走势是什么样合理的架构以能提前预见业务发展年为宜这样可付出合理的代价换来真正达到技术引领业务成长的效果高于业务是指架构提供的系统基本指标是高于业务需求的抽象度是高于业务需求的这对于高速发展的公司尤为重要先于业务是说要做面向未来的投资以高效稳定安全三大目标衡量其合理性架构图的目的画图的目的把信息传递出去解决沟通障碍达成共识减少歧义在画好一个好的架构图之前首先要明确受众再想清楚要给他们传递什么信息好的架构图是不需要解释的自描述的具备一致性和足够的准确性能与代码相呼应可视化建模语言对比软件开发时图形化可视化地传递软件架构给他人是必需能力建模和抽象使我们能分析和改进设计在构建实现时提高质量年代创建提供了强大和广泛的标准符号但缺点也在于此复杂的符号需要花费大量时间学习和有效使用有些工具还价格昂贵使用困难轻量级结构化方法用于为特定受众可视化软件架构创建于年与符号无关没有指定标准的形状颜色或样式有限的功能集合不利于表现软件活动过程之死一种不满的说法是它是为工具供应商开发的在中更为严重就像有一个编译器供应商设计并推广一种通用变成语言一样将其声明为一种行业标准出于他们的利益而锁定所有程序员与思路相同承担了软件的复杂性使其不仅更复杂且还带来了灾难性的乏味专家不再是软件开发人员而是官僚不要学得太细也不可能学得太细的标准化文档差不多有页跟标准文档基本相当图驱动的代码并没有像倡导者所希望的那样成功就像你听过会杀死一样实际没有发生能直接转换成可运行代码的制图投入其付出工作量比手搓代码大得多之所以死是因为现代软件开发不像设计飞机那样要建立的是一个平原大和复杂程序员必须在平台上执行一系列实验编程类似于进行研究然后进行一些设计需要更简单非形式地完成你可以说是敏捷间接杀死了但其实也可以说数字化需求的爆发导致其已不适应形势和环境计划总是错的过去软件项目通常大大超出预算交付时间很晚且还是不能满足客户的需求事实证明客户不知道他们想要什么至少不能正确向业务分析员明确说明通过今早交付不仅可尽早为客户释放价值且还可得到反馈从设计繁琐的方法论转向改变交付方式为客户创造价值并使员工工作效率更高复杂系统的图表比代码更难阅读像蜘蛛网的野兽创作可能很有趣但在现实世界中绝对没用太大图会让人感到困惑和难以理解创建它会花费很多时间完成时甚至它已经过时了因为在此期间有人会对代码进行修改框线式的特征可很好地解决小问题而对于复杂的情况却毫无用处地叠在一起的适用情况描述应用程序小部分的详细信息以及低细节的高粒度视图及其类似物在开发人员和团队间仍有巨大价值以一种易于理解的方式传达复杂流程促进共同理解隐含着对建模的一种视角的思考对于提升工程能力有好处可从不同角度去理解软件系统状态图状态机简洁清晰模型没流行起来年提出的时候大部分还是单体系统的核心无法描述系统复杂度增加下的整体业务逻辑视图面向用户描述功能拆解后的组件关系组件约束和边界通常由组件图和类图来表示描述功能构成即需求流程视图面向系统集成人员描述组件间的通信时序反映系统的功能流程和数据流程通常由时序图和流程图表示捕获设计的并发和同步方面的问题关注性能可扩充性和吞吐量物理视图面向系统工程人员描述软件到硬件的映射反映分布式方面关注非功能需求系统组件是如何部署到一组计算机节点上指导软件系统的部署实施过程关注系统拓扑安装和通信等开发视图描述软件在其开发环境中的静态结构分块分组可见性关注软件管理为开发人员提供切实可行的指导代码架构上没有把控亦会影响全局的架构设计例如公司内不同开发团队使用不同的技术栈或组件公司的整体架构就会失控代码架构主要定义代码单元配置设计框架类库直观的有代码的组织单元编码规范编码惯例模块划分目录结构依赖关系场景视图用例图描述系统参与者与功能间的关系是中的图例国家省市道路有些人将其看作是倒退像要重新发明一样但它的出发点不是这样的其灵感来自于和模型但是简化版本为了在不同抽象级别对软件系统进行建模而设计你可以恰当使用中的包组件和构造型来作图目标是在进行前期设计或追溯时向不同类型的受众讲述不同的故事记录现有代码库这货的使用率在下降就是因为它整的太复杂了模型有助于在软件架构的沟通方式中引入一些结构和原则使用描述库框架和其抽象级别目标不同库框架最好还是使用之类的东西为何没有涵盖业务流程工作流状态机领域模型数据模型其重点是构成软件系统的不同抽象级别的静态结构语境图面向非技术人员构建的系统是什么谁使用系统级别的交互如何融入已有的环境容器图可直接部署和运行微服务应用程序数据存储给有技术背景的人看描述进程级别的应用看清软件整体的形态和职责描述组件图不是可独立部署的单元为软件开发如何分解交付提供框架给开发人员看描述程序包相互引用依赖代码图使用对象为开发人员是一个可选的详细级别通常可通过工具按需生成用基于的图描述实现的技术细节只建议用于最重要最复杂的组件语境图面向非技术人员构建的系统是什么谁使用系统级别的交互如何融入已有的环境容器图可直接部署和运行微服务应用程序数据存储给有技术背景的人看描述进程级别的应用看清软件整体的形态和职责描述组件图不是可独立部署的单元为软件开发如何分解交付提供了框架给开发人员看描述程序包相互引用依赖代码图使用对象是开发人员是一个可选的详细级别通常可通过工具按需生成用基于的图描述实现技术细节只建议应用于最重要最复杂的组件应用程序最主要的复杂性并不在技术上而是来自领域本身用户的活动或业务领域驱动设计的关注点在于领域和领域逻辑以向客户用户提供有业务价值的领域功能如何应对软件复杂度分治各业务领域关注自身业务能力的内聚明确分工不被其它领域业务侵蚀保持清晰的限界上下文高内聚低耦合关注点分离领域模型与存储模型分析促成业务复杂度和技术复杂度分离统一产研语言业务规则领域名词降低沟通和理解成本流程落地业务抽象子域划分领域建模服务划分架构设计领域模型类设计应用架构落地方法论建立分层规范如阿里的适配层应用服务层领域服务层基础设施层聚合分包功能分类典型方法论读写分离命令和查询职责分离普通操作是将读写分两个服务来部署有利于针对不同部分进行性能优化瓶颈不耦合适用于读写负荷非对称的复杂场景咨询业务和技术双领域的实践积累需要自我实践证悟的理论内核存在两大问题生搬硬套能力强但怕讲课虽能输出结果但如何得到的没有系统化总结很难做好知识分享与转移拆解规划此涉及咨询方法论流程管理和分析信息架构应用系统分析和设计技术架构项目管理和实施业务驱动是核心要围绕价值链分析和优化来驱动一句话解释接收市场和用户的需求将最终的需求转变产品或服务并交付给客户的过程核心过程现状分析目标提出差距分析整理问题集定义建设目标蓝图规划实施分解业务体系架构分析企业业务战略和经营模式确认企业战略需求定义信息战略能力企业信息化现状分析信息技术发展趋势解决方案架构分析发展信息化战略机会点运营模式和业务流程企业信息化应用架构蓝图差距分析无新业务战略下你如何更好支撑新战略下你如何扩展支撑引用参考腾讯云从企业架构到信息化规划一文搞懂各种架构阿里云原来这就是架构模型架构师与',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-05-28 09:54:46',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/" accesskey="h"><div class="title">Diffday</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/archives/"><span> 归档</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/"><span> 分类</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/"><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本站</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/copyright/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 版权协议</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button only-home" id="travellings_button" title="随机前往一个开往项目网站"><a class="site-page" onclick="anzhiyu.totraveling()" title="随机前往一个开往项目网站" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="anzhiyufont anzhiyu-icon-train"></i></a></div><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="http://cdn.diffday.com/picgo/wechatpay.jpg" target="_blank"><img class="post-qr-code-img" alt="微信" src="http://cdn.diffday.com/picgo/wechatpay.jpg"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="http://cdn.diffday.com/picgo/alipay-n.jpeg" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="http://cdn.diffday.com/picgo/alipay-n.jpeg"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="anzhiyufont anzhiyu-icon-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/06/"><span class="card-archive-list-date">六月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/05/"><span class="card-archive-list-date">五月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/04/"><span class="card-archive-list-date">四月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/03/"><span class="card-archive-list-date">三月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">5</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/02/"><span class="card-archive-list-date">二月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/01/"><span class="card-archive-list-date">一月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/12/"><span class="card-archive-list-date">十二月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/11/"><span class="card-archive-list-date">十一月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item on" id="consoleCommentBarrage" onclick="anzhiyu.switchCommentBarrage()" title="热评开关"><a class="commentBarrage"><i class="anzhiyufont anzhiyu-icon-message"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><!-- if (page.copyright_author && page.copyright_author !== config.author)// a.post-meta-original 转载--><!-- else--><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/" itemprop="url">信息技术</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E6%9E%B6%E6%9E%84/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>架构</span></a><a class="article-meta__tags" href="/tags/%E8%81%8C%E6%B6%AF/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>职涯</span></a></span></div></div><h1 class="post-title" itemprop="name headline">架构表达方法论</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2024-04-19T06:00:00.000Z" title="发表于 2024-04-19 14:00:00">2024-04-19</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2026-05-28T01:54:46.270Z" title="更新于 2026-05-28 09:54:46">2026-05-28</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-wordcount"><i class="anzhiyufont anzhiyu-icon-file-word post-meta-icon" title="文章字数"></i><span class="post-meta-label" title="文章字数">字数总计:</span><span class="word-count" title="文章字数">5.3k</span><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-clock post-meta-icon" title="阅读时长"></i><span class="post-meta-label" title="阅读时长">阅读时长:</span><span>15分钟</span></span><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="架构表达方法论"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为深圳"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>深圳</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="https://cdn.diffday.com/picgo/b65a94267bbb12afd4b5bc230eb564f6.png"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://blog.diffday.com/%E6%9E%B6%E6%9E%84%E8%A1%A8%E8%BE%BE%E6%96%B9%E6%B3%95%E8%AE%BA.html"><header><a class="post-meta-categories" href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/" itemprop="url">信息技术</a><a href="/tags/%E6%9E%B6%E6%9E%84/" tabindex="-1" itemprop="url">架构</a><a href="/tags/%E8%81%8C%E6%B6%AF/" tabindex="-1" itemprop="url">职涯</a><h1 id="CrawlerTitle" itemprop="name headline">架构表达方法论</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">DiffDay</span><time itemprop="dateCreated datePublished" datetime="2024-04-19T06:00:00.000Z" title="发表于 2024-04-19 14:00:00">2024-04-19</time><time itemprop="dateCreated datePublished" datetime="2026-05-28T01:54:46.270Z" title="更新于 2026-05-28 09:54:46">2026-05-28</time></header><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/b65a94267bbb12afd4b5bc230eb564f6.png" alt="img" style="zoom:50%;" />
+<p><font face="KaiTi" size="5">概念是人认知这个世界的基础，并用来沟通的手段。</font></p>
+<h2 id="架构定义">架构定义</h2>
+<p>Linux 有架构，MySQL/JVM/业务系统也有架构。要清晰讨论架构问题，先梳理几个相似概念：模块与组件、框架与架构。</p>
+<ul>
+<li>模块与组件：都是系统的组成部分。拆分角度不同，模块是逻辑单元，组件是物理单元</li>
+<li>框架与架构：框架是提供基础功能的产品，是实现的规范；架构的定义则要复杂的多</li>
+</ul>
+<h3 id="何为架构">何为架构</h3>
+<ul>
+<li>TOGAF：架构是结构与愿景。抽象的表示软件整体轮廓和各组件间相互关系+约束边界，是一系列决策。</li>
+<li>IEEE：组成单元的结构+组成单元的关系+原则和指南。整体、规则、通信</li>
+<li>是系统的结构：包括组成部分（系统、模块、组件）和他们之间的协作关系，约束规范（保证有序、高效、稳定运行），目标是对系统进行的有序构建，以符合当前业务的发展，并可快速扩展。是物理部署和软件系统演进方向的整体视图。
+<ul>
+<li>是对物/信息的功能于形式元素间的对应情况所做的分配</li>
+<li>对元素间关系及元素同周边环境间关系所做的定义</li>
+</ul>
+</li>
+</ul>
+<p>我的总结说法：<strong>满足功能性要求</strong>及<font color="blur">稳定性、性能、安全、成本等非功能性要求</font>时所生成的代码、接口、服务、业务域、集群等组织要素及其依赖关系的基本组织架构。流程如何做到快速更新部署甚至都在架构的外延考虑之列。</p>
+<span id="more"></span>
+<h2 id="TOGAF">TOGAF</h2>
+<blockquote>
+<p>The Open Group Architecture Framework （开放组织架构框架）</p>
+<p>The Open Group：是国际众多知名开放性标准的制订架构和交流平台，在 1996 年由 X/Open 与OpenSoftware Foundation合并组成，提供全面和系统化的方法，厂商中立。该组织也负责维护 ArchiMate，ArchiMate 在欧洲挺流行，但在全球某些地区使用仍然有限</p>
+</blockquote>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/Archimate 3.0学习卡（建模者，翻译）_页面_03.png" alt="TOGAF" style="zoom:50%;" />
+<p>其架构开发方法被 ADM 被 80%的福布斯 50 强公司使用</p>
+<ul>
+<li><strong>特别为应对业务需求而设计</strong>
+<ul>
+<li><u>实现业务和 IT 的一致性</u>，支持灵活变化的业务需求，满足组织的业务目标</li>
+</ul>
+</li>
+<li>在不同层次（业务、应用、数据、技术）上开发架构，使架构师能确保复杂的需求能被充分考虑到</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/R.0e63e1f71a95dc659506121bc6585a04" alt=""></p>
+<h3 id="战略架构">战略架构</h3>
+<ul>
+<li>在企业架构理论中，<u>架构是从公司战略层面，自顶向下的细化的一部分</u></li>
+<li><font color="blur">老板关注的是战略和业务架构</font>
+<ul>
+<li>架构愿景（战略架构），更高层次不局限于技术</li>
+<li>从战略 $\longrightarrow$ 业务架构 $\longrightarrow$ 应用 | 数据 | 技术架构</li>
+</ul>
+</li>
+</ul>
+<pre class="mermaid">flowchart LR
+老板-->战略-->|业务架构师设计|业务架构BA-->|数据/应用/技术架构师设计|A(数据DA<br>应用AA<br/>技术TA)</pre>
+<h3 id="领域架构">领域架构</h3>
+<ul>
+<li>业务架构、应用架构、数据架构、技术架构</li>
+<li>将差距分析结果具体转为解决方案，形成一个个项目规划</li>
+</ul>
+<h3 id="价值链">价值链</h3>
+<p>价值链模型可理解为企业的核心顶层流程视图。通过该视图你再去分析企业核心的端到端业务流程，去分析跨业务域的一些流程。</p>
+<p>你熟知的行业领域你可以直接拿出结果，对于未知领域，你必须通过详细流程分析得出结果</p>
+<ul>
+<li>业务活动最终会体现到业务架构图中的业务功能单元</li>
+<li>流程分析中的关键业务对象和数据对象，体现到数据架构中</li>
+<li><font color="dodgerblue"><strong>业务架构重点是在流程</strong>，<em>信息架构重点是在数据</em></font></li>
+</ul>
+<pre class="mermaid">timeline
+   title 人身险行业L0价值链环节&L1域
+   产品开发: 产品
+   渠道管理: 个险渠道
+         : 银保渠道
+         : 电销渠道
+         : 网销渠道
+         : 兼代
+   保单服务: 投保
+         : 核保
+         : 保全
+         : 理赔
+         : 续期
+         : 风控
+         : 客户保单
+   客户服务: 客户运营
+         : 内容运营
+         : 营销活动
+         : 居家养老
+         : 消保
+   投资管理: 投资管理
+   内控管理: 内控管理
+   财务企划: 财务企划
+   行政品宣: 行政品宣
+   科技研发: 科技研发
+         : 监管报送
+   人力资源管理: 人力资源管理</pre>
+<h3 id="业务流程和-IT-系统">业务流程和 IT 系统</h3>
+<p>业务流程、业务数据、系统功能、接口集成和部署四大方面的内容是四大架构规划的基础</p>
+<p>应用架构基本是和业务架构对应的，只有两点差异：</p>
+<ol>
+<li><strong>增加了技术平台内容和上层门户集成等内容</strong></li>
+<li><strong>对业务架构中的业务域可能出现拆分&amp;合并</strong></li>
+</ol>
+<p>大的 IT 规划一定会涉及到组合管理，项目群管理</p>
+<h3 id="IT-架构">IT 架构</h3>
+<p>架构设计是为了<font color="goldenrod">业务|领域</font>问题，非功能性需求在设计考量上占据重要位置</p>
+<ul>
+<li>系统生命周期长，有扩展性需求</li>
+<li>业务流程有再造的需要</li>
+</ul>
+<p>以非纯技术领域的分类看</p>
+<ul>
+<li>业务架构：战略，生产力</li>
+<li>应用架构：战术，生产关系</li>
+<li>技术架构：装备，生产工具</li>
+</ul>
+<p>针对当前需求，选择合适的应用架构，如何面向未来，保证架构平滑过渡，是软件开发者特别是架构师需深入考虑的问题</p>
+<ul>
+<li>业务架构师，也会成为业务领域专家，行业专家。其对业务的定义和划分会影响组织架构和技术架构</li>
+<li>应用架构
+<ul>
+<li>根据业务场景需要，设计应用的层次结构，制定应用规范，定义接口和数据交互协议等</li>
+<li>将<u>应用的复杂度控制在一个可接受的水平</u>，在快速支撑业务发展的同时，<em>保证系统的可用性和和维护性，满足非功能属性要求如性能，安全，稳定</em></li>
+<li>应用架构和业务架构师相辅相成，<strong>业务架构决定应用架构</strong>，应用架构需适配业务架构，并随业务架构不断进化，<strong>应用架构依托技术架构最终落地</strong></li>
+</ul>
+</li>
+<li>技术架构：描述需要哪些服务，哪些技术组件来实现技术服务。技术服务机组件间的交互关系</li>
+<li>数据架构：描述数据模型，分布，数据的流向，生命周期，数据的管理等关系</li>
+</ul>
+<h4 id="技术架构">技术架构</h4>
+<ul>
+<li>
+<p>确定组成应用系统的实际运行组件（lvs、nginx、tomcat等），这些运行组件间的关系，及部署到硬件的策略</p>
+</li>
+<li>
+<p>主要考虑系统的非功能特征，对系统高可用，高性能，扩展，安全，伸缩性，简洁等做系统级的把握</p>
+</li>
+<li>
+<p>要求架构师具备软硬件的功能和性能过硬知识</p>
+</li>
+</ul>
+<h4 id="应用架构">应用架构</h4>
+<p>应用作为独立可部署的单元，为系统划分了边界，影响系统功能组织，代码开发，部署运维多方面。应用架构定义有哪些应用（逻辑模块/系统），应用间如何分工合作</p>
+<ul>
+<li>明确各模块边界：逻辑分层，系统、模块定义，管件类</li>
+<li>职责之间的协作：接口协议，协作关系</li>
+<li>本质是通过拆分，平衡业务和技术复杂性</li>
+</ul>
+<h4 id="数据架构">数据架构</h4>
+<p>指导数据库的设计，也要考虑物理架构中数据存储的设计</p>
+<ul>
+<li>用什么数据库，关系型还是非关系型，是集中还是分布式存储</li>
+<li>领域模型与数据库表的转换，表结构关系的设计（ER图）</li>
+<li>数据类实体设计（UML类图）</li>
+</ul>
+<h4 id="业务架构（俯视）">业务架构（俯视）</h4>
+<ul>
+<li>
+<p>业务服务/信息图：描述服务间流转关系和中间环节数据信息，数据架构的构思源头</p>
+</li>
+<li>
+<p>功能分解图：组织所做的事情，无需陷入如何做。对业务服务进行功能分类。</p>
+</li>
+<li>
+<p>建立业务服务/功能目录</p>
+</li>
+</ul>
+<p>含业务规划、业务模块、业务流程。对业务进行拆分，对领域模型进行设计，把现实业务转化为抽象对象。</p>
+<p>业务架构是企业治理结构，商业能力与价值流的正式蓝图。对企业的业务流程，进行根本性的再思考和再思考的彻底性再设计，从而获得成本、质量、速度等方面业绩的巨大改善或提高。</p>
+<h2 id="架构合理性如何衡量">架构合理性如何衡量</h2>
+<p>最优的架构和最合适的架构，后者更有生命力，在 TOGAF 理念中一切系统<strong>设计原则都要以解决业务问题为最终目标</strong>，<font color="blur">完全脱离业务的基础架构是空中楼阁，容易陷入自嗨</font></p>
+<ul>
+<li>业务价值优先，做问题的终结者</li>
+<li>业务是否发展了，才是重要的问题</li>
+</ul>
+<p>问题的前提是要搞清楚今天面临的业务量有多大，增长走势是什么样，合理的架构以能提前预见业务发展 1~2 年为宜。这样可付出合理的代价换来真正达到技术引领业务成长的效果</p>
+<ul>
+<li>高于业务：是指架构提供的系统基本指标是高于业务需求的，抽象度是高于业务需求的，这对于高速发展的公司尤为重要</li>
+<li>先于业务：是说要做面向未来的投资</li>
+</ul>
+<p>以高效、稳定、安全三大目标衡量其合理性<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Diffday [架构师与SQALE](/架构师与SQALE.html)
+">[4]</span></a></sup></p>
+<h2 id="架构图的目的">架构图的目的</h2>
+<p>画图的目的（把信息传递出去）</p>
+<ul>
+<li>解决沟通障碍</li>
+<li>达成共识</li>
+<li>减少歧义</li>
+</ul>
+<p>在画好一个好的架构图之前，首先要明确受众，再想清楚要给他们传递什么信息</p>
+<ul>
+<li>好的架构图是不需要解释的，自描述的</li>
+<li>具备一致性和足够的准确性，能与代码相呼应</li>
+</ul>
+<h2 id="可视化建模语言对比">可视化建模语言对比</h2>
+<p>软件开发时，图形化可视化地传递软件架构给他人是必需能力。建模和抽象，使我们能分析和改进设计，在构建实现时提高质量。</p>
+<ul>
+<li>
+<p>UML，90 年代创建，提供了强大和广泛的标准符号，但缺点也在于此，复杂的符号需要花费大量时间学习和有效使用，有些工具还价格昂贵，使用困难</p>
+</li>
+<li>
+<p>C4：轻量级结构化方法，用于为特定受众可视化软件架构，创建于 2011 年，与符号无关，没有指定标准的形状，颜色或样式。有限的功能集合不利于表现软件活动过程</p>
+</li>
+</ul>
+<h3 id="UML-之死？">UML 之死？</h3>
+<blockquote>
+<p><strong>一种不满的说法是：它是为 UML 工具供应商开发的，在 UML2 中更为严重，就像有一个编译器供应商设计并推广一种通用变成语言一样，将其声明为一种行业标准，出于他们的利益而锁定所有程序员</strong>。</p>
+</blockquote>
+<ul>
+<li>
+<p>UML 与 J2EE 思路相同，J2EE 承担了软件的复杂性，使其<font color="blur">不仅更复杂，且还带来了灾难性的乏味</font>。专家不再是软件开发人员，而是官僚</p>
+</li>
+<li>
+<p>不要学得太细，也不可能学得太细，UML2.5 的标准化文档差不多有 800 页，跟 Java 标准文档基本相当</p>
+</li>
+<li>
+<p><strong>图驱动的代码，并没有像倡导者所希望的那样成功</strong></p>
+<ul>
+<li>
+<p>就像你听过 ORM 会杀死 RDB 一样，实际没有发生</p>
+</li>
+<li>
+<p>能直接转换成可运行代码的制图投入，其付出工作量比手搓 Java 代码大得多</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>UML 之所以死，是因为<strong>现代软件开发</strong>不像设计飞机那样，要建立的是一个平原，大和复杂。程序员必须在平台上执行一系列实验，编程类似于进行研究，然后进行一些设计，需要更简单非形式地完成.</p>
+<ul>
+<li>
+<p>你可以说是敏捷间接杀死了 UML，但其实也可以说数字化需求的爆发导致其已不适应形势和环境</p>
+<ul>
+<li>计划总是错的，过去软件项目通常大大超出预算，交付时间很晚，且还是不能满足客户的需求</li>
+<li>事实证明，客户不知道他们想要什么， 至少不能正确向业务分析员明确说明。通过今早交付，不仅可尽早为客户释放价值，且还可得到反馈</li>
+<li>从设计繁琐的方法论转向，改变交付方式，为客户创造价值，并使员工工作效率更高</li>
+</ul>
+</li>
+<li>
+<p>【<font color="blur">复杂系统的图表比代码更难阅读</font>】，像蜘蛛网的野兽 UML 创作可能很有趣，但在现实世界中绝对没用</p>
+<ul>
+<li>
+<p>太大 dUML 图会让人感到困惑和难以理解</p>
+<ul>
+<li>创建它会花费很多时间</li>
+<li>完成时，甚至它已经过时了，因为在此期间有人会对代码进行修改</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>框线式的特征可很好地解决小问题，而对于复杂的情况却毫无用处地叠在一起</p>
+</li>
+</ul>
+<h4 id="UML的适用情况">UML的适用情况</h4>
+<blockquote>
+<p>描述 pattern，应用程序小部分的详细信息、以及低细节的高粒度视图。</p>
+</blockquote>
+<ul>
+<li>
+<p>UML 及其类似物在开发人员和团队间仍有巨大价值，以一种易于理解的方式传达复杂流程，促进共同理解</p>
+</li>
+<li>
+<p>隐含着对建模的一种视角的思考，对于提升工程能力有好处，可从不同角度去理解软件系统</p>
+<pre class="mermaid">  classDiagram
+    Animal <|-- Duck
+    Animal <|-- Fish
+    Animal <|-- Zebra
+    Animal : +int age
+    Animal : +String gender
+    Animal: +isMammal()
+    Animal: +mate()
+    class Duck{
+      +String beakColor
+      +swim()
+      +quack()
+    }
+    class Fish{
+      -int sizeInFeet
+      -canEat()
+    }
+    class Zebra{
+      +bool is_wild
+      +run()
+    }</pre>
+</li>
+<li>
+<p>最精华的 UML</p>
+<ul>
+<li>
+<p>序列图：制定和记录工作流程</p>
+<pre class="mermaid">    sequenceDiagram
+    participant API@{ "type": "boundary", "alias": "Public API" }
+    participant Auth@{ "type": "control", "alias": "Auth Service" }
+    participant DB@{ "type": "database", "alias": "User Database" }
+    API->>Auth: Login request
+    Auth->>DB: Query user
+    DB-->>Auth: User data
+    Auth-->>API: Access token</pre>
+<ul>
+<li>
+<p>状态图：状态机简洁清晰</p>
+<pre class="mermaid">      ---
+title: Simple sample
+---
+stateDiagram-v2
+    [*] --> Still
+    Still --> [*]
+
+    Still --> Moving
+    Moving --> Still
+    Moving --> Crash
+    Crash --> [*]</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-1-模型">4+1 模型</h3>
+<blockquote>
+<p>💩没流行起来，95 年提出的时候大部分还是单体系统。4+1 的核心，<strong>无法描述系统复杂度增加下的整体业务</strong></p>
+</blockquote>
+<h4 id="逻辑视图">逻辑视图</h4>
+<p>面向用户，描述功能拆解后的组件关系，组件约束和边界。通常由组件图和类图来表示，描述功能构成，即需求</p>
+<h4 id="流程视图">流程视图</h4>
+<p>面向系统集成人员，描述组件间的通信时序，反映系统的功能流程和数据流程，通常由时序图和流程图表示。捕获设计的并发和同步方面的问题，关注性能、可扩充性和吞吐量</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/hk3rdizhqdhtk_7a8286a38d9140cc932fa3cacca73548.jpeg" alt="流程视图举例"></p>
+<h4 id="物理视图">物理视图</h4>
+<p>面向系统工程人员，描述软件到硬件的映射，反映分布式方面，关注非功能需求。系统组件是如何部署到一组计算机节点上，指导软件系统的部署实施过程。关注系统、拓扑、安装和通信等</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/hk3rdizhqdhtk_0f3d50c9b50845be8d77f6b59d5c81ee.jpeg" alt="物理视图举例" style="zoom:50%;" />
+<h4 id="开发视图">开发视图</h4>
+<p>描述软件在其开发环境中的静态结构，分块，分组，可见性。关注软件管理。为开发人员提供切实可行的指导，<font color="blur">代码架构上没有把控，亦会影响全局的架构设计</font>。例如公司内不同开发团队使用不同的技术栈或组件，公司的整体架构就会失控。</p>
+<blockquote>
+<p>代码架构主要定义：代码单元，配置设计，框架，类库。直观的有代码的组织单元、编码规范、编码惯例、模块划分目录结构、依赖关系</p>
+</blockquote>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/hk3rdizhqdhtk_c020c417d5c8466592c1392dd4217b32.png" alt="开发视图举例" style="zoom:50%;" />
+<h4 id="场景视图">场景视图</h4>
+<p>用例图描述系统参与者与功能间的关系，是 4+1 中的 1</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/hk3rdizhqdhtk_2c7128f96b0f4ee782202825a130d45b.png" alt="场景视图举例" style="zoom:50%;" />
+<h3 id="C4-图例">C4 图例</h3>
+<blockquote>
+<p>国家 —&gt; 省 —&gt; 市 —&gt; 道路</p>
+</blockquote>
+<p>有些人将其看作是倒退，像要重新发明 UML 一样，但它的出发点不是这样的，其灵感来自于 UML 和 4+1 模型，但是简化版本。为了在不同抽象级别对软件系统进行建模而设计。</p>
+<p>你可以恰当使用 UML 中的包，组件和构造型来作图。目标是在进行前期设计或追溯时，向不同类型的受众讲述不同的故事，记录现有代码库。</p>
+<p>UML 这货的使用率在下降，就是因为它整的太复杂了。C4 模型有助于在软件架构的沟通方式中引入一些结构和原则。使用 C4 描述库，框架和 SDK？其抽象级别目标不同，库框架 SDK最好还是使用 UML 之类的东西。</p>
+<blockquote>
+<p>为何 C4 没有涵盖业务流程，工作流，状态机，领域模型，数据模型？</p>
+<p>其重点是构成软件系统的不同抽象级别的<strong>静态结构</strong></p>
+</blockquote>
+<pre class="mermaid">kanban
+  语境图<br>面向非技术人员
+    构建的系统是什么
+    谁使用？系统级别的交互
+    如何融入已有的IT环境
+  容器图
+    [可直接部署和运行
+    - 微服务
+    - 应用程序
+    - 数据存储
+    ]
+    给有技术背景的人看,描述进程级别的应用
+    看清软件整体的形态和职责描述
+  组件图<br>不是可独立部署的单元
+    为软件开发如何分解交付提供框架
+    给开发人员看，描述程序包相互引用依赖
+  代码图
+    使用对象为开发人员，是一个可选的详细级别
+    通常可通过IDE工具按需生成（用基于UML的图描述实现的技术细节）
+    只建议用于最重要/最复杂的组件</pre>
+<h4 id="语境图">语境图</h4>
+<blockquote>
+<p>面向非技术人员</p>
+</blockquote>
+<ul>
+<li>构建的系统是什么？</li>
+<li>谁使用？系统级别的交互</li>
+<li>如何融入已有的 IT 环境</li>
+</ul>
+<h4 id="容器图">容器图</h4>
+<ul>
+<li>可直接部署和运行
+<ul>
+<li>微服务</li>
+<li>应用程序</li>
+<li>数据存储</li>
+</ul>
+</li>
+<li>给有技术背景的人看，描述进程级别的应用</li>
+<li>看清软件整体的形态和职责描述</li>
+</ul>
+<h4 id="组件图">组件图</h4>
+<blockquote>
+<p>不是可独立部署的单元</p>
+</blockquote>
+<ul>
+<li>为软件开发如何分解交付提供了框架</li>
+<li>给开发人员看，描述程序包相互引用依赖</li>
+</ul>
+<h4 id="代码图">代码图</h4>
+<ul>
+<li>使用对象是开发人员，是一个可选的详细级别</li>
+<li>通常可通过 IDE 工具按需生成（用基于 UML 的图描述实现技术细节）</li>
+<li>只建议应用于最重要/最复杂的组件</li>
+</ul>
+<h2 id="DDD">DDD</h2>
+<p>应用程序最主要的复杂性并不在技术上，而是来自领域本身，用户的活动或业务。</p>
+<p>领域驱动设计的关注点在于领域和领域逻辑，以向客户（用户）提供有业务价值的领域功能。</p>
+<h3 id="如何应对软件复杂度？">如何应对软件复杂度？</h3>
+<ul>
+<li>分治：各业务领域关注自身业务能力的内聚，明确分工，不被其它领域业务侵蚀，保持清晰的限界上下文，高内聚，低耦合</li>
+<li>关注点分离：领域模型与存储模型分析，促成业务复杂度和技术复杂度分离</li>
+<li>统一产研语言（业务规则，领域名词），降低沟通和理解成本</li>
+</ul>
+<h3 id="流程落地">流程落地</h3>
+<p>业务抽象（子域划分），领域建模（服务划分），架构设计+领域模型类设计</p>
+<h3 id="应用架构落地方法论">应用架构落地方法论</h3>
+<ul>
+<li>建立分层规范（如阿里COLA 的适配层 – 应用服务层 – 领域服务层 – 基础设施层）</li>
+<li>聚合分包，功能分类</li>
+</ul>
+<h4 id="典型方法论">典型方法论</h4>
+<ul>
+<li>COLA: clean object-oriented &amp; layered architecture</li>
+<li>CQRS: command query responsibility segregation 读写分离，命令和查询职责分离。普通操作是将读写分两个服务来部署，有利于针对不同部分进行性能优化（瓶颈不耦合），适用于读写负荷非对称的复杂场景</li>
+</ul>
+<h2 id="IT-咨询">IT 咨询</h2>
+<ul>
+<li>
+<p>业务和技术双领域的实践积累</p>
+</li>
+<li>
+<p>需要自我实践证悟的理论内核</p>
+</li>
+</ul>
+<h3 id="存在两大问题">存在两大问题</h3>
+<ol>
+<li>生搬硬套</li>
+<li>能力强但怕讲课，虽能输出结果，但如何得到的，没有系统化总结，很难做好知识分享与转移</li>
+</ol>
+<h3 id="拆解-IT-规划">拆解 IT 规划</h3>
+<ul>
+<li>
+<p>此涉及咨询方法论、流程管理和分析、信息架构，应用系统分析和设计、技术架构、项目管理和实施</p>
+</li>
+<li>
+<p>业务驱动 IT 是核心，要围绕 <u>价值链分析</u> 和优化来驱动</p>
+<ul>
+<li>一句话解释：接收市场和用户的需求，将最终的需求转变产品或服务并交付给客户的过程。</li>
+</ul>
+</li>
+<li>
+<p>核心过程：<strong>现状分析、目标提出、差距分析、整理问题集（定义 IT 建设目标）</strong>、蓝图规划、实施分解</p>
+</li>
+</ul>
+<pre class="mermaid">flowchart LR
+    subgraph 业务体系架构分析
+    企业业务战略和经营模式-->确认企业战略需求-->a1(定义信息战略能力)
+    a2(企业信息化现状分析)
+    a3(信息技术发展趋势)
+    end
+    subgraph 解决方案架构分析
+    b1(发展信息化战略机会点)-->运营模式和业务流程-->企业信息化应用架构蓝图
+    end
+    a1-->b1
+    a2-->b1
+    a3-->b1</pre>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.diffday.com/picgo/image-20260401194941410.png" alt="信息化IT咨询规划整体过程"></p>
+<ul>
+<li>
+<p>差距分析：</p>
+<ul>
+<li>
+<p>无新业务战略下你如何<strong>更好</strong>支撑？</p>
+</li>
+<li>
+<p>新战略下你如何<strong>扩展</strong>支撑？</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="引用参考">引用参考</h2>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">腾讯云 <a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1668289">从企业架构到信息化规划</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">uml.org.cn <a target="_blank" rel="noopener" href="http://uml.org.cn/zjjs/202304044.asp">一文搞懂各种架构</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">阿里云 <a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/1256019">原来这就是 4+1 架构模型</a><a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Diffday <a href="/%E6%9E%B6%E6%9E%84%E5%B8%88%E4%B8%8ESQALE.html">架构师与SQALE</a><a href="#fnref:4" rev="footnote"> ↩</a></span></li></ol></div></div></article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src="https://cdn.diffday.com/picgo/diff_128.png" title="头像" alt="头像"><img class="post-copyright__author_img_front" src="https://cdn.diffday.com/picgo/diff_128.png" title="头像" alt="头像"></a><div class="post-copyright__author_name">DiffDay</div><div class="post-copyright__author_desc">We are here to be creators!</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://blog.diffday.com/%E6%9E%B6%E6%9E%84%E8%A1%A8%E8%BE%BE%E6%96%B9%E6%B3%95%E8%AE%BA.html">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://blog.diffday.com/%E6%9E%B6%E6%9E%84%E8%A1%A8%E8%BE%BE%E6%96%B9%E6%B3%95%E8%AE%BA.html')">架构表达方法论</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你的肯定与鼓励</span><ul class="reward-group"><li class="reward-item"><a href="http://cdn.diffday.com/picgo/wechatpay.jpg" target="_blank"><img class="post-qr-code-img" src="http://cdn.diffday.com/picgo/wechatpay.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="http://cdn.diffday.com/picgo/alipay-n.jpeg" target="_blank"><img class="post-qr-code-img" src="http://cdn.diffday.com/picgo/alipay-n.jpeg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://blog.diffday.com/%E6%9E%B6%E6%9E%84%E8%A1%A8%E8%BE%BE%E6%96%B9%E6%B3%95%E8%AE%BA.html"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=架构表达方法论&amp;url=https://blog.diffday.com/%E6%9E%B6%E6%9E%84%E8%A1%A8%E8%BE%BE%E6%96%B9%E6%B3%95%E8%AE%BA.html&amp;pic=https://cdn.diffday.com/picgo/b65a94267bbb12afd4b5bc230eb564f6.png" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="rm.copyPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.diffday.com" target="_blank">Diffday</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/%E6%9E%B6%E6%9E%84/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>架构<span class="tagsPageCount">5</span></a><a class="post-meta__box__tags" href="/tags/%E8%81%8C%E6%B6%AF/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>职涯<span class="tagsPageCount">8</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://cdn.diffday.com/picgo/20260614205636.png?imageMogr2/format/webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/%E8%BA%AB%E4%BB%BD%E8%AF%81%E5%8F%B7%E7%A0%81%E8%A7%84%E5%88%99.html"><img class="prev-cover" src="https://cdn.diffday.com/picgo/20241229153455.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">身份证号码规则</div></div></a></div><div class="next-post pull-right"><a href="/%E6%B2%A1%E8%B5%B0%E8%BF%87%E7%9A%84%E8%B7%AF%E5%BC%80%E6%BB%A1%E9%B2%9C%E8%8A%B1.html"><img class="next-cover" src="https://cdn.diffday.com/picgo/20240604183542.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">没走过的路开满鲜花</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/%E4%B8%AD%E5%8F%B0%E7%9A%84%E6%9E%97%E5%AD%90%E5%A5%BD%E7%83%AD%E9%97%B9.html" title="中台的林子好热闹"><img class="cover" src="https://cdn.diffday.com/picgo/20201117104745.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2026-05-25</div><div class="title">中台的林子好热闹</div></div></a></div><div><a href="/%E6%9E%B6%E6%9E%84%E5%B8%88%E4%B8%8ESQALE.html" title="架构师与SQALE"><img class="cover" src="https://cdn.diffday.com/picgo/20220523155731.png?imageMogr2/format/webp" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2026-06-25</div><div class="title">架构师与SQALE</div></div></a></div><div><a href="/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E7%9A%84%E5%88%A9%E5%BC%8A%E4%B8%8E%E6%B2%BB%E7%90%86.html" title="微服务架构的利弊与治理"><img class="cover" src="https://cdn.diffday.com/picgo/20251130111854.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2026-06-04</div><div class="title">微服务架构的利弊与治理</div></div></a></div><div><a href="/21%E5%B9%B4%E6%9E%B6%E6%9E%84%E5%B7%A5%E4%BD%9C%E8%A7%84%E5%88%92.html" title="21年架构工作规划"><img class="cover" src="https://cdn.diffday.com/picgo/21架构工作规划.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2026-06-23</div><div class="title">21年架构工作规划</div></div></a></div><div><a href="/%E4%BA%94%E9%98%B6%E6%AE%B5%E8%81%8C%E4%B8%9A%E6%A8%A1%E5%9E%8B.html" title="五阶段职业模型"><img class="cover" src="https://cdn.diffday.com/picgo/723C0F5D-3AC9-4F53-B353-4E3F4C059B9A_1_105_c.jpeg?imageMogr2/format/webp" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2026-05-28</div><div class="title">五阶段职业模型</div></div></a></div><div><a href="/%E6%BC%AB%E8%B0%88%E4%B8%AA%E4%BA%BA%E8%83%BD%E5%8A%9B%E5%8F%91%E5%B1%95.html" title="漫谈个人能力发展"><img class="cover" src="https://cdn.diffday.com/picgo/20250619164940.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2026-05-25</div><div class="title">漫谈个人能力发展</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> 评论</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a><a href="/privacy" style="margin-left: 4px">隐私政策</a></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84%E5%AE%9A%E4%B9%89"><span class="toc-number">1.</span> <span class="toc-text">架构定义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%95%E4%B8%BA%E6%9E%B6%E6%9E%84"><span class="toc-number">1.1.</span> <span class="toc-text">何为架构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TOGAF"><span class="toc-number">2.</span> <span class="toc-text">TOGAF</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%98%E7%95%A5%E6%9E%B6%E6%9E%84"><span class="toc-number">2.1.</span> <span class="toc-text">战略架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%86%E5%9F%9F%E6%9E%B6%E6%9E%84"><span class="toc-number">2.2.</span> <span class="toc-text">领域架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%B7%E5%80%BC%E9%93%BE"><span class="toc-number">2.3.</span> <span class="toc-text">价值链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%9A%E5%8A%A1%E6%B5%81%E7%A8%8B%E5%92%8C-IT-%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.4.</span> <span class="toc-text">业务流程和 IT 系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IT-%E6%9E%B6%E6%9E%84"><span class="toc-number">2.5.</span> <span class="toc-text">IT 架构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84"><span class="toc-number">2.5.1.</span> <span class="toc-text">技术架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84"><span class="toc-number">2.5.2.</span> <span class="toc-text">应用架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%9E%B6%E6%9E%84"><span class="toc-number">2.5.3.</span> <span class="toc-text">数据架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%9A%E5%8A%A1%E6%9E%B6%E6%9E%84%EF%BC%88%E4%BF%AF%E8%A7%86%EF%BC%89"><span class="toc-number">2.5.4.</span> <span class="toc-text">业务架构（俯视）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84%E5%90%88%E7%90%86%E6%80%A7%E5%A6%82%E4%BD%95%E8%A1%A1%E9%87%8F"><span class="toc-number">3.</span> <span class="toc-text">架构合理性如何衡量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E7%9B%AE%E7%9A%84"><span class="toc-number">4.</span> <span class="toc-text">架构图的目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E8%A7%86%E5%8C%96%E5%BB%BA%E6%A8%A1%E8%AF%AD%E8%A8%80%E5%AF%B9%E6%AF%94"><span class="toc-number">5.</span> <span class="toc-text">可视化建模语言对比</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UML-%E4%B9%8B%E6%AD%BB%EF%BC%9F"><span class="toc-number">5.1.</span> <span class="toc-text">UML 之死？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#UML%E7%9A%84%E9%80%82%E7%94%A8%E6%83%85%E5%86%B5"><span class="toc-number">5.1.1.</span> <span class="toc-text">UML的适用情况</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E6%A8%A1%E5%9E%8B"><span class="toc-number">5.2.</span> <span class="toc-text">4+1 模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E8%A7%86%E5%9B%BE"><span class="toc-number">5.2.1.</span> <span class="toc-text">逻辑视图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E8%A7%86%E5%9B%BE"><span class="toc-number">5.2.2.</span> <span class="toc-text">流程视图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E8%A7%86%E5%9B%BE"><span class="toc-number">5.2.3.</span> <span class="toc-text">物理视图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E8%A7%86%E5%9B%BE"><span class="toc-number">5.2.4.</span> <span class="toc-text">开发视图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E8%A7%86%E5%9B%BE"><span class="toc-number">5.2.5.</span> <span class="toc-text">场景视图</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C4-%E5%9B%BE%E4%BE%8B"><span class="toc-number">5.3.</span> <span class="toc-text">C4 图例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E5%A2%83%E5%9B%BE"><span class="toc-number">5.3.1.</span> <span class="toc-text">语境图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E5%9B%BE"><span class="toc-number">5.3.2.</span> <span class="toc-text">容器图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E5%9B%BE"><span class="toc-number">5.3.3.</span> <span class="toc-text">组件图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%9B%BE"><span class="toc-number">5.3.4.</span> <span class="toc-text">代码图</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DDD"><span class="toc-number">6.</span> <span class="toc-text">DDD</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%BA%94%E5%AF%B9%E8%BD%AF%E4%BB%B6%E5%A4%8D%E6%9D%82%E5%BA%A6%EF%BC%9F"><span class="toc-number">6.1.</span> <span class="toc-text">如何应对软件复杂度？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E8%90%BD%E5%9C%B0"><span class="toc-number">6.2.</span> <span class="toc-text">流程落地</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84%E8%90%BD%E5%9C%B0%E6%96%B9%E6%B3%95%E8%AE%BA"><span class="toc-number">6.3.</span> <span class="toc-text">应用架构落地方法论</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B8%E5%9E%8B%E6%96%B9%E6%B3%95%E8%AE%BA"><span class="toc-number">6.3.1.</span> <span class="toc-text">典型方法论</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IT-%E5%92%A8%E8%AF%A2"><span class="toc-number">7.</span> <span class="toc-text">IT 咨询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%9C%A8%E4%B8%A4%E5%A4%A7%E9%97%AE%E9%A2%98"><span class="toc-number">7.1.</span> <span class="toc-text">存在两大问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%86%E8%A7%A3-IT-%E8%A7%84%E5%88%92"><span class="toc-number">7.2.</span> <span class="toc-text">拆解 IT 规划</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E5%8F%82%E8%80%83"><span class="toc-number">8.</span> <span class="toc-text">引用参考</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/AGI.html" title="AGI"><img src="https://cdn.diffday.com/picgo/AGI.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AGI"/></a><div class="content"><a class="title" href="/AGI.html" title="AGI">AGI</a><time datetime="2026-06-25T07:41:45.971Z" title="更新于 2026-06-25 15:41:45">2026-06-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E6%9E%B6%E6%9E%84%E5%B8%88%E4%B8%8ESQALE.html" title="架构师与SQALE"><img src="https://cdn.diffday.com/picgo/20220523155731.png?imageMogr2/format/webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="架构师与SQALE"/></a><div class="content"><a class="title" href="/%E6%9E%B6%E6%9E%84%E5%B8%88%E4%B8%8ESQALE.html" title="架构师与SQALE">架构师与SQALE</a><time datetime="2026-06-25T03:53:10.558Z" title="更新于 2026-06-25 11:53:10">2026-06-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%A4%A7%E5%9B%BD%E5%A4%A7%E6%B0%91%E5%9C%B0%E5%9B%BE%E7%82%AE.html" title="大国大民地图炮"><img src="https://cdn.diffday.com/picgo/20221229181830.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="大国大民地图炮"/></a><div class="content"><a class="title" href="/%E5%A4%A7%E5%9B%BD%E5%A4%A7%E6%B0%91%E5%9C%B0%E5%9B%BE%E7%82%AE.html" title="大国大民地图炮">大国大民地图炮</a><time datetime="2026-06-24T14:21:57.502Z" title="更新于 2026-06-24 22:21:57">2026-06-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E8%92%B8%E9%A6%8F%E7%83%A7%E9%85%92.html" title="蒸馏烧酒"><img src="https://cdn.diffday.com/picgo/20250131125213.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="蒸馏烧酒"/></a><div class="content"><a class="title" href="/%E8%92%B8%E9%A6%8F%E7%83%A7%E9%85%92.html" title="蒸馏烧酒">蒸馏烧酒</a><time datetime="2026-06-23T14:08:07.000Z" title="更新于 2026-06-23 22:08:07">2026-06-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/21%E5%B9%B4%E6%9E%B6%E6%9E%84%E5%B7%A5%E4%BD%9C%E8%A7%84%E5%88%92.html" title="21年架构工作规划"><img src="https://cdn.diffday.com/picgo/21架构工作规划.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="21年架构工作规划"/></a><div class="content"><a class="title" href="/21%E5%B9%B4%E6%9E%B6%E6%9E%84%E5%B7%A5%E4%BD%9C%E8%A7%84%E5%88%92.html" title="21年架构工作规划">21年架构工作规划</a><time datetime="2026-06-23T10:21:33.411Z" title="更新于 2026-06-23 18:21:33">2026-06-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%8C%87%E6%A0%87.html" title="通用机器人指标"><img src="https://cdn.diffday.com/picgo/roc-curve.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="通用机器人指标"/></a><div class="content"><a class="title" href="/%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%8C%87%E6%A0%87.html" title="通用机器人指标">通用机器人指标</a><time datetime="2026-06-23T08:24:19.946Z" title="更新于 2026-06-23 16:24:19">2026-06-23</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2018 - 2026 By <a class="footer-bar-link" href="/" title="DiffDay" target="_blank">DiffDay</a></div></div><div id="footer-type-tips"></div><div class="js-pjax"><script>function subtitleType () {
+  getScript('https://sdk.jinrishici.com/v2/browser/jinrishici.js').then(() => {
+    jinrishici.load(result =>{
+      if (false) {
+        const sub = []
+        const content = result.data.content
+        sub.unshift(content)
+        window.typed = new Typed('#footer-type-tips', {
+          strings: sub,
+          startDelay: 300,
+          typeSpeed: 150,
+          loop: true,
+          backSpeed: 50,
+        })
+      } else {
+        document.getElementById('footer-type-tips').innerHTML = result.data.content
+      }
+    })
+  })
+}
+
+if (false) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}
+</script></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a><a class="footer-bar-link" target="_blank" rel="noopener" href="https://beian.miit.gov.cn/" title="粤ICP备-18103410号">粤ICP备-18103410号</a><a class="footer-bar-link cc" href="/copyright" title="cc协议"><i class="anzhiyufont anzhiyu-icon-copyright-line"></i><i class="anzhiyufont anzhiyu-icon-creative-commons-by-line"></i><i class="anzhiyufont anzhiyu-icon-creative-commons-nc-line"></i><i class="anzhiyufont anzhiyu-icon-creative-commons-nd-line"></i></a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">215</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">49</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">8</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/archives/"><span> 归档</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/"><span> 分类</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/"><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本站</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/copyright/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 版权协议</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="anzhiyufont anzhiyu-icon-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="is-center" id="loading-database"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-pulse-icon"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script async src="/anzhiyu/random.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/textcomp']    // 1. 让加载器加载 textcomp 组件
+    },
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams',
+      processEscapes: true,
+      packages: { 
+        '[+]': ['textcomp']        // 2. 告诉 tex 处理器启用该包
+      }
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  //if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid@11.13.0/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  anzhiyu.addGlobalFn('themeChange', runMermaid, 'mermaid')
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'uwklgzjj0IepCMXNYCU3t9Ah-9Nh9j0Va',
+      appKey: 'jRMVc9QS0SBr1L9heA2V0m4q',
+      avatar: 'mp',
+      serverURLs: 'https://uwklgzjj.lc-cn-e1-shared.com',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) anzhiyu.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script src="https://cdn.jsdelivr.net/npm/blueimp-md5/js/md5.min.js"></script><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getIcon = (icon, mail) => {
+    if (icon) return icon
+    let defaultIcon = '?d=mp'
+    let iconUrl = `https://gravatar.loli.net/avatar/${md5(mail.toLowerCase()) + defaultIcon}`
+    return iconUrl
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${anzhiyu.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = () => {
+    const serverURL = 'https://uwklgzjj.lc-cn-e1-shared.com'
+
+    var settings = {
+      "method": "GET",
+      "headers": {
+        "X-LC-Id": 'uwklgzjj0IepCMXNYCU3t9Ah-9Nh9j0Va',
+        "X-LC-Key": 'jRMVc9QS0SBr1L9heA2V0m4q',
+        "Content-Type": "application/json"
+      },
+    }
+
+    fetch(`${serverURL}/1.1/classes/Comment?limit=6&order=-createdAt`,settings)
+      .then(response => response.json())
+      .then(data => {
+        const valineArray = data.results.map(function (e) {
+          return {
+            'avatar': getIcon(e.QQAvatar, e.mail),
+            'content': changeContent(e.comment),
+            'nick': e.nick,
+            'url': e.url + '#' + e.objectId,
+            'date': e.updatedAt,
+          }
+        })
+        saveToLocal.set('valine-newest-comments', JSON.stringify(valineArray), 10/(60*24))
+        generateHtml(valineArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+      }) 
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('valine-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script>var visitorMail = "visitor@anheyu.com";
+</script><script async data-pjax src="https://cdn.jsdelivr.net/npm/anzhiyu-theme-static/waterfall/waterfall.min.js"></script><!--script(src='https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js')--><script src="https://cdn.bootcdn.net/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><script src="/js/anzhiyu/right_click_menu.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/anzhiyu-theme-static/icon/ali_iconfont_css.min.css"><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', 'G-X0MW6B53JB', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.jsdelivr.net/npm/anzhiyu-theme-static/accesskey/accesskey.min.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
